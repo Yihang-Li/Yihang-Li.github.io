@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Yihang</title>
+  
+  <subtitle>Never Give Up!</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://yoursite.com/"/>
+  <updated>2020-02-06T04:14:02.538Z</updated>
+  <id>http://yoursite.com/</id>
+  
+  <author>
+    <name>Yihang Li</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hello-Echo</title>
+    <link href="http://yoursite.com/2020/02/05/Hello-Echo/"/>
+    <id>http://yoursite.com/2020/02/05/Hello-Echo/</id>
+    <published>2020-02-06T04:11:04.635Z</published>
+    <updated>2020-02-06T04:14:02.538Z</updated>
+    
+    <content type="html"><![CDATA[<hr><p>title: Hello Echo~<br>date: 2020-02-05 23:11:04<br>tags:</p><hr><h1 id="Hi-Echo"><a href="#Hi-Echo" class="headerlink" title="Hi, Echo~"></a>Hi, Echo~</h1><h2 id="Good-Night"><a href="#Good-Night" class="headerlink" title="Good Night!"></a>Good Night!</h2><p><img src="https://s2.ax1x.com/2020/02/06/1yubPU.jpg" alt="avatar"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;hr&gt;
+&lt;p&gt;title: Hello Echo~&lt;br&gt;date: 2020-02-05 23:11:04&lt;br&gt;tags:&lt;/p&gt;
+&lt;hr&gt;
+&lt;h1 id=&quot;Hi-Echo&quot;&gt;&lt;a href=&quot;#Hi-Echo&quot; class=&quot;headerlink&quot; title=&quot;Hi, 
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>first page</title>
+    <link href="http://yoursite.com/2020/02/05/first-page/"/>
+    <id>http://yoursite.com/2020/02/05/first-page/</id>
+    <published>2020-02-06T02:33:53.000Z</published>
+    <updated>2020-02-06T02:33:53.325Z</updated>
+    
+    <summary type="html">
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://yoursite.com/2020/02/05/hello-world/"/>
+    <id>http://yoursite.com/2020/02/05/hello-world/</id>
+    <published>2020-02-06T02:26:11.292Z</published>
+    <updated>2020-02-06T02:26:11.292Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
+      
+    
+    </summary>
+    
+    
+    
+  </entry>
+  
+</feed>
