@@ -5,9 +5,9 @@
   <subtitle>Never Give Up!</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://yihang-li.github.io/"/>
   <updated>2020-02-07T05:30:08.342Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://yihang-li.github.io/</id>
   
   <author>
     <name>Yihang Li</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello Echo~</title>
-    <link href="http://yoursite.com/2020/02/05/Hello-Echo/"/>
-    <id>http://yoursite.com/2020/02/05/Hello-Echo/</id>
+    <link href="http://yihang-li.github.io/2020/02/05/Hello-Echo/"/>
+    <id>http://yihang-li.github.io/2020/02/05/Hello-Echo/</id>
     <published>2020-02-06T04:11:04.000Z</published>
     <updated>2020-02-07T05:30:08.342Z</updated>
     
@@ -35,17 +35,17 @@
     </summary>
     
     
-      <category term="personal" scheme="http://yoursite.com/categories/personal/"/>
+      <category term="personal" scheme="http://Yihang-Li.github.io/categories/personal/"/>
     
     
-      <category term="attempts" scheme="http://yoursite.com/tags/attempts/"/>
+      <category term="attempts" scheme="http://Yihang-Li.github.io/tags/attempts/"/>
     
   </entry>
   
   <entry>
     <title>first page</title>
-    <link href="http://yoursite.com/2020/02/05/first-page/"/>
-    <id>http://yoursite.com/2020/02/05/first-page/</id>
+    <link href="http://yihang-li.github.io/2020/02/05/first-page/"/>
+    <id>http://yihang-li.github.io/2020/02/05/first-page/</id>
     <published>2020-02-06T02:33:53.000Z</published>
     <updated>2020-02-06T02:33:53.325Z</updated>
     
@@ -59,8 +59,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2020/02/05/hello-world/"/>
-    <id>http://yoursite.com/2020/02/05/hello-world/</id>
+    <link href="http://yihang-li.github.io/2020/02/05/hello-world/"/>
+    <id>http://yihang-li.github.io/2020/02/05/hello-world/</id>
     <published>2020-02-06T02:26:11.292Z</published>
     <updated>2020-02-06T02:26:11.292Z</updated>
     
