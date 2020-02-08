@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yihang-li.github.io/"/>
-  <updated>2020-02-08T20:00:22.640Z</updated>
+  <updated>2020-02-08T22:50:18.125Z</updated>
   <id>http://yihang-li.github.io/</id>
   
   <author>
@@ -17,13 +17,39 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Notes of Gaussian Processes for Machine Learning</title>
+    <link href="http://yihang-li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/"/>
+    <id>http://yihang-li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</id>
+    <published>2020-02-08T22:13:14.000Z</published>
+    <updated>2020-02-08T22:50:18.125Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><blockquote><p> This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p><p><strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br>(This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p><p><strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if $\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0$ for all $f \in L_{2}(\mathcal{X}, \mu)$.</p><p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). </p></blockquote>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Ch6-Relationships-between-GPs-and-Other-Models&quot;&gt;&lt;a href=&quot;#Ch6-Relationships-between-GPs-and-Other-Models&quot; class=&quot;headerlink&quot; title=&quot;
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="GP, ML" scheme="http://Yihang-Li.github.io/tags/GP-ML/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hello Echo~</title>
     <link href="http://yihang-li.github.io/2020/02/05/Hello-Echo/"/>
     <id>http://yihang-li.github.io/2020/02/05/Hello-Echo/</id>
     <published>2020-02-06T04:11:04.000Z</published>
-    <updated>2020-02-08T20:00:22.640Z</updated>
+    <updated>2020-02-08T22:43:12.249Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="This-is-my-blog"><a href="#This-is-my-blog" class="headerlink" title="This is my blog"></a>This is my blog</h1><h2 id="Hellow"><a href="#Hellow" class="headerlink" title="Hellow"></a>Hellow</h2><p><img src="https://s2.ax1x.com/2020/02/06/1yubPU.jpg" alt="avatar"></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">import numpy as np</span><br><span class="line">import pandas as pd</span><br><span class="line">import matplotlib.pyplot as plt</span><br></pre></td></tr></table></figure><p>$\mathcal{H}$ is a Hilbert Space</p>]]></content>
+    <content type="html"><![CDATA[<h1 id="This-is-my-blog"><a href="#This-is-my-blog" class="headerlink" title="This is my blog"></a>This is my blog</h1><h2 id="Hellow"><a href="#Hellow" class="headerlink" title="Hellow"></a>Hellow</h2><p><img src="https://s2.ax1x.com/2020/02/06/1yubPU.jpg" alt="avatar"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure><p>$\mathcal{H}$ is a Hilbert Space</p>]]></content>
     
     <summary type="html">
     
