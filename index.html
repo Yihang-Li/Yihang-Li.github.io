@@ -235,7 +235,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-02-09 00:18:13" itemprop="dateModified" datetime="2020-02-09T00:18:13-05:00">2020-02-09</time>
+                <time title="修改时间：2020-02-09 13:14:32" itemprop="dateModified" datetime="2020-02-09T13:14:32-05:00">2020-02-09</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -260,27 +260,68 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
+          <h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
 <blockquote>
 <p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
-<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if $\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0$ for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
+<script type="math/tex; mode=display">
+ \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
 </blockquote>
-<p>We start with a formal definition of a RKHS.</p>
-<blockquote>
+<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
 <p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
 <ol>
-<li>​    for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</li>
-<li>​    $k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</li>
+<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
+</li>
+<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
+</li>
 </ol>
 <blockquote>
 <p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
 </blockquote>
 </blockquote>
+<hr>
 <p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
 <blockquote>
 <p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
 </blockquote>
-
+<hr>
+<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
+<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
+<script type="math/tex; mode=display">
+\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
+<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L_{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T_{k}: L_{2}(\mathcal{X}, \mu) \rightarrow L_{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi_{i} \in L_{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T_{k}$ associated with the eigenvalues $\lambda_{i}&gt;0$. Then:</p>
+<ol>
+<li><p>the eigenvalues $\left\{\lambda_{i}\right\}_{i=1}^{\infty}$ are absolutely summable</p>
+</li>
+<li><script type="math/tex; mode=display">
+k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
+</li>
+</ol>
+<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
+<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi_{i}(\mathbf{x}) \phi_{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
+</blockquote>
+<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
+<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{N} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ with $\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle_{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum_{i=1}^{N} g_{i} \phi_{i}(\mathbf{x})$ is defined as </p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|_{\mathcal{H}}$ where $|f|_{\mathcal{H}}^{2}=\langle f, f\rangle_{\mathcal{H}}=\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients $\{f_i\}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
+</blockquote>
+<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
+<script type="math/tex; mode=display">
+\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
+<script type="math/tex; mode=display">
+\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum_{i=1}^{N}\left(\lambda_{i} \phi_{i}(\mathbf{x})\right)^{2} / \lambda_{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
+<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
+<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f_i$ in the eigenexpansion $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
+<script type="math/tex; mode=display">
+\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
+<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
+<script type="math/tex; mode=display">
+\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
+<p>Next show the reproducing property as :</p>
+<script type="math/tex; mode=display">
+\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>
       
     </div>
 
@@ -625,7 +666,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共491字</span>
+  <span class="post-count">博客全站共1.4k字</span>
 </div>
         
 <div class="busuanzi-count">
