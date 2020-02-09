@@ -227,10 +227,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-08 17:13:14 / 修改时间：17:50:18" itemprop="dateCreated datePublished" datetime="2020-02-08T17:13:14-05:00">2020-02-08</time>
+              <time title="创建时间：2020-02-08 17:13:14" itemprop="dateCreated datePublished" datetime="2020-02-08T17:13:14-05:00">2020-02-08</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-09 00:18:13" itemprop="dateModified" datetime="2020-02-09T00:18:13-05:00">2020-02-09</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -254,11 +260,25 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><blockquote>
-<p> This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
-<p><strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br>(This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
-<p><strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if $\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0$ for all $f \in L_{2}(\mathcal{X}, \mu)$.</p>
-<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). </p>
+          <h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
+<blockquote>
+<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
+<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if $\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0$ for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+</blockquote>
+<p>We start with a formal definition of a RKHS.</p>
+<blockquote>
+<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
+<ol>
+<li>​    for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</li>
+<li>​    $k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</li>
+</ol>
+<blockquote>
+<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
+</blockquote>
+</blockquote>
+<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
+<blockquote>
+<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
 </blockquote>
 
       
@@ -605,7 +625,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共275字</span>
+  <span class="post-count">博客全站共491字</span>
 </div>
         
 <div class="busuanzi-count">
