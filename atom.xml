@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yihang-li.github.io/"/>
-  <updated>2020-02-15T16:10:36.673Z</updated>
+  <updated>2020-02-16T18:24:32.846Z</updated>
   <id>http://yihang-li.github.io/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hilbert Space: Midterm Review</title>
+    <link href="http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/"/>
+    <id>http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/</id>
+    <published>2020-02-16T18:00:13.000Z</published>
+    <updated>2020-02-16T18:24:32.846Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol><li><span style='color:blue'>Vector spaces</span>: Basis, linear, independence</li><li><span style='color:blue'>Normed spaces</span>: Norm, convergence, equivalent norms</li><li><span style='color:blue'>Topology of normed spaces</span>: Open, closed, bounded, compact, and dense sets</li><li><span style='color:blue'>Banach spaces</span>: Cauchy sequences, completeness, convergent and absolutely convergent series</li><li><span style='color:blue'>Linear mappings</span>: Continuity, boundedness, the norm of a linear mapping</li></ol><h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><ol><li><span style='color:blue'>Inner product spaces</span>: Inner product, norm, Schwarz’s Inequality, Parallelogram Law, orthogonality, Pythagorean Formula, strong and weak convergence, Hilbert spaces, isomorphic Hilbert spaces</li><li><span style='color:blue'>Orthonomal systems</span>: Orthogonal and orthonormal systems, Gram-Schmidt orthonormalization process, Bessel’s equality and inequality, complete orthonormal sequences and equivalent conditions, Parseval’s Formula, separable Hilbert spaces</li><li><span style='color:blue'>Orthogonal Complements and Projections</span>: Orthogonal sets, orthogonal complement, the closest point property, the best approximation, orthogonal decompositions, orthogonal projections</li><li><span style='color:blue'>Linear functionals</span>: The norm of a linear functional, the Riesz Representation Theorem</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;Outline&quot;&gt;&lt;a href=&quot;#Outline&quot; class=&quot;headerlink&quot; title=&quot;Outline&quot;&gt;&lt;/a&gt;Outline&lt;/h1&gt;&lt;h2 id=&quot;Chapter-1&quot;&gt;&lt;a href=&quot;#Chapter-1&quot; class=&quot;header
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="Hilbert Space" scheme="http://Yihang-Li.github.io/tags/Hilbert-Space/"/>
+    
+      <category term="Summary" scheme="http://Yihang-Li.github.io/tags/Summary/"/>
+    
+      <category term="Review" scheme="http://Yihang-Li.github.io/tags/Review/"/>
+    
+  </entry>
   
   <entry>
     <title>Summary of Using Python to Access Web Data</title>
