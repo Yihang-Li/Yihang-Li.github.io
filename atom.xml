@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yihang-li.github.io/"/>
-  <updated>2020-02-16T18:24:32.846Z</updated>
+  <updated>2020-02-24T22:15:33.980Z</updated>
   <id>http://yihang-li.github.io/</id>
   
   <author>
@@ -17,13 +17,44 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Summary: Recent Advances and Trends in Large-Scale Kernel Methods</title>
+    <link href="http://yihang-li.github.io/2020/02/24/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/"/>
+    <id>http://yihang-li.github.io/2020/02/24/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/</id>
+    <published>2020-02-24T20:54:58.000Z</published>
+    <updated>2020-02-24T22:15:33.980Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol><li><p>核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景</p></li><li><p>然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量</p><blockquote><p><span style='color:red'>表示不赞同，我现有层面的知识恰恰是能避免高维计算</span> <span style="color:green">(或许是不同的角度？)</span></p></blockquote></li><li><p>这篇文章回归了最近的处理大规模数据的核方法</p></li></ol><hr><h3 id="引言部分"><a href="#引言部分" class="headerlink" title="引言部分"></a>引言部分</h3><ol><li>核方法的关键：核函数——使得计算复杂度独立于特征空间的维数</li><li><em>Vapnik</em> 的重大工作使得很多线性的监督和非监督学习算法能够应用核方法（<span style="color:blue">Kernelized</span>)。包括岭回归、感知机、费希尔判别分析、主成分分析、K均值聚类和独立成分分析。</li><li>这篇文章的目的：回顾各种加速核方法的技巧</li><li>这篇文章的布局：<ul><li><em>Sect. 2</em> : 复习核方法的基础思想，回顾最近大数据核方法的进展，一个计算瓶颈是核矩阵K的计算</li><li><em>Sect. 3</em> : 回顾核矩阵能怎样被低秩矩阵逼近（考虑incomplete Cholesky decomposition、Lanczos approximation、Nystrom method and Gaussian transform）</li><li><em>Sect. 4</em> : 回顾监督核方法。回归部分：怎样用低秩逼近方法来加速相应核算法诸如RR、PLS、GP。分类部分：用cutting-plane或者dual coordinate descent 方法解决支持向量算法中的优化问题。</li><li>Sect. 5 : 关注非监督方法。怎样用拉普拉斯特征映射有效降低稀疏数据的维数，应用到谱聚类算法中</li><li>Sect. 6 : 面对structured 数据，怎样有效计算核函数。怎样从多个kernel构造出一个kernel。</li><li>Sect. 7 : 总结。</li></ul></li></ol><hr><h3 id="Sect-2-核方法基础"><a href="#Sect-2-核方法基础" class="headerlink" title="Sect. 2 核方法基础"></a>Sect. 2 核方法基础</h3><h3 id="Sect-4-监督方法"><a href="#Sect-4-监督方法" class="headerlink" title="Sect. 4 监督方法"></a>Sect. 4 监督方法</h3><h3 id="Sect-7-总结"><a href="#Sect-7-总结" class="headerlink" title="Sect. 7 总结"></a>Sect. 7 总结</h3>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h3 id=&quot;摘要部分&quot;&gt;&lt;a href=&quot;#摘要部分&quot; class=&quot;headerlink&quot; title=&quot;摘要部分&quot;&gt;&lt;/a&gt;摘要部分&lt;/h3&gt;&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;&lt;p&gt;然鹅，
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="Kernel Methods" scheme="http://Yihang-Li.github.io/tags/Kernel-Methods/"/>
+    
+      <category term="summary" scheme="http://Yihang-Li.github.io/tags/summary/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Hilbert Space: Midterm Review</title>
     <link href="http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/"/>
     <id>http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/</id>
     <published>2020-02-16T18:00:13.000Z</published>
-    <updated>2020-02-16T18:24:32.846Z</updated>
+    <updated>2020-02-17T19:58:42.124Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol><li><span style='color:blue'>Vector spaces</span>: Basis, linear, independence</li><li><span style='color:blue'>Normed spaces</span>: Norm, convergence, equivalent norms</li><li><span style='color:blue'>Topology of normed spaces</span>: Open, closed, bounded, compact, and dense sets</li><li><span style='color:blue'>Banach spaces</span>: Cauchy sequences, completeness, convergent and absolutely convergent series</li><li><span style='color:blue'>Linear mappings</span>: Continuity, boundedness, the norm of a linear mapping</li></ol><h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><ol><li><span style='color:blue'>Inner product spaces</span>: Inner product, norm, Schwarz’s Inequality, Parallelogram Law, orthogonality, Pythagorean Formula, strong and weak convergence, Hilbert spaces, isomorphic Hilbert spaces</li><li><span style='color:blue'>Orthonomal systems</span>: Orthogonal and orthonormal systems, Gram-Schmidt orthonormalization process, Bessel’s equality and inequality, complete orthonormal sequences and equivalent conditions, Parseval’s Formula, separable Hilbert spaces</li><li><span style='color:blue'>Orthogonal Complements and Projections</span>: Orthogonal sets, orthogonal complement, the closest point property, the best approximation, orthogonal decompositions, orthogonal projections</li><li><span style='color:blue'>Linear functionals</span>: The norm of a linear functional, the Riesz Representation Theorem</li></ol>]]></content>
+    <content type="html"><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol><li><span style='color:blue'>Vector spaces</span>: Basis, linear independence</li><li><span style='color:blue'>Normed spaces</span>: Norm, convergence, equivalent norms</li><li><span style='color:blue'>Topology of normed spaces</span>: Open, closed, bounded, compact, and dense sets</li><li><span style='color:blue'>Banach spaces</span>: Cauchy sequences, completeness, convergent and absolutely convergent series</li><li><span style='color:blue'>Linear mappings</span>: Continuity, boundedness, the norm of a linear mapping</li></ol><h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><ol><li><span style='color:blue'>Inner product spaces</span>: Inner product, norm, Schwarz’s Inequality, Parallelogram Law, orthogonality,  Pythagorean Formula, strong and weak convergence, Hilbert spaces, isomorphic Hilbert spaces</li><li><span style='color:blue'>Orthonomal systems</span>: Orthogonal and orthonormal systems, Gram-Schmidt orthonormalization process, Pythagorean Formula, Bessel’s equality and inequality, the best approximation, complete orthonormal sequences and equivalent conditions, Parseval’s Formula, separable Hilbert spaces</li><li><span style='color:blue'>Orthogonal Complements and Projections</span>: Orthogonal sets, orthogonal complement, the closest point property,  orthogonal decompositions, orthogonal projections</li><li><span style='color:blue'>Linear functionals</span>: The norm of a linear functional, the Riesz Representation Theorem</li></ol>]]></content>
     
     <summary type="html">
     
