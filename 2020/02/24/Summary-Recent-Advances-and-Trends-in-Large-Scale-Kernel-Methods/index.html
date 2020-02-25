@@ -58,15 +58,15 @@
 </script>
 
 
-  <meta name="description" content="摘要部分 核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景  然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量  表示不赞同，我现有层面的知识恰恰是能避免高维计算 (或许是不同的角度？)   这篇文章回归了最近的处理大规模数据的核方法    引言部分 核方法的关键：核函数——使得计算复杂度独立于特征空间的维数 Vap">
+  <meta name="description" content="RAandTinLSKM 摘要部分 核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景  然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量  表示不赞同，我现有层面的知识恰恰是能避免高维计算 (或许是不同的角度？)   这篇文章回归了最近的处理大规模数据的核方法    引言部分 核方法的关键：核函数——使得计算复杂度独">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Summary: Recent Advances and Trends in Large-Scale Kernel Methods">
 <meta property="og:url" content="http://yihang-li.github.io/2020/02/24/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/index.html">
 <meta property="og:site_name" content="Yihang">
-<meta property="og:description" content="摘要部分 核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景  然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量  表示不赞同，我现有层面的知识恰恰是能避免高维计算 (或许是不同的角度？)   这篇文章回归了最近的处理大规模数据的核方法    引言部分 核方法的关键：核函数——使得计算复杂度独立于特征空间的维数 Vap">
+<meta property="og:description" content="RAandTinLSKM 摘要部分 核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景  然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量  表示不赞同，我现有层面的知识恰恰是能避免高维计算 (或许是不同的角度？)   这篇文章回归了最近的处理大规模数据的核方法    引言部分 核方法的关键：核函数——使得计算复杂度独">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-02-24T20:54:58.000Z">
-<meta property="article:modified_time" content="2020-02-25T03:58:45.999Z">
+<meta property="article:modified_time" content="2020-02-25T16:12:28.089Z">
 <meta property="article:author" content="Yihang Li">
 <meta property="article:tag" content="Kernel Methods">
 <meta property="article:tag" content="summary">
@@ -219,10 +219,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-02-24 15:54:58 / 修改时间：22:58:45" itemprop="dateCreated datePublished" datetime="2020-02-24T15:54:58-05:00">2020-02-24</time>
+              <time title="创建时间：2020-02-24 15:54:58" itemprop="dateCreated datePublished" datetime="2020-02-24T15:54:58-05:00">2020-02-24</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-25 11:12:28" itemprop="dateModified" datetime="2020-02-25T11:12:28-05:00">2020-02-25</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -253,7 +259,8 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol>
+        <p><a href="https://www.jstage.jst.go.jp/article/transinf/E92.D/7/E92.D_7_1338/_pdf/-char/ja" target="_blank" rel="noopener">RAandTinLSKM</a></p>
+<h3 id="摘要部分"><a href="#摘要部分" class="headerlink" title="摘要部分"></a>摘要部分</h3><ol>
 <li><p>核方法优势：通过使用核技巧可以把线性模型直接拓展到非线性应用场景</p>
 </li>
 <li><p>然鹅， 核方法的naive使用的计算复杂度是很高的，scales cubically w.r.t. 训练样本的数量</p>
@@ -329,7 +336,27 @@
 <p>然而，当训练样本很大的时候，核方法的计算复杂度仍然很高。</p>
 <hr>
 <hr>
-<h3 id="Sect-4-监督方法"><a href="#Sect-4-监督方法" class="headerlink" title="Sect. 4 监督方法"></a>Sect. 4 监督方法</h3><h4 id="4-1-回归"><a href="#4-1-回归" class="headerlink" title="4.1 回归"></a>4.1 回归</h4><h5 id="4-1-1-核岭回归"><a href="#4-1-1-核岭回归" class="headerlink" title="4.1.1 核岭回归"></a>4.1.1 核岭回归</h5><h5 id="4-1-2-偏最小二乘"><a href="#4-1-2-偏最小二乘" class="headerlink" title="4.1.2 偏最小二乘"></a>4.1.2 偏最小二乘</h5><h5 id="4-1-3-Lasso"><a href="#4-1-3-Lasso" class="headerlink" title="4.1.3 Lasso"></a>4.1.3 Lasso</h5><h5 id="4-1-4-高斯过程回归"><a href="#4-1-4-高斯过程回归" class="headerlink" title="4.1.4 高斯过程回归"></a>4.1.4 高斯过程回归</h5><h5 id="4-1-5-相关向量机（Relevance-Vector-Machines）"><a href="#4-1-5-相关向量机（Relevance-Vector-Machines）" class="headerlink" title="4.1.5 相关向量机（Relevance Vector Machines）"></a>4.1.5 相关向量机（Relevance Vector Machines）</h5><h5 id="4-1-6-支持向量回归"><a href="#4-1-6-支持向量回归" class="headerlink" title="4.1.6 支持向量回归"></a>4.1.6 支持向量回归</h5><h4 id="4-2-分类"><a href="#4-2-分类" class="headerlink" title="4.2 分类"></a>4.2 分类</h4><h5 id="4-2-1-Cutting-Plane-Algorithm"><a href="#4-2-1-Cutting-Plane-Algorithm" class="headerlink" title="4.2.1 Cutting Plane Algorithm"></a>4.2.1 Cutting Plane Algorithm</h5><h5 id="4-2-2-Dual-Coordinate-Descent-Algorithm"><a href="#4-2-2-Dual-Coordinate-Descent-Algorithm" class="headerlink" title="4.2.2 Dual Coordinate Descent Algorithm"></a>4.2.2 Dual Coordinate Descent Algorithm</h5><h3 id="Sect-7-总结"><a href="#Sect-7-总结" class="headerlink" title="Sect. 7 总结"></a>Sect. 7 总结</h3>
+<h3 id="Sect-4-监督方法"><a href="#Sect-4-监督方法" class="headerlink" title="Sect. 4 监督方法"></a>Sect. 4 监督方法</h3><h4 id="4-1-回归"><a href="#4-1-回归" class="headerlink" title="4.1 回归"></a>4.1 回归</h4><h5 id="4-1-1-核岭回归"><a href="#4-1-1-核岭回归" class="headerlink" title="4.1.1 核岭回归"></a>4.1.1 核岭回归</h5><p>从（7）知道，解KRR即相当于求解线性方程：<script type="math/tex">(\mathbf{K} + \lambda\mathbf{I}_{\mathcal{l}})\mathbf{\alpha} = \mathbf{y}</script>，</p>
+<blockquote>
+<p>通常的方法：Cholesky factorization $O(\mathcal{l}^3)$<br>若使用 CG 方法（共轭梯度法），$O(r\mathcal{l}^2)$ ，这里 $r$ 是CG迭代次数<br>若核函数是高斯核，CG方法的计算复杂度会降至 $O(\mathcal(l))$</p>
+<p>可使用 LOOCV 来决定正则化参数$\lambda$，在KRR中，LOOCV score 的闭形式是：$g_{LOO}(\lambda)=||\mathbf{H}^{-1}(\mathbf{y}-\mathbf{K}\mathbf{\alpha})||^2$，这里$\mathbf{H} \equiv \mathbf{I}_N-diag(\mathbf{K}(\mathbf{K}+\lambda\mathbf{I}_{\mathcal{l}}^{-1}))$。然而，这里计算设计求逆 -&gt; $O(\mathcal{l}^3)$。</p>
+</blockquote>
+<h5 id="4-1-2-偏最小二乘"><a href="#4-1-2-偏最小二乘" class="headerlink" title="4.1.2 偏最小二乘"></a>4.1.2 偏最小二乘</h5><h5 id="4-1-3-Lasso"><a href="#4-1-3-Lasso" class="headerlink" title="4.1.3 Lasso"></a>4.1.3 Lasso</h5><blockquote>
+<p>LARS -&gt; 能对所有的 $\lambda$ 获得Lasso解；但是对单个的 $\lambda$ ，简单的坐标下降法（coordinate descent）更快。</p>
+<p>尽管Lasso是线性方法，它也可以被核化[38] [39], 一些学者也关注于怎样求解非线性形式的Lasso正则路径(regularization path)</p>
+</blockquote>
+<h5 id="4-1-4-高斯过程回归"><a href="#4-1-4-高斯过程回归" class="headerlink" title="4.1.4 高斯过程回归"></a>4.1.4 高斯过程回归</h5><h5 id="4-1-5-相关向量机（Relevance-Vector-Machines）"><a href="#4-1-5-相关向量机（Relevance-Vector-Machines）" class="headerlink" title="4.1.5 相关向量机（Relevance Vector Machines）"></a>4.1.5 相关向量机（Relevance Vector Machines）</h5><blockquote>
+<p>4.1.4 &amp; 4.1.5 都是贝叶斯回归方法</p>
+</blockquote>
+<h5 id="4-1-6-支持向量回归"><a href="#4-1-6-支持向量回归" class="headerlink" title="4.1.6 支持向量回归"></a>4.1.6 支持向量回归</h5><p>SVR问题可形式化为最小化如下目标函数：</p>
+<blockquote>
+<script type="math/tex; mode=display">J_{SVR}(\mathbf{w})=\frac{C}{\mathcal{l}}\sum_{i=1}^{\mathcal{l}}l_{\epsilon}(y_i-<\mathbf{x}_i, \mathbf{w}>+\frac{1}{2}||\mathbf{w}||_2^2) \tag{17}</script></blockquote>
+<p>这里  $l_{\epsilon}$ 称为 $\epsilon-insensitive$ 损失函数：<script type="math/tex">l_{\epsilon}(\eta) \equiv\left\{\begin{array}{ll}
+{0} & {\text { if }|\eta|<\epsilon} \\
+{|\eta|-\epsilon} & {\text { otherwise }}
+\end{array}\right.</script></p>
+<p>常规解法是求解二次规划问题获得（17）的对偶形式，但是SVR可以有效地用4.2.1中的方法求解。</p>
+<h4 id="4-2-分类"><a href="#4-2-分类" class="headerlink" title="4.2 分类"></a>4.2 分类</h4><h5 id="4-2-1-Cutting-Plane-Algorithm"><a href="#4-2-1-Cutting-Plane-Algorithm" class="headerlink" title="4.2.1 Cutting Plane Algorithm"></a>4.2.1 Cutting Plane Algorithm</h5><h5 id="4-2-2-Dual-Coordinate-Descent-Algorithm"><a href="#4-2-2-Dual-Coordinate-Descent-Algorithm" class="headerlink" title="4.2.2 Dual Coordinate Descent Algorithm"></a>4.2.2 Dual Coordinate Descent Algorithm</h5><h3 id="Sect-7-总结"><a href="#Sect-7-总结" class="headerlink" title="Sect. 7 总结"></a>Sect. 7 总结</h3>
     </div>
 
     
