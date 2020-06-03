@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yihang-li.github.io/"/>
-  <updated>2020-02-25T16:12:28.089Z</updated>
+  <updated>2020-06-03T04:39:29.044Z</updated>
   <id>http://yihang-li.github.io/</id>
   
   <author>
@@ -17,9 +17,132 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Random Features for Large-Scale Kernel Machines</title>
+    <link href="http://yihang-li.github.io/2020/06/04/RFF/"/>
+    <id>http://yihang-li.github.io/2020/06/04/RFF/</id>
+    <published>2020-06-03T16:34:31.000Z</published>
+    <updated>2020-06-03T04:39:29.044Z</updated>
+    
+    <content type="html"><![CDATA[<center>**文献翻译**</center><p><br></p><div class="pdf" target="RFF.pdf" height=""></div> <p><br></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;center&gt;**文献翻译**&lt;/center&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;div class=&quot;pdf&quot; target=&quot;RFF.pdf&quot; height=&quot;&quot;&gt;&lt;/div&gt; 
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Translation" scheme="http://Yihang-Li.github.io/categories/Translation/"/>
+    
+    
+      <category term="Translation" scheme="http://Yihang-Li.github.io/tags/Translation/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>核方法的优势</title>
+    <link href="http://yihang-li.github.io/2020/05/11/%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%98%E5%8A%BF/"/>
+    <id>http://yihang-li.github.io/2020/05/11/%E6%A0%B8%E6%96%B9%E6%B3%95%E7%9A%84%E4%BC%98%E5%8A%BF/</id>
+    <published>2020-05-10T17:14:46.000Z</published>
+    <updated>2020-05-11T21:50:09.805Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算"><a href="#为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算" class="headerlink" title="为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算"></a>为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算</h1><h2 id="将低维非线性数据转换为高维线性数据"><a href="#将低维非线性数据转换为高维线性数据" class="headerlink" title="将低维非线性数据转换为高维线性数据"></a>将低维非线性数据转换为高维线性数据</h2><p>Cover’s Theorem</p><p>Cover TM. Geometrical and statistical properties of systems of linear inequalities with applications in pattern recognition. IEEE transactions on electronic computers. 1965 Jun(3):326-34.</p><h2 id="避免高维计算"><a href="#避免高维计算" class="headerlink" title="避免高维计算"></a>避免高维计算</h2><p>核函数的使用</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h1 id=&quot;为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算&quot;&gt;&lt;a href=&quot;#为什么核方法能够在将低维非线性数据转换为高维线性数据的同时避免高维计算&quot; class=&quot;headerlink&quot; title=&quot;为什么核方法能够在将低维非线性数据转换为高维
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="Kernel Methods" scheme="http://Yihang-Li.github.io/tags/Kernel-Methods/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Spatial analysis made easy with linear regression and kernels</title>
+    <link href="http://yihang-li.github.io/2020/03/10/Spatial-analysis-made-easy-with-linear-regression-and-kernels/"/>
+    <id>http://yihang-li.github.io/2020/03/10/Spatial-analysis-made-easy-with-linear-regression-and-kernels/</id>
+    <published>2020-03-09T20:33:20.000Z</published>
+    <updated>2020-03-09T22:56:40.326Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>总结自<a href="https://arxiv.org/abs/1902.08679" target="_blank" rel="noopener">Philip Miltona, Helen Couplanda , Emanuele Giorgib , Samir Bhatta</a></p></blockquote><h1 id="Spatial-analysis-made-easy-with-linear-regression-and-kernels"><a href="#Spatial-analysis-made-easy-with-linear-regression-and-kernels" class="headerlink" title="Spatial analysis made easy with linear regression and kernels"></a>Spatial analysis made easy with linear regression and kernels</h1><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>核方法是一种流行的技术，可用于通过映射到隐式的高维特征空间来扩展线性模型已处理非线性的空间问题。<br>尽管核方法在计算上优于显式的特征映射，却仍然受制于样本点的立方级计算复杂度。给定几千个样本点，它的计算成本很快就超过了现有的可获取的算力。<br>本文旨在提供核方法的概览，从first-principals（着重于岭回归），到对随机傅里叶特征（RFF）的回顾，RFF是一种将核方法应用于大数据集的方法。<br>我们展示了RFF方法如何能够逼近完整的核矩阵，以微弱地降低准确性为代价提供了显著的计算速度的提高，并且可以仅使用几行代码就可以并入许多现有的空间方法中。<br>我们给出了在仿真空间数据集上实现RFF的示例，以说明这些属性。 最后，我们总结了RFF的主要问题，并着重介绍了一些旨在改善这些问题的技术。</p><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><h2 id="2-线性模型"><a href="#2-线性模型" class="headerlink" title="2. 线性模型"></a>2. 线性模型</h2><h2 id="3-非线性特征的线性模型"><a href="#3-非线性特征的线性模型" class="headerlink" title="3. 非线性特征的线性模型"></a>3. 非线性特征的线性模型</h2><h2 id="4-过拟合和岭回归"><a href="#4-过拟合和岭回归" class="headerlink" title="4. 过拟合和岭回归"></a>4. 过拟合和岭回归</h2><h2 id="5-对偶和格gram矩阵"><a href="#5-对偶和格gram矩阵" class="headerlink" title="5. 对偶和格gram矩阵"></a>5. 对偶和格gram矩阵</h2><h2 id="6-核函数，核矩阵和核技巧"><a href="#6-核函数，核矩阵和核技巧" class="headerlink" title="6. 核函数，核矩阵和核技巧"></a>6. 核函数，核矩阵和核技巧</h2><h2 id="7-大N问题"><a href="#7-大N问题" class="headerlink" title="7. 大N问题"></a>7. 大N问题</h2><h2 id="8-随机傅里叶特征"><a href="#8-随机傅里叶特征" class="headerlink" title="8. 随机傅里叶特征"></a>8. 随机傅里叶特征</h2><h2 id="9-线性模型的变体"><a href="#9-线性模型的变体" class="headerlink" title="9. 线性模型的变体"></a>9. 线性模型的变体</h2><h2 id="10-空间分析的随机傅里叶特征玩具实例"><a href="#10-空间分析的随机傅里叶特征玩具实例" class="headerlink" title="10. 空间分析的随机傅里叶特征玩具实例"></a>10. 空间分析的随机傅里叶特征玩具实例</h2><h2 id="11-随机傅里叶特征的高等方法"><a href="#11-随机傅里叶特征的高等方法" class="headerlink" title="11. 随机傅里叶特征的高等方法"></a>11. 随机傅里叶特征的高等方法</h2><h3 id="11-1-RFF的局限"><a href="#11-1-RFF的局限" class="headerlink" title="11.1 RFF的局限"></a>11.1 RFF的局限</h3><h3 id="11-2-拟蒙特卡洛特征（QMC-RFF）"><a href="#11-2-拟蒙特卡洛特征（QMC-RFF）" class="headerlink" title="11.2 拟蒙特卡洛特征（QMC RFF）"></a>11.2 拟蒙特卡洛特征（QMC RFF）</h3><h3 id="11-3-杠杆值采样"><a href="#11-3-杠杆值采样" class="headerlink" title="11.3 杠杆值采样"></a>11.3 杠杆值采样</h3><h3 id="11-4-正交随机特征"><a href="#11-4-正交随机特征" class="headerlink" title="11.4 正交随机特征"></a>11.4 正交随机特征</h3><h3 id="11-5-不稳定和任意核函数"><a href="#11-5-不稳定和任意核函数" class="headerlink" title="11.5 不稳定和任意核函数"></a>11.5 不稳定和任意核函数</h3><h2 id="12-结论"><a href="#12-结论" class="headerlink" title="12. 结论"></a>12. 结论</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;总结自&lt;a href=&quot;https://arxiv.org/abs/1902.08679&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Philip Miltona, Helen Couplanda , Emanuele Gior
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="kernel" scheme="http://Yihang-Li.github.io/tags/kernel/"/>
+    
+      <category term="translation" scheme="http://Yihang-Li.github.io/tags/translation/"/>
+    
+      <category term="spatial" scheme="http://Yihang-Li.github.io/tags/spatial/"/>
+    
+      <category term="regression" scheme="http://Yihang-Li.github.io/tags/regression/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Random Features for Large-Scale Kernel Machines</title>
+    <link href="http://yihang-li.github.io/2020/03/10/Random-Features-for-Large-Scale-Kernel-Machines/"/>
+    <id>http://yihang-li.github.io/2020/03/10/Random-Features-for-Large-Scale-Kernel-Machines/</id>
+    <published>2020-03-09T18:27:49.000Z</published>
+    <updated>2020-03-09T21:49:10.079Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>翻译总结自 <a href="https://people.eecs.berkeley.edu/~brecht/papers/07.rah.rec.nips.pdf" target="_blank" rel="noopener">Ali Rahimi, Ben Recht</a>著</p></blockquote><h1 id="用于大规模核机器的随机特征"><a href="#用于大规模核机器的随机特征" class="headerlink" title="用于大规模核机器的随机特征"></a>用于大规模核机器的随机特征</h1><h3 id="Ali-Rahimi-and-Ben-Recht"><a href="#Ali-Rahimi-and-Ben-Recht" class="headerlink" title="Ali Rahimi and Ben Recht"></a>Ali Rahimi and Ben Recht</h3><h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a>摘要</h2><p>为了加速核机器的训练，我们提出将输入数据映射到随机化的低维特征空间，并随后应用已有的快速线性方法。我们通过构造随机化特征以使得转换后的数据的内积近似于特征空间中自定义的平移不变核。我们探索了两类随机特征，提供了他们估计不同径向基核的收敛界，并且证明了在大规模分类和回归任务中，使用这些特征的线性机器学习算法更优于目前的最新大规模核机器模型。</p><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>核机器，诸如支持向量机等，因其能在充足的训练数据下以任意精度逼近任何函数或决策边界而引人注目。不幸的是，对数据的核矩阵（格拉姆矩阵）进行操作的方法，根据训练数据集的大小表现得不尽如人意。比如，一个有50万数据的数据集可能需要在现代的工作站上花费数天来训练。另一方面，针对线性支持向量机和正则化回归的特定算法在数据维数很小时会很快，因为他们操作训练数据的协方差矩阵而不是核矩阵<span style=color:red>(?)</span>，[1,2]。我们提出了能够结合线性和非线性优点的方法。受到逼近核矩阵的随机算法的启发（e.g.,[3,4]），我们通过将数据映射到相对低维的随机特征空间中，将任何核机器的训练和评估有效地转换为线性机器的相应操作。我们的实验表明，随机特征与非常简单的线性学习技术相结合，可以与基于核方法的最新分类和回归算法相媲美。随机特征显著减少了训练需要的计算，并且获得相似的甚至更好的测试误差。</p><p>对于只依赖于输入点对之间内积的算法，核技巧是一种能够为其生成特征的简单方法。它依赖于以下结论：任何正定函数 $k(\mathbf{x},\mathbf{y}), \mathbf{x},\mathbf{y} \in \mathcal{R}^d$定义了一个内积和一个映射<span style=color:red>(?lifting)</span>$\phi$，以使得映射后的数据点能被快速计算为$&lt;\phi(\mathbf{x},\phi(\mathbf{y})&gt;=k(\mathbf{x},\mathbf{y})$。这种便利的代价是算法仅通过评估$k(\mathbf{x},\mathbf{y})$或通过将$k$应用于所有数据组成的核矩阵来处理数据。最终，大量的训练集会导致大量的计算和存储成本。</p><blockquote><p>逐字逐句 stop here…</p></blockquote><h2 id="2-相关工作"><a href="#2-相关工作" class="headerlink" title="2. 相关工作"></a>2. 相关工作</h2><h2 id="3-随机傅里叶特征"><a href="#3-随机傅里叶特征" class="headerlink" title="3. 随机傅里叶特征"></a>3. 随机傅里叶特征</h2><p>随机傅里叶基函数：$cos(\omega^{\prime}\mathbf{x}+b)$，其中$w \in \mathcal{R}^d， b \in \mathcal{R}$为随机变量。</p><p>这些映射将数据点投影到随机选择的直线上，然后将得到的标量（投影点的值）通过正弦函数传递。从适当的分布中绘制这些线的方向可确保两个变换点的乘积将近似于所需的平移不变核。</p><p><img src="/assets/screenshot-people.eecs.berkeley.edu-2020.03.09-17_44_39.png" alt=""></p><h2 id="4-随机Binning特征"><a href="#4-随机Binning特征" class="headerlink" title="4. 随机Binning特征"></a>4. 随机Binning特征</h2><h2 id="5-实验"><a href="#5-实验" class="headerlink" title="5. 实验"></a>5. 实验</h2><h2 id="6-结论"><a href="#6-结论" class="headerlink" title="6. 结论"></a>6. 结论</h2><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><h2 id="A-证明"><a href="#A-证明" class="headerlink" title="A 证明"></a>A 证明</h2>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;翻译总结自 &lt;a href=&quot;https://people.eecs.berkeley.edu/~brecht/papers/07.rah.rec.nips.pdf&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Ali Rahim
+      
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="http://Yihang-Li.github.io/categories/Notes/"/>
+    
+    
+      <category term="kernel" scheme="http://Yihang-Li.github.io/tags/kernel/"/>
+    
+      <category term="random features" scheme="http://Yihang-Li.github.io/tags/random-features/"/>
+    
+      <category term="large scale" scheme="http://Yihang-Li.github.io/tags/large-scale/"/>
+    
+      <category term="translation" scheme="http://Yihang-Li.github.io/tags/translation/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Summary: Recent Advances and Trends in Large-Scale Kernel Methods</title>
-    <link href="http://yihang-li.github.io/2020/02/24/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/"/>
-    <id>http://yihang-li.github.io/2020/02/24/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/</id>
+    <link href="http://yihang-li.github.io/2020/02/25/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/"/>
+    <id>http://yihang-li.github.io/2020/02/25/Summary-Recent-Advances-and-Trends-in-Large-Scale-Kernel-Methods/</id>
     <published>2020-02-24T20:54:58.000Z</published>
     <updated>2020-02-25T16:12:28.089Z</updated>
     
@@ -46,8 +169,8 @@
   
   <entry>
     <title>Hilbert Space: Midterm Review</title>
-    <link href="http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/"/>
-    <id>http://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/</id>
+    <link href="http://yihang-li.github.io/2020/02/17/Hilbert-Space-Midterm-Review/"/>
+    <id>http://yihang-li.github.io/2020/02/17/Hilbert-Space-Midterm-Review/</id>
     <published>2020-02-16T18:00:13.000Z</published>
     <updated>2020-02-17T19:58:42.124Z</updated>
     
@@ -113,8 +236,8 @@
   
   <entry>
     <title>Summary for visualization of geospatial data</title>
-    <link href="http://yihang-li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/"/>
-    <id>http://yihang-li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/</id>
+    <link href="http://yihang-li.github.io/2020/02/11/Summary-for-visualization-of-geospatial-data/"/>
+    <id>http://yihang-li.github.io/2020/02/11/Summary-for-visualization-of-geospatial-data/</id>
     <published>2020-02-10T19:04:01.000Z</published>
     <updated>2020-02-14T18:06:40.366Z</updated>
     
@@ -145,8 +268,8 @@
   
   <entry>
     <title>Notes of Gaussian Processes for Machine Learning</title>
-    <link href="http://yihang-li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/"/>
-    <id>http://yihang-li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</id>
+    <link href="http://yihang-li.github.io/2020/02/09/Notes-of-Gaussian-Processes-for-Machine-Learning/"/>
+    <id>http://yihang-li.github.io/2020/02/09/Notes-of-Gaussian-Processes-for-Machine-Learning/</id>
     <published>2020-02-08T22:13:14.000Z</published>
     <updated>2020-02-14T15:32:54.292Z</updated>
     
@@ -176,8 +299,8 @@
   
   <entry>
     <title>Hello Echo~</title>
-    <link href="http://yihang-li.github.io/2020/02/05/Hello-Echo/"/>
-    <id>http://yihang-li.github.io/2020/02/05/Hello-Echo/</id>
+    <link href="http://yihang-li.github.io/2020/02/06/Hello-Echo/"/>
+    <id>http://yihang-li.github.io/2020/02/06/Hello-Echo/</id>
     <published>2020-02-06T04:11:04.000Z</published>
     <updated>2020-02-08T22:43:12.249Z</updated>
     
@@ -202,8 +325,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yihang-li.github.io/2020/02/05/hello-world/"/>
-    <id>http://yihang-li.github.io/2020/02/05/hello-world/</id>
+    <link href="http://yihang-li.github.io/2020/02/06/hello-world/"/>
+    <id>http://yihang-li.github.io/2020/02/06/hello-world/</id>
     <published>2020-02-06T02:26:11.292Z</published>
     <updated>2020-02-06T02:26:11.292Z</updated>
     

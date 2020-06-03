@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+  <link rel="manifest" href="/images/manifest.json">
+  <meta name="msapplication-config" content="/images/browserconfig.xml">
+  <link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml">
+
+
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-material.min.css">
+  <script src="/lib/pace/pace.min.js"></script>
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":true},
+    bookmark: {"enable":true,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    translation: {
+      copy_button: '复制',
+      copy_success: '复制成功',
+      copy_failure: '复制失败'
+    },
+    sidebarPadding: 40
+  };
+</script>
+
+
+  <meta name="description" content="Ch6 Relationships between GPs and Other Models6.1 Reproducing Kernel Hilbert SpacesPreliminaryThis part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-sm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notes of Gaussian Processes for Machine Learning">
+<meta property="og:url" content="http://yihang-li.github.io/2020/02/09/Notes-of-Gaussian-Processes-for-Machine-Learning/index.html">
+<meta property="og:site_name" content="Yihang">
+<meta property="og:description" content="Ch6 Relationships between GPs and Other Models6.1 Reproducing Kernel Hilbert SpacesPreliminaryThis part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-sm">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-02-08T22:13:14.000Z">
+<meta property="article:modified_time" content="2020-02-14T15:32:54.292Z">
+<meta property="article:author" content="Yihang Li">
+<meta property="article:tag" content="GP">
+<meta property="article:tag" content="ML">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yihang-li.github.io/2020/02/09/Notes-of-Gaussian-Processes-for-Machine-Learning/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>Notes of Gaussian Processes for Machine Learning | Yihang</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yihang</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+        <p class="site-subtitle">Never Give Up!</p>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://Yihang-Li.github.io/2020/02/09/Notes-of-Gaussian-Processes-for-Machine-Learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://s2.ax1x.com/2020/02/06/1yubPU.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="description here">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Notes of Gaussian Processes for Machine Learning<a href="https://github.com/user-name/repo-name/tree/branch-name/subdirectory-name_posts/Notes-of-Gaussian-Processes-for-Machine-Learning.md" class="post-edit-link" title="编辑" rel="noopener" target="_blank"><i class="fa fa-pencil"></i></a>
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-08 17:13:14" itemprop="dateCreated datePublished" datetime="2020-02-08T17:13:14-05:00">2020-02-08</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-02-14 10:32:54" itemprop="dateModified" datetime="2020-02-14T10:32:54-05:00">2020-02-14</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index">
+                    <span itemprop="name">Notes</span>
+                  </a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
+<blockquote>
+<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
+<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
+<script type="math/tex; mode=display">
+ \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+</blockquote>
+<a id="more"></a>
+<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
+<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
+<ol>
+<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
+</li>
+<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
+<blockquote>
+<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
+</blockquote>
+<hr>
+<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
+<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
+<script type="math/tex; mode=display">
+\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
+<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L_{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T_{k}: L_{2}(\mathcal{X}, \mu) \rightarrow L_{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi_{i} \in L_{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T_{k}$ associated with the eigenvalues $\lambda_{i}&gt;0$. Then:</p>
+<ol>
+<li><p>the eigenvalues $\left\{\lambda_{i}\right\}_{i=1}^{\infty}$ are absolutely summable</p>
+</li>
+<li><script type="math/tex; mode=display">
+k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
+</li>
+</ol>
+<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
+<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi_{i}(\mathbf{x}) \phi_{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
+</blockquote>
+<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
+<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{N} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ with $\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle_{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum_{i=1}^{N} g_{i} \phi_{i}(\mathbf{x})$ is defined as </p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|_{\mathcal{H}}$ where $|f|_{\mathcal{H}}^{2}=\langle f, f\rangle_{\mathcal{H}}=\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients $\{f_i\}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
+</blockquote>
+<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
+<script type="math/tex; mode=display">
+\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
+<script type="math/tex; mode=display">
+\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum_{i=1}^{N}\left(\lambda_{i} \phi_{i}(\mathbf{x})\right)^{2} / \lambda_{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
+<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
+<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f_i$ in the eigenexpansion $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
+<script type="math/tex; mode=display">
+\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
+<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
+<script type="math/tex; mode=display">
+\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
+<p>Next show the reproducing property as :</p>
+<script type="math/tex; mode=display">
+\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h5 id="Preliminary-1"><a href="#Preliminary-1" class="headerlink" title="Preliminary"></a>Preliminary</h5><h6 id="regularizer"><a href="#regularizer" class="headerlink" title="regularizer"></a>regularizer</h6><h6 id="kernel-ridge-regression"><a href="#kernel-ridge-regression" class="headerlink" title="kernel ridge regression"></a>kernel ridge regression</h6><h6 id="representer-theorem"><a href="#representer-theorem" class="headerlink" title="representer theorem"></a>representer theorem</h6><h5 id="RKHSs-defined-in-terms-of-differential-operators"><a href="#RKHSs-defined-in-terms-of-differential-operators" class="headerlink" title="RKHSs defined in terms of differential operators"></a>RKHSs defined in terms of differential operators</h5><h6 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h6><h6 id="Green’s-function"><a href="#Green’s-function" class="headerlink" title="Green’s function"></a>Green’s function</h6><h6 id="Two-examples"><a href="#Two-examples" class="headerlink" title="Two examples"></a>Two examples</h6><h5 id="Obtaining-the-Regularized-Solution"><a href="#Obtaining-the-Regularized-Solution" class="headerlink" title="Obtaining the Regularized Solution"></a>Obtaining the Regularized Solution</h5><h6 id="regularization-network"><a href="#regularization-network" class="headerlink" title="regularization network"></a>regularization network</h6><h5 id="The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><a href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction" class="headerlink" title="The Relationship of the Regularization View to Gaussian Process Prediction"></a>The Relationship of the Regularization View to Gaussian Process Prediction</h5><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>
+    </div>
+
+    
+    
+    
+
+<div>
+  
+    <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------The End<i class="fa fa-paw"></i>Thanks for Reading-------------</div>
+    
+</div>
+  
+</div>
+      
+        <div class="reward-container">
+  <div>您的支持将鼓励我继续创作！</div>
+  <button disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechat.jpg" alt="Yihang Li 微信支付">
+        <p>微信支付</p>
+      </div>
+
+  </div>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/GP/" rel="tag"># GP</a>
+              <a href="/tags/ML/" rel="tag"># ML</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-next post-nav-item">
+                <a href="/2020/02/06/Hello-Echo/" rel="next" title="Hello Echo~">
+                  <i class="fa fa-chevron-left"></i> Hello Echo~
+                </a>
+            </div>
+
+            <span class="post-nav-divider"></span>
+
+            <div class="post-nav-prev post-nav-item">
+                <a href="/2020/02/11/Summary-for-visualization-of-geospatial-data/" rel="prev" title="Summary for visualization of geospatial data">
+                  Summary for visualization of geospatial data <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch6-Relationships-between-GPs-and-Other-Models"><span class="nav-number">1.</span> <span class="nav-text">Ch6 Relationships between GPs and Other Models</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#6-1-Reproducing-Kernel-Hilbert-Spaces"><span class="nav-number">1.1.</span> <span class="nav-text">6.1 Reproducing Kernel Hilbert Spaces</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Preliminary"><span class="nav-number">1.1.0.0.1.</span> <span class="nav-text">Preliminary</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Formal-definition-of-RKHS"><span class="nav-number">1.1.0.0.2.</span> <span class="nav-text">Formal definition of RKHS.</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#From-Mercer’s-theorem-point-of-view"><span class="nav-number">1.1.0.0.3.</span> <span class="nav-text">From Mercer’s theorem point of view</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#Recall-some-basic-things-here"><span class="nav-number">1.1.0.0.3.1.</span> <span class="nav-text">Recall some basic things here</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#An-example-of-RKHS"><span class="nav-number">1.1.0.0.3.2.</span> <span class="nav-text">An example of RKHS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Advantage-of-the-abstract-formulation-of-the-RKHS"><span class="nav-number">1.1.0.0.3.3.</span> <span class="nav-text">Advantage of  the abstract formulation of the RKHS</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Sample-function"><span class="nav-number">1.1.0.0.3.4.</span> <span class="nav-text">Sample function</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#From-reproducing-kernel-map-point-of-view"><span class="nav-number">1.1.0.0.4.</span> <span class="nav-text">From reproducing kernel map point of view</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-2-Regularization"><span class="nav-number">1.2.</span> <span class="nav-text">6.2 Regularization</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Preliminary-1"><span class="nav-number">1.2.0.0.1.</span> <span class="nav-text">Preliminary</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#regularizer"><span class="nav-number">1.2.0.0.1.1.</span> <span class="nav-text">regularizer</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#kernel-ridge-regression"><span class="nav-number">1.2.0.0.1.2.</span> <span class="nav-text">kernel ridge regression</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#representer-theorem"><span class="nav-number">1.2.0.0.1.3.</span> <span class="nav-text">representer theorem</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#RKHSs-defined-in-terms-of-differential-operators"><span class="nav-number">1.2.0.0.2.</span> <span class="nav-text">RKHSs defined in terms of differential operators</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#null-space"><span class="nav-number">1.2.0.0.2.1.</span> <span class="nav-text">null space</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Green’s-function"><span class="nav-number">1.2.0.0.2.2.</span> <span class="nav-text">Green’s function</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#Two-examples"><span class="nav-number">1.2.0.0.2.3.</span> <span class="nav-text">Two examples</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Obtaining-the-Regularized-Solution"><span class="nav-number">1.2.0.0.3.</span> <span class="nav-text">Obtaining the Regularized Solution</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#regularization-network"><span class="nav-number">1.2.0.0.3.1.</span> <span class="nav-text">regularization network</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><span class="nav-number">1.2.0.0.4.</span> <span class="nav-text">The Relationship of the Regularization View to Gaussian Process Prediction</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-3-Spline-Models"><span class="nav-number">1.3.</span> <span class="nav-text">6.3 Spline Models</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-4-Support-Vector-Machines"><span class="nav-number">1.4.</span> <span class="nav-text">6.4 Support Vector Machines</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-5-Least-squares-Classification"><span class="nav-number">1.5.</span> <span class="nav-text">6.5 Least-squares Classification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-6-Relevance-Vector-Machines"><span class="nav-number">1.6.</span> <span class="nav-text">6.6 Relevance Vector Machines</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="site-author-image" itemprop="image" alt="Yihang Li"
+    src="https://s2.ax1x.com/2020/02/06/1yubPU.jpg">
+  <p class="site-author-name" itemprop="name">Yihang Li</p>
+  <div class="site-description" itemprop="description">description here</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="feed-link motion-element">
+    <a href="/atom.xml" rel="alternate">
+      <i class="fa fa-rss"></i>RSS
+    </a>
+  </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Yihang-Li" title="GitHub &amp;rarr; https:&#x2F;&#x2F;github.com&#x2F;Yihang-Li" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liyihang970727@gmail.com" title="E-Mail &amp;rarr; mailto:liyihang970727@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/YihangLi8" title="Twitter &amp;rarr; https:&#x2F;&#x2F;twitter.com&#x2F;YihangLi8" rel="noopener" target="_blank"><i class="fa fa-fw fa-twitter"></i>Twitter</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.facebook.com/yihang.li.710" title="FB Page &amp;rarr; https:&#x2F;&#x2F;www.facebook.com&#x2F;yihang.li.710" rel="noopener" target="_blank"><i class="fa fa-fw fa-facebook"></i>FB Page</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-star"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yihang Li</span>
+</div>
+
+<span id="busuanzi_container_site_uv">
+  本站访客数：<span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+</span>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共8.3k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+<script type="text/x-mathjax-config">
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') {
+          next = next.nextSibling;
+        }
+        if (next && next.nodeName.toLowerCase() === 'br') {
+          next.parentNode.removeChild(next);
+        }
+      }
+    });
+  });
+
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      element = document.getElementById(all[i].inputID + '-Frame').parentNode;
+      if (element.nodeName.toLowerCase() == 'li') {
+        element = element.parentNode;
+      }
+      element.classList.add('has-jax');
+    }
+  });
+</script>
+<script>
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML', () => {
+    MathJax.Hub.Typeset();
+  }, window.MathJax);
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+</body>
+</html>
