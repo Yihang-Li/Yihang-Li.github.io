@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yihang-li.github.io/"/>
-  <updated>2020-06-03T04:52:42.474Z</updated>
+  <updated>2020-05-11T21:50:09.805Z</updated>
   <id>http://yihang-li.github.io/</id>
   
   <author>
@@ -15,37 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>Random Features for Large-Scale Kernel Machines</title>
-    <link href="http://yihang-li.github.io/2020/06/04/RFF/"/>
-    <id>http://yihang-li.github.io/2020/06/04/RFF/</id>
-    <published>2020-06-03T16:34:31.000Z</published>
-    <updated>2020-06-03T04:52:42.474Z</updated>
-    
-    <content type="html"><![CDATA[<center> 文献翻译</center><p><br></p><div class="pdf" target="/pdf/RFF.pdf" height=""></div> <p><br></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;center&gt; 文献翻译&lt;/center&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;div class=&quot;pdf&quot; target=&quot;/pdf/RFF.pdf&quot; height=&quot;&quot;&gt;&lt;/div&gt; 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-    
-      <category term="Translation" scheme="http://Yihang-Li.github.io/categories/Translation/"/>
-    
-    
-      <category term="Translation" scheme="http://Yihang-Li.github.io/tags/Translation/"/>
-    
-  </entry>
   
   <entry>
     <title>核方法的优势</title>
