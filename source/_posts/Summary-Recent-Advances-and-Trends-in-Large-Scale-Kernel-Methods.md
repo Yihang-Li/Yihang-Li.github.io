@@ -22,6 +22,8 @@ typora-root-url: ..
 
 ***
 
+<!-- more -->
+
 ### 引言部分
 
 1. 核方法的关键：核函数——使得计算复杂度独立于特征空间的维数
@@ -43,17 +45,17 @@ typora-root-url: ..
 
 考虑线性参数模型：
 
-> $$ f(\mathbf{x};\mathbf{w}) \equiv <\mathbf{w},\mathbf{x}> \tag{1}$$
+$f(\mathbf{x};\mathbf{w}) \equiv <\mathbf{w},\mathbf{x}> \tag{1}$
 
-其中，$$ \mathbf{x} \in \mathcal{R^d}$$是输入变量， $$\mathbf{w} \in \mathcal{R^d}$$是参数向量，$$<\dot{},\dot{}>$$表示内积。
+其中，$\mathbf{x} \in \mathcal{R^d}$是输入变量， $\mathbf{w} \in \mathcal{R^d}$是参数向量，$<\dot{},\dot{}>$表示内积。
 
-给定训练数据$$\{(\mathbf{x}_i,y_i)|\mathbf{x_i}\in \mathcal{R^d}, y_i \in \mathcal{R}\}_{i=1}^{\mathcal{l}}$$, 为了确定参数$$\mathbf{w}$$，需要最小化经验风险项和正则项的线性和：
+给定训练数据$\{(\mathbf{x}_i,y_i)|\mathbf{x_i}\in \mathcal{R^d}, y_i \in \mathcal{R}\}_{i=1}^{\mathcal{l}}$, 为了确定参数$\mathbf{w}$，需要最小化经验风险项和正则项的线性和：
 
-$$ J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$$, 其中 $$\lambda > 0$$ 为正则化参数。
+$J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$, 其中 $\lambda > 0$ 为正则化参数。
 
 
 
-以岭回归为例，使用平方损失函数来度量经验风险，$$L_2$$范数作为正则项：
+以岭回归为例，使用平方损失函数来度量经验风险，$L_2$范数作为正则项：
 
 > $$R_{emp}(\mathbf{w}) \equiv \sum_{i=1}^{\mathcal{l}}(y_i-f(\mathbf{x_i};\mathbf{w}))^2 \tag{2}$$
 
@@ -63,11 +65,11 @@ $$ J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$$, 其中
 
 > $$\widehat{\mathbf{w}} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y} \tag{4}$$
 
-(4) 表明岭回归求解的计算复杂度为$$O(d^3)$$，依赖于输入空间的维数。
+(4) 表明岭回归求解的计算复杂度为$O(d^3)$，依赖于输入空间的维数。
 
 ***
 
-> 假设参数$$\mathbf{w}$$可以写成训练样本的线性组合：
+> 假设参数$\mathbf{w}$可以写成训练样本的线性组合：
 >
 > $$\mathbf{w} \equiv \sum_{i=1}^{\mathcal{l}}\alpha_i\mathbf{x_i} = \mathbf{X}\mathbf{\alpha} \tag{5}$$
 
@@ -81,11 +83,11 @@ $$ J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$$, 其中
 
 > $$ f(\mathbf{x}) = \sum_{i=1}^{\mathcal{l}}\alpha_ik(\mathbf{x}_i,\mathbf{x}) \tag{6}$$
 
-基于核化（kernelized）的模型，岭回归的目标函数可以重写为：$$J(\alpha) = ||\mathbf{y}-\mathbf{K}\mathbf{\alpha}||^2+\lambda\mathbf{\alpha}^T\mathbf{K}\mathbf{\alpha}$$，其中$$\mathbf{K}$$是$$\mathcal{l} \times\mathcal{l}$$ 的核矩阵（定义为：$$K_{i,j} \equiv k(\mathbf{x}_i, \mathbf{x}_j)$$）. 可解得：
+基于核化（kernelized）的模型，岭回归的目标函数可以重写为：$$J(\alpha) = ||\mathbf{y}-\mathbf{K}\mathbf{\alpha}||^2+\lambda\mathbf{\alpha}^T\mathbf{K}\mathbf{\alpha}$$，其中$\mathbf{K}$是$\mathcal{l} \times\mathcal{l}$的核矩阵（定义为：$K_{i,j} \equiv k(\mathbf{x}_i, \mathbf{x}_j)$）. 可解得：
 
 >  $$\widehat{\mathbf{\alpha}} = (\mathbf{K} + \lambda\mathbf{I})^{-1}\mathbf{y} \tag{7}$$
 
-(7) 表明核岭回归的计算复杂度为$$O（d\mathcal{l}^3)$$，其中$$d$$来自于计算核函数的值，$$\mathcal{l}^3$$来自于计算核矩阵的逆。
+(7) 表明核岭回归的计算复杂度为$O（d\mathcal{l}^3)$，其中$d$来自于计算核函数的值，$\mathcal{l}^3$来自于计算核矩阵的逆。
 
 因此，现在计算复杂度主要由训练样本的数量决定。
 
@@ -93,15 +95,15 @@ $$ J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$$, 其中
 
 ***
 
-为了说明核形式的优越性，考虑变换 $$\Phi: \mathcal{R}^d \rightarrow \mathcal{R}^{d'}$$. 我们假设 $$d' \gg d$$ 而且通过变换后的样本$$\{\Phi(x_i)\}_{i=1}^{\mathcal{l}}$$来学习模型.
+为了说明核形式的优越性，考虑变换 $$\Phi: \mathcal{R}^d \rightarrow \mathcal{R}^{d'}$$. 我们假设 $d' \gg d$ 而且通过变换后的样本$\{\Phi(x_i)\}_{i=1}^{\mathcal{l}}$来学习模型.
 
-在原始形式（4）中， 因为$$d'$$很大，求解可能会比较棘手；而在核形式（7）中，输入样本仅仅在核函数的值的计算中处理：$$k(\mathbf{x},\mathbf{x'})\equiv <\Phi(\mathbf{x}), \Phi({\mathbf{x'}})>$$。
+在原始形式（4）中， 因为$d'$很大，求解可能会比较棘手；而在核形式（7）中，输入样本仅仅在核函数的值的计算中处理：$k(\mathbf{x},\mathbf{x'})\equiv <\Phi(\mathbf{x}), \Phi({\mathbf{x'}})>$。
 
 记 $t$ 为计算核函数值的复杂度，则计算解的复杂度为$O(t\mathcal{l}^3)$，不依赖于 $d'$。因此核形式可以让我们在$d'$比较大的时候更有效地计算解。
 
 ——这样的计算技巧称为核技巧
 
-反之，如果存在对应于内积$$<\Phi(\mathbf{x}), \Phi({\mathbf{x'}})>$$的核函数，则用核形式会很有帮助。而这里的内积的存在性是有保证的，只需要核函数是半正定的（这样的核函数称为Mercer核或者再生核）。
+反之，如果存在对应于内积$<\Phi(\mathbf{x}), \Phi({\mathbf{x'}})>$的核函数，则用核形式会很有帮助。而这里的内积的存在性是有保证的，只需要核函数是半正定的（这样的核函数称为Mercer核或者再生核）。
 
 ***
 
