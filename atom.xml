@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-09T06:57:35.913Z</updated>
+  <updated>2021-01-09T07:09:43.728Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -17,11 +17,38 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set</title>
+    <title>Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</title>
+    <link href="https://yihang-li.github.io/2021/01/09/Project3_LARS/"/>
+    <id>https://yihang-li.github.io/2021/01/09/Project3_LARS/</id>
+    <published>2021-01-08T23:08:39.000Z</published>
+    <updated>2021-01-09T07:09:43.728Z</updated>
+    
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/Project3_LARS.pdf" data-height="500px"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/Project3_LARS.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/categories/Report/"/>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/tags/Report/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
     <link href="https://yihang-li.github.io/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/"/>
     <id>https://yihang-li.github.io/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</id>
     <published>2021-01-08T22:55:28.000Z</published>
-    <updated>2021-01-09T06:57:35.913Z</updated>
+    <updated>2021-01-09T07:08:07.746Z</updated>
     
     <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/Final_Project___Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set.pdf" data-height="500px"></div>]]></content>
     

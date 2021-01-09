@@ -536,9 +536,21 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       </tags>
   </entry>
   <entry>
-    <title>Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set</title>
+    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
     <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
     <content><![CDATA[<div class="pdfobject-container" data-target="./pdf/Final_Project___Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set.pdf" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</title>
+    <url>/2021/01/09/Project3_LARS/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="./pdf/Project3_LARS.pdf" data-height="500px"></div>
 ]]></content>
       <categories>
         <category>Report</category>
