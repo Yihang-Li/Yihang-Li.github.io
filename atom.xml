@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-09T06:30:18.303Z</updated>
+  <updated>2021-01-09T06:53:11.002Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -17,11 +17,40 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>基于核方法的深圳市房租预测分析</title>
+    <link href="https://yihang-li.github.io/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/"/>
+    <id>https://yihang-li.github.io/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</id>
+    <published>2021-01-08T22:48:14.000Z</published>
+    <updated>2021-01-09T06:53:11.002Z</updated>
+    
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/毕业设计.pdf" data-height="500px"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/毕业设计.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
+
+      
+    
+    </summary>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/categories/Report/"/>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/tags/Report/"/>
+    
+      <category term="kernel" scheme="https://yihang-li.github.io/tags/kernel/"/>
+    
+  </entry>
+  
+  <entry>
     <title>MDS6106Optimization-FinalProject</title>
     <link href="https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/"/>
     <id>https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/</id>
     <published>2021-01-08T21:16:42.000Z</published>
-    <updated>2021-01-09T06:30:18.303Z</updated>
+    <updated>2021-01-09T06:53:34.383Z</updated>
     
     <content type="html"><![CDATA[<blockquote><p>The Report and the slides for my Optimization course’s final project</p><p>The code can be referenced at my <a href="https://github.com/Yihang-Li/MDS6106Project">Github Repository</a>, which is also my first team collaborate repo.</p></blockquote><div class="pdfobject-container" data-target="./pdf/Opt_Report.pdf" data-height="500px"></div><div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>]]></content>
     
@@ -37,6 +66,8 @@
     </summary>
     
     
+      <category term="Report" scheme="https://yihang-li.github.io/categories/Report/"/>
+    
     
       <category term="Optimization" scheme="https://yihang-li.github.io/tags/Optimization/"/>
     
@@ -51,17 +82,16 @@
     <link href="https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/"/>
     <id>https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/</id>
     <published>2021-01-08T03:23:52.000Z</published>
-    <updated>2021-01-09T03:35:15.241Z</updated>
+    <updated>2021-01-09T06:53:22.938Z</updated>
     
-    <content type="html"><![CDATA[<blockquote><p>本文为本科毕业设计的副产物， 一篇文献翻译<br><div class="pdfobject-container" data-target="./pdf/RFF.pdf" data-height="500px"></div></p></blockquote>]]></content>
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/RFF.pdf" data-height="500px"></div>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;blockquote&gt;
-&lt;p&gt;本文为本科毕业设计的副产物， 一篇文献翻译&lt;br&gt;&lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/RFF.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;&lt;/p&gt;
-&lt;/block
+        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/RFF.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
+
       
     
     </summary>
