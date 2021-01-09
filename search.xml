@@ -505,4 +505,19 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
         <tag>data access</tag>
       </tags>
   </entry>
+  <entry>
+    <title>MDS6106Optimization-FinalProject</title>
+    <url>/2021/01/09/MDS6106Optimization-FinalProject/</url>
+    <content><![CDATA[<blockquote>
+<p>The Report and the slides for my Optimization course’s final project</p>
+</blockquote>
+<div class="pdfobject-container" data-target="./pdf/Opt_Report.pdf" data-height="500px"></div>
+<div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>
+]]></content>
+      <tags>
+        <tag>Optimization</tag>
+        <tag>Report</tag>
+        <tag>Slides</tag>
+      </tags>
+  </entry>
 </search>

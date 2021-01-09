@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-09T03:35:15.241Z</updated>
+  <updated>2021-01-09T05:36:03.205Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MDS6106Optimization-FinalProject</title>
+    <link href="https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/"/>
+    <id>https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/</id>
+    <published>2021-01-08T21:16:42.000Z</published>
+    <updated>2021-01-09T05:36:03.205Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>The Report and the slides for my Optimization course’s final project</p></blockquote><div class="pdfobject-container" data-target="./pdf/Opt_Report.pdf" data-height="500px"></div><div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;blockquote&gt;
+&lt;p&gt;The Report and the slides for my Optimization course’s final project&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;div class=&quot;pdfobject-container&quot; data
+      
+    
+    </summary>
+    
+    
+    
+      <category term="Optimization" scheme="https://yihang-li.github.io/tags/Optimization/"/>
+    
+      <category term="Report" scheme="https://yihang-li.github.io/tags/Report/"/>
+    
+      <category term="Slides" scheme="https://yihang-li.github.io/tags/Slides/"/>
+    
+  </entry>
   
   <entry>
     <title>文献翻译-《Random Features for Large Scale Kernel Machines》</title>
