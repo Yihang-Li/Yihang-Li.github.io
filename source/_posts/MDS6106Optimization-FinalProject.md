@@ -2,6 +2,7 @@
 title: MDS6106Optimization-FinalProject
 date: 2021-01-09T13:16:42+08:00
 tags: [Optimization, Report, Slides]
+categories: Report
 ---
 
 > The Report and the slides for my Optimization course's final project

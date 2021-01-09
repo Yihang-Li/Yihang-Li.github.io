@@ -6,5 +6,4 @@ categories: 文献翻译
 mathjax: true
 ---
 
-> 本文为本科毕业设计的副产物， 一篇文献翻译
 {% pdf ./pdf/RFF.pdf %}
