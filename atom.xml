@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-09T06:53:11.002Z</updated>
+  <updated>2021-01-09T06:57:35.913Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set</title>
+    <link href="https://yihang-li.github.io/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/"/>
+    <id>https://yihang-li.github.io/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</id>
+    <published>2021-01-08T22:55:28.000Z</published>
+    <updated>2021-01-09T06:57:35.913Z</updated>
+    
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/Final_Project___Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set.pdf" data-height="500px"></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/Final_Project___Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set.pdf&quot; data-h
+      
+    
+    </summary>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/categories/Report/"/>
+    
+    
+      <category term="Report" scheme="https://yihang-li.github.io/tags/Report/"/>
+    
+  </entry>
   
   <entry>
     <title>基于核方法的深圳市房租预测分析</title>
