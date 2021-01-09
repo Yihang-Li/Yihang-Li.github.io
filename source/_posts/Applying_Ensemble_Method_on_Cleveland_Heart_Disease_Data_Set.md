@@ -5,4 +5,4 @@ tags: [Report]
 categories: Report
 ---
 
-{% pdf ./pdf/Final_Project___Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set.pdf %}
+{% pdf https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview %}

@@ -6,4 +6,6 @@ categories: 文献翻译
 mathjax: true
 ---
 
-{% pdf ./pdf/RFF.pdf %}
+{% pdf https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview %}
+
+<!-- <iframe src="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" width="640" height="480"></iframe> -->

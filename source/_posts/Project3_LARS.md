@@ -5,4 +5,6 @@ tags: [Report]
 categories: Report
 ---
 
-{% pdf ./pdf/Project3_LARS.pdf %}
+<!-- {% pdf https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing %} -->
+{% pdf https://drive.google.com/file/d/18nTj7E7YKpdfZCXpG0X3aSsR59ziPGFC/preview %}
+
