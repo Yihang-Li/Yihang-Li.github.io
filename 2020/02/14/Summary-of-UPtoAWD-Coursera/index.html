@@ -1,0 +1,3402 @@
+<!DOCTYPE html><html lang="zh-CN"><head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/L512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/L32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/L16x16.png">
+  <link rel="mask-icon" href="/images/L.svg" color="#222">
+
+
+
+
+
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yihang-li.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="First of all, thanks Dr. Charles Russell Severance  Why I write this summary?  gained certificate from last winter vacation(2019) need to apply this knowledge for data access">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Summary of Using Python to Access Web Data">
+<meta property="og:url" content="https://yihang-li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/index.html">
+<meta property="og:site_name" content="Yihang">
+<meta property="og:description" content="First of all, thanks Dr. Charles Russell Severance  Why I write this summary?  gained certificate from last winter vacation(2019) need to apply this knowledge for data access">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://yihang-li.github.io/assets/image-20200214105208294.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/image-20200214180630075.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/image-20200214211642103.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/image-20200215104121294.png">
+<meta property="article:published_time" content="2020-02-14T02:21:12.000Z">
+<meta property="article:modified_time" content="2021-01-09T04:26:12.230Z">
+<meta property="article:author" content="Yihang Li">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="coursera">
+<meta property="article:tag" content="web">
+<meta property="article:tag" content="data access">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yihang-li.github.io/assets/image-20200214105208294.png">
+
+<link rel="canonical" href="https://yihang-li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>Summary of Using Python to Access Web Data | Yihang</title>
+  
+
+
+
+
+
+
+  <style>:root {
+  --body-bg-color: #fff;
+  --content-bg-color: #fff;
+  --card-bg-color: #f5f5f5;
+  --text-color: #555;
+  --blockquote-color: #666;
+  --link-color: #555;
+  --link-hover-color: #222;
+  --brand-color: #fff;
+  --brand-hover-color: #fff;
+  --table-row-odd-bg-color: #f9f9f9;
+  --table-row-hover-bg-color: #f5f5f5;
+  --menu-item-bg-color: #f5f5f5;
+  --btn-default-bg: #222;
+  --btn-default-color: #fff;
+  --btn-default-border-color: #222;
+  --btn-default-hover-bg: #fff;
+  --btn-default-hover-color: #222;
+  --btn-default-hover-border-color: #222;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --body-bg-color: #282828;
+    --content-bg-color: #333;
+    --card-bg-color: #555;
+    --text-color: #ccc;
+    --blockquote-color: #bbb;
+    --link-color: #ccc;
+    --link-hover-color: #eee;
+    --brand-color: #ddd;
+    --brand-hover-color: #ddd;
+    --table-row-odd-bg-color: #282828;
+    --table-row-hover-bg-color: #363636;
+    --menu-item-bg-color: #555;
+    --btn-default-bg: #222;
+    --btn-default-color: #ccc;
+    --btn-default-border-color: #555;
+    --btn-default-hover-bg: #666;
+    --btn-default-hover-color: #ccc;
+    --btn-default-hover-border-color: #666;
+  }
+  img {
+    opacity: 0.75;
+  }
+  img:hover {
+    opacity: 0.9;
+  }
+}
+html {
+  line-height: 1.15; /* 1 */
+  -webkit-text-size-adjust: 100%; /* 2 */
+}
+body {
+  margin: 0;
+}
+main {
+  display: block;
+}
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+hr {
+  box-sizing: content-box; /* 1 */
+  height: 0; /* 1 */
+  overflow: visible; /* 2 */
+}
+pre {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+a {
+  background: transparent;
+}
+abbr[title] {
+  border-bottom: none; /* 1 */
+  text-decoration: underline; /* 2 */
+  text-decoration: underline dotted; /* 2 */
+}
+b,
+strong {
+  font-weight: bolder;
+}
+code,
+kbd,
+samp {
+  font-family: monospace, monospace; /* 1 */
+  font-size: 1em; /* 2 */
+}
+small {
+  font-size: 80%;
+}
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+sub {
+  bottom: -0.25em;
+}
+sup {
+  top: -0.5em;
+}
+img {
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit; /* 1 */
+  font-size: 100%; /* 1 */
+  line-height: 1.15; /* 1 */
+  margin: 0; /* 2 */
+}
+button,
+input {
+/* 1 */
+  overflow: visible;
+}
+button,
+select {
+/* 1 */
+  text-transform: none;
+}
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+legend {
+  box-sizing: border-box; /* 1 */
+  color: inherit; /* 2 */
+  display: table; /* 1 */
+  max-width: 100%; /* 1 */
+  padding: 0; /* 3 */
+  white-space: normal; /* 1 */
+}
+progress {
+  vertical-align: baseline;
+}
+textarea {
+  overflow: auto;
+}
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box; /* 1 */
+  padding: 0; /* 2 */
+}
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+[type='search'] {
+  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield; /* 1 */
+}
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+::-webkit-file-upload-button {
+  font: inherit; /* 2 */
+  -webkit-appearance: button; /* 1 */
+}
+details {
+  display: block;
+}
+summary {
+  display: list-item;
+}
+template {
+  display: none;
+}
+[hidden] {
+  display: none;
+}
+::selection {
+  background: #262a30;
+  color: #eee;
+}
+html,
+body {
+  height: 100%;
+}
+body {
+  background: var(--body-bg-color);
+  color: var(--text-color);
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1em;
+  line-height: 2;
+}
+@media (max-width: 991px) {
+  body {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-weight: bold;
+  line-height: 1.5;
+  margin: 20px 0 15px;
+}
+h1 {
+  font-size: 1.5em;
+}
+h2 {
+  font-size: 1.375em;
+}
+h3 {
+  font-size: 1.25em;
+}
+h4 {
+  font-size: 1.125em;
+}
+h5 {
+  font-size: 1em;
+}
+h6 {
+  font-size: 0.875em;
+}
+p {
+  margin: 0 0 20px 0;
+}
+a,
+span.exturl {
+  border-bottom: 1px solid #999;
+  color: var(--link-color);
+  outline: 0;
+  text-decoration: none;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  cursor: pointer;
+}
+a:hover,
+span.exturl:hover {
+  border-bottom-color: var(--link-hover-color);
+  color: var(--link-hover-color);
+}
+iframe,
+img,
+video {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+}
+hr {
+  background-image: repeating-linear-gradient(-45deg, #ddd, #ddd 4px, transparent 4px, transparent 8px);
+  border: 0;
+  height: 3px;
+  margin: 40px 0;
+}
+blockquote {
+  border-left: 4px solid #ddd;
+  color: var(--blockquote-color);
+  margin: 0;
+  padding: 0 15px;
+}
+blockquote cite::before {
+  content: '-';
+  padding: 0 5px;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0;
+  padding: 0;
+}
+kbd {
+  background-color: #f5f5f5;
+  background-image: linear-gradient(#eee, #fff, #eee);
+  border: 1px solid #ccc;
+  border-radius: 0.2em;
+  box-shadow: 0.1em 0.1em 0.2em rgba(0,0,0,0.1);
+  color: #555;
+  font-family: inherit;
+  padding: 0.1em 0.3em;
+  white-space: nowrap;
+}
+.table-container {
+  overflow: auto;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-size: 0.875em;
+  margin: 0 0 20px 0;
+  width: 100%;
+}
+tbody tr:nth-of-type(odd) {
+  background: var(--table-row-odd-bg-color);
+}
+tbody tr:hover {
+  background: var(--table-row-hover-bg-color);
+}
+caption,
+th,
+td {
+  font-weight: normal;
+  padding: 8px;
+  vertical-align: middle;
+}
+th,
+td {
+  border: 1px solid #ddd;
+  border-bottom: 3px solid #ddd;
+}
+th {
+  font-weight: 700;
+  padding-bottom: 10px;
+}
+td {
+  border-bottom-width: 1px;
+}
+.btn {
+  background: var(--btn-default-bg);
+  border: 2px solid var(--btn-default-border-color);
+  border-radius: 0;
+  color: var(--btn-default-color);
+  display: inline-block;
+  font-size: 0.875em;
+  line-height: 2;
+  padding: 0 20px;
+  text-decoration: none;
+  transition-property: background-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.btn:hover {
+  background: var(--btn-default-hover-bg);
+  border-color: var(--btn-default-hover-border-color);
+  color: var(--btn-default-hover-color);
+}
+.btn + .btn {
+  margin: 0 0 8px 8px;
+}
+.btn .fa-fw {
+  text-align: left;
+  width: 1.285714285714286em;
+}
+.toggle {
+  line-height: 0;
+}
+.toggle .toggle-line {
+  background: #fff;
+  display: inline-block;
+  height: 2px;
+  left: 0;
+  position: relative;
+  top: 0;
+  transition: all 0.4s;
+  vertical-align: top;
+  width: 100%;
+}
+.toggle .toggle-line:not(:first-child) {
+  margin-top: 3px;
+}
+.toggle.toggle-arrow .toggle-line-first {
+  top: 2px;
+  transform: rotate(-45deg);
+  width: 50%;
+}
+.toggle.toggle-arrow .toggle-line-middle {
+  width: 90%;
+}
+.toggle.toggle-arrow .toggle-line-last {
+  top: -2px;
+  transform: rotate(45deg);
+  width: 50%;
+}
+.toggle.toggle-close .toggle-line-first {
+  top: 5px;
+  transform: rotate(-45deg);
+}
+.toggle.toggle-close .toggle-line-middle {
+  opacity: 0;
+}
+.toggle.toggle-close .toggle-line-last {
+  top: -5px;
+  transform: rotate(45deg);
+}
+.highlight-container {
+  position: relative;
+}
+.highlight-container:hover .copy-btn,
+.highlight-container .copy-btn:focus {
+  opacity: 1;
+}
+.copy-btn {
+  color: #333;
+  cursor: pointer;
+  line-height: 1.6;
+  opacity: 0;
+  padding: 2px 6px;
+  position: absolute;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: #eee;
+  background-image: linear-gradient(#fcfcfc, #eee);
+  border: 1px solid #d5d5d5;
+  border-radius: 3px;
+  font-size: 0.8125em;
+  right: 4px;
+  top: 8px;
+}
+.highlight,
+pre {
+  background: #1d1f21;
+  color: #c5c8c6;
+  line-height: 1.6;
+  margin: 0 auto 20px;
+}
+pre,
+code {
+  font-family: consolas, Menlo, monospace, "PingFang SC", "Microsoft YaHei";
+}
+code {
+  background: #eee;
+  border-radius: 3px;
+  color: #555;
+  padding: 2px 4px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.highlight *::selection {
+  background: #373b41;
+}
+.highlight pre {
+  border: 0;
+  margin: 0;
+  padding: 10px 0;
+}
+.highlight table {
+  border: 0;
+  margin: 0;
+  width: auto;
+}
+.highlight td {
+  border: 0;
+  padding: 0;
+}
+.highlight figcaption {
+  background: #000;
+  color: #c5c8c6;
+  display: flex;
+  font-size: 0.875em;
+  justify-content: space-between;
+  line-height: 1.2;
+  padding: 0.5em;
+}
+.highlight figcaption a {
+  color: #c5c8c6;
+}
+.highlight figcaption a:hover {
+  border-bottom-color: #c5c8c6;
+}
+.highlight .gutter {
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.highlight .gutter pre {
+  background: #000;
+  color: #888f96;
+  padding-left: 10px;
+  padding-right: 10px;
+  text-align: right;
+}
+.highlight .code pre {
+  background: #1d1f21;
+  padding-left: 10px;
+  width: 100%;
+}
+.gist table {
+  width: auto;
+}
+.gist table td {
+  border: 0;
+}
+pre {
+  overflow: auto;
+  padding: 10px;
+}
+pre code {
+  background: none;
+  color: #c5c8c6;
+  font-size: 0.875em;
+  padding: 0;
+  text-shadow: none;
+}
+pre .deletion {
+  background: #800000;
+}
+pre .addition {
+  background: #008000;
+}
+pre .meta {
+  color: #f0c674;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+pre .comment {
+  color: #969896;
+}
+pre .variable,
+pre .attribute,
+pre .tag,
+pre .name,
+pre .regexp,
+pre .ruby .constant,
+pre .xml .tag .title,
+pre .xml .pi,
+pre .xml .doctype,
+pre .html .doctype,
+pre .css .id,
+pre .css .class,
+pre .css .pseudo {
+  color: #c66;
+}
+pre .number,
+pre .preprocessor,
+pre .built_in,
+pre .builtin-name,
+pre .literal,
+pre .params,
+pre .constant,
+pre .command {
+  color: #de935f;
+}
+pre .ruby .class .title,
+pre .css .rules .attribute,
+pre .string,
+pre .symbol,
+pre .value,
+pre .inheritance,
+pre .header,
+pre .ruby .symbol,
+pre .xml .cdata,
+pre .special,
+pre .formula {
+  color: #b5bd68;
+}
+pre .title,
+pre .css .hexcolor {
+  color: #8abeb7;
+}
+pre .function,
+pre .python .decorator,
+pre .python .title,
+pre .ruby .function .title,
+pre .ruby .title .keyword,
+pre .perl .sub,
+pre .javascript .title,
+pre .coffeescript .title {
+  color: #81a2be;
+}
+pre .keyword,
+pre .javascript .function {
+  color: #b294bb;
+}
+.blockquote-center {
+  border-left: none;
+  margin: 40px 0;
+  padding: 0;
+  position: relative;
+  text-align: center;
+}
+.blockquote-center .fa {
+  display: block;
+  opacity: 0.6;
+  position: absolute;
+  width: 100%;
+}
+.blockquote-center .fa-quote-left {
+  border-top: 1px solid #ccc;
+  text-align: left;
+  top: -20px;
+}
+.blockquote-center .fa-quote-right {
+  border-bottom: 1px solid #ccc;
+  text-align: right;
+  bottom: -20px;
+}
+.blockquote-center p,
+.blockquote-center div {
+  text-align: center;
+}
+.post-body .group-picture img {
+  margin: 0 auto;
+  padding: 0 3px;
+}
+.group-picture-row {
+  margin-bottom: 6px;
+  overflow: hidden;
+}
+.group-picture-column {
+  float: left;
+  margin-bottom: 10px;
+}
+.post-body .label {
+  color: #555;
+  display: inline;
+  padding: 0 2px;
+}
+.post-body .label.default {
+  background: #f0f0f0;
+}
+.post-body .label.primary {
+  background: #efe6f7;
+}
+.post-body .label.info {
+  background: #e5f2f8;
+}
+.post-body .label.success {
+  background: #e7f4e9;
+}
+.post-body .label.warning {
+  background: #fcf6e1;
+}
+.post-body .label.danger {
+  background: #fae8eb;
+}
+.post-body .tabs {
+  margin-bottom: 20px;
+}
+.post-body .tabs,
+.tabs-comment {
+  display: block;
+  padding-top: 10px;
+  position: relative;
+}
+.post-body .tabs ul.nav-tabs,
+.tabs-comment ul.nav-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  margin-bottom: -1px;
+  padding: 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs,
+  .tabs-comment ul.nav-tabs {
+    display: block;
+    margin-bottom: 5px;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab,
+.tabs-comment ul.nav-tabs li.tab {
+  border-bottom: 1px solid #ddd;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+  border-top: 3px solid transparent;
+  flex-grow: 1;
+  list-style-type: none;
+  border-radius: 0 0 0 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-bottom: 1px solid transparent;
+    border-left: 3px solid transparent;
+    border-right: 1px solid transparent;
+    border-top: 1px solid transparent;
+  }
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab,
+  .tabs-comment ul.nav-tabs li.tab {
+    border-radius: 0;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab a,
+.tabs-comment ul.nav-tabs li.tab a {
+  border-bottom: initial;
+  display: block;
+  line-height: 1.8;
+  outline: 0;
+  padding: 0.25em 0.75em;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+.post-body .tabs ul.nav-tabs li.tab a i,
+.tabs-comment ul.nav-tabs li.tab a i {
+  width: 1.285714285714286em;
+}
+.post-body .tabs ul.nav-tabs li.tab.active,
+.tabs-comment ul.nav-tabs li.tab.active {
+  border-bottom: 1px solid transparent;
+  border-left: 1px solid #ddd;
+  border-right: 1px solid #ddd;
+  border-top: 3px solid #fc6423;
+}
+@media (max-width: 413px) {
+  .post-body .tabs ul.nav-tabs li.tab.active,
+  .tabs-comment ul.nav-tabs li.tab.active {
+    border-bottom: 1px solid #ddd;
+    border-left: 3px solid #fc6423;
+    border-right: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+  }
+}
+.post-body .tabs ul.nav-tabs li.tab.active a,
+.tabs-comment ul.nav-tabs li.tab.active a {
+  color: var(--link-color);
+  cursor: default;
+}
+.post-body .tabs .tab-content .tab-pane,
+.tabs-comment .tab-content .tab-pane {
+  border: 1px solid #ddd;
+  border-top: 0;
+  padding: 20px 20px 0 20px;
+  border-radius: 0;
+}
+.post-body .tabs .tab-content .tab-pane:not(.active),
+.tabs-comment .tab-content .tab-pane:not(.active) {
+  display: none;
+}
+.post-body .tabs .tab-content .tab-pane.active,
+.tabs-comment .tab-content .tab-pane.active {
+  display: block;
+}
+.post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+.tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+  border-radius: 0 0 0 0;
+}
+@media (max-width: 413px) {
+  .post-body .tabs .tab-content .tab-pane.active:nth-of-type(1),
+  .tabs-comment .tab-content .tab-pane.active:nth-of-type(1) {
+    border-radius: 0;
+  }
+}
+.post-body .note {
+  border-radius: 3px;
+  margin-bottom: 20px;
+  padding: 1em;
+  position: relative;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+}
+.post-body .note h2,
+.post-body .note h3,
+.post-body .note h4,
+.post-body .note h5,
+.post-body .note h6 {
+  margin-top: 0;
+  border-bottom: initial;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+.post-body .note p:first-child,
+.post-body .note ul:first-child,
+.post-body .note ol:first-child,
+.post-body .note table:first-child,
+.post-body .note pre:first-child,
+.post-body .note blockquote:first-child,
+.post-body .note img:first-child {
+  margin-top: 0;
+}
+.post-body .note p:last-child,
+.post-body .note ul:last-child,
+.post-body .note ol:last-child,
+.post-body .note table:last-child,
+.post-body .note pre:last-child,
+.post-body .note blockquote:last-child,
+.post-body .note img:last-child {
+  margin-bottom: 0;
+}
+.post-body .note.default {
+  border-left-color: #777;
+}
+.post-body .note.default h2,
+.post-body .note.default h3,
+.post-body .note.default h4,
+.post-body .note.default h5,
+.post-body .note.default h6 {
+  color: #777;
+}
+.post-body .note.primary {
+  border-left-color: #6f42c1;
+}
+.post-body .note.primary h2,
+.post-body .note.primary h3,
+.post-body .note.primary h4,
+.post-body .note.primary h5,
+.post-body .note.primary h6 {
+  color: #6f42c1;
+}
+.post-body .note.info {
+  border-left-color: #428bca;
+}
+.post-body .note.info h2,
+.post-body .note.info h3,
+.post-body .note.info h4,
+.post-body .note.info h5,
+.post-body .note.info h6 {
+  color: #428bca;
+}
+.post-body .note.success {
+  border-left-color: #5cb85c;
+}
+.post-body .note.success h2,
+.post-body .note.success h3,
+.post-body .note.success h4,
+.post-body .note.success h5,
+.post-body .note.success h6 {
+  color: #5cb85c;
+}
+.post-body .note.warning {
+  border-left-color: #f0ad4e;
+}
+.post-body .note.warning h2,
+.post-body .note.warning h3,
+.post-body .note.warning h4,
+.post-body .note.warning h5,
+.post-body .note.warning h6 {
+  color: #f0ad4e;
+}
+.post-body .note.danger {
+  border-left-color: #d9534f;
+}
+.post-body .note.danger h2,
+.post-body .note.danger h3,
+.post-body .note.danger h4,
+.post-body .note.danger h5,
+.post-body .note.danger h6 {
+  color: #d9534f;
+}
+.pdfobject-container iframe,
+.pdfobject-container embed {
+  height: 500px;
+  width: 100%;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number,
+.pagination .space {
+  display: inline-block;
+  margin: 0 10px;
+  padding: 0 11px;
+  position: relative;
+  top: -1px;
+}
+@media (max-width: 767px) {
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number,
+  .pagination .space {
+    margin: 0 5px;
+  }
+}
+.pagination {
+  border-top: 1px solid #eee;
+  margin: 120px 0 0;
+  text-align: center;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  border-bottom: 0;
+  border-top: 1px solid #eee;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.pagination .prev:hover,
+.pagination .next:hover,
+.pagination .page-number:hover {
+  border-top-color: #222;
+}
+.pagination .space {
+  margin: 0;
+  padding: 0;
+}
+.pagination .prev {
+  margin-left: 0;
+}
+.pagination .next {
+  margin-right: 0;
+}
+.pagination .page-number.current {
+  background: #ccc;
+  border-top-color: #ccc;
+  color: #fff;
+}
+@media (max-width: 767px) {
+  .pagination {
+    border-top: none;
+  }
+  .pagination .prev,
+  .pagination .next,
+  .pagination .page-number {
+    border-bottom: 1px solid #eee;
+    border-top: 0;
+    margin-bottom: 10px;
+    padding: 0 10px;
+  }
+  .pagination .prev:hover,
+  .pagination .next:hover,
+  .pagination .page-number:hover {
+    border-bottom-color: #222;
+  }
+}
+.comments {
+  margin-top: 60px;
+  overflow: hidden;
+}
+.comment-button-group {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: center;
+  margin: 1em 0;
+}
+.comment-button-group .comment-button {
+  margin: 0.1em 0.2em;
+}
+.comment-button-group .comment-button.active {
+  background: var(--btn-default-hover-bg);
+  border-color: var(--btn-default-hover-border-color);
+  color: var(--btn-default-hover-color);
+}
+.comment-position {
+  display: none;
+}
+.comment-position.active {
+  display: block;
+}
+.tabs-comment {
+  background: var(--content-bg-color);
+  margin-top: 4em;
+  padding-top: 0;
+}
+.tabs-comment .comments {
+  border: 0;
+  box-shadow: none;
+  margin-top: 0;
+  padding-top: 0;
+}
+.container {
+  min-height: 100%;
+  position: relative;
+}
+.main-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .main-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .main-inner {
+    width: 900px;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 0 20px;
+  }
+}
+.header {
+  background: transparent;
+}
+.header-inner {
+  margin: 0 auto;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .header-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .header-inner {
+    width: 900px;
+  }
+}
+.site-brand-container {
+  display: flex;
+  flex-shrink: 0;
+  padding: 0 10px;
+}
+.headband {
+  background: #222;
+  height: 3px;
+}
+.site-meta {
+  flex-grow: 1;
+  text-align: center;
+}
+@media (max-width: 767px) {
+  .site-meta {
+    text-align: center;
+  }
+}
+.brand {
+  border-bottom: none;
+  color: var(--brand-color);
+  display: inline-block;
+  line-height: 1.375em;
+  padding: 0 40px;
+  position: relative;
+}
+.brand:hover {
+  color: var(--brand-hover-color);
+}
+.site-title {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 1.375em;
+  font-weight: normal;
+  margin: 0;
+}
+.site-subtitle {
+  color: #999;
+  font-size: 0.8125em;
+  margin: 10px 0;
+}
+.use-motion .brand {
+  opacity: 0;
+}
+.use-motion .site-title,
+.use-motion .site-subtitle,
+.use-motion .custom-logo-image {
+  opacity: 0;
+  position: relative;
+  top: -10px;
+}
+.site-nav-toggle,
+.site-nav-right {
+  display: none;
+}
+@media (max-width: 767px) {
+  .site-nav-toggle,
+  .site-nav-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+.site-nav-toggle .toggle,
+.site-nav-right .toggle {
+  color: var(--text-color);
+  padding: 10px;
+  width: 22px;
+}
+.site-nav-toggle .toggle .toggle-line,
+.site-nav-right .toggle .toggle-line {
+  background: var(--text-color);
+  border-radius: 1px;
+}
+.site-nav {
+  display: block;
+}
+@media (max-width: 767px) {
+  .site-nav {
+    clear: both;
+    display: none;
+  }
+}
+.site-nav.site-nav-on {
+  display: block;
+}
+.menu {
+  margin-top: 20px;
+  padding-left: 0;
+  text-align: center;
+}
+.menu-item {
+  display: inline-block;
+  list-style: none;
+  margin: 0 10px;
+}
+@media (max-width: 767px) {
+  .menu-item {
+    display: block;
+    margin-top: 10px;
+  }
+  .menu-item.menu-item-search {
+    display: none;
+  }
+}
+.menu-item a,
+.menu-item span.exturl {
+  border-bottom: 0;
+  display: block;
+  font-size: 0.8125em;
+  transition-property: border-color;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+@media (hover: none) {
+  .menu-item a:hover,
+  .menu-item span.exturl:hover {
+    border-bottom-color: transparent !important;
+  }
+}
+.menu-item .fa,
+.menu-item .fab,
+.menu-item .far,
+.menu-item .fas {
+  margin-right: 8px;
+}
+.menu-item .badge {
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1;
+  margin-left: 0.35em;
+  margin-top: 0.35em;
+  text-align: center;
+  white-space: nowrap;
+}
+@media (max-width: 767px) {
+  .menu-item .badge {
+    float: right;
+    margin-left: 0;
+  }
+}
+.menu-item-active a,
+.menu .menu-item a:hover,
+.menu .menu-item span.exturl:hover {
+  background: var(--menu-item-bg-color);
+}
+.use-motion .menu-item {
+  opacity: 0;
+}
+.book-mark-link {
+  border-bottom: none;
+  display: inline-block;
+  position: fixed;
+  right: 30px;
+  top: -10px;
+  transition: 0.3s;
+}
+@media (max-width: 991px) {
+  .book-mark-link {
+    display: none;
+  }
+}
+.book-mark-link::before {
+  color: #222;
+  content: '\f02e';
+  font-size: 32px;
+  line-height: 1;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.book-mark-link:hover,
+.book-mark-link-fixed {
+  top: -2px;
+}
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner svg {
+  border: 0;
+  color: #fff;
+  fill: #222;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+@media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+.sidebar {
+  background: #222;
+  bottom: 0;
+  position: fixed;
+  top: 0;
+}
+@media (max-width: 991px) {
+  .sidebar {
+    display: none;
+  }
+}
+.sidebar-inner {
+  color: #999;
+  padding: 18px 10px;
+  text-align: center;
+}
+.cc-license {
+  margin-top: 10px;
+  text-align: center;
+}
+.cc-license .cc-opacity {
+  border-bottom: none;
+  opacity: 0.7;
+}
+.cc-license .cc-opacity:hover {
+  opacity: 0.9;
+}
+.cc-license img {
+  display: inline-block;
+}
+.site-author-image {
+  border: 2px solid #333;
+  display: block;
+  margin: 0 auto;
+  max-width: 96px;
+  padding: 2px;
+  border-radius: 50%;
+}
+.site-author-image {
+  transition: transform 1s ease-out;
+}
+.site-author-image:hover {
+  transform: rotateZ(360deg);
+}
+.site-author-name {
+  color: #f5f5f5;
+  font-weight: normal;
+  margin: 5px 0 0;
+  text-align: center;
+}
+.site-description {
+  color: #999;
+  font-size: 1em;
+  margin-top: 5px;
+  text-align: center;
+}
+.links-of-author {
+  margin-top: 15px;
+}
+.links-of-author a,
+.links-of-author span.exturl {
+  border-bottom-color: #555;
+  display: inline-block;
+  font-size: 0.8125em;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+.links-of-author a::before,
+.links-of-author span.exturl::before {
+  background: #9d8c6f;
+  border-radius: 50%;
+  content: ' ';
+  display: inline-block;
+  height: 4px;
+  margin-right: 3px;
+  vertical-align: middle;
+  width: 4px;
+}
+.sidebar-button {
+  margin-top: 15px;
+}
+.sidebar-button a {
+  border: 1px solid #fc6423;
+  border-radius: 4px;
+  color: #fc6423;
+  display: inline-block;
+  padding: 0 15px;
+}
+.sidebar-button a .fa,
+.sidebar-button a .fab,
+.sidebar-button a .far,
+.sidebar-button a .fas {
+  margin-right: 5px;
+}
+.sidebar-button a:hover {
+  background: #fc6423;
+  border: 1px solid #fc6423;
+  color: #fff;
+}
+.sidebar-button a:hover .fa,
+.sidebar-button a:hover .fab,
+.sidebar-button a:hover .far,
+.sidebar-button a:hover .fas {
+  color: #fff;
+}
+.links-of-blogroll {
+  font-size: 0.8125em;
+  margin-top: 10px;
+}
+.links-of-blogroll-title {
+  font-size: 0.875em;
+  font-weight: 600;
+  margin-top: 0;
+}
+.links-of-blogroll-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+#sidebar-dimmer {
+  display: none;
+}
+@media (max-width: 767px) {
+  #sidebar-dimmer {
+    background: #000;
+    display: block;
+    height: 100%;
+    left: 100%;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1100;
+  }
+  .sidebar-active + #sidebar-dimmer {
+    opacity: 0.7;
+    transform: translateX(-100%);
+    transition: opacity 0.5s;
+  }
+}
+.sidebar-nav {
+  margin: 0;
+  padding-bottom: 20px;
+  padding-left: 0;
+}
+.sidebar-nav li {
+  border-bottom: 1px solid transparent;
+  color: #666;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 0.875em;
+}
+.sidebar-nav li.sidebar-nav-overview {
+  margin-left: 10px;
+}
+.sidebar-nav li:hover {
+  color: #f5f5f5;
+}
+.sidebar-nav .sidebar-nav-active {
+  border-bottom-color: #87daff;
+  color: #87daff;
+}
+.sidebar-nav .sidebar-nav-active:hover {
+  color: #87daff;
+}
+.sidebar-panel {
+  display: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+.sidebar-panel-active {
+  display: block;
+}
+.sidebar-toggle {
+  background: #222;
+  bottom: 45px;
+  cursor: pointer;
+  height: 14px;
+  left: 30px;
+  padding: 5px;
+  position: fixed;
+  width: 14px;
+  z-index: 1300;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle {
+    left: 20px;
+    opacity: 0.8;
+    display: none;
+  }
+}
+.sidebar-toggle:hover .toggle-line {
+  background: #87daff;
+}
+.post-toc {
+  font-size: 0.875em;
+}
+.post-toc ol {
+  list-style: none;
+  margin: 0;
+  padding: 0 2px 5px 10px;
+  text-align: left;
+}
+.post-toc ol > ol {
+  padding-left: 0;
+}
+.post-toc ol a {
+  transition-property: all;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.post-toc .nav-item {
+  line-height: 1.8;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.post-toc .nav .nav-child {
+  display: none;
+}
+.post-toc .nav .active > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child {
+  display: block;
+}
+.post-toc .nav .active-current > .nav-child > .nav-item {
+  display: block;
+}
+.post-toc .nav .active > a {
+  border-bottom-color: #87daff;
+  color: #87daff;
+}
+.post-toc .nav .active-current > a {
+  color: #87daff;
+}
+.post-toc .nav .active-current > a:hover {
+  color: #87daff;
+}
+.site-state {
+  display: flex;
+  justify-content: center;
+  line-height: 1.4;
+  margin-top: 10px;
+  overflow: hidden;
+  text-align: center;
+  white-space: nowrap;
+}
+.site-state-item {
+  padding: 0 15px;
+}
+.site-state-item:not(:first-child) {
+  border-left: 1px solid #333;
+}
+.site-state-item a {
+  border-bottom: none;
+}
+.site-state-item-count {
+  display: block;
+  font-size: 1.25em;
+  font-weight: 600;
+  text-align: center;
+}
+.site-state-item-name {
+  color: inherit;
+  font-size: 0.875em;
+}
+.footer {
+  color: #999;
+  font-size: 0.875em;
+  padding: 20px 0;
+}
+.footer.footer-fixed {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.footer-inner {
+  box-sizing: border-box;
+  margin: 0 auto;
+  text-align: center;
+  width: 700px;
+}
+@media (min-width: 1200px) {
+  .footer-inner {
+    width: 800px;
+  }
+}
+@media (min-width: 1600px) {
+  .footer-inner {
+    width: 900px;
+  }
+}
+.languages {
+  display: inline-block;
+  font-size: 1.125em;
+  position: relative;
+}
+.languages .lang-select-label span {
+  margin: 0 0.5em;
+}
+.languages .lang-select {
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.with-love {
+  color: #ff0000;
+  display: inline-block;
+  margin: 0 5px;
+}
+.powered-by,
+.theme-info {
+  display: inline-block;
+}
+@-moz-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-webkit-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@-o-keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+@keyframes iconAnimate {
+  0%, 100% {
+    transform: scale(1);
+  }
+  10%, 30% {
+    transform: scale(0.9);
+  }
+  20%, 40%, 60%, 80% {
+    transform: scale(1.1);
+  }
+  50%, 70% {
+    transform: scale(1.1);
+  }
+}
+.back-to-top {
+  font-size: 12px;
+  text-align: center;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.back-to-top {
+  background: transparent;
+  margin: 8px -10px -20px;
+  opacity: 0;
+}
+.back-to-top.back-to-top-on {
+  cursor: pointer;
+  opacity: 1;
+}
+.back-to-top.back-to-top-on:hover {
+  opacity: 0.8;
+}
+.post-body {
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+@media (min-width: 1200px) {
+  .post-body {
+    font-size: 1.125em;
+  }
+}
+.post-body .exturl .fa {
+  font-size: 0.875em;
+  margin-left: 4px;
+}
+.post-body .image-caption,
+.post-body .figure .caption {
+  color: #999;
+  font-size: 0.875em;
+  font-weight: bold;
+  line-height: 1;
+  margin: -20px auto 15px;
+  text-align: center;
+}
+.post-sticky-flag {
+  display: inline-block;
+  transform: rotate(30deg);
+}
+.post-button {
+  margin-top: 40px;
+  text-align: center;
+}
+.use-motion .post-block {
+  opacity: 0;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 25px;
+  background: rgba(255,255,255,0.9) none repeat scroll !important;
+  -webkit-box-shadow: 0 0 5px rgba(202,203,203,0.5);
+  -moz-box-shadow: 0 0 5px rgba(202,203,204,0.5);
+}
+.use-motion .pagination,
+.use-motion .comments {
+  opacity: 0;
+}
+.use-motion .post-header {
+  opacity: 0;
+}
+.use-motion .post-body {
+  opacity: 0;
+}
+.use-motion .collection-header {
+  opacity: 0;
+}
+.posts-collapse {
+  margin-left: 35px;
+  position: relative;
+}
+@media (max-width: 767px) {
+  .posts-collapse {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+}
+.posts-collapse .collection-title {
+  font-size: 1.125em;
+  position: relative;
+}
+.posts-collapse .collection-title::before {
+  background: #999;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 10px;
+  left: 0;
+  margin-left: -6px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 10px;
+}
+.posts-collapse .collection-year {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 60px 0;
+  position: relative;
+}
+.posts-collapse .collection-year::before {
+  background: #bbb;
+  border-radius: 50%;
+  content: ' ';
+  height: 8px;
+  left: 0;
+  margin-left: -4px;
+  margin-top: -4px;
+  position: absolute;
+  top: 50%;
+  width: 8px;
+}
+.posts-collapse .collection-header {
+  display: block;
+  margin: 0 0 0 20px;
+}
+.posts-collapse .collection-header small {
+  color: #bbb;
+  margin-left: 5px;
+}
+.posts-collapse .post-header {
+  border-bottom: 1px dashed #ccc;
+  margin: 30px 0;
+  padding-left: 15px;
+  position: relative;
+  transition-property: border;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header::before {
+  background: #bbb;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  content: ' ';
+  height: 6px;
+  left: 0;
+  margin-left: -4px;
+  position: absolute;
+  top: 0.75em;
+  transition-property: background;
+  width: 6px;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-collapse .post-header:hover {
+  border-bottom-color: #666;
+}
+.posts-collapse .post-header:hover::before {
+  background: #222;
+}
+.posts-collapse .post-meta {
+  display: inline;
+  font-size: 0.75em;
+  margin-right: 10px;
+}
+.posts-collapse .post-title {
+  display: inline;
+}
+.posts-collapse .post-title a,
+.posts-collapse .post-title span.exturl {
+  border-bottom: none;
+  color: var(--link-color);
+}
+.posts-collapse .post-title .fa-external-link-alt {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.posts-collapse::before {
+  background: #f5f5f5;
+  content: ' ';
+  height: 100%;
+  left: 0;
+  margin-left: -2px;
+  position: absolute;
+  top: 1.25em;
+  width: 4px;
+}
+.post-eof {
+  background: #ccc;
+  height: 1px;
+  margin: 80px auto 60px;
+  text-align: center;
+  width: 8%;
+}
+.post-block:last-of-type .post-eof {
+  display: none;
+}
+.content {
+  padding-top: 40px;
+}
+@media (min-width: 992px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+@media (max-width: 991px) {
+  .post-body {
+    text-align: justify;
+  }
+}
+.post-body h1,
+.post-body h2,
+.post-body h3,
+.post-body h4,
+.post-body h5,
+.post-body h6 {
+  padding-top: 10px;
+}
+.post-body h1 .header-anchor,
+.post-body h2 .header-anchor,
+.post-body h3 .header-anchor,
+.post-body h4 .header-anchor,
+.post-body h5 .header-anchor,
+.post-body h6 .header-anchor {
+  border-bottom-style: none;
+  color: #ccc;
+  float: right;
+  margin-left: 10px;
+  visibility: hidden;
+}
+.post-body h1 .header-anchor:hover,
+.post-body h2 .header-anchor:hover,
+.post-body h3 .header-anchor:hover,
+.post-body h4 .header-anchor:hover,
+.post-body h5 .header-anchor:hover,
+.post-body h6 .header-anchor:hover {
+  color: inherit;
+}
+.post-body h1:hover .header-anchor,
+.post-body h2:hover .header-anchor,
+.post-body h3:hover .header-anchor,
+.post-body h4:hover .header-anchor,
+.post-body h5:hover .header-anchor,
+.post-body h6:hover .header-anchor {
+  visibility: visible;
+}
+.post-body iframe,
+.post-body img,
+.post-body video {
+  margin-bottom: 20px;
+}
+.post-body .video-container {
+  height: 0;
+  margin-bottom: 20px;
+  overflow: hidden;
+  padding-top: 75%;
+  position: relative;
+  width: 100%;
+}
+.post-body .video-container iframe,
+.post-body .video-container object,
+.post-body .video-container embed {
+  height: 100%;
+  left: 0;
+  margin: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.post-gallery {
+  align-items: center;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-bottom: 20px;
+}
+@media (max-width: 767px) {
+  .post-gallery {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.post-gallery a {
+  border: 0;
+}
+.post-gallery img {
+  margin: 0;
+}
+.posts-expand .post-header {
+  font-size: 1.125em;
+}
+.posts-expand .post-title {
+  font-size: 1.5em;
+  font-weight: normal;
+  margin: initial;
+  text-align: center;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+.posts-expand .post-title-link {
+  border-bottom: none;
+  color: var(--link-color);
+  display: inline-block;
+  position: relative;
+  vertical-align: top;
+}
+.posts-expand .post-title-link::before {
+  background: var(--link-color);
+  bottom: 0;
+  content: '';
+  height: 2px;
+  left: 0;
+  position: absolute;
+  transform: scaleX(0);
+  visibility: hidden;
+  width: 100%;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+}
+.posts-expand .post-title-link:hover::before {
+  transform: scaleX(1);
+  visibility: visible;
+}
+.posts-expand .post-title-link .fa-external-link-alt {
+  font-size: 0.875em;
+  margin-left: 5px;
+}
+.posts-expand .post-meta {
+  color: #999;
+  font-family: 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: 0.75em;
+  margin: 3px 0 60px 0;
+  text-align: center;
+}
+.posts-expand .post-meta .post-description {
+  font-size: 0.875em;
+  margin-top: 2px;
+}
+.posts-expand .post-meta time {
+  border-bottom: 1px dashed #999;
+  cursor: pointer;
+}
+.post-meta .post-meta-item + .post-meta-item::before {
+  content: '|';
+  margin: 0 0.5em;
+}
+.post-meta-divider {
+  margin: 0 0.5em;
+}
+.post-meta-item-icon {
+  margin-right: 3px;
+}
+@media (max-width: 991px) {
+  .post-meta-item-icon {
+    display: inline-block;
+  }
+}
+@media (max-width: 991px) {
+  .post-meta-item-text {
+    display: none;
+  }
+}
+.post-nav {
+  border-top: 1px solid #eee;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+  padding: 10px 5px 0;
+}
+.post-nav-item {
+  flex: 1;
+}
+.post-nav-item a {
+  border-bottom: none;
+  display: block;
+  font-size: 0.875em;
+  line-height: 1.6;
+  position: relative;
+}
+.post-nav-item a:active {
+  top: 2px;
+}
+.post-nav-item .fa {
+  font-size: 0.75em;
+}
+.post-nav-item:first-child {
+  margin-right: 15px;
+}
+.post-nav-item:first-child .fa {
+  margin-right: 5px;
+}
+.post-nav-item:last-child {
+  margin-left: 15px;
+  text-align: right;
+}
+.post-nav-item:last-child .fa {
+  margin-left: 5px;
+}
+.rtl.post-body p,
+.rtl.post-body a,
+.rtl.post-body h1,
+.rtl.post-body h2,
+.rtl.post-body h3,
+.rtl.post-body h4,
+.rtl.post-body h5,
+.rtl.post-body h6,
+.rtl.post-body li,
+.rtl.post-body ul,
+.rtl.post-body ol {
+  direction: rtl;
+  font-family: UKIJ Ekran;
+}
+.rtl.post-title {
+  font-family: UKIJ Ekran;
+}
+.post-tags {
+  margin-top: 40px;
+  text-align: center;
+}
+.post-tags a {
+  display: inline-block;
+  font-size: 0.8125em;
+}
+.post-tags a:not(:last-child) {
+  margin-right: 10px;
+}
+.post-widgets {
+  border-top: 1px solid #eee;
+  margin-top: 15px;
+  text-align: center;
+}
+.wp_rating {
+  height: 20px;
+  line-height: 20px;
+  margin-top: 10px;
+  padding-top: 6px;
+  text-align: center;
+}
+.social-like {
+  display: flex;
+  font-size: 0.875em;
+  justify-content: center;
+  text-align: center;
+}
+.reward-container {
+  margin: 20px auto;
+  padding: 10px 0;
+  text-align: center;
+  width: 90%;
+}
+.reward-container button {
+  background: transparent;
+  border: 1px solid #fc6423;
+  border-radius: 0;
+  color: #fc6423;
+  cursor: pointer;
+  line-height: 2;
+  outline: 0;
+  padding: 0 15px;
+  vertical-align: text-top;
+}
+.reward-container button:hover {
+  background: #fc6423;
+  border: 1px solid transparent;
+  color: #fa9366;
+}
+#qr {
+  padding-top: 20px;
+}
+#qr a {
+  border: 0;
+}
+#qr img {
+  display: inline-block;
+  margin: 0.8em 2em 0 2em;
+  max-width: 100%;
+  width: 180px;
+}
+#qr p {
+  text-align: center;
+}
+.category-all-page .category-all-title {
+  text-align: center;
+}
+.category-all-page .category-all {
+  margin-top: 20px;
+}
+.category-all-page .category-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.category-all-page .category-list-item {
+  margin: 5px 10px;
+}
+.category-all-page .category-list-count {
+  color: #bbb;
+}
+.category-all-page .category-list-count::before {
+  content: ' (';
+  display: inline;
+}
+.category-all-page .category-list-count::after {
+  content: ') ';
+  display: inline;
+}
+.category-all-page .category-list-child {
+  padding-left: 10px;
+}
+.event-list {
+  padding: 0;
+}
+.event-list hr {
+  background: #222;
+  margin: 20px 0 45px 0;
+}
+.event-list hr::after {
+  background: #222;
+  color: #fff;
+  content: 'NOW';
+  display: inline-block;
+  font-weight: bold;
+  padding: 0 5px;
+  text-align: right;
+}
+.event-list .event {
+  background: #222;
+  margin: 20px 0;
+  min-height: 40px;
+  padding: 15px 0 15px 10px;
+}
+.event-list .event .event-summary {
+  color: #fff;
+  margin: 0;
+  padding-bottom: 3px;
+}
+.event-list .event .event-summary::before {
+  animation: dot-flash 1s alternate infinite ease-in-out;
+  color: #fff;
+  content: '\f111';
+  display: inline-block;
+  font-size: 10px;
+  margin-right: 25px;
+  vertical-align: middle;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.event-list .event .event-relative-time {
+  color: #bbb;
+  display: inline-block;
+  font-size: 12px;
+  font-weight: normal;
+  padding-left: 12px;
+}
+.event-list .event .event-details {
+  color: #fff;
+  display: block;
+  line-height: 18px;
+  margin-left: 56px;
+  padding-bottom: 6px;
+  padding-top: 3px;
+  text-indent: -24px;
+}
+.event-list .event .event-details::before {
+  color: #fff;
+  display: inline-block;
+  margin-right: 9px;
+  text-align: center;
+  text-indent: 0;
+  width: 14px;
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+}
+.event-list .event .event-details.event-location::before {
+  content: '\f041';
+}
+.event-list .event .event-details.event-duration::before {
+  content: '\f017';
+}
+.event-list .event-past {
+  background: #f5f5f5;
+}
+.event-list .event-past .event-summary,
+.event-list .event-past .event-details {
+  color: #bbb;
+  opacity: 0.9;
+}
+.event-list .event-past .event-summary::before,
+.event-list .event-past .event-details::before {
+  animation: none;
+  color: #bbb;
+}
+@-moz-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-webkit-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@-o-keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+@keyframes dot-flash {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+ul.breadcrumb {
+  font-size: 0.75em;
+  list-style: none;
+  margin: 1em 0;
+  padding: 0 2em;
+  text-align: center;
+}
+ul.breadcrumb li {
+  display: inline;
+}
+ul.breadcrumb li + li::before {
+  content: '/\00a0';
+  font-weight: normal;
+  padding: 0.5em;
+}
+ul.breadcrumb li + li:last-child {
+  font-weight: bold;
+}
+.tag-cloud {
+  text-align: center;
+}
+.tag-cloud a {
+  display: inline-block;
+  margin: 10px;
+}
+.tag-cloud a:hover {
+  color: var(--link-hover-color) !important;
+}
+.search-pop-overlay {
+  background: rgba(0,0,0,0);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s linear 0.2s, background 0.2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1400;
+}
+.search-pop-overlay.search-active {
+  background: rgba(0,0,0,0.3);
+  transition: background 0.2s;
+  visibility: visible;
+}
+.search-popup {
+  background: var(--card-bg-color);
+  border-radius: 5px;
+  height: 80%;
+  left: calc(50% - 350px);
+  position: fixed;
+  top: 10%;
+  transform: scale(0);
+  transition: transform 0.2s;
+  width: 700px;
+  z-index: 1500;
+}
+.search-active .search-popup {
+  transform: scale(1);
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.search-popup .popup-btn-close {
+  cursor: pointer;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.search-popup input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.search-popup input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+  width: 100%;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  display: flex;
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+}
+.search-popup #no-result {
+  color: #ccc;
+  margin: auto;
+}
+mjx-container[jax="CHTML"][display="true"],
+.has-jax {
+  overflow: auto hidden;
+}
+mjx-container + br {
+  display: none;
+}
+@media (max-width: 767px) {
+  .header-inner,
+  .main-inner,
+  .footer-inner {
+    width: auto;
+  }
+}
+.header-inner {
+  padding-top: 100px;
+}
+@media (max-width: 767px) {
+  .header-inner {
+    padding-top: 50px;
+  }
+}
+.main-inner {
+  padding-bottom: 60px;
+}
+.content {
+  padding-top: 70px;
+}
+@media (max-width: 767px) {
+  .content {
+    padding-top: 35px;
+  }
+}
+embed {
+  display: block;
+  margin: 0 auto 25px auto;
+}
+.custom-logo .site-meta-headline {
+  text-align: center;
+}
+.custom-logo .site-title {
+  color: #222;
+  margin: 10px auto 0;
+}
+.custom-logo .site-title a {
+  border: 0;
+}
+.custom-logo-image {
+  background: #fff;
+  margin: 0 auto;
+  max-width: 150px;
+  padding: 5px;
+}
+.brand {
+  background: var(--btn-default-bg);
+}
+@media (max-width: 767px) {
+  .site-nav {
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .menu {
+    text-align: left;
+  }
+}
+.menu-item-active a,
+.menu .menu-item a:hover,
+.menu .menu-item span.exturl:hover {
+  background: transparent;
+  border-bottom: 1px solid var(--link-hover-color) !important;
+}
+@media (max-width: 767px) {
+  .menu-item-active a,
+  .menu .menu-item a:hover,
+  .menu .menu-item span.exturl:hover {
+    border-bottom: 1px dotted #ddd !important;
+  }
+}
+@media (max-width: 767px) {
+  .menu .menu-item {
+    margin: 0 10px;
+  }
+}
+.menu .menu-item a,
+.menu .menu-item span.exturl {
+  border-bottom: 1px solid transparent;
+}
+@media (max-width: 767px) {
+  .menu .menu-item a,
+  .menu .menu-item span.exturl {
+    padding: 5px 10px;
+  }
+}
+@media (min-width: 768px) {
+  .menu .menu-item .fa,
+  .menu .menu-item .fab,
+  .menu .menu-item .far,
+  .menu .menu-item .fas {
+    display: block;
+    line-height: 2;
+    margin-right: 0;
+    width: 100%;
+  }
+}
+.menu .menu-item .badge {
+  background: #eee;
+  padding: 1px 4px;
+}
+.sub-menu {
+  margin: 10px 0;
+}
+.sub-menu .menu-item {
+  display: inline-block;
+}
+.sidebar {
+  right: -320px;
+}
+.sidebar.sidebar-active {
+  right: 0;
+}
+.sidebar-toggle,
+.back-to-top {
+  left: auto;
+  right: 30px;
+}
+@media (max-width: 991px) {
+  .sidebar-toggle,
+  .back-to-top {
+    right: 20px;
+  }
+}
+.book-mark-link {
+  left: 30px;
+}
+.sidebar {
+  width: 320px;
+  z-index: 1200;
+  transition-delay: 0s;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-out;
+}
+.sidebar a,
+.sidebar span.exturl {
+  border-bottom-color: #555;
+  color: #999;
+}
+.sidebar a:hover,
+.sidebar span.exturl:hover {
+  border-bottom-color: #eee;
+  color: #eee;
+}
+.links-of-blogroll-item {
+  padding: 2px 10px;
+}
+.links-of-blogroll-item a,
+.links-of-blogroll-item span.exturl {
+  box-sizing: border-box;
+  display: inline-block;
+  max-width: 280px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+</style><noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');</script></head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Yihang</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">Good Morning, good Afternoon and Good Night!</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" placeholder="搜索..." spellcheck="false" type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+  <a href="https://github.com/Yihang-Li" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="Nothing forever">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Summary of Using Python to Access Web Data
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-02-14 10:21:12" itemprop="dateCreated datePublished" datetime="2020-02-14T10:21:12+08:00">2020-02-14</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-01-09 12:26:12" itemprop="dateModified" datetime="2021-01-09T12:26:12+08:00">2021-01-09</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p><strong>First of all, thanks Dr. Charles Russell Severance</strong></p>
+<blockquote>
+<p>Why I write this summary?</p>
+<ul>
+<li>gained certificate from last winter vacation(2019)</li>
+<li>need to apply this knowledge for data access</li>
+</ul>
+</blockquote>
+<p><img src="/assets/image-20200214105208294.png" alt="image-20200214105208294" style="zoom:80%;"></p>
+<a id="more"></a>
+<p><a target="_blank" rel="noopener" href="https://www.py4e.com/book">Book Link</a></p>
+<h1 id="Chapter-11-Regular-expressions"><a href="#Chapter-11-Regular-expressions" class="headerlink" title="Chapter 11 Regular expressions"></a>Chapter 11 Regular expressions</h1><blockquote>
+<p>Regular expressions (regex) are almost their own little programming language for searching and parsing strings.</p>
+</blockquote>
+<p><em>For more detail on regex, see: <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Regular_expression">wiki</a>, <a target="_blank" rel="noopener" href="https://docs.python.org/3.5/library/re.html">python docs</a>.</em></p>
+<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">symbol</th>
+<th style="text-align:center">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span style="color:blue"> <strong>^</strong></span></td>
+<td style="text-align:center">Matches the beginning of a line</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>$</strong></span></td>
+<td style="text-align:center">Matches the end of the line</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>.</strong></span></td>
+<td style="text-align:center">Matches any character (<strong>a wildcard</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\s</strong></span></td>
+<td style="text-align:center">Matches whitespace</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\S</strong></span></td>
+<td style="text-align:center">Matches any non-whitespace character</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>?</strong></span></td>
+<td style="text-align:center">Repeats a character zero or one time</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>??</strong></span></td>
+<td style="text-align:center">Repeats a character zero of one time (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>*</strong></span></td>
+<td style="text-align:center">Repeats a character zero or more times</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>*?</strong></span></td>
+<td style="text-align:center">Repeats a character zero or more times (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>+</strong></span></td>
+<td style="text-align:center">Repeats a character one or more times</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>+?</strong></span></td>
+<td style="text-align:center">Repeats a character one or more times (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>[aeiou]</strong></span></td>
+<td style="text-align:center">Matches a single character in the listed set</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>[\^XYZ]</strong></span></td>
+<td style="text-align:center">Matches a single character not in the listed set</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>[a-z0-9]</strong></span></td>
+<td style="text-align:center">The set of  characters can include a range</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>(</strong></span></td>
+<td style="text-align:center">Indicates where string extraction is to start</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>)</strong></span></td>
+<td style="text-align:center">Indicates where string extraction is to end</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\b</strong></span></td>
+<td style="text-align:center">Matches the empty string only at the start of end of word</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\B</strong></span></td>
+<td style="text-align:center">Matches the empty string not at the start or end of a word</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\d</strong></span></td>
+<td style="text-align:center">Matches any decimal digit (equivalent to [0-9])</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style="color:blue"><strong>\D</strong></span></td>
+<td style="text-align:center">Matches any non-digit character (equivalent to [\^0-9])</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p><em><strong>Note:</strong></em></p>
+<blockquote>
+<ol>
+<li>symbol with repeat function applies to the immediately preceding character(s)</li>
+<li>greedy matching: the repeat characters (  <span style="color:blue"><strong>*</strong></span>  and <span style="color:blue"><strong>+</strong></span> ) push outward in both directions to match the largest possible string</li>
+<li>non-greedy doesn’t mean that the regex will try to find the shortest substring by varying the start index. It just means that if there’s a substring which starts at index 0 and matches the regex, the engine will stop as soon as possible </li>
+<li>escape character: by prefixing with a backslash. i.e. \$ indicate dollar sign instead of the wildcard.</li>
+</ol>
+</blockquote>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Search for lines that start with From and have an at sign</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">hand = <span class="built_in">open</span>(<span class="string">'mbox-short.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> hand:</span><br><span class="line">    line = line.rstrip()</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">'^From:.+@'</span>, line):</span><br><span class="line">        print(line)</span><br></pre></td></tr></tbody></table></figure>
+<p>The search string <strong>^From:.+@</strong> will successfully match lines that start with “<strong>From:</strong>“, followed by one or more characters (<strong>.+</strong>), followed by an at-sign. So this will match the following line:<br><strong>From: stephen.marquard@uct.ac.za</strong></p>
+<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = <span class="string">"We just received $10.00 for cookies."</span></span><br><span class="line">y = re.findall(<span class="string">'\$[0-9.]+'</span>, x)</span><br></pre></td></tr></tbody></table></figure>
+<p>Since we prefix the dollar sign with a backslash, it actually matches the dollar sign in the input string instead of matching the “end of line”, and the rest of the regular expression matches one or more digits or the period character.</p>
+<p>Note: inside square brackets, characters are not “special”. So, when we say <strong>[0-9.]</strong>, it really means digits or a period . Outside of square brackets, a period is the “wildcard” character and matches any character. Inside square brackets, the period is a period.</p>
+<hr>
+<h1 id="Chapter-12-Networked-Programs"><a href="#Chapter-12-Networked-Programs" class="headerlink" title="Chapter 12 Networked Programs"></a>Chapter 12 Networked Programs</h1><h2 id="12-1-Hypertext-Transfer-Protocol-HTTP"><a href="#12-1-Hypertext-Transfer-Protocol-HTTP" class="headerlink" title="12.1 Hypertext Transfer Protocol - HTTP"></a>12.1 Hypertext Transfer Protocol - HTTP</h2><blockquote>
+<p><strong>Socket/TCP Connections</strong><br>A network connection between two applications where the applications can send and receive data in either direction.</p>
+<p><strong>TCP Port Numbers</strong><br>A number that generally indicates which application you are contacting when you make a socket connection to a server. As an example, web traffic usually uses port 80 while email traffic uses port 25.</p>
+<p><strong>Protocol</strong><br>A protocol is a set of precise rules that all parties follow so we can predict each other’s behavior. In a sense the two applications at either end of the socket are doing a dance and making sure not to step on each other’s toes.</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="http://www.w3.org/Protocols/rfc2616/rfc2616.txt">HyperText Transfer Protocol</a>, a long and complex 176-page document with a lot of detail. If you find it interesting, feel free to read it all. But if you take a look around page 36 of RFC2616 you will find the syntax for the GET request. </p>
+<h2 id="12-2-The-world’s-simplest-web-browser"><a href="#12-2-The-world’s-simplest-web-browser" class="headerlink" title="12.2 The world’s simplest web browser"></a>12.2 The world’s simplest web browser</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/socket1.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((<span class="string">'data.pr4e.org'</span>, <span class="number">80</span>))</span><br><span class="line">cmd = <span class="string">'GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n'</span>.encode()</span><br><span class="line">mysock.send(cmd)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">512</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(data.decode(), end = <span class="string">''</span>)</span><br><span class="line">mysock.close()</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200214180630075.png" alt="image-20200214180630075" style="zoom:80%;"></p>
+<p>Output:</p>
+<blockquote>
+<p>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:05:30 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Sat, 13 May 2017 11:22:22 GMT<br>ETag: “a7-54f6609245537”<br>Accept-Ranges: bytes<br>Content-Length: 167<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: text/plain</p>
+<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
+</blockquote>
+<h2 id="12-3-Retrieving-an-image-over-HTTP"><a href="#12-3-Retrieving-an-image-over-HTTP" class="headerlink" title="12.3 Retrieving an image over HTTP"></a>12.3 Retrieving an image over HTTP</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urljpeg.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">HOST = <span class="string">'data.pr4e.org'</span></span><br><span class="line">PORT = <span class="number">80</span></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((HOST, PORT))</span><br><span class="line">mysock.sendall(<span class="string">b'GET http://data.pr4e.org/cover3.jpg HTTP/1.0\r\n\r\n'</span>)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">picture = <span class="string">b''</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">5120</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">len</span>(data) &lt; <span class="number">1</span>): <span class="keyword">break</span></span><br><span class="line">    time.sleep(<span class="number">0.25</span>)</span><br><span class="line">    count = count + <span class="built_in">len</span>(data)</span><br><span class="line">    print(<span class="built_in">len</span>(data), count)</span><br><span class="line">    picture = picture + data</span><br><span class="line"></span><br><span class="line">mysock.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Look for the end of the header (2 CRLF)</span></span><br><span class="line">pos = picture.find(<span class="string">b'\r\n\r\n'</span>)</span><br><span class="line">print(<span class="string">'Header length'</span>, pos)</span><br><span class="line">print(picture[:pos].decode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Skip past the header and save the picture data</span></span><br><span class="line">picture = picture[pos+<span class="number">4</span>:]</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">'stuff.jpg'</span>, <span class="string">'wb'</span>)</span><br><span class="line">fhand.write(picture)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>1408 1408<br>5120 6528<br>5120 11648<br>…… ……<br>5120 221568<br>3920 230608<br>Header length 394<br>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:21:44 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Mon, 15 May 2017 12:27:40 GMT<br>ETag: “38342-54f8f2e5b6277”<br>Accept-Ranges: bytes<br>Content-Length: 230210<br>Vary: Accept-Encoding<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: image/jpeg</p>
+</blockquote>
+<p>There is a buffer between the server making <code>send()</code> requests and our application making <code>recv()</code> requests. When we run the program with the delay in place, at some point the server might fill up the buffer in the socket and be forced to pause until our program starts to empty the buffer.<br>The pausing of either the sending application or the receiving application is called “<strong>flow control</strong>“.</p>
+<h2 id="12-4-Retrieving-web-pages-with-urllib"><a href="#12-4-Retrieving-web-pages-with-urllib" class="headerlink" title="12.4 Retrieving web pages with urllib"></a>12.4 Retrieving web pages with urllib</h2><blockquote>
+<p><strong>urllib</strong>: does all the socket work for us and makes web pages look like a file.</p>
+</blockquote>
+<p>Using <code>urllib</code>, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and <code>urllib</code> handles all of the HTTP protocol and header details.</p>
+<p>The equivalent code to read the <code>romeo.txt</code> file from the web using <code>urllib</code> is as follows:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllib1.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">fhand = urllib.request.urlopen(<span class="string">'http://data.pr4e.org/romeo.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fhand:</span><br><span class="line">    print(line.decode().strip())</span><br></pre></td></tr></tbody></table></figure>
+<p>When the program runs, we only see the output of the contents of the file. The headers are still sent, but the <code>urllib</code> code consumes the headers and only returns the data to us.</p>
+<p>Output:</p>
+<blockquote>
+<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
+</blockquote>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>retrieve the data for <code>romeo.txt</code> and compute the frequency of each word in the file</p>
+<figure class="highlight plain"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"># Code: http://www.py4e.com/code3/urlwords.py</span><br><span class="line">import urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">fhand = urllib.request.urlopen('http://data.pr4e.org/romeo.txt')</span><br><span class="line"></span><br><span class="line">counts = dict()</span><br><span class="line">for line in fhand:</span><br><span class="line">    words = line.decode().split()</span><br><span class="line">    for word in words:</span><br><span class="line">        counts[word] = counts.get(word, 0) + 1</span><br><span class="line">print(counts)</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>{‘But’: 1, ‘soft’: 1, ‘what’: 1, ‘light’: 1, ‘through’: 1, ‘yonder’: 1, ‘window’: 1, ‘breaks’: 1, ‘It’: 1, ‘is’: 3, ‘the’: 3, ‘east’: 1, ‘and’: 3, ‘Juliet’: 1, ‘sun’: 2, ‘Arise’: 1, ‘fair’: 1, ‘kill’: 1, ‘envious’: 1, ‘moon’: 1, ‘Who’: 1, ‘already’: 1, ‘sick’: 1, ‘pale’: 1, ‘with’: 1, ‘grief’: 1}</p>
+</blockquote>
+<h2 id="12-5-Reading-binary-files-using-urllib"><a href="#12-5-Reading-binary-files-using-urllib" class="headerlink" title="12.5 Reading binary files using urllib"></a>12.5 Reading binary files using urllib</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#Code: http://www.py4e.com/code3/curl2.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">img = urllib.request.urlopen(<span class="string">'http://data.pr4e.org/cover3.jpg'</span>)</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">'cover3.jpg'</span>, <span class="string">'wb'</span>)</span><br><span class="line">size = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    info = img.read(<span class="number">100000</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(info) &lt; <span class="number">1</span>: <span class="keyword">break</span></span><br><span class="line">    size += <span class="built_in">len</span>(info)</span><br><span class="line">    fhand.write(info)</span><br><span class="line">print(size, <span class="string">'characters copied.'</span>)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>read only 100,000 characters at a time and then write those characters to the cover.jpg file before retrieving the next 100,000 characters of data from the web.</p>
+</blockquote>
+<h2 id="12-6-Parsing-HTML-and-scraping-the-web"><a href="#12-6-Parsing-HTML-and-scraping-the-web" class="headerlink" title="12.6 Parsing HTML and scraping the web"></a>12.6 Parsing HTML and scraping the web</h2><blockquote>
+<p>One of the common uses of the <code>urllib</code> capability in Python is to <em>scrape</em> the web. Web scraping is when we write a program that pretends to be a web browser and retrieves pages, then examines the data in those pages looking for patterns.</p>
+<p>As an example, a search engine such as Google will look at the source of one web page and extract the links to other pages and retrieve those pages, extracting links, and so on. Using this technique, Google <em>spiders</em> its way through nearly all of the pages on the web.</p>
+<p>Google also uses the frequency of links from pages it finds to a particular page as one measure of how “important” a page is and how high the page should appear in its search results.</p>
+</blockquote>
+<h2 id="12-7-Parsing-HTML-using-regular-expressions"><a href="#12-7-Parsing-HTML-using-regular-expressions" class="headerlink" title="12.7 Parsing HTML using regular expressions"></a>12.7 Parsing HTML using regular expressions</h2><p>For the simple webpage:</p>
+<figure class="highlight html"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>The First Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">If you like, you can switch to the</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"http://www.dr-chuck.com/page2.htm"</span>&gt;</span></span><br><span class="line">Second Page<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>We can construct a well-formed regular expression to match and extract the link values from the above text as follows:</p>
+<blockquote>
+<p>href=”(<a target="_blank" rel="noopener" href="http://.+?">http://.+?</a>)”</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urlregex.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">'Enter - '</span>)</span><br><span class="line">html = urllib.request.urlopen(url).read()</span><br><span class="line">links = re.findall(<span class="string">b'href="(http://.+?)"'</span>, html)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">    print(link.decode())</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>Enter -  <a href="https://yihang-li.github.io/">https://yihang-li.github.io/</a><br><a href="http://yihang-li.github.io/">http://yihang-li.github.io/</a><br><a href="http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/">http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/</a><br><a href="http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/">http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/</a><br><a href="http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/">http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/Hello-Echo/">http://Yihang-Li.github.io/2020/02/05/Hello-Echo/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/hello-world/">http://Yihang-Li.github.io/2020/02/05/hello-world/</a></p>
+</blockquote>
+<h2 id="12-8-Parsing-HTML-using-BeautifulSoup"><a href="#12-8-Parsing-HTML-using-BeautifulSoup" class="headerlink" title="12.8 Parsing HTML using BeautifulSoup"></a>12.8 Parsing HTML using BeautifulSoup</h2><blockquote>
+<p><strong>BeautifulSoup</strong> tolerates highly flawed HTML and still lets you easily extract the data you need. See <a target="_blank" rel="noopener" href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">docs</a>.</p>
+</blockquote>
+<p>We will use <code>urllib</code> to read the page and then use <code>BeautifulSoup</code> to extract the <code>href</code> attributes from the anchor (<code>a</code>) tags.</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllinks.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">'Enter - '</span>)</span><br><span class="line">html = urllib.request.urlopen(url, context=ctx).read()</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">'a'</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    print(tag.get(<span class="string">'href'</span>, <span class="literal">None</span>))</span><br></pre></td></tr></tbody></table></figure>
+<p>The program prompts for a web address, then opens the web page, reads the data and passes the data to the BeautifulSoup parser, and then retrieves all of the anchor tags and prints out the <code>href</code> attribute for each tag.</p>
+<p>You can use BeautifulSoup to pull out various parts of each tag as follows:</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllink2.py</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">'Enter - '</span>)</span><br><span class="line">html = urlopen(url, context=ctx).read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># html.parser is the HTML parser included in the standard Python 3 library.</span></span><br><span class="line"><span class="comment"># information on other HTML parsers is here:</span></span><br><span class="line"><span class="comment"># http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser</span></span><br><span class="line">soup = BeautifulSoup(html, <span class="string">'html.parser'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">'a'</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    <span class="comment"># Look at the parts of a tag</span></span><br><span class="line">    print(<span class="string">'TAG:'</span>, tag)</span><br><span class="line">    print(<span class="string">'URL:'</span>, tag.get(<span class="string">'href'</span>, <span class="literal">None</span>))</span><br><span class="line">    print(<span class="string">'Contents:'</span>, tag.contents[<span class="number">0</span>])</span><br><span class="line">    print(<span class="string">'Attrs:'</span>, tag.attrs)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="12-9-Something-more"><a href="#12-9-Something-more" class="headerlink" title="12.9 Something more"></a>12.9 Something more</h2><blockquote>
+<p><strong>Scrape</strong><br>When a program pretends to be a web browser and retrieves a web page, then looks at the web page content. Often programs are following the links in one page to find the next page so they can traverse a network of pages or a social network.</p>
+<p><strong>Spider</strong><br>The act of a web search engine retrieving a page and then all the pages linked from a page and so on until they have nearly all of the pages on the Internet which they use to build their search index.</p>
+<p><strong>ASCII</strong><br>American Standard Code for Information Interchange</p>
+<p>Each character is represented by a number between 0 and 256 stored in 8 bits of memory(a byte of memory)</p>
+<p>The <strong>ord()</strong> function tells us the numeric value of a simple ASCII character<br>(On the opposite, we can use <strong>chr()</strong>)</p>
+<p>In Python3, all strings are unicode. When we read data from an external resource, we must decode it based on the character set so it is properly represented in Python3 as a string.</p>
+</blockquote>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>The TCP/IP gives us pipes/sockets between applications</li>
+<li>We designed application protocols to make use of these pipes</li>
+<li>HyperText Transfer Protocol (HTTP) is a simple yet powerful proctocol</li>
+<li>Python has good support for sockets, HTTP, and HTML parsing</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="Chapter-13-Using-Web-Services"><a href="#Chapter-13-Using-Web-Services" class="headerlink" title="Chapter 13 Using Web Services"></a>Chapter 13 Using Web Services</h1><h2 id="13-1-eXtensible-Markup-Language-XML"><a href="#13-1-eXtensible-Markup-Language-XML" class="headerlink" title="13.1 eXtensible Markup Language - XML"></a>13.1 eXtensible Markup Language - XML</h2><p>XML looks similar to HTML but more structured. See a sample below:</p>
+<figure class="highlight xml"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Chuck<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">phone</span> <span class="attr">type</span>=<span class="string">"intl"</span>&gt;</span></span><br><span class="line">     +1 734 303 4456</span><br><span class="line">  <span class="tag">&lt;/<span class="name">phone</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">email</span> <span class="attr">hide</span>=<span class="string">"yes"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></tbody></table></figure>
+<p>Often it is helpful to think of an XML document as a tree structure where there is a top tag <code>person</code> and other tags such as <code>phone</code> are drawn as <em>children</em> of their parent nodes.</p>
+<p><img src="/assets/image-20200214211642103.png" alt="image-20200214211642103" style="zoom:80%;"></p>
+<h2 id="13-2-Parsing-XML"><a href="#13-2-Parsing-XML" class="headerlink" title="13.2 Parsing XML"></a>13.2 Parsing XML</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml1.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line">data = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;person&gt;</span></span><br><span class="line"><span class="string">  &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">  &lt;phone type="intl"&gt;</span></span><br><span class="line"><span class="string">     +1 734 303 4456</span></span><br><span class="line"><span class="string">   &lt;/phone&gt;</span></span><br><span class="line"><span class="string">   &lt;email hide="yes"/&gt;</span></span><br><span class="line"><span class="string">&lt;/person&gt;'''</span></span><br><span class="line"></span><br><span class="line">tree = ET.fromstring(data)</span><br><span class="line">print(<span class="string">'Name:'</span>, tree.find(<span class="string">'name'</span>).text)</span><br><span class="line">print(<span class="string">'Attr:'</span>, tree.find(<span class="string">'email'</span>).get(<span class="string">'hide'</span>))</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>Name: Chuck<br>Attr: yes</p>
+</blockquote>
+<p>Calling <code>fromstring</code> converts the string representation of the XML into a “tree” of XML nodes. When the XML is in a tree, we have a series of methods we can call to extract portions of data from the XML.</p>
+<p>The <code>find</code> function searches through the XML tree and retrieves a <em>node</em> that matches the specified tag. Each node can have some text, some attributes (like hide), and some “child” nodes. Each node can be the top of a tree of nodes.</p>
+<h2 id="13-3-Looping-through-nodes"><a href="#13-3-Looping-through-nodes" class="headerlink" title="13.3 Looping through nodes"></a>13.3 Looping through nodes</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml2.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"><span class="built_in">input</span> = <span class="string">'''</span></span><br><span class="line"><span class="string">&lt;stuff&gt;</span></span><br><span class="line"><span class="string">    &lt;users&gt;</span></span><br><span class="line"><span class="string">        &lt;user x="2"&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;001&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">        &lt;user x="7"&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;009&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Brent&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">    &lt;/users&gt;</span></span><br><span class="line"><span class="string">&lt;/stuff&gt;'''</span></span><br><span class="line"></span><br><span class="line">stuff = ET.fromstring(<span class="built_in">input</span>)</span><br><span class="line">lst = stuff.findall(<span class="string">'users/user'</span>)</span><br><span class="line">print(<span class="string">'User count:'</span>, <span class="built_in">len</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> lst:</span><br><span class="line">    print(<span class="string">'Name'</span>, item.find(<span class="string">'name'</span>).text)</span><br><span class="line">    print(<span class="string">'Id'</span>, item.find(<span class="string">'id'</span>).text)</span><br><span class="line">    print(<span class="string">'Attribute'</span>, item.get(<span class="string">"x"</span>))</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Brent<br>Id 009<br>Attribute 7</p>
+</blockquote>
+<p>Note:</p>
+<blockquote>
+<p>It is important to includes all parents level elements in the <strong>findall</strong> statement except for the top level element. Otherwise, Python will not find any desired nodes.</p>
+</blockquote>
+<h2 id="13-4-JavaScript-Object-Notation-JSON"><a href="#13-4-JavaScript-Object-Notation-JSON" class="headerlink" title="13.4 JavaScript Object Notation - JSON"></a>13.4 JavaScript Object Notation - JSON</h2><blockquote>
+<p>The JSON format was inspired by the object and array format used in the JavaScript language. But since Python was invented before JavaScript, Python’s syntax for dictionaries and lists influenced the syntax of JSON. So the format of JSON is nearly identical to a combination of Python lists and dictionaries.</p>
+</blockquote>
+<p>Here is a JSON encoding that is roughly equivalent to the simple XML from above:</p>
+<figure class="highlight json"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">{</span><br><span class="line">  <span class="attr">"name"</span> : <span class="string">"Chuck"</span>,</span><br><span class="line">  <span class="attr">"phone"</span> : {</span><br><span class="line">    <span class="attr">"type"</span> : <span class="string">"intl"</span>,</span><br><span class="line">    <span class="attr">"number"</span> : <span class="string">"+1 734 303 4456"</span></span><br><span class="line">   },</span><br><span class="line">   <span class="attr">"email"</span> : {</span><br><span class="line">     <span class="attr">"hide"</span> : <span class="string">"yes"</span></span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>In XML, we can add attributes like “intl” to the “phone” tag.<br>In JSON, we simply have key-value pairs. Also the XML “person” tag is gone, replaced by a set of outer curly braces.</p>
+<p>In general, JSON structures are simpler than XML because JSON has fewer capabilities than XML. But JSON has the advantage that it maps <em>directly</em> to some combination of dictionaries and lists. And since nearly all programming languages have something equivalent to Python’s dictionaries and lists, JSON is a very natural format to have two cooperating programs exchange data.</p>
+<p>JSON is quickly becoming the format of choice for nearly all data exchange between applications because of its relative simplicity compared to XML.</p>
+</blockquote>
+<h2 id="13-5-Parsing-JSON"><a href="#13-5-Parsing-JSON" class="headerlink" title="13.5 Parsing JSON"></a>13.5 Parsing JSON</h2><blockquote>
+<p>We construct our JSON by nesting dictionaries (objects) and lists as needed. In this example, we represent a list of users where each user is a set of key-value pairs (i.e., a dictionary). So we have a list of dictionaries.</p>
+<p>In the following program, we use the built-in <em>json</em> library to parse the JSON and read through the data. Compare this closely to the equivalent XML data and code above. The JSON has less detail, so we must know in advance that we are getting a list and that the list is of users and each user is a set of key-value pairs. The JSON is more succinct (an advantage) but also is less self-describing (a disadvantage).</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/json2.py</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = <span class="string">'''</span></span><br><span class="line"><span class="string">[</span></span><br><span class="line"><span class="string">  { "id" : "001",</span></span><br><span class="line"><span class="string">    "x" : "2",</span></span><br><span class="line"><span class="string">    "name" : "Chuck"</span></span><br><span class="line"><span class="string">  } ,</span></span><br><span class="line"><span class="string">  { "id" : "009",</span></span><br><span class="line"><span class="string">    "x" : "7",</span></span><br><span class="line"><span class="string">    "name" : "Chuck"</span></span><br><span class="line"><span class="string">  }</span></span><br><span class="line"><span class="string">]'''</span></span><br><span class="line"></span><br><span class="line">info = json.loads(data)</span><br><span class="line">print(<span class="string">'User count:'</span>, <span class="built_in">len</span>(info))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> info:</span><br><span class="line">    print(<span class="string">'Name'</span>, item[<span class="string">'name'</span>])</span><br><span class="line">    print(<span class="string">'Id'</span>, item[<span class="string">'id'</span>])</span><br><span class="line">    print(<span class="string">'Attribute'</span>, item[<span class="string">'x'</span>])</span><br></pre></td></tr></tbody></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Chuck<br>Id 009<br>Attribute 7</p>
+</blockquote>
+<ul>
+<li>we get from <em>json.loads()</em> is a Python list which we traverse with a <code>for</code> loop, and each item within that list is a Python dictionary.</li>
+<li>In general, there is an industry trend away from XML and towards JSON for web services. </li>
+<li>But XML is more self-descriptive than JSON and so there are some applications where XML retains an advantage. For example, most word processors store documents internally using XML rather than JSON.</li>
+</ul>
+<h2 id="13-6-Application-Programming-Interfaces-API"><a href="#13-6-Application-Programming-Interfaces-API" class="headerlink" title="13.6 Application Programming Interfaces - API"></a>13.6 Application Programming Interfaces - API</h2><blockquote>
+<p><strong>API</strong><br>A contract between applications that defines the patterns of interaction between two application components</p>
+<p><strong>SOA</strong><br>When we begin to build our programs where the functionality of our program includes access to services provided by other programs, we call the approach a <em>Service-Oriented Architecture</em> or SOA. (A non-SOA approach is where the application is a single standalone application which contains all of the code necessary to implement the application.)</p>
+</blockquote>
+<p>We see many examples of SOA when we use the web. We can go to a single web site and book air travel, hotels, and automobiles all from a single site. The data for hotels is not stored on the airline computers. Instead, the airline computers contact the services on the hotel computers and retrieve the hotel data and present it to the user. When the user agrees to make a hotel reservation using the airline site, the airline site uses another web service on the hotel systems to actually make the reservation. And when it comes time to charge your credit card for the whole transaction, still other computers become involved in the process.</p>
+<p><img src="/assets/image-20200215104121294.png" alt="API_SOA" style="zoom:80%;"></p>
+<blockquote>
+<p>When an application makes a set of services in its API available over the web, we call these <strong><em>web services</em></strong>.</p>
+</blockquote>
+<h2 id="13-7-Security-and-API-usage"><a href="#13-7-Security-and-API-usage" class="headerlink" title="13.7 Security and API usage"></a>13.7 Security and API usage</h2><blockquote>
+<p>It is quite common that you need an API key to make use of a vendor’s API.<br>The general idea is that they want to know who is using their services and how much each user is using.</p>
+<p>Sometimes once you get your API key, you simply include the key as part of POST data or perhaps as a parameter on the URL when calling the API.<br>Other times, the vendor wants increased assurance of the source of the requests and so they add expect you to send cryptographically signed messages using shared keys and secrets.</p>
+<p> A very common technology that is used to sign requests over the Internet is called <a href="www.oauth.net"><em>OAuth</em></a>.</p>
+</blockquote>
+<h2 id="13-8-Application"><a href="#13-8-Application" class="headerlink" title="13.8 Application"></a>13.8 Application</h2><h3 id="13-8-1-Google-geocoding-web-service"><a href="#13-8-1-Google-geocoding-web-service" class="headerlink" title="13.8.1 Google geocoding web service"></a>13.8.1 Google geocoding web service</h3><blockquote>
+<p><em>When you are using a free API like Google’s geocoding API, you need to be respectful in your use of these resources. If too many people abuse the service, Google might drop or significantly curtail its free service.</em></p>
+</blockquote>
+<p>Need API!</p>
+<h3 id="13-8-2-Twitter"><a href="#13-8-2-Twitter" class="headerlink" title="13.8.2 Twitter"></a>13.8.2 Twitter</h3><blockquote>
+<p>As the Twitter API became increasingly valuable, Twitter went from an open and public API to an API that required the use of OAuth signatures on each API request. </p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"><i class="fa fa-tag"></i> python</a>
+              <a href="/tags/coursera/" rel="tag"><i class="fa fa-tag"></i> coursera</a>
+              <a href="/tags/web/" rel="tag"><i class="fa fa-tag"></i> web</a>
+              <a href="/tags/data-access/" rel="tag"><i class="fa fa-tag"></i> data access</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/02/10/Summary-for-visualization-of-geospatial-data/" rel="prev" title="Summary for visualization of geospatial data">
+      <i class="fa fa-chevron-left"></i> Summary for visualization of geospatial data
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2020/02/14/Summary%20of%20Using%20Python%20to%20Access%20Web%20Data/" rel="next" title="Summary of Using Python to Access Web Data">
+      Summary of Using Python to Access Web Data <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-11-Regular-expressions"><span class="nav-number">1.</span> <span class="nav-text">Chapter 11 Regular expressions</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Cheat-Sheet"><span class="nav-number">1.1.</span> <span class="nav-text">Cheat Sheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Examples"><span class="nav-number">1.2.</span> <span class="nav-text">Examples</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-1"><span class="nav-number">1.2.1.</span> <span class="nav-text">Case 1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case-2"><span class="nav-number">1.2.2.</span> <span class="nav-text">Case 2</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-12-Networked-Programs"><span class="nav-number">2.</span> <span class="nav-text">Chapter 12 Networked Programs</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#12-1-Hypertext-Transfer-Protocol-HTTP"><span class="nav-number">2.1.</span> <span class="nav-text">12.1 Hypertext Transfer Protocol - HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-2-The-world%E2%80%99s-simplest-web-browser"><span class="nav-number">2.2.</span> <span class="nav-text">12.2 The world’s simplest web browser</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-3-Retrieving-an-image-over-HTTP"><span class="nav-number">2.3.</span> <span class="nav-text">12.3 Retrieving an image over HTTP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-4-Retrieving-web-pages-with-urllib"><span class="nav-number">2.4.</span> <span class="nav-text">12.4 Retrieving web pages with urllib</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Example"><span class="nav-number">2.4.1.</span> <span class="nav-text">Example</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-5-Reading-binary-files-using-urllib"><span class="nav-number">2.5.</span> <span class="nav-text">12.5 Reading binary files using urllib</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-6-Parsing-HTML-and-scraping-the-web"><span class="nav-number">2.6.</span> <span class="nav-text">12.6 Parsing HTML and scraping the web</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-7-Parsing-HTML-using-regular-expressions"><span class="nav-number">2.7.</span> <span class="nav-text">12.7 Parsing HTML using regular expressions</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-8-Parsing-HTML-using-BeautifulSoup"><span class="nav-number">2.8.</span> <span class="nav-text">12.8 Parsing HTML using BeautifulSoup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#12-9-Something-more"><span class="nav-number">2.9.</span> <span class="nav-text">12.9 Something more</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Summary"><span class="nav-number">2.10.</span> <span class="nav-text">Summary</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link"><span class="nav-number">3.</span> <span class="nav-text"> </span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Chapter-13-Using-Web-Services"><span class="nav-number">4.</span> <span class="nav-text">Chapter 13 Using Web Services</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#13-1-eXtensible-Markup-Language-XML"><span class="nav-number">4.1.</span> <span class="nav-text">13.1 eXtensible Markup Language - XML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-2-Parsing-XML"><span class="nav-number">4.2.</span> <span class="nav-text">13.2 Parsing XML</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-3-Looping-through-nodes"><span class="nav-number">4.3.</span> <span class="nav-text">13.3 Looping through nodes</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-4-JavaScript-Object-Notation-JSON"><span class="nav-number">4.4.</span> <span class="nav-text">13.4 JavaScript Object Notation - JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-5-Parsing-JSON"><span class="nav-number">4.5.</span> <span class="nav-text">13.5 Parsing JSON</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-6-Application-Programming-Interfaces-API"><span class="nav-number">4.6.</span> <span class="nav-text">13.6 Application Programming Interfaces - API</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-7-Security-and-API-usage"><span class="nav-number">4.7.</span> <span class="nav-text">13.7 Security and API usage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-8-Application"><span class="nav-number">4.8.</span> <span class="nav-text">13.8 Application</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#13-8-1-Google-geocoding-web-service"><span class="nav-number">4.8.1.</span> <span class="nav-text">13.8.1 Google geocoding web service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#13-8-2-Twitter"><span class="nav-number">4.8.2.</span> <span class="nav-text">13.8.2 Twitter</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Yihang Li" src="https://avatarfiles.alphacoders.com/156/156044.jpg">
+  <p class="site-author-name" itemprop="name">Yihang Li</p>
+  <div class="site-description" itemprop="description">Nothing forever</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Yihang-Li" title="GitHub → https://github.com/Yihang-Li" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:liyihang970727@gmail.com" title="E-Mail → mailto:liyihang970727@gmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  © 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yihang Li</span>
+</div>
+
+<!--
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+-->
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  
+  
+  <script src="//cdn.jsdelivr.net/npm/medium-zoom@1/dist/medium-zoom.min.js"></script>
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+      
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+    
+
+  
+
+
+
+<script src="/bundle.js"></script><script>
+    (function(){
+      var canonicalURL, curProtocol;
+      //Get the <link> tag
+      var x=document.getElementsByTagName("link");
+		//Find the last canonical URL
+		if(x.length > 0){
+			for (i=0;i<x.length;i++){
+				if(x[i].rel.toLowerCase() == 'canonical' && x[i].href){
+					canonicalURL=x[i].href;
+				}
+			}
+		}
+    //Get protocol
+	    if (!canonicalURL){
+	    	curProtocol = window.location.protocol.split(':')[0];
+	    }
+	    else{
+	    	curProtocol = canonicalURL.split(':')[0];
+	    }
+      //Get current URL if the canonical URL does not exist
+	    if (!canonicalURL) canonicalURL = window.location.href;
+	    //Assign script content. Replace current URL with the canonical URL
+      !function(){var e=/([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,r=canonicalURL,t=document.referrer;if(!e.test(r)){var n=(String(curProtocol).toLowerCase() === 'https')?"https://sp0.baidu.com/9_Q4simg2RQJ8t7jm9iCKT-xh_/s.gif":"//api.share.baidu.com/s.gif";t?(n+="?r="+encodeURIComponent(document.referrer),r&&(n+="&l="+r)):r&&(n+="?l="+r);var i=new Image;i.src=n}}(window);})();
+  ;
+
+document.querySelectorAll('.pdfobject-container').forEach(element => {
+  let url = element.dataset.target;
+  let pdfOpenParams = {
+    navpanes : 0,
+    toolbar  : 0,
+    statusbar: 0,
+    pagemode : 'thumbs',
+    view     : 'FitH'
+  };
+  let pdfOpenFragment = '#' + Object.entries(pdfOpenParams).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
+  let fullURL = `/lib/pdf/web/viewer.html?file=${encodeURIComponent(url)}${pdfOpenFragment}`;
+
+  if (NexT.utils.supportsPDFs()) {
+    element.innerHTML = `<embed class="pdfobject" src="${url + pdfOpenFragment}" type="application/pdf" style="height: ${element.dataset.height};">`;
+  } else {
+    element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
+  }
+});
+;
+
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script></body></html>
