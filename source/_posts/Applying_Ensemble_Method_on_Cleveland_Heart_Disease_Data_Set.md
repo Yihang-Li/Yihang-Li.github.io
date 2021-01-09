@@ -1,5 +1,5 @@
 ---
-title: Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set
+title: Applying Ensemble Method on Cleveland Heart Disease Data Set
 date: 2021-01-09T14:55:28+08:00
 tags: [Report]
 categories: Report
