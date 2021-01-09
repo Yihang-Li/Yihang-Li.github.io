@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-09T07:09:43.728Z</updated>
+  <updated>2021-01-09T08:39:27.856Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -21,16 +21,15 @@
     <link href="https://yihang-li.github.io/2021/01/09/Project3_LARS/"/>
     <id>https://yihang-li.github.io/2021/01/09/Project3_LARS/</id>
     <published>2021-01-08T23:08:39.000Z</published>
-    <updated>2021-01-09T07:09:43.728Z</updated>
+    <updated>2021-01-09T08:39:27.856Z</updated>
     
-    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/Project3_LARS.pdf" data-height="500px"></div>]]></content>
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing" data-height="500px"></div><!-- <div class="pdfobject-container" data-target="./pdf/Project3_LARS.pdf" data-height="500px"></div> -->]]></content>
     
     <summary type="html">
     
       
       
-        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/Project3_LARS.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
-
+        &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing&quot; data-heigh
       
     
     </summary>
@@ -135,15 +134,16 @@
     <link href="https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/"/>
     <id>https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/</id>
     <published>2021-01-08T03:23:52.000Z</published>
-    <updated>2021-01-09T06:53:22.938Z</updated>
+    <updated>2021-01-09T08:25:04.580Z</updated>
     
-    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/RFF.pdf" data-height="500px"></div>]]></content>
+    <content type="html"><![CDATA[<div class="pdfobject-container" data-target="./pdf/RFF.pdf" data-height="500px"></div><p><a href="./pdf/RFF.pdf">RFF</a></p>]]></content>
     
     <summary type="html">
     
       
       
         &lt;div class=&quot;pdfobject-container&quot; data-target=&quot;./pdf/RFF.pdf&quot; data-height=&quot;500px&quot;&gt;&lt;/div&gt;
+&lt;p&gt;&lt;a href=&quot;./pdf/RFF.pdf&quot;&gt;RFF&lt;/a&gt;&lt;/p&gt;
 
       
     
