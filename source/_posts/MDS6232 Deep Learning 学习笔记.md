@@ -9,6 +9,8 @@ mathjax: true
 
 ## Deep belief net 2006-Hinton
 - **RBM(Restricted Boltzmann Machines)**: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See [Wiki](https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine) & [towardsdatascience](https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976)
+
+<!-- more -->
   > R(Restricted): The two layers are connected by a **fully bipartite graph**.
 
   > **Unsupervised**
