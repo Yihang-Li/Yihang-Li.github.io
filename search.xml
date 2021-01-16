@@ -565,13 +565,15 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
     <title>MDS6232 Deep Learning 学习笔记(持续更新)</title>
     <url>/2021/01/11/MDS6232%20Deep%20Learning%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
     <content><![CDATA[<h1 id="Introduction-01-11-2021"><a href="#Introduction-01-11-2021" class="headerlink" title="Introduction - 01/11/2021"></a>Introduction - 01/11/2021</h1><h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
-<li><p><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></p>
+<li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
+</ul>
+<a id="more"></a>
 <blockquote>
 <p>R(Restricted): The two layers are connected by a <strong>fully bipartite graph</strong>.</p>
 <p><strong>Unsupervised</strong></p>
 </blockquote>
-<p>This restriction allows for more efficient training algorithms than what is available for the general class of Boltzmann machines, in particular, the gradient-based contrastive divergence algorithm.</p>
-</li>
+<p>  This restriction allows for more efficient training algorithms than what is available for the general class of Boltzmann machines, in particular, the gradient-based contrastive divergence algorithm.</p>
+<ul>
 <li><p><strong>CD algorithms(contrastive divergence)</strong>: a recipe for training undirected graphical models (a class of probabilistic models used in machine learning). It relies on an approximation of the gradient (a good direction of change for the parameters) of the log-likelihood (the basic criterion that most probabilistic learning algorithms try to optimize) based on a short Markov chain (a way to sample from probabilistic models) started at the last example seen.See <a href="https://www.quora.com/What-is-contrastive-divergence">Quora</a></p>
 <blockquote>
 <p>I like Geoff Hinton’s description of CD: He called it “the Microsoft Algorithm:” It asks, “where do you want to go today?” and then doesn’t let you go there… [by Gary Cottrell, Professor of Computer Science and Engineering, UCSD]</p>
