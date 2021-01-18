@@ -562,9 +562,12 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       </tags>
   </entry>
   <entry>
-    <title>MDS6232 Deep Learning 学习笔记(持续更新)</title>
+    <title>MDS6232 Deep Learning Notes(Updating)</title>
     <url>/2021/01/11/MDS6232%20Deep%20Learning%20%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h1 id="Introduction-01-11-2021"><a href="#Introduction-01-11-2021" class="headerlink" title="Introduction - 01/11/2021"></a>Introduction - 01/11/2021</h1><h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
+    <content><![CDATA[<blockquote>
+<p>Introduction - 01/11/2021</p>
+</blockquote>
+<h1 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h1><ul>
 <li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
 </ul>
 <a id="more"></a>
@@ -582,8 +585,9 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 <li><p><strong>Gibbs Sampling</strong>: In statistics, Gibbs sampling or a Gibbs sampler is a Markov chain Monte Carlo (MCMC) algorithm for obtaining a sequence of observations which are approximated from a specified multivariate probability distribution, when direct sampling is difficult. See <a href="https://en.wikipedia.org/wiki/Gibbs_sampling">Wiki</a></p>
 </li>
 </ul>
-<h1 id="Introduction-01-13-2021"><a href="#Introduction-01-13-2021" class="headerlink" title="Introduction - 01/13/2021"></a>Introduction - 01/13/2021</h1><h2 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h2><blockquote>
-<p><strong><em><a href="https://en.wikipedia.org/wiki/Feature_learning">WiKi</a></em></strong>:</p>
+<blockquote>
+<p>Introduction - 01/13/2021</p>
+<h1 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h1><p><strong><em><a href="https://en.wikipedia.org/wiki/Feature_learning">WiKi</a></em></strong>:</p>
 <ul>
 <li>In machine learning, <strong>feature learning</strong> or representation learning is a set of techniques that allows a system to automatically discover the representations needed for feature detection or classification from raw data. This replaces <strong>manual feature engineering</strong> and allows a machine to both learn the features and use them to perform a specific task.</li>
 <li>Feature learning is motivated by the fact that machine learning tasks such as classification often require input that is mathematically and computationally convenient to process. However, real-world data such as images, video, and sensor data has not yielded to attempts to algorithmically define specific features. An alternative is to discover such features or representations through examination, without relying on explicit algorithms.</li>
@@ -617,6 +621,10 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 </tbody>
 </table>
 </div>
+<blockquote>
+<p>Introduction - 01/18/2021</p>
+<h2 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h2></blockquote>
+<p><img src="../assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering"> <img src="../assets/Deep_Learning_Design_Cycle.png" alt=""></p>
 ]]></content>
       <categories>
         <category>Notes</category>
