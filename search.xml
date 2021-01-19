@@ -562,7 +562,7 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       </tags>
   </entry>
   <entry>
-    <title></title>
+    <title>MDS6232 Deep Learning Course Notes(Updating)</title>
     <url>/2021/01/11/MDS6232_Deep_Learning_Notes/</url>
     <content><![CDATA[<blockquote>
 <p>Introduction - 01/11/2021</p>
@@ -627,5 +627,11 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 </blockquote>
 <h2 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h2><p><img src="./image/MDS6232_Deep_Learning_Notes/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle"><img src="./image/MDS6232_Deep_Learning_Notes/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycle"></p>
 ]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>Deep Learning</tag>
+      </tags>
   </entry>
 </search>
