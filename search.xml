@@ -667,6 +667,9 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 <p><img src="/assets/widthdepth.png" alt="Width&Depth" style="zoom:80%;" /></p>
 <h2 id="Sparsify-Pruning"><a href="#Sparsify-Pruning" class="headerlink" title="Sparsify (Pruning)"></a>Sparsify (Pruning)</h2><p><img src="/assets/Sparsify.png" alt="sparsify" style="zoom:80%;" /></p>
 <p>Red part: progressively pruning | Green part: directly pruning</p>
+<blockquote>
+<p><strong><em>Dropout!</em></strong>  See <a href="https://d2l.ai/chapter_multilayer-perceptrons/dropout.html">D2L</a></p>
+</blockquote>
 <h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
 <li>Deep learning = Machine learning with big data, feature learning, joint learning (end-to-end learning), contextual learning (depth &amp; width)</li>
 <li>Deep feature presentations are: Sparse &amp; Selective<ul>
