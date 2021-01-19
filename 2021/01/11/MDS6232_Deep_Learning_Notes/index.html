@@ -18,17 +18,21 @@
     var CONFIG = {"hostname":"yihang-li.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Introduction - 01/11/2021  Deep belief net 2006-Hinton RBM(Restricted Boltzmann Machines): A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a p">
+  <meta name="description" content="Introduction Introduction - 01/11/2021  Deep belief net 2006-Hinton RBM(Restricted Boltzmann Machines): A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that c">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MDS6232 Deep Learning Course Notes(Updating)">
 <meta property="og:url" content="https://yihang-li.github.io/2021/01/11/MDS6232_Deep_Learning_Notes/index.html">
 <meta property="og:site_name" content="Yihang">
-<meta property="og:description" content="Introduction - 01/11/2021  Deep belief net 2006-Hinton RBM(Restricted Boltzmann Machines): A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a p">
+<meta property="og:description" content="Introduction Introduction - 01/11/2021  Deep belief net 2006-Hinton RBM(Restricted Boltzmann Machines): A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that c">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://yihang-li.github.io/assets/Feature_Engineering_Design_Cycle.png">
 <meta property="og:image" content="https://yihang-li.github.io/assets/Deep_Learning_Design_Cycle.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/LFCS.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/JSL.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/widthdepth.png">
+<meta property="og:image" content="https://yihang-li.github.io/assets/Sparsify.png">
 <meta property="article:published_time" content="2021-01-11T09:13:14.000Z">
-<meta property="article:modified_time" content="2021-01-19T03:33:37.029Z">
+<meta property="article:modified_time" content="2021-01-19T07:01:47.343Z">
 <meta property="article:author" content="Yihang Li">
 <meta property="article:tag" content="Deep Learning">
 <meta name="twitter:card" content="summary">
@@ -1378,7 +1382,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #082f90;
+  background: #4b0f69;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2775,7 +2779,7 @@ embed {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 11:33:37" itemprop="dateModified" datetime="2021-01-19T11:33:37+08:00">2021-01-19</time>
+                <time title="修改时间：2021-01-19 15:01:47" itemprop="dateModified" datetime="2021-01-19T15:01:47+08:00">2021-01-19</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2798,10 +2802,10 @@ embed {
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote>
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
 <p>Introduction - 01/11/2021</p>
 </blockquote>
-<h1 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h1><ul>
+<h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
 <li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a target="_blank" rel="noopener" href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
 </ul>
 <a id="more"></a>
@@ -2821,7 +2825,7 @@ embed {
 <blockquote>
 <p>Introduction - 01/13/2021</p>
 </blockquote>
-<h1 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h1><blockquote>
+<h2 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h2><blockquote>
 <p><strong><em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Feature_learning">WiKi</a></em></strong>:</p>
 <ul>
 <li>In machine learning, <strong>feature learning</strong> or representation learning is a set of techniques that allows a system to automatically discover the representations needed for feature detection or classification from raw data. This replaces <strong>manual feature engineering</strong> and allows a machine to both learn the features and use them to perform a specific task.</li>
@@ -2859,8 +2863,55 @@ embed {
 <blockquote>
 <p>Introduction - 01/18/2021</p>
 </blockquote>
-<h2 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h2><p><img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;"></p>
-<p><img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:80%;"></p>
+<h3 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h3><p><img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;"></p>
+<blockquote>
+<p><strong><em>For Feature Engineering Design Cycle</em></strong>:</p>
+<ul>
+<li><strong>Preprocessing and Feature Design</strong> may lose useful information and not to be optimized, since they are not parts of an end-to-end learning system</li>
+<li><strong>Preprocessing</strong> could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<p><img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:60%;"></p>
+<blockquote>
+<p><strong><em>For Deep Learning Design Cycle</em></strong>:</p>
+<ul>
+<li>Learning plays a bigger role in the design cycle</li>
+<li>Feature learning becomes part of the end-to-end learning system and makes the key difference</li>
+<li>Preprocessing becomes optional means that several pattern recognition steps can be merged into one end-to-end learning system</li>
+<li>However, we may underestimated the importance of data collection and evaluation</li>
+<li>Preprocessing** could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<h3 id="Learning-features-and-classifiers-separately"><a href="#Learning-features-and-classifiers-separately" class="headerlink" title="Learning features and classifiers separately"></a>Learning features and classifiers separately</h3><blockquote>
+<p><strong>Not all the datasets and prediction tasks are suitable for learning features with deep models</strong></p>
+</blockquote>
+<p><img src="/assets/LFCS.png" alt="Learning features and classifiers separately" style="zoom:80%;"></p>
+<p>As above, we learn features on Task A, instead learn classifier for task B.</p>
+<h2 id="Deep-Structures-vs-Shallow-Structures"><a href="#Deep-Structures-vs-Shallow-Structures" class="headerlink" title="Deep Structures vs Shallow Structures"></a>Deep Structures vs Shallow Structures</h2><blockquote>
+<p>The former usually relate to global or non-local while the latter to local</p>
+<p>Shallow models divide the feature space into regions and match templates in local regions</p>
+<p>Shallow models increases the model capacity tipically by increasing the size of feature vectors</p>
+<p>Human Understand the World through Multiple Levels of Abstractions</p>
+<ul>
+<li>Humans can imagine new pictures by re-configuring these abstractions at multiple levels. Thus, our brain has good <strong>generalization</strong>(<code>脑补</code>) can recognize things never seen before.</li>
+</ul>
+</blockquote>
+<h2 id="Joint-Learning-vs-Separate-Learning"><a href="#Joint-Learning-vs-Separate-Learning" class="headerlink" title="Joint Learning vs Separate Learning"></a>Joint Learning vs Separate Learning</h2><p><img src="/assets/JSL.png" alt="Joint Learning vs Separate Learning" style="zoom:80%;"></p>
+<blockquote>
+<p>Deep Learning is a framework/language but not a black-box model.</p>
+<p>Its power comes from joint optimization and increasing the capacity of the learner (<code>depth&amp;width</code>, <code>trade off between capacity&amp;convergence</code>)</p>
+<p>Large learning capacity makes <strong>high dimensional data transforms</strong>(<code>width</code>) possible, and makes better use of contextual information( <strong>Hierarchical nonlinear representations</strong>(<code>depth</code>))</p>
+</blockquote>
+<p><img src="/assets/widthdepth.png" alt="Width&amp;Depth" style="zoom:80%;"></p>
+<h2 id="Sparsify-Pruning"><a href="#Sparsify-Pruning" class="headerlink" title="Sparsify (Pruning)"></a>Sparsify (Pruning)</h2><p><img src="/assets/Sparsify.png" alt="sparsify" style="zoom:80%;"></p>
+<p>Red part: progressively pruning | Green part: directly pruning</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<li>Deep learning = Machine learning with big data, feature learning, joint learning (end-to-end learning), contextual learning (depth &amp; width)</li>
+<li>Deep feature presentations are: Sparse &amp; Selective<ul>
+<li>Robust to data corruption</li>
+</ul>
+</li>
+</ul>
 
     </div>
 
@@ -2942,7 +2993,7 @@ embed {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Deep-belief-net-2006-Hinton"><span class="nav-number">1.</span> <span class="nav-text">Deep belief net 2006-Hinton</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Feature-Engineering-vs-Feature-Learning"><span class="nav-number">2.</span> <span class="nav-text">Feature Engineering vs Feature Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Design-Cycle"><span class="nav-number">2.1.</span> <span class="nav-text">Design Cycle</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-belief-net-2006-Hinton"><span class="nav-number">1.1.</span> <span class="nav-text">Deep belief net 2006-Hinton</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Feature-Engineering-vs-Feature-Learning"><span class="nav-number">1.2.</span> <span class="nav-text">Feature Engineering vs Feature Learning</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Design-Cycle"><span class="nav-number">1.2.1.</span> <span class="nav-text">Design Cycle</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Learning-features-and-classifiers-separately"><span class="nav-number">1.2.2.</span> <span class="nav-text">Learning features and classifiers separately</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Deep-Structures-vs-Shallow-Structures"><span class="nav-number">1.3.</span> <span class="nav-text">Deep Structures vs Shallow Structures</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Joint-Learning-vs-Separate-Learning"><span class="nav-number">1.4.</span> <span class="nav-text">Joint Learning vs Separate Learning</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sparsify-Pruning"><span class="nav-number">1.5.</span> <span class="nav-text">Sparsify (Pruning)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Conclusion"><span class="nav-number">1.6.</span> <span class="nav-text">Conclusion</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

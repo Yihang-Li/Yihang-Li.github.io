@@ -564,10 +564,10 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
   <entry>
     <title>MDS6232 Deep Learning Course Notes(Updating)</title>
     <url>/2021/01/11/MDS6232_Deep_Learning_Notes/</url>
-    <content><![CDATA[<blockquote>
+    <content><![CDATA[<h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
 <p>Introduction - 01/11/2021</p>
 </blockquote>
-<h1 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h1><ul>
+<h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
 <li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
 </ul>
 <a id="more"></a>
@@ -587,7 +587,7 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 <blockquote>
 <p>Introduction - 01/13/2021</p>
 </blockquote>
-<h1 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h1><blockquote>
+<h2 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h2><blockquote>
 <p><strong><em><a href="https://en.wikipedia.org/wiki/Feature_learning">WiKi</a></em></strong>:</p>
 <ul>
 <li>In machine learning, <strong>feature learning</strong> or representation learning is a set of techniques that allows a system to automatically discover the representations needed for feature detection or classification from raw data. This replaces <strong>manual feature engineering</strong> and allows a machine to both learn the features and use them to perform a specific task.</li>
@@ -625,8 +625,55 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
 <blockquote>
 <p>Introduction - 01/18/2021</p>
 </blockquote>
-<h2 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h2><p><img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;" /></p>
-<p><img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:80%;" /></p>
+<h3 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h3><p><img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;" /></p>
+<blockquote>
+<p><strong><em>For Feature Engineering Design Cycle</em></strong>:</p>
+<ul>
+<li><strong>Preprocessing and Feature Design</strong> may lose useful information and not to be optimized, since they are not parts of an end-to-end learning system</li>
+<li><strong>Preprocessing</strong> could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<p><img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:60%;" /></p>
+<blockquote>
+<p><strong><em>For Deep Learning Design Cycle</em></strong>:</p>
+<ul>
+<li>Learning plays a bigger role in the design cycle</li>
+<li>Feature learning becomes part of the end-to-end learning system and makes the key difference</li>
+<li>Preprocessing becomes optional means that several pattern recognition steps can be merged into one end-to-end learning system</li>
+<li>However, we may underestimated the importance of data collection and evaluation</li>
+<li>Preprocessing** could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<h3 id="Learning-features-and-classifiers-separately"><a href="#Learning-features-and-classifiers-separately" class="headerlink" title="Learning features and classifiers separately"></a>Learning features and classifiers separately</h3><blockquote>
+<p><strong>Not all the datasets and prediction tasks are suitable for learning features with deep models</strong></p>
+</blockquote>
+<p><img src="/assets/LFCS.png" alt="Learning features and classifiers separately" style="zoom:80%;" /></p>
+<p>As above, we learn features on Task A, instead learn classifier for task B.</p>
+<h2 id="Deep-Structures-vs-Shallow-Structures"><a href="#Deep-Structures-vs-Shallow-Structures" class="headerlink" title="Deep Structures vs Shallow Structures"></a>Deep Structures vs Shallow Structures</h2><blockquote>
+<p>The former usually relate to global or non-local while the latter to local</p>
+<p>Shallow models divide the feature space into regions and match templates in local regions</p>
+<p>Shallow models increases the model capacity tipically by increasing the size of feature vectors</p>
+<p>Human Understand the World through Multiple Levels of Abstractions</p>
+<ul>
+<li>Humans can imagine new pictures by re-configuring these abstractions at multiple levels. Thus, our brain has good <strong>generalization</strong>(<code>脑补</code>) can recognize things never seen before.</li>
+</ul>
+</blockquote>
+<h2 id="Joint-Learning-vs-Separate-Learning"><a href="#Joint-Learning-vs-Separate-Learning" class="headerlink" title="Joint Learning vs Separate Learning"></a>Joint Learning vs Separate Learning</h2><p><img src="/assets/JSL.png" alt="Joint Learning vs Separate Learning" style="zoom:80%;" /></p>
+<blockquote>
+<p>Deep Learning is a framework/language but not a black-box model.</p>
+<p>Its power comes from joint optimization and increasing the capacity of the learner (<code>depth&amp;width</code>, <code>trade off between capacity&amp;convergence</code>)</p>
+<p>Large learning capacity makes <strong>high dimensional data transforms</strong>(<code>width</code>) possible, and makes better use of contextual information( <strong>Hierarchical nonlinear representations</strong>(<code>depth</code>))</p>
+</blockquote>
+<p><img src="/assets/widthdepth.png" alt="Width&Depth" style="zoom:80%;" /></p>
+<h2 id="Sparsify-Pruning"><a href="#Sparsify-Pruning" class="headerlink" title="Sparsify (Pruning)"></a>Sparsify (Pruning)</h2><p><img src="/assets/Sparsify.png" alt="sparsify" style="zoom:80%;" /></p>
+<p>Red part: progressively pruning | Green part: directly pruning</p>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<li>Deep learning = Machine learning with big data, feature learning, joint learning (end-to-end learning), contextual learning (depth &amp; width)</li>
+<li>Deep feature presentations are: Sparse &amp; Selective<ul>
+<li>Robust to data corruption</li>
+</ul>
+</li>
+</ul>
 ]]></content>
       <categories>
         <category>Notes</category>
