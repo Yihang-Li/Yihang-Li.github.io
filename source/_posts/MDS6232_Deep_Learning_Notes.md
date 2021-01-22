@@ -48,8 +48,6 @@ This restriction allows for more efficient training algorithms than what is avai
 
 ### Design Cycle
 
-
-
 <img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;" />
 
 > ***For Feature Engineering Design Cycle***:
@@ -58,7 +56,6 @@ This restriction allows for more efficient training algorithms than what is avai
 > - **Preprocessing** could be the result of another pattern recognition system
 
 <img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:60%;" />
-
 
 > ***For Deep Learning Design Cycle***:
 >
@@ -105,6 +102,8 @@ As above, we learn features on Task A, instead learn classifier for task B.
 <img src="/assets/Sparsify.png" alt="sparsify" style="zoom:80%;" />
 
 Red part: progressively pruning | Green part: directly pruning
+
+> ***Dropout!***  See [D2L](https://d2l.ai/chapter_multilayer-perceptrons/dropout.html)
 
 ## Conclusion
 
