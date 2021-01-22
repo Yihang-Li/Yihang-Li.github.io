@@ -685,4 +685,86 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
         <tag>Deep Learning</tag>
       </tags>
   </entry>
+  <entry>
+    <title>MDS6222 Dynamic Programming (Notes 1)</title>
+    <url>/2021/01/22/MDS6222_Dynamic_Programming/</url>
+    <content><![CDATA[<blockquote>
+<p>Note: Only write key points here, other things see other materials.</p>
+</blockquote>
+<h1 id="Table-of-contents"><a href="#Table-of-contents" class="headerlink" title="Table of contents"></a>Table of contents</h1><ol>
+<li><a href="#paragraph1">Where and Why to Use Dynamic Programming</a></li>
+<li><a href="#paragraph2">Basic Structure of Stochastic Dynamic Programming</a></li>
+<li><a href="#p3">Value of Information ~ Two Game Chess</a></li>
+<li><a href="#P4">DP Algorithm</a></li>
+<li><a href="#p5">State Augmentation</a></li>
+</ol>
+<a id="more"></a>
+<h2 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming "></a>Where and Why to Use Dynamic Programming <a name="paragraph1"></a></h2><p>👀️ What if there exists some optimization problems such that</p>
+<ul>
+<li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li>
+<li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li>
+<li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li>
+</ul>
+<p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p>
+<blockquote>
+<p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p>
+</blockquote>
+<h2 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming "></a>Basic Structure of Stochastic Dynamic Programming <a name="paragraph2"></a></h2><h3 id="2-Principle-Features-of-DP"><a href="#2-Principle-Features-of-DP" class="headerlink" title="2 Principle Features of DP"></a><strong><em>2</em></strong> Principle Features of DP</h3><ul>
+<li>Discrete-time Dynamic Systems</li>
+<li>Cost Function is Additive over Time</li>
+</ul>
+<h3 id="6-Key-Elements-of-DP-Formulation"><a href="#6-Key-Elements-of-DP-Formulation" class="headerlink" title="6 Key Elements of DP Formulation"></a><strong><em>6</em></strong> Key Elements of DP Formulation</h3><ul>
+<li><strong><em>Stage</em></strong>: $k$</li>
+</ul>
+<blockquote>
+<p>Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</p>
+</blockquote>
+<ul>
+<li><strong><em>State</em></strong>: $x_k$</li>
+</ul>
+<blockquote>
+<p>Decision Base</p>
+</blockquote>
+<ul>
+<li><strong><em>Control</em></strong>: $u_k \in U_k(x_k)$</li>
+</ul>
+<blockquote>
+<p>Action, Decision, $u_k$ is selected with knowledge of $x_k$</p>
+</blockquote>
+<ul>
+<li><strong><em>Disturbance</em></strong>: $\omega_k \sim P(\omega_k|x_k, u_k)$</li>
+</ul>
+<blockquote>
+<p>Value of Information, probability distribution of $\omega<em>k$ does not depend on past values $\omega</em>{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</p>
+</blockquote>
+<ul>
+<li><strong><em><code>Memoryless</code> System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k)$</li>
+</ul>
+<blockquote>
+<p>$k$: time-varied, if removed, then stationary system.  <code>Memoryless</code> $f<em>k$ does not depend on $x</em>{k-1}, \omega_{k-1}$ and so on.</p>
+</blockquote>
+<ul>
+<li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br><strong><em>Terminal State</em></strong>: $g_N(x_N)$</li>
+</ul>
+<h3 id="2-Aims"><a href="#2-Aims" class="headerlink" title="2 Aims"></a><strong><em>2</em></strong> Aims</h3><ul>
+<li><strong><em>Optimal Policy</em></strong>:  $\pi^<em> = \left(\mu_0^</em>, \mu<em>1^*, \dotsm, \mu</em>{N-1}^* \right)$</li>
+</ul>
+<blockquote>
+<p><strong><em>Policy</em></strong>: $\pi = \left(\mu<em>0, \mu_1, \dotsm, \mu</em>{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</p>
+</blockquote>
+<ul>
+<li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li>
+</ul>
+<blockquote>
+<p>$J_N(x_N) = g_N(x_N)$</p>
+<p>$J<em>k(x_k) = \min\limits</em>{u<em>k \in U_k(x_k)}E</em>{\omega<em>k}{g_k(x_k, u_k, \omega_k)+J</em>{k+1}(f_k(x_k, u_k, \omega_k))}$,  $\forall k = 0, 1, \dotsm, N-1$</p>
+</blockquote>
+<h2 id="Value-of-Information-Two-Game-Chess"><a href="#Value-of-Information-Two-Game-Chess" class="headerlink" title="Value of Information ~ Two Game Chess "></a>Value of Information ~ Two Game Chess <a name="p3"></a></h2><h2 id="DP-Algorithm"><a href="#DP-Algorithm" class="headerlink" title="DP Algorithm"></a>DP Algorithm</h2><h3 id="Optimality-of-DP-Algorithm"><a href="#Optimality-of-DP-Algorithm" class="headerlink" title="Optimality of DP Algorithm"></a>Optimality of DP Algorithm</h3><h3 id="Application-of-DP-Algorithm"><a href="#Application-of-DP-Algorithm" class="headerlink" title="Application of DP Algorithm"></a>Application of DP Algorithm</h3><h2 id="State-Augmentation"><a href="#State-Augmentation" class="headerlink" title="State Augmentation "></a>State Augmentation <a name='p5'></a></h2><h3 id="Time-Lags"><a href="#Time-Lags" class="headerlink" title="Time Lags"></a>Time Lags</h3><h3 id="Correlated-Disturbance"><a href="#Correlated-Disturbance" class="headerlink" title="Correlated Disturbance"></a>Correlated Disturbance</h3>]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>DP</tag>
+      </tags>
+  </entry>
 </search>
