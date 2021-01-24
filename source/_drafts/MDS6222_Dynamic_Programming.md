@@ -74,13 +74,27 @@ mathjax: true
 >
 > $J_k(x_k) = \min\limits_{u_k \in U_k(x_k)}E_{\omega_k}\{g_k(x_k, u_k, \omega_k)+J_{k+1}(f_k(x_k, u_k, \omega_k))\}$,  $\forall k = 0, 1, \dotsm, N-1$
 
-## Value of Information ~ Two Game Chess <a name="p3"></a>
+## Example
+### Inventory Control
+- ***Stage***: Ordering Period: $k$
+
+- ***State***: Inventory Level at Period $k$ : $x_k$
+
+- ***Control***: Stock ordered at Period $k$ , $u_k \ge 0$
+
+- ***Disturbance***: Demand at Period $k$, $\omega_k$
+
+- ***System Dynamics***: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$
+
+- ***Stage Cost***: $g_k(x_k, u_k, \omega_k) = $ 
+
+- >  Pause Here
+
+## Value of Information  <a name="p3"></a>
 
 ## DP Algorithm
 
-### Optimality of DP Algorithm
-
-### Application of DP Algorithm
+### Optimality of DP Algor
 
 ## State Augmentation <a name='p5'></a>
 
