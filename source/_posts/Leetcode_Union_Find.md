@@ -7,9 +7,7 @@ categories: Leetcode
 ## 并查集算法
 
 * [X] 动手使用python实现`并查集`4个版本🚀️
-* [ ] 应用刷题！🎉️
-
-
+* [ ] 应用刷题！🎉️：刷完[并查集tag](https://leetcode-cn.com/tag/union-find/)再勾（4/39）
 
 <!-- more -->
 
@@ -227,7 +225,103 @@ class Union_Find():
 
 ### 应用刷题
 
-- [ ] [1319](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/)
+- [X] [1319](https://leetcode-cn.com/problems/number-of-operations-to-make-network-connected/)
+
+```python
+class Solution:
+    def makeConnected(self, n: int, connections: List[List[int]]) -> int:
+        if len(connections) < n - 1: return -1
+        uf = Union_Find(n)
+        edges = 0
+        for i, j in connections:
+            if uf.is_connected(i, j):
+                edges += 1
+                continue
+            uf.union(i, j)
+        if edges >= uf.count - 1:
+            return uf.count - 1
+        return -1
+```
+
+* [X] [547](https://leetcode-cn.com/problems/number-of-provinces/)
+
+```python
+class Solution:
+    def findCircleNum(self, isConnected: List[List[int]]) -> int:
+        n = len(isConnected)
+        uf = Union_Find(n)
+        for i in range(n-1):
+            for j in range(i+1, n):
+                if isConnected[i][j]:
+                    uf.union(i, j)
+        return uf.count
+```
+
+* [X] [778](https://leetcode-cn.com/problems/swim-in-rising-water/)
+
+```python
+class Solution:
+    def swimInWater(self, grid: List[List[int]]) -> int:
+        n = len(grid)
+        uf = Union_Find(n*n)
+        def height_t(t):
+            for i in range(n):
+                for j in range(n):
+                    if grid[i][j] == t:
+                        return i, j
+                    j += 1
+                i += 1
+        for t in range(1, n*n):
+            i, j = height_t(t)
+            if i-1 >= 0 and grid[i-1][j] <= t:
+                uf.union(grid[i][j], grid[i-1][j])
+            if i+1 < n and grid[i+1][j] <= t:
+                uf.union(grid[i][j], grid[i+1][j])
+            if j-1 >= 0 and grid[i][j-1] <= t:
+                uf.union(grid[i][j], grid[i][j-1])
+            if j+1 < n and grid[i][j+1] <= t:
+                uf.union(grid[i][j], grid[i][j+1])
+            if uf.is_connected(grid[0][0], grid[n-1][n-1]):
+                return t
+        return t
+```
+
+* [X] [990](https://leetcode-cn.com/problems/satisfiability-of-equality-equations/)
+
+```python
+class Solution:
+    def equationsPossible(self, equations: List[str]) -> bool:
+
+        alpha_set = set()
+        alpha_dict = dict()
+
+        for equation in equations:
+            alpha_set.add(equation[0])
+            alpha_set.add(equation[3])
+
+        n = 0
+        for i in alpha_set:
+            alpha_dict[i] = n
+            n += 1
+
+        uf = Union_Find(n)
+
+        equations.sort(key=lambda x: x[1], reverse=True)
+
+        for equation in equations:
+            if equation[1] == '=':
+                uf.union(alpha_dict[equation[0]], alpha_dict[equation[3]])
+            elif uf.is_connected(alpha_dict[equation[0]], alpha_dict[equation[3]]):
+                return False
+        return True
+
+```
+
+* [ ] 未完待续
+
+
+
+> 并查集相关的题目不止是并查集这么简单，并查集只是可以用来辅助的一种数据结构！
 
 ### Reference
 
