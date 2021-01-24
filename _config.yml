@@ -97,7 +97,7 @@ plugins:
   hexo-math
   hexo-pdf
 ## Themes: https://hexo.io/themes/
-theme: next # landscape #
+theme: next # alpha-dust # landscape #
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
