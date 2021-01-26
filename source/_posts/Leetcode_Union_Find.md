@@ -7,7 +7,7 @@ categories: Leetcode
 ## 并查集算法
 
 * [X] 动手使用python实现`并查集`4个版本🚀️
-* [ ] 应用刷题！🎉️：刷完[并查集tag](https://leetcode-cn.com/tag/union-find/)再勾（4/39）
+* [ ] 应用刷题！🎉️：刷完[并查集tag](https://leetcode-cn.com/tag/union-find/)再勾（7/39）
 
 <!-- more -->
 
@@ -317,7 +317,101 @@ class Solution:
 
 ```
 
-* [ ] 未完待续
+* [X] [674](https://leetcode-cn.com/problems/longest-continuous-increasing-subsequence/) > 这题能用并查集是我没想到的
+
+```python
+class Solution:
+    def findLengthOfLCIS(self, nums: List[int]) -> int:
+        n = len(nums)
+        if n == 0: return 0
+        uf = Union_Find(n)
+        for i in range(n-1):
+            if nums[i] < nums[i+1]:
+                uf.union(i, i+1) ##
+        return max(uf.size)
+```
+
+* [X] [959](https://leetcode-cn.com/problems/regions-cut-by-slashes/)
+
+```python
+class Solution:
+    def regionsBySlashes(self, grid: List[str]) -> int:
+        N = len(grid)
+        n = N**2 * 4
+        uf = Union_Find(n)
+        for i in range(N):
+            ith_row = grid[i]
+            for j in range(N):
+                index = 4 * (i * N + j) ### index
+                c = ith_row[j]
+                #单元格内合并
+                if c == ' ':
+                    uf.union(index, index+1)
+                    uf.union(index+1, index+2)
+                    uf.union(index+2, index+3)
+                elif c == '/':
+                    uf.union(index, index+3)
+                    uf.union(index+1, index+2)
+                else:
+                    uf.union(index, index+1)
+                    uf.union(index+2, index+3)
+                # #单元格间合并
+                # if j < N - 1: #right-bound
+                #     uf.union(index+1, index+7)
+                # if i < N - 1: #lower-bound
+                #     uf.union(index+2, 4*((i+1)*N)+j)
+                #换一种单元格间合并试试
+                if i > 0: uf.union(index, 4*((i-1)*N + j)+2)
+                if j > 0: uf.union(index+3, 4*(i*N+j-1)+1)
+        return uf.count
+```
+
+> 为什么向右向下合并不对，向上向左合并就对了呢？
+
+* [X] [200](https://leetcode-cn.com/problems/number-of-islands/)
+
+```python
+class Solution:
+    def numIslands(self, grid: List[List[str]]) -> int:
+        row, col = len(grid), len(grid[0])
+        count_1, count_0 = 0, 0
+        for i in range(row):
+            for j in range(col):
+                if grid[i][j] == "0": count_0 += 1
+                else: count_1 += 1
+        uf = Union_Find(row*col)
+        for i in range(row):
+            for j in range(col):
+                index = i*col+j
+                if grid[i][j] == "1":
+                    #上
+                    if i > 0 and grid[i-1][j] == "1": uf.union(index, (i-1)*col+j)
+                    #左
+                    if j > 0 and grid[i][j-1] == "1": uf.union(index, index-1)
+        return uf.count - count_0
+```
+
+* [ ] [684](https://leetcode-cn.com/problems/redundant-connection/)
+
+```python
+class Solution:
+    def findRedundantConnection(self, edges: List[List[int]]) -> List[int]:
+        n = len(edges)
+        uf = Union_Find(n)
+        for i, j in edges:
+            if uf.is_connected(i-1, j-1):
+                return [i, j]
+            uf.union(i-1, j-1)
+        return []
+```
+
+- [ ] []()
+
+```python
+
+```
+
+
 
 
 
