@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-01-27T08:24:06.779Z</updated>
+  <updated>2021-01-27T14:36:53.304Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>MDS6222 Dynamic Programming (Notes 1)</title>
+    <link href="https://yihang-li.github.io/2021/01/27/MDS6222_DP_CH2/"/>
+    <id>https://yihang-li.github.io/2021/01/27/MDS6222_DP_CH2/</id>
+    <published>2021-01-27T14:25:36.625Z</published>
+    <updated>2021-01-27T14:36:53.304Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ch2-Deterministic-Systems-and-the-Shortest-Path-Problem"><a href="#Ch2-Deterministic-Systems-and-the-Shortest-Path-Problem" class="headerlink" title="Ch2 Deterministic Systems and the Shortest Path Problem"></a>Ch2 Deterministic Systems and the Shortest Path Problem</h1><a id="more"></a><h2 id="2-1-Finite-State-Systems-and-Shortest-Paths"><a href="#2-1-Finite-State-Systems-and-Shortest-Paths" class="headerlink" title="2.1 Finite-State Systems and Shortest Paths"></a>2.1 Finite-State Systems and Shortest Paths</h2><h2 id="2-2-Some-Shortest-Path-Applications"><a href="#2-2-Some-Shortest-Path-Applications" class="headerlink" title="2.2 Some Shortest Path Applications"></a>2.2 Some Shortest Path Applications</h2><h3 id="2-2-1-Critical-Path-Analysis"><a href="#2-2-1-Critical-Path-Analysis" class="headerlink" title="2.2.1 Critical Path Analysis"></a>2.2.1 Critical Path Analysis</h3><h3 id="2-2-2-Hidden-Markov-Models-and-the-Viterbi-Algorithm"><a href="#2-2-2-Hidden-Markov-Models-and-the-Viterbi-Algorithm" class="headerlink" title="2.2.2 Hidden Markov Models and the Viterbi Algorithm"></a>2.2.2 Hidden Markov Models and the Viterbi Algorithm</h3><h2 id="2-3-Shortest-Path-Algorithms"><a href="#2-3-Shortest-Path-Algorithms" class="headerlink" title="2.3 Shortest Path Algorithms"></a>2.3 Shortest Path Algorithms</h2><h3 id="2-3-1-Label-Correcting-Methods"><a href="#2-3-1-Label-Correcting-Methods" class="headerlink" title="2.3.1 Label Correcting Methods"></a>2.3.1 Label Correcting Methods</h3><h3 id="2-3-2-Label-Correcting-Variations-A-Algorithm"><a href="#2-3-2-Label-Correcting-Variations-A-Algorithm" class="headerlink" title="2.3.2 Label Correcting Variations - A* Algorithm"></a>2.3.2 Label Correcting Variations - A* Algorithm</h3><h3 id="2-3-3-Branch-and-Bound"><a href="#2-3-3-Branch-and-Bound" class="headerlink" title="2.3.3 Branch-and-Bound"></a>2.3.3 Branch-and-Bound</h3><h3 id="2-3-4-Constrained-and-Multi-objective-Problems"><a href="#2-3-4-Constrained-and-Multi-objective-Problems" class="headerlink" title="2.3.4 Constrained and Multi-objective Problems"></a>2.3.4 Constrained and Multi-objective Problems</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Ch2-Deterministic-Systems-and-the-Shortest-Path-Problem&quot;&gt;&lt;a href=&quot;#Ch2-Deterministic-Systems-and-the-Shortest-Path-Problem&quot; class=&quot;headerlink&quot; title=&quot;Ch2 Deterministic Systems and the Shortest Path Problem&quot;&gt;&lt;/a&gt;Ch2 Deterministic Systems and the Shortest Path Problem&lt;/h1&gt;
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="https://yihang-li.github.io/categories/Notes/"/>
+    
+    
+      <category term="DP" scheme="https://yihang-li.github.io/tags/DP/"/>
+    
+  </entry>
   
   <entry>
     <title>Leetcode with Union Find</title>
@@ -71,6 +94,31 @@
       <category term="Leetcode" scheme="https://yihang-li.github.io/tags/Leetcode/"/>
     
       <category term="Graph" scheme="https://yihang-li.github.io/tags/Graph/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>MDS6222 Dynamic Programming (Notes 1)</title>
+    <link href="https://yihang-li.github.io/2021/01/22/MDS6222_Dynamic_Programming/"/>
+    <id>https://yihang-li.github.io/2021/01/22/MDS6222_Dynamic_Programming/</id>
+    <published>2021-01-22T07:09:58.109Z</published>
+    <updated>2021-01-27T14:36:55.536Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote><p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p></blockquote><a id="more"></a><h2 id="1-1-Introduction"><a href="#1-1-Introduction" class="headerlink" title="1.1 Introduction"></a>1.1 Introduction</h2><h3 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming"></a>Basic Structure of Stochastic Dynamic Programming</h3><h4 id="2-Principle-Features-of-DP-👀"><a href="#2-Principle-Features-of-DP-👀" class="headerlink" title="2 Principle Features of DP 👀"></a><strong>2</strong> Principle Features of DP 👀</h4><ul><li>Discrete-time Dynamic Systems</li><li>Cost Function is Additive over Time</li></ul><h4 id="6-Key-Elements-of-DP-Formulation-👀"><a href="#6-Key-Elements-of-DP-Formulation-👀" class="headerlink" title="6 Key Elements of DP Formulation 👀"></a><strong>6</strong> Key Elements of DP Formulation 👀</h4><ul><li><strong><em>Stage</em></strong>  $k$: Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</li><li><strong><em>State</em></strong> $x_k$: Decision Base</li></ul><ul><li><strong><em>Control</em></strong> $u_k \in U_k(x_k)$: Action, Decision, each $u_k$ is selected with knowledge of current st$x_k$</li><li><strong><em>Disturbance</em></strong>  $\omega<em>k \sim P(\omega_k|x_k, u_k)$: Value of Information, probability distribution of $\omega_k$ does not depend on past values $\omega</em>{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</li><li><strong><em><code>Memoryless</code> System Dynamics</em></strong> $x<em>{k+1} = f_k(x_k, u_k, \omega_k)$: $k$ is time-varied, if removed, then stationary system.  <code>Memoryless</code> is that $f_k$ does not depend on $x</em>{k-1}, \omega_{k-1}$ and so on.</li><li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br>   <strong><em>Terminal State</em></strong>: $g_N(x_N)$</li></ul><h4 id="2-Aims-👀"><a href="#2-Aims-👀" class="headerlink" title="2 Aims 👀"></a><strong>2</strong> Aims 👀</h4><ul><li><strong><em>Optimal Policy</em></strong> $\pi^<em> = \left(\mu_0^</em>, \mu<em>1^*, \dotsm, \mu</em>{N-1}^<em> \right)$: **</em>Policy<em>*</em> ~ $\pi = \left(\mu<em>0, \mu_1, \dotsm, \mu</em>{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</li><li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li></ul><blockquote><p>$J_N(x_N) = g_N(x_N)$</p><p>$J<em>k(x_k) = \min\limits</em>{u<em>k \in U_k(x_k)}E</em>{\omega<em>k}{g_k(x_k, u_k, \omega_k)+J</em>{k+1}(f_k(x_k, u_k, \omega_k))}$,  $\forall k = 0, 1, \dotsm, N-1$</p></blockquote><h3 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming"></a>Where and Why to Use Dynamic Programming</h3><p>👀️ What if there exists some optimization problems such that</p><ul><li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li><li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li><li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li></ul><p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p><blockquote><p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p></blockquote><h3 id="Example-Inventory-Control"><a href="#Example-Inventory-Control" class="headerlink" title="Example: Inventory Control"></a>Example: Inventory Control</h3><ul><li><strong><em>Stage</em></strong>: Ordering Period: $k$</li><li><strong><em>State</em></strong>: Inventory Level at Period $k$ : $x_k$</li><li><strong><em>Control</em></strong>: Stock ordered at Period $k$ : $u_k \ge 0$</li><li><strong><em>Disturbance</em></strong>: Demand at Period $k$: $\omega_k$</li><li><strong><em>System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$</li><li><strong><em>Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k) = $</li><li><strong><em>Terminal Cost</em></strong>:</li><li><strong><em>Cost Fuction is Additive over Time</em></strong>:</li><li><strong><em>Optimization over Policies/Rules</em></strong>:</li></ul><blockquote><p>Revisited Later and fullfill above things! 2021-01-27</p></blockquote><h3 id="Open-loop-vs-Closed-loop-Feedback-Control"><a href="#Open-loop-vs-Closed-loop-Feedback-Control" class="headerlink" title="Open-loop vs Closed-loop (Feedback Control)"></a>Open-loop vs Closed-loop (Feedback Control)</h3><ul><li>In open-loop minimization, we select all controls $u_k$ at once at time 0, without waiting to see the subsequent disturbance $w_k$</li><li>In closed- loop minimization, we postpone selecting control $u_k$ until the last possible moment (time $k$) when the current state $x_k$ will be known, thus can make use of the information of $w_k$ that becomes available in stages</li></ul><h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ol><li>Schedualing (A Deterministic Finite-State Problem);</li><li>Two Game Chess</li></ol><h2 id="1-2-The-Basic-Problem"><a href="#1-2-The-Basic-Problem" class="headerlink" title="1.2 The Basic Problem"></a>1.2 The Basic Problem</h2><blockquote><p>Need to Add the content of basic problem here —- 2021-01-27</p><h3 id="Value-of-Information"><a href="#Value-of-Information" class="headerlink" title="Value of Information"></a>Value of Information</h3><ul><li>In Deterministic Problem, Open-loop is as good as Closed-loop</li><li>Value of Information = $J^<em>_{\text{closed-loop}} - J^</em>_{\text{open-loop}}$  (The reduction in cost)</li><li>Example: Two-Game Chess</li></ul></blockquote><h3 id="Encoding-Risk-in-the-Cost-Function"><a href="#Encoding-Risk-in-the-Cost-Function" class="headerlink" title="Encoding Risk in the Cost Function"></a>Encoding Risk in the Cost Function</h3><ul><li>As above, one important characteristic of stochastic problems is the possibility of using information with advantage</li><li>The other distinguishing characteristic is the need to take into account <code>risk</code> in the problem formulation.<br>e.g. Expectation and Variance in investment decision<br>e.g. St. Petersburg paradox</li></ul><h2 id="1-3-The-Dynamic-Programming-Algorithm"><a href="#1-3-The-Dynamic-Programming-Algorithm" class="headerlink" title="1.3 The Dynamic Programming Algorithm"></a>1.3 The Dynamic Programming Algorithm</h2><h3 id="Principle-of-Optimality"><a href="#Principle-of-Optimality" class="headerlink" title="Principle of Optimality"></a>Principle of Optimality</h3><blockquote><p>Need whole illustration here —- 2021-01-27</p></blockquote><ul><li>The truncated policy is optimal for the tail problem.</li><li>The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.<ul><li>e.g. deterministic scheduling example</li><li>e.g. stochastic inventory control example</li></ul></li></ul><p>-&gt; ‘One-at-a-time version of Divide and Conquer’</p><h3 id="The-DP-Algorithm"><a href="#The-DP-Algorithm" class="headerlink" title="The DP Algorithm"></a>The DP Algorithm</h3><blockquote><p>Need whole illustration here for Proposition1.3.1 and its proof detail —- 2021-01-27</p></blockquote><ul><li>$J_k(x_k)$ : the cost-to-go at state $x_k$ and time $k$, and refer to $J_k$ as the cost-to-go function at time $k$</li><li>e.g. 1.3.1 two ovens</li></ul><h2 id="1-4-State-Augmentation-and-Other-Reformulations"><a href="#1-4-State-Augmentation-and-Other-Reformulations" class="headerlink" title="1.4 State Augmentation and Other Reformulations"></a>1.4 State Augmentation and Other Reformulations</h2><p>Deal with situations where some of the assumptions of the basic problem are violated —-&gt; reformulate into the basic problem format.</p><h3 id="Case1-Time-Lags"><a href="#Case1-Time-Lags" class="headerlink" title="Case1: Time Lags"></a>Case1: Time Lags</h3><h3 id="Case2-Correlated-Disturbances"><a href="#Case2-Correlated-Disturbances" class="headerlink" title="Case2: Correlated Disturbances"></a>Case2: Correlated Disturbances</h3>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Ch1-The-Dynamic-Programming-Algorithm&quot;&gt;&lt;a href=&quot;#Ch1-The-Dynamic-Programming-Algorithm&quot; class=&quot;headerlink&quot; title=&quot;Ch1 The Dynamic Programming Algorithm&quot;&gt;&lt;/a&gt;Ch1 The Dynamic Programming Algorithm&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;Life can only be understood going backwards,&lt;br&gt;but it must be lived going forwards.&lt;br&gt;—— Kierkegaard&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+    
+      <category term="Notes" scheme="https://yihang-li.github.io/categories/Notes/"/>
+    
+    
+      <category term="DP" scheme="https://yihang-li.github.io/tags/DP/"/>
     
   </entry>
   
