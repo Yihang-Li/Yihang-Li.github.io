@@ -391,7 +391,7 @@ class Solution:
         return uf.count - count_0
 ```
 
-* [ ] [684](https://leetcode-cn.com/problems/redundant-connection/)
+* [X] [684](https://leetcode-cn.com/problems/redundant-connection/)
 
 ```python
 class Solution:
@@ -405,15 +405,45 @@ class Solution:
         return []
 ```
 
-- [ ] []()
+- [X] [1579](https://leetcode-cn.com/problems/remove-max-number-of-edges-to-keep-graph-fully-traversable/)
 
 ```python
+class Solution:
+    def maxNumEdgesToRemove(self, n: int, edges: List[List[int]]) -> int:
+        uf_Alice = Union_Find(n)
+        uf_Bob = Union_Find(n)
+        res = 0
+        edge1, edge2, edge3 = [], [], []
+        for edge in edges:
+            if edge[0] == 1: edge1.append(edge[1:])
+            elif edge[0] == 2: edge2.append(edge[1:])
+            else: edge3.append(edge[1:])
 
+        #先连接公共边
+        for i, j in edge3:
+            if uf_Alice.is_connected(i-1, j-1):
+                res += 1
+            else:
+                uf_Alice.union(i-1, j-1)
+                uf_Bob.union(i-1, j-1)
+        #再连接Alice
+        for i, j in edge1:
+            if uf_Alice.is_connected(i-1, j-1):
+                res += 1
+            else:
+                uf_Alice.union(i-1, j-1)
+        #再连接Bob
+        for i, j in edge2:
+            if uf_Bob.is_connected(i-1, j-1):
+                res += 1
+            else:
+                uf_Bob.union(i-1, j-1)
+
+        if uf_Alice.count == 1 and uf_Bob.count == 1:
+            return res
+        else:
+            return -1
 ```
-
-
-
-
 
 > 并查集相关的题目不止是并查集这么简单，并查集只是可以用来辅助的一种数据结构！
 
