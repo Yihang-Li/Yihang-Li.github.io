@@ -5,7 +5,8 @@ categories: Leetcode
 ---
 * [X] 👀️ 图在Python中的表示方法有哪些？
 * [X] 🎉️ DFS
-* [ ] BFS
+* [X] BFS
+* [X] Priority Queue by heap
 * [ ] Dijkstra
 
 <!--more-->
@@ -165,9 +166,6 @@ class Solution:
         return 1 + min(left, right)
 ```
 
-
-
-
 ## 广度优先搜索 （BFS）
 
 > 启发问题：单点最短路径   DFS无所作为，BFS应运而生
@@ -234,7 +232,7 @@ class Solution:
             res += 1
 ```
 
-* [ ] [752](https://leetcode-cn.com/problems/open-the-lock/)
+* [X] [752](https://leetcode-cn.com/problems/open-the-lock/)
 
 ```python
 def children(s):
@@ -344,27 +342,237 @@ class Solution:
         return -1
 ```
 
-
-
 > DFS-线-Solo-递归好写
 
 > BFS-面-团战-找最短路径适用
 
-
 暂时到这儿了，有空再更新👀️
+
+## 优先队列 Prior Queue
+
+一种抽象数据类型，实现`删除最小元素` （`删除最大元素`可通过相应转化改写得到）和 `插入元素`
+
+### API  (堆实现 (Heap))
+
+```python
+#API
+class MinPQ:
+    def __init__(self): #初始化一个优先队列
+        pass
+    def insert(self, v): #向优先队列中插入一个元素
+        pass
+    def mini(self): # 返回最小元素
+        pass
+    def delMin(self): #删除并返回最小元素
+        pass
+    def isEmpty(self): #返回队列是否为空
+        pass
+    def size(self): # 返回优先队列中的元素个数
+        pass
+    def less(self, i, j): # 堆实现的比较方法
+        pass
+    def exch(self, i, j): # 堆实现的交换方法
+        pass
+    def swim(self, k): # 由下至上的堆有序化实现
+        pass
+    def sink(self, k): # 由上至下的堆有序化实现
+        pass
+    pass
+```
+
+> 最大堆（大顶堆) for MaxPQ; 最小堆（小顶堆）for MinPQ
+
+> - 优先队列由一个基于堆的完全二叉树表示，存储于数组pq[1:N]中, pq[0]没有使用
+> - 在Insert中，我们将N加一并把新元素添加在数组最后，然后用swim()恢复堆的秩序
+> - 在delMin()中，我们从pq[1]得到需要返回的元素，然后将pq[N]移动到pq[1]，将N减1并用sink()恢复堆的秩序
+> - 对于一个含有N个元素的基于堆的优先队列，插入元素操作只需不超过$(lgN+1)$次比较，删除最小元素的操作需要不超过$ 2lgN$次比较
+
+### 具体实现
+
+```python
+class MinPQ:
+
+    def __init__(self): #初始化一个优先队列
+        self.pq = [0]
+        self.N = 0
+
+    def isEmpty(self): #返回队列是否为空
+        return self.N == 0
+
+    def size(self): # 返回优先队列中的元素个数
+        return self.N
+
+    def mini(self): # 返回最小元素
+        if self.N == 0:
+            return
+        return self.pq[1]
+
+    def insert(self, v): #向优先队列中插入一个元素
+        self.pq.append(v)
+        self.N += 1
+        self.swim(self.N)
+
+    def delMin(self): #删除并返回最小元素
+        if self.N == 0:
+            return
+        res = self.pq[1]
+        self.exch(1, self.N)
+        self.pq.pop()
+        self.N -= 1
+        self.sink(1)
+        return res
+
+    def less(self, i, j): # 堆实现的比较方法
+        return self.pq[i] < self.pq[j]
+
+    def exch(self, i, j): # 堆实现的交换方法
+        self.pq[i], self.pq[j] = self.pq[j], self.pq[i]
+
+    def swim(self, k): # 由下至上的堆有序化实现
+        while k > 1 and not self.less(k//2, k):
+            self.exch(k//2, k)
+            k = k//2
+
+    def sink(self, k): # 由上至下的堆有序化实现
+        while 2*k <= self.N:
+            j = 2*k
+            if j < self.N and not self.less(j, j+1):
+                j += 1
+            if self.less(k, j): break
+            self.exch(k, j)
+            k = j
+```
+
+### 测试用例
+
+```python
+PQ = MinPQ()
+PQ.insert(7)
+PQ.insert(6)
+PQ.insert(5)
+PQ.insert(4)
+PQ.insert(3)
+PQ.insert(2)
+PQ.insert(1)
+PQ.insert(0)
+PQ.insert(-1)
+PQ.insert(-2)
+PQ.pq
+# %% run 10 times
+PQ.delMin()
+PQ.pq
+```
+
+> 测试结果符合
+
+### 应用刷题
+
+* [X] [剑指Offer41](https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/)
+
+```python
+## 改写MinPQ --> MaxPQ
+class MaxPQ:
+
+    def __init__(self): #初始化一个优先队列
+        self.pq = [0]
+        self.N = 0
+
+    def isEmpty(self): #返回队列是否为空
+        return self.N == 0
+
+    def size(self): # 返回优先队列中的元素个数
+        return self.N
+
+    def maxi(self): # 返回最大元素
+        if self.N == 0:
+            return
+        return self.pq[1]
+
+    def insert(self, v): #向优先队列中插入一个元素
+        self.pq.append(v)
+        self.N += 1
+        self.swim(self.N)
+
+    def delMax(self): #删除并返回最大元素
+        if self.N == 0:
+            return
+        res = self.pq[1]
+        self.exch(1, self.N)
+        self.pq.pop()
+        self.N -= 1
+        self.sink(1)
+        return res
+
+    def less(self, i, j): # 堆实现的比较方法
+        return self.pq[i] < self.pq[j]
+
+    def exch(self, i, j): # 堆实现的交换方法
+        self.pq[i], self.pq[j] = self.pq[j], self.pq[i]
+
+    def swim(self, k): # 由下至上的堆有序化实现
+        while k > 1 and self.less(k//2, k):
+            self.exch(k//2, k)
+            k = k//2
+
+    def sink(self, k): # 由上至下的堆有序化实现
+        while 2*k <= self.N:
+            j = 2*k
+            if j < self.N and self.less(j, j+1):
+                j += 1
+            if not self.less(k, j): break
+            self.exch(k, j)
+            k = j
+```
+
+```python
+#构造一个大顶堆，一个小顶堆，中位数在最后的maxi和mini中求得
+class MedianFinder:
+
+    def __init__(self):
+        """
+        initialize your data structure here.
+        """
+        self.maxpq = MaxPQ()
+        self.minpq = MinPQ()
+
+
+    def addNum(self, num: int) -> None:
+        if self.maxpq.N == self.minpq.N:
+            if self.minpq.N >= 1 and num > self.minpq.mini():
+                num, self.minpq.pq[1] = self.minpq.pq[1], num
+                self.minpq.sink(1)
+            self.maxpq.insert(num)
+        else:
+            if num < self.maxpq.maxi():
+                num, self.maxpq.pq[1] = self.maxpq.pq[1], num
+                self.maxpq.sink(1)
+            self.minpq.insert(num)
+
+
+    def findMedian(self) -> float:
+        if self.maxpq.N == self.minpq.N:
+            return (self.maxpq.maxi() + self.minpq.mini())/2
+        else:
+            return self.maxpq.maxi()
+
+```
+
 
 
 
 ## Dijkstra
 
 - Like BFS
-- Prior Queue (use heap)
+- `Prior Queue` (use `heap`)
 - Greedy
 - Only consider distance from source
+- Non-negative weight on edges
 
 ### 动手实现
 
+
 ### 应用刷题
+
 
 ## A* Algorithm
 

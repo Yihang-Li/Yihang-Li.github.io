@@ -2,7 +2,7 @@
 title: MDS6222 Dynamic Programming (Notes 1)
 tags: [DP]
 categories: Notes
-mathjax: true
+m
 ---
 
 # Ch1 The Dynamic Programming Algorithm
