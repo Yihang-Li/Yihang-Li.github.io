@@ -557,8 +557,116 @@ class MedianFinder:
 
 ```
 
+* [X] [1046](https://leetcode-cn.com/problems/last-stone-weight/)
 
+```python
+## 实例化MaxPQ
+class Solution:
+    def lastStoneWeight(self, stones: List[int]) -> int:
+        maxpq = MaxPQ()
+        for stone in stones:
+            maxpq.insert(stone)
+        while maxpq.N > 1:
+            pick1 = maxpq.delMax()
+            pick2 = maxpq.delMax()
+            if pick1 <= pick2:
+                maxpq.insert(pick2 - pick1)
+            else:
+                maxpq.insert(pick1 - pick2)
+        return maxpq.maxi()
+```
 
+* [X] [778](https://leetcode-cn.com/problems/swim-in-rising-water/)
+
+```python
+#改写三元组版本MinPQ ----> 实质BFS with MinPQ (3-ele-tuple-version)
+class Solution:
+   def swimInWater(self, grid: List[List[int]]) -> int:
+        ###BFS with Priority Queue
+        pq = MinPQ()
+        n = len(grid)
+        visited = set()
+        pq.insert(v=(grid[0][0], 0, 0))
+        visited.add((0, 0))
+        res = 0
+        while pq.N > 0:
+            v, i, j = pq.delmini()
+            res = max(res, v)
+            if i == n-1 and j == n-1: return res
+            if (i, j) not in visited: visited.add((i, j))
+            if i < n-1 and (i+1, j) not in visited: pq.insert((grid[i+1][j], i+1, j))
+            if j < n-1 and (i, j+1) not in visited: pq.insert((grid[i][j+1], i, j+1))
+            if i > 0 and (i-1, j) not in visited: pq.insert((grid[i-1][j], i-1, j))
+            if j > 0 and (i, j-1) not in visited: pq.insert((grid[i][j-1], i, j-1))
+```
+
+### Python Standard Library —— [heapq](https://docs.python.org/3/library/heapq.html)
+
+- MinPQ
+- zero-based Indexing
+- pop method returns the smallest item
+- heap[0] is the smallest item, and heap.sort() maintains the heap invariant
+
+```python
+#Push the value item onto the heap, maintaining the heap invariant.
+heapq.heappush(heap, item)
+
+#Pop and return the smallest item from the heap, maintaining the heap invariant.
+#If the heap is empty, IndexError is raised.
+#To access the smallest item without popping it, use heap[0].
+heapq.heappop(heap)
+
+#Push item on the heap, then pop and return the smallest item from the heap.
+#The combined action runs more efficiently than heappush()
+#followed by a separate call to heappop().
+heapq.heappushpop(heap, item)
+
+#Transform list x into a heap, in-place, in linear time.
+heapq.heapify(x)
+
+#Pop and return the smallest item from the heap, and also push the new item.
+#The heap size doesn’t change. If the heap is empty, IndexError is raised.
+#This one step operation is more efficient than a heappop() followed by heappush()
+#and can be more appropriate when using a fixed-size heap.
+#The pop/push combination always returns an element from the heap and replaces it with item.
+#The value returned may be larger than the item added. If that isn’t desired,
+#consider using heappushpop() instead. Its push/pop combination
+#returns the smaller of the two values, leaving the larger value on the heap.
+heapq.heapreplace(heap, item)
+```
+
+The module also offers three general purpose functions based on heaps:
+
+- heapq.merge(**iterables*, *key=None*, *reverse=False*)
+- heapq.nlargest(*n*, *iterable*, *key=None*)
+- heapq.nsmallest(*n*, *iterable*, *key=None*)
+
+See [Souce Code: cpython/Lib/heapq.py](https://github.com/python/cpython/blob/3.9/Lib/heapq.py)
+
+* [X] [778](https://leetcode-cn.com/problems/swim-in-rising-water/) by using heapq
+
+```python
+class Solution:
+   def swimInWater(self, grid: List[List[int]]) -> int:
+        #Using heapq
+        n = len(grid)
+        pq = [(grid[0][0], 0, 0)]
+        visited = set()
+        res = 0
+        while pq:
+            v, i, j = heapq.heappop(pq)
+            res = max(res, v)
+            if i == n-1 and j == n-1: return res
+            if (i, j) not in visited: visited.add((i, j))
+            if i < n-1 and (i+1, j) not in visited:
+                heapq.heappush(pq, (grid[i+1][j], i+1, j))
+            if j < n-1 and (i, j+1) not in visited:
+                heapq.heappush(pq, (grid[i][j+1], i, j+1))
+            if i > 0 and (i-1, j) not in visited:
+                heapq.heappush(pq, (grid[i-1][j], i-1, j))
+            if j > 0 and (i, j-1) not in visited:
+                heapq.heappush(pq, (grid[i][j-1], i, j-1))
+```
 
 ## Dijkstra
 
@@ -570,9 +678,7 @@ class MedianFinder:
 
 ### 动手实现
 
-
 ### 应用刷题
-
 
 ## A* Algorithm
 

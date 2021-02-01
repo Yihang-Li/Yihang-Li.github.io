@@ -5,7 +5,7 @@
 # Site
 title: Yihang
 subtitle: 'Have a nice day!'
-description: 'Nothing forever'
+description: 'Life can only be understood going backwards, but it must be lived going forwards.'
 keywords:
 author: Yihang Li
 language: zh-CN
@@ -97,7 +97,7 @@ plugins:
   hexo-math
   hexo-pdf
 ## Themes: https://hexo.io/themes/
-theme: next # alpha-dust # landscape #
+theme: next #material-x #alpha-dust # landscape ##next
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

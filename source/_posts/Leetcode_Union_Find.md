@@ -445,6 +445,36 @@ class Solution:
             return -1
 ```
 
+* [X] [1631](https://leetcode-cn.com/problems/path-with-minimum-effort/submissions/)
+
+```python
+class Solution:
+    def minimumEffortPath(self, heights: List[List[int]]) -> int:
+        row, col = len(heights), len(heights[0])
+        if row == 1 and col == 1: return 0
+        weighted_edges = []
+        n = row*col
+        #通过往左往上构造边
+        for i in range(row):
+            for j in range(col):
+                index = i * col + j
+                if i > 0: weighted_edges.append((index - col, index, abs(heights[i][j] - heights[i-1][j])))
+                if j > 0: weighted_edges.append((index - 1, index, abs(heights[i][j] - heights[i][j-1])))
+        weighted_edges.sort(key=lambda x: x[2])
+        uf = Union_Find(n)
+        for i, j, w in weighted_edges:
+            uf.union(i, j)
+            if uf.is_connected(0, row*col-1):
+                return w
+```
+
+> 尝试了把sorted用改写的三元组版本的优先队列来替代，但是效果没有内置函数sort来得好唉
+
+
+
+
+
+
 > 并查集相关的题目不止是并查集这么简单，并查集只是可以用来辅助的一种数据结构！
 
 ### Reference
