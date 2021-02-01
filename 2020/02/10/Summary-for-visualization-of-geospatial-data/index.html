@@ -1,32 +1,508 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head>
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
+    <!--Description-->
+    
+        <meta name="description" content="Nothing forever">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Yihang Li">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="Summary for visualization of geospatial data">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Nothing forever">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Yihang">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary">
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>Summary for visualization of geospatial data - Yihang</title>
+
+    <!-- Bootstrap Core CSS -->
+    
+
+    <!-- Custom Fonts -->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    
+
+    <!-- Custom CSS -->
+    
+
+
+
+    <!-- Google Analytics -->
+    
+
+
+<!-- hexo injector head_end start -->
+
+
+
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css');loadCss('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');loadCss('//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css');loadCss('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css');loadCss('https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"></noscript></head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-    if theme.reward.enable
-      !=partial('includes/post/reward', {}, {cache: true})
+    </div>
+</header>
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+        <section class="main">
+            
+<div class="post">
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/02/10/Summary-for-visualization-of-geospatial-data/">
+                Summary for visualization of geospatial data
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2020-02-10</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Notes/">Notes</a>
+                </span>
+            
+        </div>
+    </div>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
-      
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <blockquote>
+<p><strong>Here we summarize the geospatial data visualization.</strong></p>
+<p>The <code>Synthetic Power Grid Data Set</code>  will be used as an example. [<a target="_blank" rel="noopener" href="https://wimnet.ee.columbia.edu/portfolio/synthetic-power-grids-data-sets/">Download here</a>]</p>
+<p>Before all the things, let’s import some basic tools:</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.style.use(<span class="string">'ggplot'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<a id="more"></a>
+<h2 id="1-Data-Preparation"><a href="#1-Data-Preparation" class="headerlink" title="1. Data Preparation"></a>1. Data Preparation</h2><h3 id="1-1-Import-Data"><a href="#1-1-Import-Data" class="headerlink" title="1.1 Import Data"></a>1.1 Import Data</h3><blockquote>
+<p>Here, the <code>Location</code>( (Lon, Lat) pairs), <code>Demand</code> and <code>Supply</code> information are loaded by using <code>pandas.read_csv("path")</code>. </p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bus_Location = pd.read_csv(<span class="string">"Gen_WI_Bus_Locations.csv"</span>)</span><br><span class="line">Demand_Values = pd.read_csv(<span class="string">"Gen_WI_Demand_Values.csv"</span>)</span><br><span class="line">Supply_Values = pd.read_csv(<span class="string">"Gen_WI_Supply_Values.csv"</span>)</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="1-2-Merge-Data"><a href="#1-2-Merge-Data" class="headerlink" title="1.2 Merge Data"></a>1.2 Merge Data</h3><blockquote>
+<p>These 3 tables have the same column named <strong><em>Bus Number</em></strong> , we can use <code>reduce()</code> to merge them.</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first compile the list of dataframes we want to merge</span></span><br><span class="line">data_frames = [Bus_Location, Demand_Values, Supply_Values]</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">df_merged = reduce(<span class="keyword">lambda</span>  left,right: pd.merge(left,right,on=[<span class="string">'Bus Number'</span>], how=<span class="string">'outer'</span>), data_frames)</span><br><span class="line"><span class="comment">#Then call head() method, we can see the first five rows of our merged data</span></span><br><span class="line">df_merged.head()</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210151126713.png" alt="head" style="zoom:67%;"></p>
+<blockquote>
+<p>Moreover, we can call <code>describe()</code> method to summarize our data.</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df_merged[[<span class="string">'Lon'</span>, <span class="string">'Lat'</span>, <span class="string">'Demand (MW)'</span>, <span class="string">'Supply (MW)'</span>]].describe()</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210151217027.png" alt="describe" style="zoom:67%;"></p>
+<hr>
+<h2 id="2-Using-geopandas-to-visualize"><a href="#2-Using-geopandas-to-visualize" class="headerlink" title="2. Using geopandas to visualize"></a>2. Using geopandas to visualize</h2><blockquote>
+<p>We can refer to <code>geopandas</code> docs <a target="_blank" rel="noopener" href="https://geopandas.org/">Click here</a>.</p>
+</blockquote>
+<h3 id="2-1-Data-Structures"><a href="#2-1-Data-Structures" class="headerlink" title="2.1 Data Structures"></a>2.1 Data Structures</h3><blockquote>
+<p>GeoPandas implements two main data structures, a <code>GeoSeries</code> and a <code>GeoDataFrame</code>. These are subclasses of pandas <code>Series</code> and <code>DataFrame</code>, respectively. Before visualization, we should convert our data into proper type.</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat))</span><br><span class="line">gdf.head()</span><br><span class="line"><span class="comment">#And here call type(gdf):</span></span><br><span class="line"><span class="comment">#geopandas.geodataframe.GeoDataFrame</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210153603866.png" alt="gdfhead" style="zoom:65%;"></p>
+<h3 id="2-2-Coordinate-Reference-Systems"><a href="#2-2-Coordinate-Reference-Systems" class="headerlink" title="2.2 Coordinate Reference Systems"></a>2.2 Coordinate Reference Systems</h3><blockquote>
+<p>CRS are important because the geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. A CRS tells Python how those coordinates related to places on the Earth.</p>
+<p>CRS are referred to using codes called <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/PROJ.4">proj4 strings</a>. You can find the codes for most commonly used projections from <a target="_blank" rel="noopener" href="http://spatialreference.org/">www.spatialreference.org</a>. Common projections can also be referred to by EPSG codes, so this same projection can also called using the proj4 string <code>"+init=epsg:4326"</code>.</p>
+<p><em>geopandas</em> can accept lots of representations of CRS, including the proj4 string itself (<code>"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"</code>) or parameters broken out in a dictionary: <code>{'proj': 'latlong', 'ellps': 'WGS84', 'datum': 'WGS84', 'no_defs': True}</code>). In addition, some functions will take EPSG codes directly.</p>
+<p>For reference, a few very common projections and their proj4 strings:</p>
+<ul>
+<li>WGS84 Latitude/Longitude: <code>"+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs"</code> or <code>"+init=epsg:4326"</code></li>
+<li>UTM Zones (North): <code>"+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs"</code></li>
+<li>UTM Zones (South): <code>"+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs +south"</code></li>
+</ul>
+<p><code>contextily</code>: context geo tiles in Python</p>
+<blockquote>
+<p><code>contextily</code> is a small Python 3 package to retrieve and write to disk tile maps from the internet into geospatial raster files. Bounding boxes can be passed in both WGS84 (<code>EPSG:4326</code>) and Spheric Mercator (<code>EPSG:3857</code>). See <a target="_blank" rel="noopener" href="https://github.com/darribas/contextily">here</a> for usage.</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><strong>Let’s just dive into code</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = {<span class="string">'init'</span>: <span class="string">'epsg:4326'</span>, <span class="string">'no_defs'</span>: <span class="literal">True</span>}</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">'k'</span>)</span><br><span class="line">ctx.add_basemap(ax)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210161956076.png" alt="first" style="zoom:67%;"></p>
+<h3 id="2-3-Mapping-attributes-into-it"><a href="#2-3-Mapping-attributes-into-it" class="headerlink" title="2.3 Mapping attributes into it"></a>2.3 Mapping attributes into it</h3><blockquote>
+<p>Here we map the <code>Demand</code> values into the map, and try to set some parameters</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">'w'</span>, column = <span class="string">"Demand (MW)"</span>, legend = <span class="literal">True</span>, </span><br><span class="line">              legend_kwds={<span class="string">'label'</span>: <span class="string">"Demand (MW)"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}) <span class="comment">#horizontal</span></span><br><span class="line">ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">ax.set_axis_off()</span><br><span class="line">plt.savefig(<span class="string">'Demand(MW)'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210162505599.png" alt="Second" style="zoom:67%;"></p>
+<h3 id="2-4-Summary"><a href="#2-4-Summary" class="headerlink" title="2.4 Summary"></a>2.4 Summary</h3><blockquote>
+<p>Here we summarize 2.3 as follows:</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Attribute_mapping</span>(<span class="params">gdf, column, legend_kwds</span>):</span></span><br><span class="line">    ax = gdf.plot(figsize = (<span class="number">10</span>, <span class="number">10</span>), alpha = <span class="number">0.5</span>, edgecolor = <span class="string">'w'</span>, column = column, 					legend = <span class="literal">True</span>, legend_kwds = legend_kwds)</span><br><span class="line">    ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">    ax.set_axis_off()</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Our input is:</p>
+<ul>
+<li><code>gdf</code> : Corresponding geopandas dataframe after processing in 2.2</li>
+<li><code>column</code>: Corresponding Attribute column that we want to map</li>
+<li><code>legend_kwds</code>: Corresponding legend parameters</li>
+</ul>
+</blockquote>
+<p><strong>Let’s see an example below:</strong></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#First get our gdf</span></span><br><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat)) <span class="comment">#Note: df_merged is a pandas dataframe!</span></span><br><span class="line"><span class="comment">#process as in 2.2</span></span><br><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = {<span class="string">'init'</span>: <span class="string">'epsg:4326'</span>, <span class="string">'no_defs'</span>: <span class="literal">True</span>}</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line"><span class="comment">#set our column and legend_kwds</span></span><br><span class="line">column = <span class="string">"Supply (MW)"</span></span><br><span class="line">legend_kwds={<span class="string">'label'</span>: <span class="string">"Supply (MW)"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}</span><br><span class="line"><span class="comment">#call the function above</span></span><br><span class="line">Attribute_mapping(gdf, column, legend_kwds)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210164126937.png" alt="Third" style="zoom:67%;"></p>
+<hr>
+<h2 id="3-Try-Something-More"><a href="#3-Try-Something-More" class="headerlink" title="3. Try Something More"></a>3. Try Something More</h2><h3 id="3-1-Remove-Zero"><a href="#3-1-Remove-Zero" class="headerlink" title="3.1 Remove Zero"></a>3.1 Remove Zero</h3><p>As we see the describe results in 1.2, more than 75% of Demand and Supply are all zero. So, in this part, we try to deal with them.</p>
+<p>Just see the code</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">None_Zero_Demand = gdf[gdf[<span class="string">'Demand (MW)'</span>] != <span class="number">0.0</span>]</span><br><span class="line">None_Zero_Demand.head()</span><br><span class="line">None_Zero_Demand.describe()</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210165814250.png" alt="None0Demand" style="zoom:50%;"><img src="/assets/image-20200210165930907.png" alt="Describe" style="zoom:50%;"></p>
+<p>Here we see:</p>
+<ol>
+<li>there are only 3095 none zero Demand compare to 14430 in total.</li>
+<li>All the Supply  are zero while Demand are none zero</li>
+</ol>
+<h3 id="3-2-Visualize-the-None-Zero-Part"><a href="#3-2-Visualize-the-None-Zero-Part" class="headerlink" title="3.2 Visualize the None Zero Part"></a>3.2 Visualize the None Zero Part</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">column = <span class="string">"Demand (MW)"</span></span><br><span class="line">legend_kwds={<span class="string">'label'</span>: <span class="string">"None Zero Demand"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}</span><br><span class="line">Attribute_mapping(None_Zero_Demand, column, legend_kwds)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210170733776.png" alt="nonezerodemand" style="zoom:67%;"></p>
+<p>Though the points become less, most of them are near zero (purple color). So, we can try to limit the value to visualize more clear.</p>
+<h3 id="3-3-Separate-into-Three-Parts-by-ordered-values"><a href="#3-3-Separate-into-Three-Parts-by-ordered-values" class="headerlink" title="3.3 Separate into Three Parts by ordered values"></a>3.3 Separate into Three Parts by ordered values</h3><p>Let’s first order the DataFrame by <code>Demand</code></p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">None_Zero_Demand = None_Zero_Demand.sort_values(by = <span class="string">'Demand (MW)'</span>)</span><br><span class="line">None_Zero_Demand.head()</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210171813748.png" alt="order" style="zoom:67%;"></p>
+<p>Then split it into 3 parts</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Split3 = np.array_split(None_Zero_Demand, <span class="number">3</span>)</span><br><span class="line">Part1, Part2, Part3 = Split3[<span class="number">0</span>], Split3[<span class="number">1</span>], Split3[<span class="number">2</span>]</span><br><span class="line">Part1.head()</span><br><span class="line">Part2.head()</span><br><span class="line">Part3.head()</span><br><span class="line"><span class="comment">#Note: here the other two columns not presented in the figures</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210172559313.png" alt="P1head" style="zoom:30%;"><img src="/assets/image-20200210172638632.png" alt="P2head" style="zoom:30%;"><img src="/assets/image-20200210172724404.png" alt="P3head" style="zoom:30%;"></p>
+<p>Finally, visualize each part</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">column = <span class="string">"Demand (MW)"</span></span><br><span class="line"><span class="comment">#Part1</span></span><br><span class="line">legend_kwds={<span class="string">'label'</span>: <span class="string">"None Zero Demand"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}</span><br><span class="line">Attribute_mapping(Part1, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part2</span></span><br><span class="line">legend_kwds={<span class="string">'label'</span>: <span class="string">"None Zero Demand"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}</span><br><span class="line">Attribute_mapping(Part2, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part3</span></span><br><span class="line">legend_kwds={<span class="string">'label'</span>: <span class="string">"None Zero Demand"</span>,<span class="string">'orientation'</span>: <span class="string">"vertical"</span>}</span><br><span class="line">Attribute_mapping(Part3, column, legend_kwds)</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="/assets/image-20200210173434367.png" alt="P1V" style="zoom:30%;"><img src="/assets/image-20200210173507904.png" alt="P2v" style="zoom:30%;"><img src="/assets/image-20200210173536841.png" alt="P3v" style="zoom:30%;"></p>
+<p>Here we:</p>
+<ul>
+<li><p>[x] ​    Visualize three parts separately</p>
+</li>
+<li><p>[ ] ​    Unify the color bars in above three figures.</p>
+</li>
+</ul>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/geospatial/">#geospatial</a> <a href="/tags/visualization/">#visualization</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/24/Leetcode_Union_Find/">Leetcode with Union Find</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/23/Leetcode_Graph/">Graph</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/22/MDS6222_Dynamic_Programming/">MDS6222 Dynamic Programmi</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/11/MDS6232_Deep_Learning_Notes/">MDS6232 Deep Learning Cou</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/">文献翻译</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Leetcode/">Leetcode</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Report/">Report</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Notes/">Notes</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design &amp; Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+
+
+
+<!-- Disqus Comments -->
+
+
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+<script src="/bundle.js"></script><script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script></body></html>

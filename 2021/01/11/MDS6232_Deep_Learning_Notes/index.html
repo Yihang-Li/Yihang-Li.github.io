@@ -1,32 +1,523 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="en"><!-- Head tag --><head>
 
-block content
-  #post
-    if top_img === false
-      include includes/header/post-info.pug
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    article#article-container.post-content!=page.content
-    include includes/post/post-copyright.pug
-    .tag_share
-      if (theme.post_meta.post.tags)
-        .post-meta__tag-list
-          each item, index in page.tags.data
-            a(href=url_for(item.path)).post-meta__tags #[=item.name]
-      include includes/third-party/share/index.pug
+    <!--Description-->
+    
+        <meta name="description" content="Nothing forever">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="Yihang Li">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="MDS6232 Deep Learning Course Notes(Updating)">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="Nothing forever">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="Yihang">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    
+        <meta name="twitter:card" content="summary">
+    
+    
+    
+
+    <!-- Title -->
+    
+    <title>MDS6232 Deep Learning Course Notes(Updating) - Yihang</title>
+
+    <!-- Bootstrap Core CSS -->
+    
+
+    <!-- Custom Fonts -->
+    
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    
+
+    <!-- Custom CSS -->
+    
+
+
+
+    <!-- Google Analytics -->
+    
+
+
+<!-- hexo injector head_end start -->
+
+
+
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css');loadCss('//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');loadCss('//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css');loadCss('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css');loadCss('https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css"><link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"><link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"></noscript></head>
+
+
+<body>
+
+<!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+
+    <!-- Main Content -->
+    <div class="row">
+    <div class="col-sm-12">
+
+        <!--Title and Logo-->
+        <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-    if theme.reward.enable
-      !=partial('includes/post/reward', {}, {cache: true})
+    </div>
+</header>
 
-    //- ad
-    if theme.ad && theme.ad.post
-      .ads-wrap!=theme.ad.post
+        <section class="main">
+            
+<div class="post">
 
-    if theme.post_pagination
-      include includes/pagination.pug
-    if theme.related_post && theme.related_post.enable
-      != related_posts(page,site.posts)
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2021/01/11/MDS6232_Deep_Learning_Notes/">
+                MDS6232 Deep Learning Course Notes(Updating)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021-01-11</span>
+            
+            
+            
+                <span class="category">
+                    <a href="/categories/Notes/">Notes</a>
+                </span>
+            
+        </div>
+    </div>
 
-    if page.comments !== false && theme.comments && theme.comments.use
-      - var commentsJsLoad = true
-      !=partial('includes/third-party/comments/index', {}, {cache: true})
-      
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
+<p>Introduction - 01/11/2021</p>
+</blockquote>
+<h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
+<li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a target="_blank" rel="noopener" href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
+</ul>
+<a id="more"></a>
+<blockquote>
+<p>R(Restricted): The two layers are connected by a <strong>fully bipartite graph</strong>.</p>
+<p><strong>Unsupervised</strong></p>
+</blockquote>
+<p>This restriction allows for more efficient training algorithms than what is available for the general class of Boltzmann machines, in particular, the gradient-based contrastive divergence algorithm.</p>
+<ul>
+<li><p><strong>CD algorithms(contrastive divergence)</strong>: a recipe for training undirected graphical models (a class of probabilistic models used in machine learning). It relies on an approximation of the gradient (a good direction of change for the parameters) of the log-likelihood (the basic criterion that most probabilistic learning algorithms try to optimize) based on a short Markov chain (a way to sample from probabilistic models) started at the last example seen.See <a target="_blank" rel="noopener" href="https://www.quora.com/What-is-contrastive-divergence">Quora</a></p>
+<blockquote>
+<p>I like Geoff Hinton’s description of CD: He called it “the Microsoft Algorithm:” It asks, “where do you want to go today?” and then doesn’t let you go there… [by Gary Cottrell, Professor of Computer Science and Engineering, UCSD]</p>
+</blockquote>
+</li>
+<li><strong>Gibbs Sampling</strong>: In statistics, Gibbs sampling or a Gibbs sampler is a Markov chain Monte Carlo (MCMC) algorithm for obtaining a sequence of observations which are approximated from a specified multivariate probability distribution, when direct sampling is difficult. See <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Gibbs_sampling">Wiki</a></li>
+</ul>
+<blockquote>
+<p>Introduction - 01/13/2021</p>
+</blockquote>
+<h2 id="Feature-Engineering-vs-Feature-Learning"><a href="#Feature-Engineering-vs-Feature-Learning" class="headerlink" title="Feature Engineering vs Feature Learning"></a>Feature Engineering vs Feature Learning</h2><blockquote>
+<p><strong><em><a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Feature_learning">WiKi</a></em></strong>:</p>
+<ul>
+<li>In machine learning, <strong>feature learning</strong> or representation learning is a set of techniques that allows a system to automatically discover the representations needed for feature detection or classification from raw data. This replaces <strong>manual feature engineering</strong> and allows a machine to both learn the features and use them to perform a specific task.</li>
+<li>Feature learning is motivated by the fact that machine learning tasks such as classification often require input that is mathematically and computationally convenient to process. However, real-world data such as images, video, and sensor data has not yielded to attempts to algorithmically define specific features. An alternative is to discover such features or representations through examination, without relying on explicit algorithms.</li>
+</ul>
+</blockquote>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Feature Engineering</th>
+<th style="text-align:center">Feature Learning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Rely on human domain knowledge much more than data</td>
+<td style="text-align:center">Make better use of big data, data-driven way</td>
+</tr>
+<tr>
+<td style="text-align:center">If handcrafed features have multiple parameters, it is hard to manually tune them</td>
+<td style="text-align:center">Learn the values of a huge number of parameters in feature representations</td>
+</tr>
+<tr>
+<td style="text-align:center">Feature design is separate from training the classifier</td>
+<td style="text-align:center">Jointly learning feature transformations and classifiers makes their integration optimal</td>
+</tr>
+<tr>
+<td style="text-align:center">Developing effective features for new applications is slow</td>
+<td style="text-align:center">Faster to get feature representations for new applications</td>
+</tr>
+</tbody>
+</table>
+</div>
+<blockquote>
+<p>Introduction - 01/18/2021</p>
+</blockquote>
+<h3 id="Design-Cycle"><a href="#Design-Cycle" class="headerlink" title="Design Cycle"></a>Design Cycle</h3><p><img src="/assets/Feature_Engineering_Design_Cycle.png" alt="Feature Engineering Design Cycle" style="zoom:80%;"></p>
+<blockquote>
+<p><strong><em>For Feature Engineering Design Cycle</em></strong>:</p>
+<ul>
+<li><strong>Preprocessing and Feature Design</strong> may lose useful information and not to be optimized, since they are not parts of an end-to-end learning system</li>
+<li><strong>Preprocessing</strong> could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<p><img src="/assets/Deep_Learning_Design_Cycle.png" alt="Deep Learning Design Cycl" style="zoom:60%;"></p>
+<blockquote>
+<p><strong><em>For Deep Learning Design Cycle</em></strong>:</p>
+<ul>
+<li>Learning plays a bigger role in the design cycle</li>
+<li>Feature learning becomes part of the end-to-end learning system and makes the key difference</li>
+<li>Preprocessing becomes optional means that several pattern recognition steps can be merged into one end-to-end learning system</li>
+<li>However, we may underestimated the importance of data collection and evaluation</li>
+<li>Preprocessing** could be the result of another pattern recognition system</li>
+</ul>
+</blockquote>
+<h3 id="Learning-features-and-classifiers-separately"><a href="#Learning-features-and-classifiers-separately" class="headerlink" title="Learning features and classifiers separately"></a>Learning features and classifiers separately</h3><blockquote>
+<p><strong>Not all the datasets and prediction tasks are suitable for learning features with deep models</strong></p>
+</blockquote>
+<p><img src="/assets/LFCS.png" alt="Learning features and classifiers separately" style="zoom:80%;"></p>
+<p>As above, we learn features on Task A, instead learn classifier for task B.</p>
+<h2 id="Deep-Structures-vs-Shallow-Structures"><a href="#Deep-Structures-vs-Shallow-Structures" class="headerlink" title="Deep Structures vs Shallow Structures"></a>Deep Structures vs Shallow Structures</h2><blockquote>
+<p>The former usually relate to global or non-local while the latter to local</p>
+<p>Shallow models divide the feature space into regions and match templates in local regions</p>
+<p>Shallow models increases the model capacity tipically by increasing the size of feature vectors</p>
+<p>Human Understand the World through Multiple Levels of Abstractions</p>
+<ul>
+<li>Humans can imagine new pictures by re-configuring these abstractions at multiple levels. Thus, our brain has good <strong>generalization</strong>(<code>脑补</code>) can recognize things never seen before.</li>
+</ul>
+</blockquote>
+<h2 id="Joint-Learning-vs-Separate-Learning"><a href="#Joint-Learning-vs-Separate-Learning" class="headerlink" title="Joint Learning vs Separate Learning"></a>Joint Learning vs Separate Learning</h2><p><img src="/assets/JSL.png" alt="Joint Learning vs Separate Learning" style="zoom:80%;"></p>
+<blockquote>
+<p>Deep Learning is a framework/language but not a black-box model.</p>
+<p>Its power comes from joint optimization and increasing the capacity of the learner (<code>depth&amp;width</code>, <code>trade off between capacity&amp;convergence</code>)</p>
+<p>Large learning capacity makes <strong>high dimensional data transforms</strong>(<code>width</code>) possible, and makes better use of contextual information( <strong>Hierarchical nonlinear representations</strong>(<code>depth</code>))</p>
+</blockquote>
+<p><img src="/assets/widthdepth.png" alt="Width&amp;Depth" style="zoom:80%;"></p>
+<h2 id="Sparsify-Pruning"><a href="#Sparsify-Pruning" class="headerlink" title="Sparsify (Pruning)"></a>Sparsify (Pruning)</h2><p><img src="/assets/Sparsify.png" alt="sparsify" style="zoom:80%;"></p>
+<p>Red part: progressively pruning | Green part: directly pruning</p>
+<blockquote>
+<p><strong><em>Dropout!</em></strong>  See <a target="_blank" rel="noopener" href="https://d2l.ai/chapter_multilayer-perceptrons/dropout.html">D2L</a></p>
+</blockquote>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><ul>
+<li>Deep learning = Machine learning with big data, feature learning, joint learning (end-to-end learning), contextual learning (depth &amp; width)</li>
+<li>Deep feature presentations are: Sparse &amp; Selective<ul>
+<li>Robust to data corruption</li>
+</ul>
+</li>
+</ul>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/Deep-Learning/">#Deep Learning</a>
+        </div>
+    
+
+    <!-- Comments -->
+    
+
+</div>
+        </section>
+
+    </div>
+</div>
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6 footer-about">
+                <h2>About</h2>
+                <p>
+                    This theme was developed by <a target="_blank" rel="noopener" href="https://github.com/klugjo">Jonathan Klughertz</a>. The source code is available on Github. Create Websites. Make Magic.
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/24/Leetcode_Union_Find/">Leetcode with Union Find</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/23/Leetcode_Graph/">Graph</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/22/MDS6222_Dynamic_Programming/">MDS6222 Dynamic Programmi</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2021/01/11/MDS6232_Deep_Learning_Notes/">MDS6232 Deep Learning Cou</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-categories">
+    <h2>Categories</h2>
+    <ul>
+        
+        <li>
+            <a class="footer-post" href="/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/">文献翻译</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Leetcode/">Leetcode</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Report/">Report</a>
+        </li>
+        
+        <li>
+            <a class="footer-post" href="/categories/Notes/">Notes</a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/klugjo/hexo-theme-alpha-dust">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://twitter.com/?lang=en">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-twitter"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.facebook.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-facebook"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.instagram.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-instagram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://dribbble.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-dribbble"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://telegram.org/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-telegram"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://www.behance.net/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-behance"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://500px.com/">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-500px"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:test@example.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @Untitled. All right reserved | Design &amp; Hexo <a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Tween Max -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/gsap/1.18.5/TweenMax.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Custom JavaScript -->
+
+
+
+
+<!-- Disqus Comments -->
+
+
+
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+<script src="/bundle.js"></script><script>
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script></body></html>
