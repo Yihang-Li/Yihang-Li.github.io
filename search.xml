@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
+    <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hilbert Space: Midterm Review</title>
     <url>/2020/02/16/Hilbert-Space-Midterm-Review/</url>
     <content><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol>
@@ -156,83 +168,110 @@
         <category>Report</category>
       </categories>
       <tags>
-        <tag>Optimization</tag>
         <tag>Report</tag>
+        <tag>Optimization</tag>
         <tag>Slides</tag>
       </tags>
   </entry>
   <entry>
-    <title>Notes of Gaussian Processes for Machine Learning</title>
-    <url>/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</url>
-    <content><![CDATA[<h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
-<blockquote>
-<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
-<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
-<script type="math/tex; mode=display">
- \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+    <title>MDS6222 Dynamic Programming (Notes 1)</title>
+    <url>/2021/01/22/MDS6222_Dynamic_Programming/</url>
+    <content><![CDATA[<h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
+<p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p>
 </blockquote>
 <a id="more"></a>
-<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
-<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
-<ol>
-<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
-</li>
-<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
-</li>
-</ol>
+<h2 id="1-1-Introduction"><a href="#1-1-Introduction" class="headerlink" title="1.1 Introduction"></a>1.1 Introduction</h2><h3 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming"></a>Basic Structure of Stochastic Dynamic Programming</h3><h4 id="2-Principle-Features-of-DP-👀"><a href="#2-Principle-Features-of-DP-👀" class="headerlink" title="2 Principle Features of DP 👀"></a><strong>2</strong> Principle Features of DP 👀</h4><ul>
+<li>Discrete-time Dynamic Systems</li>
+<li>Cost Function is Additive over Time</li>
+</ul>
+<h4 id="6-Key-Elements-of-DP-Formulation-👀"><a href="#6-Key-Elements-of-DP-Formulation-👀" class="headerlink" title="6 Key Elements of DP Formulation 👀"></a><strong>6</strong> Key Elements of DP Formulation 👀</h4><ul>
+<li><strong><em>Stage</em></strong>  $k$: Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</li>
+<li><strong><em>State</em></strong> $x_k$: Decision Base</li>
+</ul>
+<ul>
+<li><strong><em>Control</em></strong> $u_k \in U_k(x_k)$: Action, Decision, each $u_k$ is selected with knowledge of current st$x_k$</li>
+<li><strong><em>Disturbance</em></strong>  $\omega_k \sim P(\omega_k|x_k, u_k)$: Value of Information, probability distribution of $\omega_k$ does not depend on past values $\omega_{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</li>
+<li><strong><em><code>Memoryless</code> System Dynamics</em></strong> $x_{k+1} = f_k(x_k, u_k, \omega_k)$: $k$ is time-varied, if removed, then stationary system.  <code>Memoryless</code> is that $f_k$ does not depend on $x_{k-1}, \omega_{k-1}$ and so on.</li>
+<li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br>   <strong><em>Terminal State</em></strong>: $g_N(x_N)$</li>
+</ul>
+<h4 id="2-Aims-👀"><a href="#2-Aims-👀" class="headerlink" title="2 Aims 👀"></a><strong>2</strong> Aims 👀</h4><ul>
+<li><strong><em>Optimal Policy</em></strong> $\pi^<em> = \left(\mu_0^</em>, \mu_1^<em>, \dotsm, \mu_{N-1}^</em> \right)$: <strong><em>Policy</em></strong> ~ $\pi = \left(\mu_0, \mu_1, \dotsm, \mu_{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</li>
+<li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li>
+</ul>
 <blockquote>
-<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
+<p>$J_N(x_N) = g_N(x_N)$</p>
+<p>$J_k(x_k) = \min\limits_{u_k \in U_k(x_k)}E_{\omega_k}\{g_k(x_k, u_k, \omega_k)+J_{k+1}(f_k(x_k, u_k, \omega_k))\}$,  $\forall k = 0, 1, \dotsm, N-1$</p>
 </blockquote>
-</blockquote>
-<hr>
-<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
+<h3 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming"></a>Where and Why to Use Dynamic Programming</h3><p>👀️ What if there exists some optimization problems such that</p>
+<ul>
+<li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li>
+<li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li>
+<li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li>
+</ul>
+<p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p>
 <blockquote>
-<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
+<p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p>
 </blockquote>
-<hr>
-<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
-<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
-<script type="math/tex; mode=display">
-\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
-<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L_{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T_{k}: L_{2}(\mathcal{X}, \mu) \rightarrow L_{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi_{i} \in L_{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T_{k}$ associated with the eigenvalues $\lambda_{i}&gt;0$. Then:</p>
-<ol>
-<li><p>the eigenvalues $\left\{\lambda_{i}\right\}_{i=1}^{\infty}$ are absolutely summable</p>
-</li>
-<li><script type="math/tex; mode=display">
-k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
-</li>
+<h3 id="Example-Inventory-Control"><a href="#Example-Inventory-Control" class="headerlink" title="Example: Inventory Control"></a>Example: Inventory Control</h3><ul>
+<li><strong><em>Stage</em></strong>: Ordering Period: $k$</li>
+<li><strong><em>State</em></strong>: Inventory Level at Period $k$ : $x_k$</li>
+<li><strong><em>Control</em></strong>: Stock ordered at Period $k$ : $u_k \ge 0$</li>
+<li><strong><em>Disturbance</em></strong>: Demand at Period $k$: $\omega_k$</li>
+<li><strong><em>System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$</li>
+<li><strong><em>Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k) = $</li>
+<li><strong><em>Terminal Cost</em></strong>:</li>
+<li><strong><em>Cost Fuction is Additive over Time</em></strong>:</li>
+<li><strong><em>Optimization over Policies/Rules</em></strong>:</li>
+</ul>
+<blockquote>
+<p>Revisited Later and fullfill above things! 2021-01-27</p>
+</blockquote>
+<h3 id="Open-loop-vs-Closed-loop-Feedback-Control"><a href="#Open-loop-vs-Closed-loop-Feedback-Control" class="headerlink" title="Open-loop vs Closed-loop (Feedback Control)"></a>Open-loop vs Closed-loop (Feedback Control)</h3><ul>
+<li>In open-loop minimization, we select all controls $u_k$ at once at time 0, without waiting to see the subsequent disturbance $w_k$</li>
+<li>In closed- loop minimization, we postpone selecting control $u_k$ until the last possible moment (time $k$) when the current state $x_k$ will be known, thus can make use of the information of $w_k$ that becomes available in stages</li>
+</ul>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ol>
+<li>Schedualing (A Deterministic Finite-State Problem);</li>
+<li>Two Game Chess</li>
 </ol>
-<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
-<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi_{i}(\mathbf{x}) \phi_{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
+<h2 id="1-2-The-Basic-Problem"><a href="#1-2-The-Basic-Problem" class="headerlink" title="1.2 The Basic Problem"></a>1.2 The Basic Problem</h2><blockquote>
+<p>Need to Add the content of basic problem here —- 2021-01-27</p>
+<h3 id="Value-of-Information"><a href="#Value-of-Information" class="headerlink" title="Value of Information"></a>Value of Information</h3><ul>
+<li>In Deterministic Problem, Open-loop is as good as Closed-loop</li>
+<li>Value of Information = $J^<em>_{\text{closed-loop}} - J^</em>_{\text{open-loop}}$  (The reduction in cost)</li>
+<li>Example: Two-Game Chess</li>
+</ul>
 </blockquote>
-<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
-<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{N} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ with $\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle_{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum_{i=1}^{N} g_{i} \phi_{i}(\mathbf{x})$ is defined as </p>
-<script type="math/tex; mode=display">
-\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|_{\mathcal{H}}$ where $|f|_{\mathcal{H}}^{2}=\langle f, f\rangle_{\mathcal{H}}=\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients $\{f_i\}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
+<h3 id="Encoding-Risk-in-the-Cost-Function"><a href="#Encoding-Risk-in-the-Cost-Function" class="headerlink" title="Encoding Risk in the Cost Function"></a>Encoding Risk in the Cost Function</h3><ul>
+<li>As above, one important characteristic of stochastic problems is the possibility of using information with advantage</li>
+<li>The other distinguishing characteristic is the need to take into account <code>risk</code> in the problem formulation.<br>e.g. Expectation and Variance in investment decision<br>e.g. St. Petersburg paradox</li>
+</ul>
+<h2 id="1-3-The-Dynamic-Programming-Algorithm"><a href="#1-3-The-Dynamic-Programming-Algorithm" class="headerlink" title="1.3 The Dynamic Programming Algorithm"></a>1.3 The Dynamic Programming Algorithm</h2><h3 id="Principle-of-Optimality"><a href="#Principle-of-Optimality" class="headerlink" title="Principle of Optimality"></a>Principle of Optimality</h3><blockquote>
+<p>Need whole illustration here —- 2021-01-27</p>
 </blockquote>
-<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
-<script type="math/tex; mode=display">
-\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
-<script type="math/tex; mode=display">
-\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum_{i=1}^{N}\left(\lambda_{i} \phi_{i}(\mathbf{x})\right)^{2} / \lambda_{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
-<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
-<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f_i$ in the eigenexpansion $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
-<script type="math/tex; mode=display">
-\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
-<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
-<script type="math/tex; mode=display">
-\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
-<script type="math/tex; mode=display">
-\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
-<p>Next show the reproducing property as :</p>
-<script type="math/tex; mode=display">
-\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h5 id="Preliminary-1"><a href="#Preliminary-1" class="headerlink" title="Preliminary"></a>Preliminary</h5><h6 id="regularizer"><a href="#regularizer" class="headerlink" title="regularizer"></a>regularizer</h6><h6 id="kernel-ridge-regression"><a href="#kernel-ridge-regression" class="headerlink" title="kernel ridge regression"></a>kernel ridge regression</h6><h6 id="representer-theorem"><a href="#representer-theorem" class="headerlink" title="representer theorem"></a>representer theorem</h6><h5 id="RKHSs-defined-in-terms-of-differential-operators"><a href="#RKHSs-defined-in-terms-of-differential-operators" class="headerlink" title="RKHSs defined in terms of differential operators"></a>RKHSs defined in terms of differential operators</h5><h6 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h6><h6 id="Green’s-function"><a href="#Green’s-function" class="headerlink" title="Green’s function"></a>Green’s function</h6><h6 id="Two-examples"><a href="#Two-examples" class="headerlink" title="Two examples"></a>Two examples</h6><h5 id="Obtaining-the-Regularized-Solution"><a href="#Obtaining-the-Regularized-Solution" class="headerlink" title="Obtaining the Regularized Solution"></a>Obtaining the Regularized Solution</h5><h6 id="regularization-network"><a href="#regularization-network" class="headerlink" title="regularization network"></a>regularization network</h6><h5 id="The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><a href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction" class="headerlink" title="The Relationship of the Regularization View to Gaussian Process Prediction"></a>The Relationship of the Regularization View to Gaussian Process Prediction</h5><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>]]></content>
+<ul>
+<li>The truncated policy is optimal for the tail problem.</li>
+<li>The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.<ul>
+<li>e.g. deterministic scheduling example</li>
+<li>e.g. stochastic inventory control example</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; ‘One-at-a-time version of Divide and Conquer’</p>
+<h3 id="The-DP-Algorithm"><a href="#The-DP-Algorithm" class="headerlink" title="The DP Algorithm"></a>The DP Algorithm</h3><blockquote>
+<p>Need whole illustration here for Proposition1.3.1 and its proof detail —- 2021-01-27</p>
+</blockquote>
+<ul>
+<li>$J_k(x_k)$ : the cost-to-go at state $x_k$ and time $k$, and refer to $J_k$ as the cost-to-go function at time $k$</li>
+<li>e.g. 1.3.1 two ovens</li>
+</ul>
+<h2 id="1-4-State-Augmentation-and-Other-Reformulations"><a href="#1-4-State-Augmentation-and-Other-Reformulations" class="headerlink" title="1.4 State Augmentation and Other Reformulations"></a>1.4 State Augmentation and Other Reformulations</h2><p>Deal with situations where some of the assumptions of the basic problem are violated —-&gt; reformulate into the basic problem format.</p>
+<h3 id="Case1-Time-Lags"><a href="#Case1-Time-Lags" class="headerlink" title="Case1: Time Lags"></a>Case1: Time Lags</h3><h3 id="Case2-Correlated-Disturbances"><a href="#Case2-Correlated-Disturbances" class="headerlink" title="Case2: Correlated Disturbances"></a>Case2: Correlated Disturbances</h3>]]></content>
       <categories>
         <category>Notes</category>
       </categories>
       <tags>
-        <tag>GP</tag>
-        <tag>ML</tag>
+        <tag>DP</tag>
       </tags>
   </entry>
   <entry>
@@ -373,6 +412,80 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       </tags>
   </entry>
   <entry>
+    <title>Notes of Gaussian Processes for Machine Learning</title>
+    <url>/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</url>
+    <content><![CDATA[<h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
+<blockquote>
+<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
+<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
+<script type="math/tex; mode=display">
+ \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+</blockquote>
+<a id="more"></a>
+<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
+<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
+<ol>
+<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
+</li>
+<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
+<blockquote>
+<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
+</blockquote>
+<hr>
+<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
+<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
+<script type="math/tex; mode=display">
+\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
+<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L_{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T_{k}: L_{2}(\mathcal{X}, \mu) \rightarrow L_{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi_{i} \in L_{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T_{k}$ associated with the eigenvalues $\lambda_{i}&gt;0$. Then:</p>
+<ol>
+<li><p>the eigenvalues $\left\{\lambda_{i}\right\}_{i=1}^{\infty}$ are absolutely summable</p>
+</li>
+<li><script type="math/tex; mode=display">
+k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
+</li>
+</ol>
+<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
+<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi_{i}(\mathbf{x}) \phi_{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
+</blockquote>
+<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
+<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{N} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ with $\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle_{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum_{i=1}^{N} g_{i} \phi_{i}(\mathbf{x})$ is defined as </p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|_{\mathcal{H}}$ where $|f|_{\mathcal{H}}^{2}=\langle f, f\rangle_{\mathcal{H}}=\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients $\{f_i\}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
+</blockquote>
+<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
+<script type="math/tex; mode=display">
+\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
+<script type="math/tex; mode=display">
+\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum_{i=1}^{N}\left(\lambda_{i} \phi_{i}(\mathbf{x})\right)^{2} / \lambda_{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
+<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
+<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f_i$ in the eigenexpansion $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
+<script type="math/tex; mode=display">
+\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
+<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
+<script type="math/tex; mode=display">
+\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
+<p>Next show the reproducing property as :</p>
+<script type="math/tex; mode=display">
+\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h5 id="Preliminary-1"><a href="#Preliminary-1" class="headerlink" title="Preliminary"></a>Preliminary</h5><h6 id="regularizer"><a href="#regularizer" class="headerlink" title="regularizer"></a>regularizer</h6><h6 id="kernel-ridge-regression"><a href="#kernel-ridge-regression" class="headerlink" title="kernel ridge regression"></a>kernel ridge regression</h6><h6 id="representer-theorem"><a href="#representer-theorem" class="headerlink" title="representer theorem"></a>representer theorem</h6><h5 id="RKHSs-defined-in-terms-of-differential-operators"><a href="#RKHSs-defined-in-terms-of-differential-operators" class="headerlink" title="RKHSs defined in terms of differential operators"></a>RKHSs defined in terms of differential operators</h5><h6 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h6><h6 id="Green’s-function"><a href="#Green’s-function" class="headerlink" title="Green’s function"></a>Green’s function</h6><h6 id="Two-examples"><a href="#Two-examples" class="headerlink" title="Two examples"></a>Two examples</h6><h5 id="Obtaining-the-Regularized-Solution"><a href="#Obtaining-the-Regularized-Solution" class="headerlink" title="Obtaining the Regularized Solution"></a>Obtaining the Regularized Solution</h5><h6 id="regularization-network"><a href="#regularization-network" class="headerlink" title="regularization network"></a>regularization network</h6><h5 id="The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><a href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction" class="headerlink" title="The Relationship of the Regularization View to Gaussian Process Prediction"></a>The Relationship of the Regularization View to Gaussian Process Prediction</h5><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>GP</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Summary for visualization of geospatial data</title>
     <url>/2020/02/10/Summary-for-visualization-of-geospatial-data/</url>
     <content><![CDATA[<blockquote>
@@ -508,18 +621,6 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       <tags>
         <tag>Report</tag>
         <tag>kernel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
-    <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
       </tags>
   </entry>
   <entry>
@@ -977,107 +1078,6 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
         <tag>coursera</tag>
         <tag>web</tag>
         <tag>data access</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MDS6222 Dynamic Programming (Notes 1)</title>
-    <url>/2021/01/22/MDS6222_Dynamic_Programming/</url>
-    <content><![CDATA[<h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
-<p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-1-Introduction"><a href="#1-1-Introduction" class="headerlink" title="1.1 Introduction"></a>1.1 Introduction</h2><h3 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming"></a>Basic Structure of Stochastic Dynamic Programming</h3><h4 id="2-Principle-Features-of-DP-👀"><a href="#2-Principle-Features-of-DP-👀" class="headerlink" title="2 Principle Features of DP 👀"></a><strong>2</strong> Principle Features of DP 👀</h4><ul>
-<li>Discrete-time Dynamic Systems</li>
-<li>Cost Function is Additive over Time</li>
-</ul>
-<h4 id="6-Key-Elements-of-DP-Formulation-👀"><a href="#6-Key-Elements-of-DP-Formulation-👀" class="headerlink" title="6 Key Elements of DP Formulation 👀"></a><strong>6</strong> Key Elements of DP Formulation 👀</h4><ul>
-<li><strong><em>Stage</em></strong>  $k$: Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</li>
-<li><strong><em>State</em></strong> $x_k$: Decision Base</li>
-</ul>
-<ul>
-<li><strong><em>Control</em></strong> $u_k \in U_k(x_k)$: Action, Decision, each $u_k$ is selected with knowledge of current st$x_k$</li>
-<li><strong><em>Disturbance</em></strong>  $\omega_k \sim P(\omega_k|x_k, u_k)$: Value of Information, probability distribution of $\omega_k$ does not depend on past values $\omega_{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</li>
-<li><strong><em><code>Memoryless</code> System Dynamics</em></strong> $x_{k+1} = f_k(x_k, u_k, \omega_k)$: $k$ is time-varied, if removed, then stationary system.  <code>Memoryless</code> is that $f_k$ does not depend on $x_{k-1}, \omega_{k-1}$ and so on.</li>
-<li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br>   <strong><em>Terminal State</em></strong>: $g_N(x_N)$</li>
-</ul>
-<h4 id="2-Aims-👀"><a href="#2-Aims-👀" class="headerlink" title="2 Aims 👀"></a><strong>2</strong> Aims 👀</h4><ul>
-<li><strong><em>Optimal Policy</em></strong> $\pi^<em> = \left(\mu_0^</em>, \mu_1^<em>, \dotsm, \mu_{N-1}^</em> \right)$: <strong><em>Policy</em></strong> ~ $\pi = \left(\mu_0, \mu_1, \dotsm, \mu_{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</li>
-<li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li>
-</ul>
-<blockquote>
-<p>$J_N(x_N) = g_N(x_N)$</p>
-<p>$J_k(x_k) = \min\limits_{u_k \in U_k(x_k)}E_{\omega_k}\{g_k(x_k, u_k, \omega_k)+J_{k+1}(f_k(x_k, u_k, \omega_k))\}$,  $\forall k = 0, 1, \dotsm, N-1$</p>
-</blockquote>
-<h3 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming"></a>Where and Why to Use Dynamic Programming</h3><p>👀️ What if there exists some optimization problems such that</p>
-<ul>
-<li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li>
-<li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li>
-<li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li>
-</ul>
-<p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p>
-<blockquote>
-<p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p>
-</blockquote>
-<h3 id="Example-Inventory-Control"><a href="#Example-Inventory-Control" class="headerlink" title="Example: Inventory Control"></a>Example: Inventory Control</h3><ul>
-<li><strong><em>Stage</em></strong>: Ordering Period: $k$</li>
-<li><strong><em>State</em></strong>: Inventory Level at Period $k$ : $x_k$</li>
-<li><strong><em>Control</em></strong>: Stock ordered at Period $k$ : $u_k \ge 0$</li>
-<li><strong><em>Disturbance</em></strong>: Demand at Period $k$: $\omega_k$</li>
-<li><strong><em>System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$</li>
-<li><strong><em>Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k) = $</li>
-<li><strong><em>Terminal Cost</em></strong>:</li>
-<li><strong><em>Cost Fuction is Additive over Time</em></strong>:</li>
-<li><strong><em>Optimization over Policies/Rules</em></strong>:</li>
-</ul>
-<blockquote>
-<p>Revisited Later and fullfill above things! 2021-01-27</p>
-</blockquote>
-<h3 id="Open-loop-vs-Closed-loop-Feedback-Control"><a href="#Open-loop-vs-Closed-loop-Feedback-Control" class="headerlink" title="Open-loop vs Closed-loop (Feedback Control)"></a>Open-loop vs Closed-loop (Feedback Control)</h3><ul>
-<li>In open-loop minimization, we select all controls $u_k$ at once at time 0, without waiting to see the subsequent disturbance $w_k$</li>
-<li>In closed- loop minimization, we postpone selecting control $u_k$ until the last possible moment (time $k$) when the current state $x_k$ will be known, thus can make use of the information of $w_k$ that becomes available in stages</li>
-</ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ol>
-<li>Schedualing (A Deterministic Finite-State Problem);</li>
-<li>Two Game Chess</li>
-</ol>
-<h2 id="1-2-The-Basic-Problem"><a href="#1-2-The-Basic-Problem" class="headerlink" title="1.2 The Basic Problem"></a>1.2 The Basic Problem</h2><blockquote>
-<p>Need to Add the content of basic problem here —- 2021-01-27</p>
-<h3 id="Value-of-Information"><a href="#Value-of-Information" class="headerlink" title="Value of Information"></a>Value of Information</h3><ul>
-<li>In Deterministic Problem, Open-loop is as good as Closed-loop</li>
-<li>Value of Information = $J^<em>_{\text{closed-loop}} - J^</em>_{\text{open-loop}}$  (The reduction in cost)</li>
-<li>Example: Two-Game Chess</li>
-</ul>
-</blockquote>
-<h3 id="Encoding-Risk-in-the-Cost-Function"><a href="#Encoding-Risk-in-the-Cost-Function" class="headerlink" title="Encoding Risk in the Cost Function"></a>Encoding Risk in the Cost Function</h3><ul>
-<li>As above, one important characteristic of stochastic problems is the possibility of using information with advantage</li>
-<li>The other distinguishing characteristic is the need to take into account <code>risk</code> in the problem formulation.<br>e.g. Expectation and Variance in investment decision<br>e.g. St. Petersburg paradox</li>
-</ul>
-<h2 id="1-3-The-Dynamic-Programming-Algorithm"><a href="#1-3-The-Dynamic-Programming-Algorithm" class="headerlink" title="1.3 The Dynamic Programming Algorithm"></a>1.3 The Dynamic Programming Algorithm</h2><h3 id="Principle-of-Optimality"><a href="#Principle-of-Optimality" class="headerlink" title="Principle of Optimality"></a>Principle of Optimality</h3><blockquote>
-<p>Need whole illustration here —- 2021-01-27</p>
-</blockquote>
-<ul>
-<li>The truncated policy is optimal for the tail problem.</li>
-<li>The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.<ul>
-<li>e.g. deterministic scheduling example</li>
-<li>e.g. stochastic inventory control example</li>
-</ul>
-</li>
-</ul>
-<p>-&gt; ‘One-at-a-time version of Divide and Conquer’</p>
-<h3 id="The-DP-Algorithm"><a href="#The-DP-Algorithm" class="headerlink" title="The DP Algorithm"></a>The DP Algorithm</h3><blockquote>
-<p>Need whole illustration here for Proposition1.3.1 and its proof detail —- 2021-01-27</p>
-</blockquote>
-<ul>
-<li>$J_k(x_k)$ : the cost-to-go at state $x_k$ and time $k$, and refer to $J_k$ as the cost-to-go function at time $k$</li>
-<li>e.g. 1.3.1 two ovens</li>
-</ul>
-<h2 id="1-4-State-Augmentation-and-Other-Reformulations"><a href="#1-4-State-Augmentation-and-Other-Reformulations" class="headerlink" title="1.4 State Augmentation and Other Reformulations"></a>1.4 State Augmentation and Other Reformulations</h2><p>Deal with situations where some of the assumptions of the basic problem are violated —-&gt; reformulate into the basic problem format.</p>
-<h3 id="Case1-Time-Lags"><a href="#Case1-Time-Lags" class="headerlink" title="Case1: Time Lags"></a>Case1: Time Lags</h3><h3 id="Case2-Correlated-Disturbances"><a href="#Case2-Correlated-Disturbances" class="headerlink" title="Case2: Correlated Disturbances"></a>Case2: Correlated Disturbances</h3>]]></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>DP</tag>
       </tags>
   </entry>
 </search>
