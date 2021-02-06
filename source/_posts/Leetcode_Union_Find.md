@@ -1,5 +1,5 @@
 ---
-title: Leetcode with Union Find
+title: Union Find
 date: 2021-01-24T13:15:32+08:00
 tags: [Leetcode, Union Find]
 categories: Leetcode
@@ -469,11 +469,6 @@ class Solution:
 ```
 
 > 尝试了把sorted用改写的三元组版本的优先队列来替代，但是效果没有内置函数sort来得好唉
-
-
-
-
-
 
 > 并查集相关的题目不止是并查集这么简单，并查集只是可以用来辅助的一种数据结构！
 

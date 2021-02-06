@@ -171,7 +171,6 @@ avatar:
 
 # Posts / Categories / Tags in sidebar.
 site_state: true
-
 # Social Links
 # Usage: `Key: permalink || icon`
 # Key is the link label showing to end users.
