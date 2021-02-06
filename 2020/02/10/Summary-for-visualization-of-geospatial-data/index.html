@@ -1369,7 +1369,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ff1d6e;
+  background: #73ffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2677,7 +2677,7 @@ embed {
 
 
 
-<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml">
 <script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css');loadCss('https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -2723,7 +2723,7 @@ embed {
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">22</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">21</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -2733,7 +2733,7 @@ embed {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">13</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">12</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -2853,7 +2853,7 @@ embed {
 </blockquote>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Bus_Location = pd.read_csv(<span class="string">"Gen_WI_Bus_Locations.csv"</span>)</span><br><span class="line">Demand_Values = pd.read_csv(<span class="string">"Gen_WI_Demand_Values.csv"</span>)</span><br><span class="line">Supply_Values = pd.read_csv(<span class="string">"Gen_WI_Supply_Values.csv"</span>)</span><br></pre></td></tr></tbody></table></figure>
 <h3 id="1-2-Merge-Data"><a href="#1-2-Merge-Data" class="headerlink" title="1.2 Merge Data"></a>1.2 Merge Data</h3><blockquote>
-<p>These 3 tables have the same column named <strong><em>Bus Number</em></strong> , we can use <code>reduce()</code> to merge them.</p>
+<p>These 3 tables have the same column named <strong>_Bus Number_</strong> , we can use <code>reduce()</code> to merge them.</p>
 </blockquote>
 <figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># first compile the list of dataframes we want to merge</span></span><br><span class="line">data_frames = [Bus_Location, Demand_Values, Supply_Values]</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">df_merged = reduce(<span class="keyword">lambda</span>  left,right: pd.merge(left,right,on=[<span class="string">'Bus Number'</span>], how=<span class="string">'outer'</span>), data_frames)</span><br><span class="line"><span class="comment">#Then call head() method, we can see the first five rows of our merged data</span></span><br><span class="line">df_merged.head()</span><br></pre></td></tr></tbody></table></figure>
 <p><img src="/assets/image-20200210151126713.png" alt="head" style="zoom:67%;"></p>
@@ -3040,7 +3040,7 @@ embed {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">13</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -3053,7 +3053,7 @@ embed {
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">22</span>
+        <span class="site-state-item-count">21</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

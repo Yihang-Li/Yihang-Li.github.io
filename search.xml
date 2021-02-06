@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
+    <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Hilbert Space: Midterm Review</title>
     <url>/2020/02/16/Hilbert-Space-Midterm-Review/</url>
     <content><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol>
@@ -24,541 +36,6 @@
         <tag>Hilbert Space</tag>
         <tag>Summary</tag>
         <tag>Review</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Notes of Gaussian Processes for Machine Learning</title>
-    <url>/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</url>
-    <content><![CDATA[<h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
-<blockquote>
-<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T<em>{k}$ is defined as $\left(T</em>{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
-<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
-<script type="math/tex; mode=display">
- \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
-</blockquote>
-<a id="more"></a>
-<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
-<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle<em>{\mathcal{H}}$ (and norm $|f|</em>{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
-<ol>
-<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
-</li>
-<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
-</li>
-</ol>
-<blockquote>
-<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
-</blockquote>
-</blockquote>
-<hr>
-<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
-<blockquote>
-<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
-</blockquote>
-<hr>
-<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
-<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
-<script type="math/tex; mode=display">
-\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
-<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L<em>{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T</em>{k}: L<em>{2}(\mathcal{X}, \mu) \rightarrow L</em>{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi<em>{i} \in L</em>{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T<em>{k}$ associated with the eigenvalues $\lambda</em>{i}&gt;0$. Then:</p>
-<ol>
-<li><p>the eigenvalues $\left{\lambda<em>{i}\right}</em>{i=1}^{\infty}$ are absolutely summable</p>
-</li>
-<li><script type="math/tex; mode=display">
-k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
-</li>
-</ol>
-<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
-<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi<em>{i}(\mathbf{x}) \phi</em>{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
-</blockquote>
-<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
-<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum<em>{i=1}^{N} \lambda</em>{i} \phi<em>{i}(\mathbf{x}) \phi</em>{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum<em>{i=1}^{N} f</em>{i} \phi<em>{i}(\mathbf{x})$ with $\sum</em>{i=1}^{N} f<em>{i}^{2} / \lambda</em>{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle<em>{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum</em>{i=1}^{N} g<em>{i} \phi</em>{i}(\mathbf{x})$ is defined as </p>
-<script type="math/tex; mode=display">
-\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|<em>{\mathcal{H}}$ where $|f|</em>{\mathcal{H}}^{2}=\langle f, f\rangle<em>{\mathcal{H}}=\sum</em>{i=1}^{N} f<em>{i}^{2} / \lambda</em>{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients ${f_i}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
-</blockquote>
-<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
-<script type="math/tex; mode=display">
-\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
-<script type="math/tex; mode=display">
-\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum<em>{i=1}^{N}\left(\lambda</em>{i} \phi<em>{i}(\mathbf{x})\right)^{2} / \lambda</em>{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
-<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
-<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f<em>i$ in the eigenexpansion $f(\mathbf{x})=\sum</em>{i=1}^{N} f<em>{i} \phi</em>{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
-<script type="math/tex; mode=display">
-\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
-<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
-<script type="math/tex; mode=display">
-\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
-<script type="math/tex; mode=display">
-\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
-<p>Next show the reproducing property as :</p>
-<script type="math/tex; mode=display">
-\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h5 id="Preliminary-1"><a href="#Preliminary-1" class="headerlink" title="Preliminary"></a>Preliminary</h5><h6 id="regularizer"><a href="#regularizer" class="headerlink" title="regularizer"></a>regularizer</h6><h6 id="kernel-ridge-regression"><a href="#kernel-ridge-regression" class="headerlink" title="kernel ridge regression"></a>kernel ridge regression</h6><h6 id="representer-theorem"><a href="#representer-theorem" class="headerlink" title="representer theorem"></a>representer theorem</h6><h5 id="RKHSs-defined-in-terms-of-differential-operators"><a href="#RKHSs-defined-in-terms-of-differential-operators" class="headerlink" title="RKHSs defined in terms of differential operators"></a>RKHSs defined in terms of differential operators</h5><h6 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h6><h6 id="Green’s-function"><a href="#Green’s-function" class="headerlink" title="Green’s function"></a>Green’s function</h6><h6 id="Two-examples"><a href="#Two-examples" class="headerlink" title="Two examples"></a>Two examples</h6><h5 id="Obtaining-the-Regularized-Solution"><a href="#Obtaining-the-Regularized-Solution" class="headerlink" title="Obtaining the Regularized Solution"></a>Obtaining the Regularized Solution</h5><h6 id="regularization-network"><a href="#regularization-network" class="headerlink" title="regularization network"></a>regularization network</h6><h5 id="The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><a href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction" class="headerlink" title="The Relationship of the Regularization View to Gaussian Process Prediction"></a>The Relationship of the Regularization View to Gaussian Process Prediction</h5><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>]]></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>GP</tag>
-        <tag>ML</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Summary for visualization of geospatial data</title>
-    <url>/2020/02/10/Summary-for-visualization-of-geospatial-data/</url>
-    <content><![CDATA[<blockquote>
-<p><strong>Here we summarize the geospatial data visualization.</strong></p>
-<p>The <code>Synthetic Power Grid Data Set</code>  will be used as an example. [<a href="https://wimnet.ee.columbia.edu/portfolio/synthetic-power-grids-data-sets/">Download here</a>]</p>
-<p>Before all the things, let’s import some basic tools:</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.style.use(<span class="string">&#x27;ggplot&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-<h2 id="1-Data-Preparation"><a href="#1-Data-Preparation" class="headerlink" title="1. Data Preparation"></a>1. Data Preparation</h2><h3 id="1-1-Import-Data"><a href="#1-1-Import-Data" class="headerlink" title="1.1 Import Data"></a>1.1 Import Data</h3><blockquote>
-<p>Here, the <code>Location</code>( (Lon, Lat) pairs), <code>Demand</code> and <code>Supply</code> information are loaded by using <code>pandas.read_csv(&quot;path&quot;)</code>. </p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Bus_Location = pd.read_csv(<span class="string">&quot;Gen_WI_Bus_Locations.csv&quot;</span>)</span><br><span class="line">Demand_Values = pd.read_csv(<span class="string">&quot;Gen_WI_Demand_Values.csv&quot;</span>)</span><br><span class="line">Supply_Values = pd.read_csv(<span class="string">&quot;Gen_WI_Supply_Values.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="1-2-Merge-Data"><a href="#1-2-Merge-Data" class="headerlink" title="1.2 Merge Data"></a>1.2 Merge Data</h3><blockquote>
-<p>These 3 tables have the same column named <strong><em>Bus Number</em></strong> , we can use <code>reduce()</code> to merge them.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># first compile the list of dataframes we want to merge</span></span><br><span class="line">data_frames = [Bus_Location, Demand_Values, Supply_Values]</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">df_merged = reduce(<span class="keyword">lambda</span>  left,right: pd.merge(left,right,on=[<span class="string">&#x27;Bus Number&#x27;</span>], how=<span class="string">&#x27;outer&#x27;</span>), data_frames)</span><br><span class="line"><span class="comment">#Then call head() method, we can see the first five rows of our merged data</span></span><br><span class="line">df_merged.head()</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210151126713.png" alt="head" style="zoom:67%;" /></p>
-<blockquote>
-<p>Moreover, we can call <code>describe()</code> method to summarize our data.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_merged[[<span class="string">&#x27;Lon&#x27;</span>, <span class="string">&#x27;Lat&#x27;</span>, <span class="string">&#x27;Demand (MW)&#x27;</span>, <span class="string">&#x27;Supply (MW)&#x27;</span>]].describe()</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210151217027.png" alt="describe" style="zoom:67%;" /></p>
-<hr>
-<h2 id="2-Using-geopandas-to-visualize"><a href="#2-Using-geopandas-to-visualize" class="headerlink" title="2. Using geopandas to visualize"></a>2. Using geopandas to visualize</h2><blockquote>
-<p>We can refer to <code>geopandas</code> docs <a href="https://geopandas.org/">Click here</a>.</p>
-</blockquote>
-<h3 id="2-1-Data-Structures"><a href="#2-1-Data-Structures" class="headerlink" title="2.1 Data Structures"></a>2.1 Data Structures</h3><blockquote>
-<p>GeoPandas implements two main data structures, a <code>GeoSeries</code> and a <code>GeoDataFrame</code>. These are subclasses of pandas <code>Series</code> and <code>DataFrame</code>, respectively. Before visualization, we should convert our data into proper type.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat))</span><br><span class="line">gdf.head()</span><br><span class="line"><span class="comment">#And here call type(gdf):</span></span><br><span class="line"><span class="comment">#geopandas.geodataframe.GeoDataFrame</span></span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210153603866.png" alt="gdfhead" style="zoom:65%;" /></p>
-<h3 id="2-2-Coordinate-Reference-Systems"><a href="#2-2-Coordinate-Reference-Systems" class="headerlink" title="2.2 Coordinate Reference Systems"></a>2.2 Coordinate Reference Systems</h3><blockquote>
-<p>CRS are important because the geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. A CRS tells Python how those coordinates related to places on the Earth.</p>
-<p>CRS are referred to using codes called <a href="https://en.wikipedia.org/wiki/PROJ.4">proj4 strings</a>. You can find the codes for most commonly used projections from <a href="http://spatialreference.org/">www.spatialreference.org</a>. Common projections can also be referred to by EPSG codes, so this same projection can also called using the proj4 string <code>&quot;+init=epsg:4326&quot;</code>.</p>
-<p><em>geopandas</em> can accept lots of representations of CRS, including the proj4 string itself (<code>&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</code>) or parameters broken out in a dictionary: <code>&#123;&#39;proj&#39;: &#39;latlong&#39;, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;no_defs&#39;: True&#125;</code>). In addition, some functions will take EPSG codes directly.</p>
-<p>For reference, a few very common projections and their proj4 strings:</p>
-<ul>
-<li>WGS84 Latitude/Longitude: <code>&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</code> or <code>&quot;+init=epsg:4326&quot;</code></li>
-<li>UTM Zones (North): <code>&quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</code></li>
-<li>UTM Zones (South): <code>&quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs +south&quot;</code></li>
-</ul>
-<p><code>contextily</code>: context geo tiles in Python</p>
-<blockquote>
-<p><code>contextily</code> is a small Python 3 package to retrieve and write to disk tile maps from the internet into geospatial raster files. Bounding boxes can be passed in both WGS84 (<code>EPSG:4326</code>) and Spheric Mercator (<code>EPSG:3857</code>). See <a href="https://github.com/darribas/contextily">here</a> for usage.</p>
-</blockquote>
-</blockquote>
-<hr>
-<p><strong>Let’s just dive into code</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = &#123;<span class="string">&#x27;init&#x27;</span>: <span class="string">&#x27;epsg:4326&#x27;</span>, <span class="string">&#x27;no_defs&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">&#x27;k&#x27;</span>)</span><br><span class="line">ctx.add_basemap(ax)</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210161956076.png" alt="first" style="zoom:67%;" /></p>
-<h3 id="2-3-Mapping-attributes-into-it"><a href="#2-3-Mapping-attributes-into-it" class="headerlink" title="2.3 Mapping attributes into it"></a>2.3 Mapping attributes into it</h3><blockquote>
-<p>Here we map the <code>Demand</code> values into the map, and try to set some parameters</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">&#x27;w&#x27;</span>, column = <span class="string">&quot;Demand (MW)&quot;</span>, legend = <span class="literal">True</span>, </span><br><span class="line">              legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;Demand (MW)&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;) <span class="comment">#horizontal</span></span><br><span class="line">ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">ax.set_axis_off()</span><br><span class="line">plt.savefig(<span class="string">&#x27;Demand(MW)&#x27;</span>)</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210162505599.png" alt="Second" style="zoom:67%;" /></p>
-<h3 id="2-4-Summary"><a href="#2-4-Summary" class="headerlink" title="2.4 Summary"></a>2.4 Summary</h3><blockquote>
-<p>Here we summarize 2.3 as follows:</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Attribute_mapping</span>(<span class="params">gdf, column, legend_kwds</span>):</span></span><br><span class="line">    ax = gdf.plot(figsize = (<span class="number">10</span>, <span class="number">10</span>), alpha = <span class="number">0.5</span>, edgecolor = <span class="string">&#x27;w&#x27;</span>, column = column, 					legend = <span class="literal">True</span>, legend_kwds = legend_kwds)</span><br><span class="line">    ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">    ax.set_axis_off()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>Our input is:</p>
-<ul>
-<li><code>gdf</code> : Corresponding geopandas dataframe after processing in 2.2</li>
-<li><code>column</code>: Corresponding Attribute column that we want to map</li>
-<li><code>legend_kwds</code>: Corresponding legend parameters</li>
-</ul>
-</blockquote>
-<p><strong>Let’s see an example below:</strong></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#First get our gdf</span></span><br><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat)) <span class="comment">#Note: df_merged is a pandas dataframe!</span></span><br><span class="line"><span class="comment">#process as in 2.2</span></span><br><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = &#123;<span class="string">&#x27;init&#x27;</span>: <span class="string">&#x27;epsg:4326&#x27;</span>, <span class="string">&#x27;no_defs&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line"><span class="comment">#set our column and legend_kwds</span></span><br><span class="line">column = <span class="string">&quot;Supply (MW)&quot;</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;Supply (MW)&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line"><span class="comment">#call the function above</span></span><br><span class="line">Attribute_mapping(gdf, column, legend_kwds)</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210164126937.png" alt="Third" style="zoom:67%;" /></p>
-<hr>
-<h2 id="3-Try-Something-More"><a href="#3-Try-Something-More" class="headerlink" title="3. Try Something More"></a>3. Try Something More</h2><h3 id="3-1-Remove-Zero"><a href="#3-1-Remove-Zero" class="headerlink" title="3.1 Remove Zero"></a>3.1 Remove Zero</h3><p>As we see the describe results in 1.2, more than 75% of Demand and Supply are all zero. So, in this part, we try to deal with them.</p>
-<p>Just see the code</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">None_Zero_Demand = gdf[gdf[<span class="string">&#x27;Demand (MW)&#x27;</span>] != <span class="number">0.0</span>]</span><br><span class="line">None_Zero_Demand.head()</span><br><span class="line">None_Zero_Demand.describe()</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210165814250.png" alt="None0Demand" style="zoom:50%;" /><img src="/assets/image-20200210165930907.png" alt="Describe" style="zoom:50%;" /></p>
-<p>Here we see:</p>
-<ol>
-<li>there are only 3095 none zero Demand compare to 14430 in total.</li>
-<li>All the Supply  are zero while Demand are none zero</li>
-</ol>
-<h3 id="3-2-Visualize-the-None-Zero-Part"><a href="#3-2-Visualize-the-None-Zero-Part" class="headerlink" title="3.2 Visualize the None Zero Part"></a>3.2 Visualize the None Zero Part</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">column = <span class="string">&quot;Demand (MW)&quot;</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(None_Zero_Demand, column, legend_kwds)</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210170733776.png" alt="nonezerodemand" style="zoom:67%;" /></p>
-<p>Though the points become less, most of them are near zero (purple color). So, we can try to limit the value to visualize more clear.</p>
-<h3 id="3-3-Separate-into-Three-Parts-by-ordered-values"><a href="#3-3-Separate-into-Three-Parts-by-ordered-values" class="headerlink" title="3.3 Separate into Three Parts by ordered values"></a>3.3 Separate into Three Parts by ordered values</h3><p>Let’s first order the DataFrame by <code>Demand</code></p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">None_Zero_Demand = None_Zero_Demand.sort_values(by = <span class="string">&#x27;Demand (MW)&#x27;</span>)</span><br><span class="line">None_Zero_Demand.head()</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210171813748.png" alt="order" style="zoom:67%;" /></p>
-<p>Then split it into 3 parts</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Split3 = np.array_split(None_Zero_Demand, <span class="number">3</span>)</span><br><span class="line">Part1, Part2, Part3 = Split3[<span class="number">0</span>], Split3[<span class="number">1</span>], Split3[<span class="number">2</span>]</span><br><span class="line">Part1.head()</span><br><span class="line">Part2.head()</span><br><span class="line">Part3.head()</span><br><span class="line"><span class="comment">#Note: here the other two columns not presented in the figures</span></span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210172559313.png" alt="P1head" style="zoom:30%;" /><img src="/assets/image-20200210172638632.png" alt="P2head" style="zoom:30%;" /><img src="/assets/image-20200210172724404.png" alt="P3head" style="zoom:30%;" /></p>
-<p>Finally, visualize each part</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">column = <span class="string">&quot;Demand (MW)&quot;</span></span><br><span class="line"><span class="comment">#Part1</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part1, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part2</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part2, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part3</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part3, column, legend_kwds)</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200210173434367.png" alt="P1V" style="zoom:30%;" /><img src="/assets/image-20200210173507904.png" alt="P2v" style="zoom:30%;" /><img src="/assets/image-20200210173536841.png" alt="P3v" style="zoom:30%;" /></p>
-<p>Here we:</p>
-<ul>
-<li><p>[x] ​    Visualize three parts separately</p>
-</li>
-<li><p>[ ] ​    Unify the color bars in above three figures.</p>
-</li>
-</ul>
-]]></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>geospatial</tag>
-        <tag>visualization</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>文献翻译-《Random Features for Large Scale Kernel Machines》</title>
-    <url>/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" data-height="500px"></div>
-<!-- <iframe src="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" width="640" height="480"></iframe> -->
-]]></content>
-      <categories>
-        <category>文献翻译</category>
-      </categories>
-      <tags>
-        <tag>Kernel</tag>
-        <tag>RFF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Summary of Using Python to Access Web Data</title>
-    <url>/2020/02/14/Summary%20of%20Using%20Python%20to%20Access%20Web%20Data/</url>
-    <content><![CDATA[<p><strong>First of all, thanks Dr. Charles Russell Severance</strong></p>
-<blockquote>
-<p>Why I write this summary?</p>
-<ul>
-<li>gained certificate from last winter vacation(2019)</li>
-<li>need to apply this knowledge for data access</li>
-</ul>
-</blockquote>
-<p><img src="/assets/image-20200214105208294.png" alt="image-20200214105208294" style="zoom:80%;" /></p>
-<a id="more"></a>
-<p><a href="https://www.py4e.com/book">Book Link</a></p>
-<h1 id="Chapter-11-Regular-expressions"><a href="#Chapter-11-Regular-expressions" class="headerlink" title="Chapter 11 Regular expressions"></a>Chapter 11 Regular expressions</h1><blockquote>
-<p>Regular expressions (regex) are almost their own little programming language for searching and parsing strings.</p>
-</blockquote>
-<p><em>For more detail on regex, see: <a href="https://en.wikipedia.org/wiki/Regular_expression">wiki</a>, <a href="https://docs.python.org/3.5/library/re.html">python docs</a>.</em></p>
-<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><div class="table-container">
-<table>
-<thead>
-<tr>
-<th style="text-align:center">symbol</th>
-<th style="text-align:center">function</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><span style="color:blue"> <strong>^</strong></span></td>
-<td style="text-align:center">Matches the beginning of a line</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>$</strong></span></td>
-<td style="text-align:center">Matches the end of the line</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>.</strong></span></td>
-<td style="text-align:center">Matches any character (<strong>a wildcard</strong>)</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\s</strong></span></td>
-<td style="text-align:center">Matches whitespace</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\S</strong></span></td>
-<td style="text-align:center">Matches any non-whitespace character</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>?</strong></span></td>
-<td style="text-align:center">Repeats a character zero or one time</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>??</strong></span></td>
-<td style="text-align:center">Repeats a character zero of one time (<strong>non-greedy</strong>)</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>*</strong></span></td>
-<td style="text-align:center">Repeats a character zero or more times</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>*?</strong></span></td>
-<td style="text-align:center">Repeats a character zero or more times (<strong>non-greedy</strong>)</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>+</strong></span></td>
-<td style="text-align:center">Repeats a character one or more times</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>+?</strong></span></td>
-<td style="text-align:center">Repeats a character one or more times (<strong>non-greedy</strong>)</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>[aeiou]</strong></span></td>
-<td style="text-align:center">Matches a single character in the listed set</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>[\^XYZ]</strong></span></td>
-<td style="text-align:center">Matches a single character not in the listed set</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>[a-z0-9]</strong></span></td>
-<td style="text-align:center">The set of  characters can include a range</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>(</strong></span></td>
-<td style="text-align:center">Indicates where string extraction is to start</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>)</strong></span></td>
-<td style="text-align:center">Indicates where string extraction is to end</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\b</strong></span></td>
-<td style="text-align:center">Matches the empty string only at the start of end of word</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\B</strong></span></td>
-<td style="text-align:center">Matches the empty string not at the start or end of a word</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\d</strong></span></td>
-<td style="text-align:center">Matches any decimal digit (equivalent to [0-9])</td>
-</tr>
-<tr>
-<td style="text-align:center"><span style='color:blue'><strong>\D</strong></span></td>
-<td style="text-align:center">Matches any non-digit character (equivalent to [\^0-9])</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p><em><strong>Note:</strong></em></p>
-<blockquote>
-<ol>
-<li>symbol with repeat function applies to the immediately preceding character(s)</li>
-<li>greedy matching: the repeat characters (  <span style='color:blue'><strong>*</strong></span>  and <span style='color:blue'><strong>+</strong></span> ) push outward in both directions to match the largest possible string</li>
-<li>non-greedy doesn’t mean that the regex will try to find the shortest substring by varying the start index. It just means that if there’s a substring which starts at index 0 and matches the regex, the engine will stop as soon as possible </li>
-<li>escape character: by prefixing with a backslash. i.e. \$ indicate dollar sign instead of the wildcard.</li>
-</ol>
-</blockquote>
-<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search for lines that start with From and have an at sign</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">hand = <span class="built_in">open</span>(<span class="string">&#x27;mbox-short.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> hand:</span><br><span class="line">    line = line.rstrip()</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&#x27;^From:.+@&#x27;</span>, line):</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
-<p>The search string <strong>^From:.+@</strong> will successfully match lines that start with “<strong>From:</strong>“, followed by one or more characters (<strong>.+</strong>), followed by an at-sign. So this will match the following line:<br><strong>From: stephen.marquard@uct.ac.za</strong></p>
-<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = <span class="string">&quot;We just received $10.00 for cookies.&quot;</span></span><br><span class="line">y = re.findall(<span class="string">&#x27;\$[0-9.]+&#x27;</span>, x)</span><br></pre></td></tr></table></figure>
-<p>Since we prefix the dollar sign with a backslash, it actually matches the dollar sign in the input string instead of matching the “end of line”, and the rest of the regular expression matches one or more digits or the period character.</p>
-<p>Note: inside square brackets, characters are not “special”. So, when we say <strong>[0-9.]</strong>, it really means digits or a period . Outside of square brackets, a period is the “wildcard” character and matches any character. Inside square brackets, the period is a period.</p>
-<hr>
-<h1 id="Chapter-12-Networked-Programs"><a href="#Chapter-12-Networked-Programs" class="headerlink" title="Chapter 12 Networked Programs"></a>Chapter 12 Networked Programs</h1><h2 id="12-1-Hypertext-Transfer-Protocol-HTTP"><a href="#12-1-Hypertext-Transfer-Protocol-HTTP" class="headerlink" title="12.1 Hypertext Transfer Protocol - HTTP"></a>12.1 Hypertext Transfer Protocol - HTTP</h2><blockquote>
-<p><strong>Socket/TCP Connections</strong><br>A network connection between two applications where the applications can send and receive data in either direction.</p>
-<p><strong>TCP Port Numbers</strong><br>A number that generally indicates which application you are contacting when you make a socket connection to a server. As an example, web traffic usually uses port 80 while email traffic uses port 25.</p>
-<p><strong>Protocol</strong><br>A protocol is a set of precise rules that all parties follow so we can predict each other’s behavior. In a sense the two applications at either end of the socket are doing a dance and making sure not to step on each other’s toes.</p>
-</blockquote>
-<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.txt">HyperText Transfer Protocol</a>, a long and complex 176-page document with a lot of detail. If you find it interesting, feel free to read it all. But if you take a look around page 36 of RFC2616 you will find the syntax for the GET request. </p>
-<h2 id="12-2-The-world’s-simplest-web-browser"><a href="#12-2-The-world’s-simplest-web-browser" class="headerlink" title="12.2 The world’s simplest web browser"></a>12.2 The world’s simplest web browser</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/socket1.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((<span class="string">&#x27;data.pr4e.org&#x27;</span>, <span class="number">80</span>))</span><br><span class="line">cmd = <span class="string">&#x27;GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n&#x27;</span>.encode()</span><br><span class="line">mysock.send(cmd)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">512</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(data.decode(), end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">mysock.close()</span><br></pre></td></tr></table></figure>
-<p><img src="/assets/image-20200214180630075.png" alt="image-20200214180630075" style="zoom:80%;" /></p>
-<p>Output:</p>
-<blockquote>
-<p>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:05:30 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Sat, 13 May 2017 11:22:22 GMT<br>ETag: “a7-54f6609245537”<br>Accept-Ranges: bytes<br>Content-Length: 167<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: text/plain</p>
-<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
-</blockquote>
-<h2 id="12-3-Retrieving-an-image-over-HTTP"><a href="#12-3-Retrieving-an-image-over-HTTP" class="headerlink" title="12.3 Retrieving an image over HTTP"></a>12.3 Retrieving an image over HTTP</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urljpeg.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">HOST = <span class="string">&#x27;data.pr4e.org&#x27;</span></span><br><span class="line">PORT = <span class="number">80</span></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((HOST, PORT))</span><br><span class="line">mysock.sendall(<span class="string">b&#x27;GET http://data.pr4e.org/cover3.jpg HTTP/1.0\r\n\r\n&#x27;</span>)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">picture = <span class="string">b&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">5120</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">len</span>(data) &lt; <span class="number">1</span>): <span class="keyword">break</span></span><br><span class="line">    time.sleep(<span class="number">0.25</span>)</span><br><span class="line">    count = count + <span class="built_in">len</span>(data)</span><br><span class="line">    print(<span class="built_in">len</span>(data), count)</span><br><span class="line">    picture = picture + data</span><br><span class="line"></span><br><span class="line">mysock.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Look for the end of the header (2 CRLF)</span></span><br><span class="line">pos = picture.find(<span class="string">b&#x27;\r\n\r\n&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;Header length&#x27;</span>, pos)</span><br><span class="line">print(picture[:pos].decode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Skip past the header and save the picture data</span></span><br><span class="line">picture = picture[pos+<span class="number">4</span>:]</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">&#x27;stuff.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">fhand.write(picture)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>1408 1408<br>5120 6528<br>5120 11648<br>…… ……<br>5120 221568<br>3920 230608<br>Header length 394<br>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:21:44 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Mon, 15 May 2017 12:27:40 GMT<br>ETag: “38342-54f8f2e5b6277”<br>Accept-Ranges: bytes<br>Content-Length: 230210<br>Vary: Accept-Encoding<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: image/jpeg</p>
-</blockquote>
-<p>There is a buffer between the server making <code>send()</code> requests and our application making <code>recv()</code> requests. When we run the program with the delay in place, at some point the server might fill up the buffer in the socket and be forced to pause until our program starts to empty the buffer.<br>The pausing of either the sending application or the receiving application is called “<strong>flow control</strong>“.</p>
-<h2 id="12-4-Retrieving-web-pages-with-urllib"><a href="#12-4-Retrieving-web-pages-with-urllib" class="headerlink" title="12.4 Retrieving web pages with urllib"></a>12.4 Retrieving web pages with urllib</h2><blockquote>
-<p><strong>urllib</strong>: does all the socket work for us and makes web pages look like a file.</p>
-</blockquote>
-<p>Using <code>urllib</code>, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and <code>urllib</code> handles all of the HTTP protocol and header details.</p>
-<p>The equivalent code to read the <code>romeo.txt</code> file from the web using <code>urllib</code> is as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllib1.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">fhand = urllib.request.urlopen(<span class="string">&#x27;http://data.pr4e.org/romeo.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fhand:</span><br><span class="line">    print(line.decode().strip())</span><br></pre></td></tr></table></figure>
-<p>When the program runs, we only see the output of the contents of the file. The headers are still sent, but the <code>urllib</code> code consumes the headers and only returns the data to us.</p>
-<p>Output:</p>
-<blockquote>
-<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
-</blockquote>
-<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>retrieve the data for <code>romeo.txt</code> and compute the frequency of each word in the file</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Code: http:&#x2F;&#x2F;www.py4e.com&#x2F;code3&#x2F;urlwords.py</span><br><span class="line">import urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">fhand &#x3D; urllib.request.urlopen(&#39;http:&#x2F;&#x2F;data.pr4e.org&#x2F;romeo.txt&#39;)</span><br><span class="line"></span><br><span class="line">counts &#x3D; dict()</span><br><span class="line">for line in fhand:</span><br><span class="line">    words &#x3D; line.decode().split()</span><br><span class="line">    for word in words:</span><br><span class="line">        counts[word] &#x3D; counts.get(word, 0) + 1</span><br><span class="line">print(counts)</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>{‘But’: 1, ‘soft’: 1, ‘what’: 1, ‘light’: 1, ‘through’: 1, ‘yonder’: 1, ‘window’: 1, ‘breaks’: 1, ‘It’: 1, ‘is’: 3, ‘the’: 3, ‘east’: 1, ‘and’: 3, ‘Juliet’: 1, ‘sun’: 2, ‘Arise’: 1, ‘fair’: 1, ‘kill’: 1, ‘envious’: 1, ‘moon’: 1, ‘Who’: 1, ‘already’: 1, ‘sick’: 1, ‘pale’: 1, ‘with’: 1, ‘grief’: 1}</p>
-</blockquote>
-<h2 id="12-5-Reading-binary-files-using-urllib"><a href="#12-5-Reading-binary-files-using-urllib" class="headerlink" title="12.5 Reading binary files using urllib"></a>12.5 Reading binary files using urllib</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Code: http://www.py4e.com/code3/curl2.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">img = urllib.request.urlopen(<span class="string">&#x27;http://data.pr4e.org/cover3.jpg&#x27;</span>)</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">&#x27;cover3.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">size = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    info = img.read(<span class="number">100000</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(info) &lt; <span class="number">1</span>: <span class="keyword">break</span></span><br><span class="line">    size += <span class="built_in">len</span>(info)</span><br><span class="line">    fhand.write(info)</span><br><span class="line">print(size, <span class="string">&#x27;characters copied.&#x27;</span>)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>read only 100,000 characters at a time and then write those characters to the cover.jpg file before retrieving the next 100,000 characters of data from the web.</p>
-</blockquote>
-<h2 id="12-6-Parsing-HTML-and-scraping-the-web"><a href="#12-6-Parsing-HTML-and-scraping-the-web" class="headerlink" title="12.6 Parsing HTML and scraping the web"></a>12.6 Parsing HTML and scraping the web</h2><blockquote>
-<p>One of the common uses of the <code>urllib</code> capability in Python is to <em>scrape</em> the web. Web scraping is when we write a program that pretends to be a web browser and retrieves pages, then examines the data in those pages looking for patterns.</p>
-<p>As an example, a search engine such as Google will look at the source of one web page and extract the links to other pages and retrieve those pages, extracting links, and so on. Using this technique, Google <em>spiders</em> its way through nearly all of the pages on the web.</p>
-<p>Google also uses the frequency of links from pages it finds to a particular page as one measure of how “important” a page is and how high the page should appear in its search results.</p>
-</blockquote>
-<h2 id="12-7-Parsing-HTML-using-regular-expressions"><a href="#12-7-Parsing-HTML-using-regular-expressions" class="headerlink" title="12.7 Parsing HTML using regular expressions"></a>12.7 Parsing HTML using regular expressions</h2><p>For the simple webpage:</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>The First Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">If you like, you can switch to the</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.dr-chuck.com/page2.htm&quot;</span>&gt;</span></span><br><span class="line">Second Page<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>We can construct a well-formed regular expression to match and extract the link values from the above text as follows:</p>
-<blockquote>
-<p>href=”(<a href="http://.+?">http://.+?</a>)”</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urlregex.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urllib.request.urlopen(url).read()</span><br><span class="line">links = re.findall(<span class="string">b&#x27;href=&quot;(http://.+?)&quot;&#x27;</span>, html)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">    print(link.decode())</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>Enter -  <a href="https://yihang-li.github.io/">https://yihang-li.github.io/</a><br><a href="http://yihang-li.github.io/">http://yihang-li.github.io/</a><br><a href="http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/">http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/</a><br><a href="http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/">http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/</a><br><a href="http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/">http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/Hello-Echo/">http://Yihang-Li.github.io/2020/02/05/Hello-Echo/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/hello-world/">http://Yihang-Li.github.io/2020/02/05/hello-world/</a></p>
-</blockquote>
-<h2 id="12-8-Parsing-HTML-using-BeautifulSoup"><a href="#12-8-Parsing-HTML-using-BeautifulSoup" class="headerlink" title="12.8 Parsing HTML using BeautifulSoup"></a>12.8 Parsing HTML using BeautifulSoup</h2><blockquote>
-<p><strong>BeautifulSoup</strong> tolerates highly flawed HTML and still lets you easily extract the data you need. See <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">docs</a>.</p>
-</blockquote>
-<p>We will use <code>urllib</code> to read the page and then use <code>BeautifulSoup</code> to extract the <code>href</code> attributes from the anchor (<code>a</code>) tags.</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllinks.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urllib.request.urlopen(url, context=ctx).read()</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    print(tag.get(<span class="string">&#x27;href&#x27;</span>, <span class="literal">None</span>))</span><br></pre></td></tr></table></figure>
-<p>The program prompts for a web address, then opens the web page, reads the data and passes the data to the BeautifulSoup parser, and then retrieves all of the anchor tags and prints out the <code>href</code> attribute for each tag.</p>
-<p>You can use BeautifulSoup to pull out various parts of each tag as follows:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllink2.py</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urlopen(url, context=ctx).read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># html.parser is the HTML parser included in the standard Python 3 library.</span></span><br><span class="line"><span class="comment"># information on other HTML parsers is here:</span></span><br><span class="line"><span class="comment"># http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser</span></span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    <span class="comment"># Look at the parts of a tag</span></span><br><span class="line">    print(<span class="string">&#x27;TAG:&#x27;</span>, tag)</span><br><span class="line">    print(<span class="string">&#x27;URL:&#x27;</span>, tag.get(<span class="string">&#x27;href&#x27;</span>, <span class="literal">None</span>))</span><br><span class="line">    print(<span class="string">&#x27;Contents:&#x27;</span>, tag.contents[<span class="number">0</span>])</span><br><span class="line">    print(<span class="string">&#x27;Attrs:&#x27;</span>, tag.attrs)</span><br></pre></td></tr></table></figure>
-<h2 id="12-9-Something-more"><a href="#12-9-Something-more" class="headerlink" title="12.9 Something more"></a>12.9 Something more</h2><blockquote>
-<p><strong>Scrape</strong><br>When a program pretends to be a web browser and retrieves a web page, then looks at the web page content. Often programs are following the links in one page to find the next page so they can traverse a network of pages or a social network.</p>
-<p><strong>Spider</strong><br>The act of a web search engine retrieving a page and then all the pages linked from a page and so on until they have nearly all of the pages on the Internet which they use to build their search index.</p>
-<p><strong>ASCII</strong><br>American Standard Code for Information Interchange</p>
-<p>Each character is represented by a number between 0 and 256 stored in 8 bits of memory(a byte of memory)</p>
-<p>The <strong>ord()</strong> function tells us the numeric value of a simple ASCII character<br>(On the opposite, we can use <strong>chr()</strong>)</p>
-<p>In Python3, all strings are unicode. When we read data from an external resource, we must decode it based on the character set so it is properly represented in Python3 as a string.</p>
-</blockquote>
-<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
-<li>The TCP/IP gives us pipes/sockets between applications</li>
-<li>We designed application protocols to make use of these pipes</li>
-<li>HyperText Transfer Protocol (HTTP) is a simple yet powerful proctocol</li>
-<li>Python has good support for sockets, HTTP, and HTML parsing</li>
-</ul>
-<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="Chapter-13-Using-Web-Services"><a href="#Chapter-13-Using-Web-Services" class="headerlink" title="Chapter 13 Using Web Services"></a>Chapter 13 Using Web Services</h1><h2 id="13-1-eXtensible-Markup-Language-XML"><a href="#13-1-eXtensible-Markup-Language-XML" class="headerlink" title="13.1 eXtensible Markup Language - XML"></a>13.1 eXtensible Markup Language - XML</h2><p>XML looks similar to HTML but more structured. See a sample below:</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Chuck<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">phone</span> <span class="attr">type</span>=<span class="string">&quot;intl&quot;</span>&gt;</span></span><br><span class="line">     +1 734 303 4456</span><br><span class="line">  <span class="tag">&lt;/<span class="name">phone</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">email</span> <span class="attr">hide</span>=<span class="string">&quot;yes&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>Often it is helpful to think of an XML document as a tree structure where there is a top tag <code>person</code> and other tags such as <code>phone</code> are drawn as <em>children</em> of their parent nodes.</p>
-<p><img src="/assets/image-20200214211642103.png" alt="image-20200214211642103" style="zoom:80%;" /></p>
-<h2 id="13-2-Parsing-XML"><a href="#13-2-Parsing-XML" class="headerlink" title="13.2 Parsing XML"></a>13.2 Parsing XML</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml1.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line">data = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;person&gt;</span></span><br><span class="line"><span class="string">  &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">  &lt;phone type=&quot;intl&quot;&gt;</span></span><br><span class="line"><span class="string">     +1 734 303 4456</span></span><br><span class="line"><span class="string">   &lt;/phone&gt;</span></span><br><span class="line"><span class="string">   &lt;email hide=&quot;yes&quot;/&gt;</span></span><br><span class="line"><span class="string">&lt;/person&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">tree = ET.fromstring(data)</span><br><span class="line">print(<span class="string">&#x27;Name:&#x27;</span>, tree.find(<span class="string">&#x27;name&#x27;</span>).text)</span><br><span class="line">print(<span class="string">&#x27;Attr:&#x27;</span>, tree.find(<span class="string">&#x27;email&#x27;</span>).get(<span class="string">&#x27;hide&#x27;</span>))</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>Name: Chuck<br>Attr: yes</p>
-</blockquote>
-<p>Calling <code>fromstring</code> converts the string representation of the XML into a “tree” of XML nodes. When the XML is in a tree, we have a series of methods we can call to extract portions of data from the XML.</p>
-<p>The <code>find</code> function searches through the XML tree and retrieves a <em>node</em> that matches the specified tag. Each node can have some text, some attributes (like hide), and some “child” nodes. Each node can be the top of a tree of nodes.</p>
-<h2 id="13-3-Looping-through-nodes"><a href="#13-3-Looping-through-nodes" class="headerlink" title="13.3 Looping through nodes"></a>13.3 Looping through nodes</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml2.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"><span class="built_in">input</span> = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;stuff&gt;</span></span><br><span class="line"><span class="string">    &lt;users&gt;</span></span><br><span class="line"><span class="string">        &lt;user x=&quot;2&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;001&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">        &lt;user x=&quot;7&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;009&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Brent&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">    &lt;/users&gt;</span></span><br><span class="line"><span class="string">&lt;/stuff&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">stuff = ET.fromstring(<span class="built_in">input</span>)</span><br><span class="line">lst = stuff.findall(<span class="string">&#x27;users/user&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;User count:&#x27;</span>, <span class="built_in">len</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> lst:</span><br><span class="line">    print(<span class="string">&#x27;Name&#x27;</span>, item.find(<span class="string">&#x27;name&#x27;</span>).text)</span><br><span class="line">    print(<span class="string">&#x27;Id&#x27;</span>, item.find(<span class="string">&#x27;id&#x27;</span>).text)</span><br><span class="line">    print(<span class="string">&#x27;Attribute&#x27;</span>, item.get(<span class="string">&quot;x&quot;</span>))</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Brent<br>Id 009<br>Attribute 7</p>
-</blockquote>
-<p>Note:</p>
-<blockquote>
-<p>It is important to includes all parents level elements in the <strong>findall</strong> statement except for the top level element. Otherwise, Python will not find any desired nodes.</p>
-</blockquote>
-<h2 id="13-4-JavaScript-Object-Notation-JSON"><a href="#13-4-JavaScript-Object-Notation-JSON" class="headerlink" title="13.4 JavaScript Object Notation - JSON"></a>13.4 JavaScript Object Notation - JSON</h2><blockquote>
-<p>The JSON format was inspired by the object and array format used in the JavaScript language. But since Python was invented before JavaScript, Python’s syntax for dictionaries and lists influenced the syntax of JSON. So the format of JSON is nearly identical to a combination of Python lists and dictionaries.</p>
-</blockquote>
-<p>Here is a JSON encoding that is roughly equivalent to the simple XML from above:</p>
-<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;Chuck&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;phone&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;type&quot;</span> : <span class="string">&quot;intl&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;number&quot;</span> : <span class="string">&quot;+1 734 303 4456&quot;</span></span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">&quot;email&quot;</span> : &#123;</span><br><span class="line">     <span class="attr">&quot;hide&quot;</span> : <span class="string">&quot;yes&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>In XML, we can add attributes like “intl” to the “phone” tag.<br>In JSON, we simply have key-value pairs. Also the XML “person” tag is gone, replaced by a set of outer curly braces.</p>
-<p>In general, JSON structures are simpler than XML because JSON has fewer capabilities than XML. But JSON has the advantage that it maps <em>directly</em> to some combination of dictionaries and lists. And since nearly all programming languages have something equivalent to Python’s dictionaries and lists, JSON is a very natural format to have two cooperating programs exchange data.</p>
-<p>JSON is quickly becoming the format of choice for nearly all data exchange between applications because of its relative simplicity compared to XML.</p>
-</blockquote>
-<h2 id="13-5-Parsing-JSON"><a href="#13-5-Parsing-JSON" class="headerlink" title="13.5 Parsing JSON"></a>13.5 Parsing JSON</h2><blockquote>
-<p>We construct our JSON by nesting dictionaries (objects) and lists as needed. In this example, we represent a list of users where each user is a set of key-value pairs (i.e., a dictionary). So we have a list of dictionaries.</p>
-<p>In the following program, we use the built-in <em>json</em> library to parse the JSON and read through the data. Compare this closely to the equivalent XML data and code above. The JSON has less detail, so we must know in advance that we are getting a list and that the list is of users and each user is a set of key-value pairs. The JSON is more succinct (an advantage) but also is less self-describing (a disadvantage).</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/json2.py</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[</span></span><br><span class="line"><span class="string">  &#123; &quot;id&quot; : &quot;001&quot;,</span></span><br><span class="line"><span class="string">    &quot;x&quot; : &quot;2&quot;,</span></span><br><span class="line"><span class="string">    &quot;name&quot; : &quot;Chuck&quot;</span></span><br><span class="line"><span class="string">  &#125; ,</span></span><br><span class="line"><span class="string">  &#123; &quot;id&quot; : &quot;009&quot;,</span></span><br><span class="line"><span class="string">    &quot;x&quot; : &quot;7&quot;,</span></span><br><span class="line"><span class="string">    &quot;name&quot; : &quot;Chuck&quot;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">]&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">info = json.loads(data)</span><br><span class="line">print(<span class="string">&#x27;User count:&#x27;</span>, <span class="built_in">len</span>(info))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> info:</span><br><span class="line">    print(<span class="string">&#x27;Name&#x27;</span>, item[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    print(<span class="string">&#x27;Id&#x27;</span>, item[<span class="string">&#x27;id&#x27;</span>])</span><br><span class="line">    print(<span class="string">&#x27;Attribute&#x27;</span>, item[<span class="string">&#x27;x&#x27;</span>])</span><br></pre></td></tr></table></figure>
-<p>Output:</p>
-<blockquote>
-<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Chuck<br>Id 009<br>Attribute 7</p>
-</blockquote>
-<ul>
-<li>we get from <em>json.loads()</em> is a Python list which we traverse with a <code>for</code> loop, and each item within that list is a Python dictionary.</li>
-<li>In general, there is an industry trend away from XML and towards JSON for web services. </li>
-<li>But XML is more self-descriptive than JSON and so there are some applications where XML retains an advantage. For example, most word processors store documents internally using XML rather than JSON.</li>
-</ul>
-<h2 id="13-6-Application-Programming-Interfaces-API"><a href="#13-6-Application-Programming-Interfaces-API" class="headerlink" title="13.6 Application Programming Interfaces - API"></a>13.6 Application Programming Interfaces - API</h2><blockquote>
-<p><strong>API</strong><br>A contract between applications that defines the patterns of interaction between two application components</p>
-<p><strong>SOA</strong><br>When we begin to build our programs where the functionality of our program includes access to services provided by other programs, we call the approach a <em>Service-Oriented Architecture</em> or SOA. (A non-SOA approach is where the application is a single standalone application which contains all of the code necessary to implement the application.)</p>
-</blockquote>
-<p>We see many examples of SOA when we use the web. We can go to a single web site and book air travel, hotels, and automobiles all from a single site. The data for hotels is not stored on the airline computers. Instead, the airline computers contact the services on the hotel computers and retrieve the hotel data and present it to the user. When the user agrees to make a hotel reservation using the airline site, the airline site uses another web service on the hotel systems to actually make the reservation. And when it comes time to charge your credit card for the whole transaction, still other computers become involved in the process.</p>
-<p><img src="/assets/image-20200215104121294.png" alt="API_SOA" style="zoom:80%;" /></p>
-<blockquote>
-<p>When an application makes a set of services in its API available over the web, we call these <strong><em>web services</em></strong>.</p>
-</blockquote>
-<h2 id="13-7-Security-and-API-usage"><a href="#13-7-Security-and-API-usage" class="headerlink" title="13.7 Security and API usage"></a>13.7 Security and API usage</h2><blockquote>
-<p>It is quite common that you need an API key to make use of a vendor’s API.<br>The general idea is that they want to know who is using their services and how much each user is using.</p>
-<p>Sometimes once you get your API key, you simply include the key as part of POST data or perhaps as a parameter on the URL when calling the API.<br>Other times, the vendor wants increased assurance of the source of the requests and so they add expect you to send cryptographically signed messages using shared keys and secrets.</p>
-<p> A very common technology that is used to sign requests over the Internet is called <a href="www.oauth.net"><em>OAuth</em></a>.</p>
-</blockquote>
-<h2 id="13-8-Application"><a href="#13-8-Application" class="headerlink" title="13.8 Application"></a>13.8 Application</h2><h3 id="13-8-1-Google-geocoding-web-service"><a href="#13-8-1-Google-geocoding-web-service" class="headerlink" title="13.8.1 Google geocoding web service"></a>13.8.1 Google geocoding web service</h3><blockquote>
-<p><em>When you are using a free API like Google’s geocoding API, you need to be respectful in your use of these resources. If too many people abuse the service, Google might drop or significantly curtail its free service.</em></p>
-</blockquote>
-<p>Need API!</p>
-<h3 id="13-8-2-Twitter"><a href="#13-8-2-Twitter" class="headerlink" title="13.8.2 Twitter"></a>13.8.2 Twitter</h3><blockquote>
-<p>As the Twitter API became increasingly valuable, Twitter went from an open and public API to an API that required the use of OAuth signatures on each API request. </p>
-</blockquote>
-]]></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>python</tag>
-        <tag>coursera</tag>
-        <tag>web</tag>
-        <tag>data access</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MDS6106Optimization-FinalProject</title>
-    <url>/2021/01/09/MDS6106Optimization-FinalProject/</url>
-    <content><![CDATA[<blockquote>
-<p>The Report and the slides for my Optimization course’s final project</p>
-<p>The code can be referenced at my <a href="https://github.com/Yihang-Li/MDS6106Project">Github Repository</a>, which is also my first team collaborate repo.</p>
-</blockquote>
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1352y10oWzRa84c408Il909EVJkBoqm07/preview" data-height="500px"></div>
-<div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Optimization</tag>
-        <tag>Report</tag>
-        <tag>Slides</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于核方法的深圳市房租预测分析</title>
-    <url>/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1EJ9ozQqEh6vm35fEdR3QRMbyv-yDTNJB/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
-        <tag>kernel</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
-    <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</title>
-    <url>/2021/01/09/Project3_LARS/</url>
-    <content><![CDATA[<!-- <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing" data-height="500px"></div> -->
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/18nTj7E7YKpdfZCXpG0X3aSsR59ziPGFC/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
       </tags>
   </entry>
   <entry>
@@ -686,107 +163,6 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       </tags>
   </entry>
   <entry>
-    <title>MDS6222 Dynamic Programming (Notes 1)</title>
-    <url>/2021/01/22/MDS6222_Dynamic_Programming/</url>
-    <content><![CDATA[<h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
-<p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p>
-</blockquote>
-<a id="more"></a>
-<h2 id="1-1-Introduction"><a href="#1-1-Introduction" class="headerlink" title="1.1 Introduction"></a>1.1 Introduction</h2><h3 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming"></a>Basic Structure of Stochastic Dynamic Programming</h3><h4 id="2-Principle-Features-of-DP-👀"><a href="#2-Principle-Features-of-DP-👀" class="headerlink" title="2 Principle Features of DP 👀"></a><strong>2</strong> Principle Features of DP 👀</h4><ul>
-<li>Discrete-time Dynamic Systems</li>
-<li>Cost Function is Additive over Time</li>
-</ul>
-<h4 id="6-Key-Elements-of-DP-Formulation-👀"><a href="#6-Key-Elements-of-DP-Formulation-👀" class="headerlink" title="6 Key Elements of DP Formulation 👀"></a><strong>6</strong> Key Elements of DP Formulation 👀</h4><ul>
-<li><strong><em>Stage</em></strong>  $k$: Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</li>
-<li><strong><em>State</em></strong> $x_k$: Decision Base</li>
-</ul>
-<ul>
-<li><strong><em>Control</em></strong> $u_k \in U_k(x_k)$: Action, Decision, each $u_k$ is selected with knowledge of current st$x_k$</li>
-<li><strong><em>Disturbance</em></strong>  $\omega<em>k \sim P(\omega_k|x_k, u_k)$: Value of Information, probability distribution of $\omega_k$ does not depend on past values $\omega</em>{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</li>
-<li><strong><em><code>Memoryless</code> System Dynamics</em></strong> $x<em>{k+1} = f_k(x_k, u_k, \omega_k)$: $k$ is time-varied, if removed, then stationary system.  <code>Memoryless</code> is that $f_k$ does not depend on $x</em>{k-1}, \omega_{k-1}$ and so on.</li>
-<li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br>   <strong><em>Terminal State</em></strong>: $g_N(x_N)$</li>
-</ul>
-<h4 id="2-Aims-👀"><a href="#2-Aims-👀" class="headerlink" title="2 Aims 👀"></a><strong>2</strong> Aims 👀</h4><ul>
-<li><strong><em>Optimal Policy</em></strong> $\pi^<em> = \left(\mu_0^</em>, \mu<em>1^*, \dotsm, \mu</em>{N-1}^<em> \right)$: **</em>Policy<em>*</em> ~ $\pi = \left(\mu<em>0, \mu_1, \dotsm, \mu</em>{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</li>
-<li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li>
-</ul>
-<blockquote>
-<p>$J_N(x_N) = g_N(x_N)$</p>
-<p>$J<em>k(x_k) = \min\limits</em>{u<em>k \in U_k(x_k)}E</em>{\omega<em>k}{g_k(x_k, u_k, \omega_k)+J</em>{k+1}(f_k(x_k, u_k, \omega_k))}$,  $\forall k = 0, 1, \dotsm, N-1$</p>
-</blockquote>
-<h3 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming"></a>Where and Why to Use Dynamic Programming</h3><p>👀️ What if there exists some optimization problems such that</p>
-<ul>
-<li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li>
-<li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li>
-<li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li>
-</ul>
-<p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p>
-<blockquote>
-<p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p>
-</blockquote>
-<h3 id="Example-Inventory-Control"><a href="#Example-Inventory-Control" class="headerlink" title="Example: Inventory Control"></a>Example: Inventory Control</h3><ul>
-<li><strong><em>Stage</em></strong>: Ordering Period: $k$</li>
-<li><strong><em>State</em></strong>: Inventory Level at Period $k$ : $x_k$</li>
-<li><strong><em>Control</em></strong>: Stock ordered at Period $k$ : $u_k \ge 0$</li>
-<li><strong><em>Disturbance</em></strong>: Demand at Period $k$: $\omega_k$</li>
-<li><strong><em>System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$</li>
-<li><strong><em>Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k) = $</li>
-<li><strong><em>Terminal Cost</em></strong>:</li>
-<li><strong><em>Cost Fuction is Additive over Time</em></strong>:</li>
-<li><strong><em>Optimization over Policies/Rules</em></strong>:</li>
-</ul>
-<blockquote>
-<p>Revisited Later and fullfill above things! 2021-01-27</p>
-</blockquote>
-<h3 id="Open-loop-vs-Closed-loop-Feedback-Control"><a href="#Open-loop-vs-Closed-loop-Feedback-Control" class="headerlink" title="Open-loop vs Closed-loop (Feedback Control)"></a>Open-loop vs Closed-loop (Feedback Control)</h3><ul>
-<li>In open-loop minimization, we select all controls $u_k$ at once at time 0, without waiting to see the subsequent disturbance $w_k$</li>
-<li>In closed- loop minimization, we postpone selecting control $u_k$ until the last possible moment (time $k$) when the current state $x_k$ will be known, thus can make use of the information of $w_k$ that becomes available in stages</li>
-</ul>
-<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ol>
-<li>Schedualing (A Deterministic Finite-State Problem);</li>
-<li>Two Game Chess</li>
-</ol>
-<h2 id="1-2-The-Basic-Problem"><a href="#1-2-The-Basic-Problem" class="headerlink" title="1.2 The Basic Problem"></a>1.2 The Basic Problem</h2><blockquote>
-<p>Need to Add the content of basic problem here —- 2021-01-27</p>
-<h3 id="Value-of-Information"><a href="#Value-of-Information" class="headerlink" title="Value of Information"></a>Value of Information</h3><ul>
-<li>In Deterministic Problem, Open-loop is as good as Closed-loop</li>
-<li>Value of Information = $J^<em>_{\text{closed-loop}} - J^</em>_{\text{open-loop}}$  (The reduction in cost)</li>
-<li>Example: Two-Game Chess</li>
-</ul>
-</blockquote>
-<h3 id="Encoding-Risk-in-the-Cost-Function"><a href="#Encoding-Risk-in-the-Cost-Function" class="headerlink" title="Encoding Risk in the Cost Function"></a>Encoding Risk in the Cost Function</h3><ul>
-<li>As above, one important characteristic of stochastic problems is the possibility of using information with advantage</li>
-<li>The other distinguishing characteristic is the need to take into account <code>risk</code> in the problem formulation.<br>e.g. Expectation and Variance in investment decision<br>e.g. St. Petersburg paradox</li>
-</ul>
-<h2 id="1-3-The-Dynamic-Programming-Algorithm"><a href="#1-3-The-Dynamic-Programming-Algorithm" class="headerlink" title="1.3 The Dynamic Programming Algorithm"></a>1.3 The Dynamic Programming Algorithm</h2><h3 id="Principle-of-Optimality"><a href="#Principle-of-Optimality" class="headerlink" title="Principle of Optimality"></a>Principle of Optimality</h3><blockquote>
-<p>Need whole illustration here —- 2021-01-27</p>
-</blockquote>
-<ul>
-<li>The truncated policy is optimal for the tail problem.</li>
-<li>The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.<ul>
-<li>e.g. deterministic scheduling example</li>
-<li>e.g. stochastic inventory control example</li>
-</ul>
-</li>
-</ul>
-<p>-&gt; ‘One-at-a-time version of Divide and Conquer’</p>
-<h3 id="The-DP-Algorithm"><a href="#The-DP-Algorithm" class="headerlink" title="The DP Algorithm"></a>The DP Algorithm</h3><blockquote>
-<p>Need whole illustration here for Proposition1.3.1 and its proof detail —- 2021-01-27</p>
-</blockquote>
-<ul>
-<li>$J_k(x_k)$ : the cost-to-go at state $x_k$ and time $k$, and refer to $J_k$ as the cost-to-go function at time $k$</li>
-<li>e.g. 1.3.1 two ovens</li>
-</ul>
-<h2 id="1-4-State-Augmentation-and-Other-Reformulations"><a href="#1-4-State-Augmentation-and-Other-Reformulations" class="headerlink" title="1.4 State Augmentation and Other Reformulations"></a>1.4 State Augmentation and Other Reformulations</h2><p>Deal with situations where some of the assumptions of the basic problem are violated —-&gt; reformulate into the basic problem format.</p>
-<h3 id="Case1-Time-Lags"><a href="#Case1-Time-Lags" class="headerlink" title="Case1: Time Lags"></a>Case1: Time Lags</h3><h3 id="Case2-Correlated-Disturbances"><a href="#Case2-Correlated-Disturbances" class="headerlink" title="Case2: Correlated Disturbances"></a>Case2: Correlated Disturbances</h3>]]></content>
-      <categories>
-        <category>Notes</category>
-      </categories>
-      <tags>
-        <tag>DP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Union Find</title>
     <url>/2021/01/24/Leetcode_Union_Find/</url>
     <content><![CDATA[<h2 id="并查集算法"><a href="#并查集算法" class="headerlink" title="并查集算法"></a>并查集算法</h2><ul>
@@ -900,6 +276,250 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       <tags>
         <tag>Leetcode</tag>
         <tag>Union Find</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>MDS6106Optimization-FinalProject</title>
+    <url>/2021/01/09/MDS6106Optimization-FinalProject/</url>
+    <content><![CDATA[<blockquote>
+<p>The Report and the slides for my Optimization course’s final project</p>
+<p>The code can be referenced at my <a href="https://github.com/Yihang-Li/MDS6106Project">Github Repository</a>, which is also my first team collaborate repo.</p>
+</blockquote>
+<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1352y10oWzRa84c408Il909EVJkBoqm07/preview" data-height="500px"></div>
+<div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+        <tag>Optimization</tag>
+        <tag>Slides</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Notes of Gaussian Processes for Machine Learning</title>
+    <url>/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</url>
+    <content><![CDATA[<h1 id="Ch6-Relationships-between-GPs-and-Other-Models"><a href="#Ch6-Relationships-between-GPs-and-Other-Models" class="headerlink" title="Ch6 Relationships between GPs and Other Models"></a>Ch6 Relationships between GPs and Other Models</h1><h2 id="6-1-Reproducing-Kernel-Hilbert-Spaces"><a href="#6-1-Reproducing-Kernel-Hilbert-Spaces" class="headerlink" title="6.1 Reproducing Kernel Hilbert Spaces"></a>6.1 Reproducing Kernel Hilbert Spaces</h2><h5 id="Preliminary"><a href="#Preliminary" class="headerlink" title="Preliminary"></a>Preliminary</h5><p>This part covers reproducing kernel Hilbert spaces(RKHSs), which define a Hilbert space of sufficiently-smooth functions corresponding to a given positive semidefinite kernel $k$.</p>
+<blockquote>
+<p> <strong>Kernel</strong>: A general name for a function $k$ of two arguments mapping a pair of inputs $\mathbf{x} \in \mathcal{X}, \mathbf{x}^{\prime} \in \mathcal{X}$ into $\mathbb{R}$ is a kernel.<br> (This term arises in the theory of integral operators, where the operator $T_{k}$ is defined as $\left(T_{k} f\right)(\mathbf{x})=\int_{\mathcal{X}} k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f\left(\mathbf{x}^{\prime}\right) d \mu\left(\mathbf{x}^{\prime}\right)$, where $\mu$ denotes a measure.)</p>
+<p> <strong>Positive semidefinite</strong>: A kernel is said to be positive semidefinite if </p>
+<script type="math/tex; mode=display">
+ \int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) f(\mathbf{x}) f\left(\mathbf{x}^{\prime}\right) d \mu(\mathbf{x}) d \mu\left(\mathbf{x}^{\prime}\right) \geq 0</script><p>  for all $f \in L_{2}(\mathcal{X}, \mu)$</p>
+</blockquote>
+<a id="more"></a>
+<h5 id="Formal-definition-of-RKHS"><a href="#Formal-definition-of-RKHS" class="headerlink" title="Formal definition of RKHS."></a>Formal definition of RKHS.</h5><blockquote>
+<p><strong><em>Def 6.1</em></strong> (Reproducing kernel Hilbert space). Let $\mathcal{H}$ be a Hilbert space of real functions $f$ defined on an index set $\mathcal{X}$. Then $\mathcal{H}$ is called a reproducing kernel Hilbert space endowed with an inner product $\langle\cdot, \cdot\rangle_{\mathcal{H}}$ (and norm $|f|_{\mathcal{H}} = \sqrt{\langle f, f\rangle_{\mathcal{H}}})$) if there exists a function $k: \mathcal{X} \times \mathcal{X} \rightarrow \mathbb{R}$ with the following properties:</p>
+<ol>
+<li><p>for every $\mathbf{x}, k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ as a function of $\mathbf{x^{\prime}}$ belongs to $\mathcal{H},$ and</p>
+</li>
+<li><p>$k$ has the reproducing property $\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=f(\mathbf{x})$.</p>
+</li>
+</ol>
+<blockquote>
+<p>Note: As $k(\mathbf{x}, \cdot)$ and $k\left(\mathbf{x}^{\prime}, \cdot\right)$ are in $\mathcal{H}$, we have that $\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$.</p>
+</blockquote>
+</blockquote>
+<hr>
+<p>The RKHS uniquely determines $k$, and vice versa, as stated in the following theorem:</p>
+<blockquote>
+<p><strong>Theorem 6.1</strong> (Moore-Aronszajn theorem). Let $\mathcal{X}$ be an index set. Then for every positive definite function $k(\cdot,\cdot)$ on $\mathcal{X} \times \mathcal{X}$ there exists a unique RKHS, and vice versa.</p>
+</blockquote>
+<hr>
+<h5 id="From-Mercer’s-theorem-point-of-view"><a href="#From-Mercer’s-theorem-point-of-view" class="headerlink" title="From Mercer’s theorem point of view"></a>From Mercer’s theorem point of view</h5><h6 id="Recall-some-basic-things-here"><a href="#Recall-some-basic-things-here" class="headerlink" title="Recall some basic things here"></a>Recall some basic things here</h6><blockquote>
+<p><strong>Eigenvalue&amp;Eigenfunction</strong>: A function $\phi(\cdot)$ that obeys the integral equation </p>
+<script type="math/tex; mode=display">
+\int k\left(\mathbf{x}, \mathbf{x}^{\prime}\right) \phi(\mathbf{x}) d \mu(\mathbf{x})=\lambda \phi\left(\mathbf{x}^{\prime}\right)</script><p>is called an eigenfunction of kernel $k$ with eigenvalue $\lambda$ with respect to measure $\mu$.</p>
+<p><strong>Theorem 4.2</strong> (<strong>Mercer’s theorem</strong>). Let $(\mathcal{X}, \mu)$ be a finite measure space and $k \in L_{\infty}\left(\mathcal{X}^{2}, \mu^{2}\right)$ be a kernel such that $T_{k}: L_{2}(\mathcal{X}, \mu) \rightarrow L_{2}(\mathcal{X}, \mu)$ is positive definite. Let$\phi_{i} \in L_{2}(\mathcal{X}, \mu)$ be the normalized eigenfunctions of $T_{k}$ associated with the eigenvalues $\lambda_{i}&gt;0$. Then:</p>
+<ol>
+<li><p>the eigenvalues $\left\{\lambda_{i}\right\}_{i=1}^{\infty}$ are absolutely summable</p>
+</li>
+<li><script type="math/tex; mode=display">
+k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}^{*}\left(\mathbf{x}^{\prime}\right)​</script><p> holds $\mu^2$ almost everywhere, where the series converges absolutely and uniformly $\mu^2$ almost everywhere.</p>
+</li>
+</ol>
+<p>Note: the sum may terminate at some value $N \in \mathbb{N}$ (degenerate kernel case), or the sum may be infinite(nondegenerate kernel case). </p>
+<p>Q: The eigenfunctions are orthonormal $w.r.t.$ $\mu$, i.e. we have $\int \phi_{i}(\mathbf{x}) \phi_{j}(\mathbf{x}) d \mu(\mathbf{x})=\delta_{i j}$.  </p>
+</blockquote>
+<h6 id="An-example-of-RKHS"><a href="#An-example-of-RKHS" class="headerlink" title="An example of RKHS"></a>An example of RKHS</h6><blockquote>
+<p>a real positive semidefinite kernel $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)$ with an eigenfunction expansion $k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{N} \lambda_{i} \phi_{i}(\mathbf{x}) \phi_{i}\left(\mathbf{x}^{\prime}\right)$ relative to measure $\mu$, and<br>a Hilbert space comprised of linear combinations of the the eigenfunctions, i.e. $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ with $\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}&lt;\infty$.<br>Then the inner product $\langle f, g\rangle_{\mathcal{H}}$ in this Hilbert space between $f(\mathbf{x})$ and $g(\mathbf{x})=\sum_{i=1}^{N} g_{i} \phi_{i}(\mathbf{x})$ is defined as </p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} g_{i}}{\lambda_{i}}</script><p>Thus this Hilbert is equipped with a norm $|f|_{\mathcal{H}}$ where $|f|_{\mathcal{H}}^{2}=\langle f, f\rangle_{\mathcal{H}}=\sum_{i=1}^{N} f_{i}^{2} / \lambda_{i}$.<br>Note that for $|f|_{\mathcal{H}}$ to be finite the sequence of coefficients $\{f_i\}$ must decay quickly;<br>effectively this imposes a smoothness condition on the space.</p>
+</blockquote>
+<p>Next to show that this Hilbert space is the RKHS corresponding to the kernel $k$, i.e. that it has the reproducing property.<br>This is achieved as </p>
+<script type="math/tex; mode=display">
+\langle f(\cdot), k(\cdot, \mathbf{x})\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{f_{i} \lambda_{i} \phi_{i}(\mathbf{x})}{\lambda_{i}}=f(\mathbf{x})</script><p>Similarly</p>
+<script type="math/tex; mode=display">
+\left\langle k(\mathbf{x}, \cdot), k\left(\mathbf{x}^{\prime}, \cdot\right)\right\rangle_{\mathcal{H}}=\sum_{i=1}^{N} \frac{\lambda_{i} \phi_{i}(\mathbf{x}) \lambda_{i} \phi_{i}\left(\mathbf{x}^{\prime}\right)}{\lambda_{i}}=k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)</script><p>Notice also that $k(\mathbf{x}, \cdot)$ is in the RKHS as it has norm $\sum_{i=1}^{N}\left(\lambda_{i} \phi_{i}(\mathbf{x})\right)^{2} / \lambda_{i}=k(\mathbf{x}, \mathbf{x})&lt;\infty$.<br>We have now demonstrated that this Hilbert space fulfils the two conditions given in <strong>Def 6.1</strong>.<br>As there is a unique RKHS associated with $k(\cdot,\cdot)$, this Hilbert space must be that RKHS.</p>
+<h6 id="Advantage-of-the-abstract-formulation-of-the-RKHS"><a href="#Advantage-of-the-abstract-formulation-of-the-RKHS" class="headerlink" title="Advantage of  the abstract formulation of the RKHS"></a>Advantage of  the abstract formulation of the RKHS</h6><p>The eigenbasis will change as we use different measures $\mu$ in Mercer’s theorem.<br>However, the RKHS norm is in fact solely a property of the kernel and is invariant under this change of measure. </p>
+<h6 id="Sample-function"><a href="#Sample-function" class="headerlink" title="Sample function"></a>Sample function</h6><p>If we sample the coefficients $f_i$ in the eigenexpansion $f(\mathbf{x})=\sum_{i=1}^{N} f_{i} \phi_{i}(\mathbf{x})$ from $\mathcal{N}\left(0, \lambda_{i}\right)$ then </p>
+<script type="math/tex; mode=display">
+\mathbb{E}\left[\|f\|_{\mathcal{H}}^{2}\right]=\sum_{i=1}^{N} \frac{\mathbb{E}\left[f_{i}^{2}\right]}{\lambda_{i}}=\sum_{i=1}^{N} 1</script><p>Thus if N is infinite, the sample functions are not in $\mathcal{H}$, as the expected value of the RKHS norm is infinite.<br>However, the posterior mean after observing some data will lie in the RKHS, due to the smoothing properties of averaging.</p>
+<h5 id="From-reproducing-kernel-map-point-of-view"><a href="#From-reproducing-kernel-map-point-of-view" class="headerlink" title="From reproducing kernel map point of view"></a>From reproducing kernel map point of view</h5><p>Consider the space of functions $f$ defined as </p>
+<script type="math/tex; mode=display">
+\left\{f(\mathbf{x})=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right): n \in \mathbb{N}, \mathbf{x}_{i} \in \mathcal{X}, \alpha_{i} \in \mathbb{R}\right\}</script><p>Let $g(\mathbf{x})=\sum_{j=1}^{n^{\prime}}\alpha_j^{\prime}k(\mathbf{x},\mathbf{x}_j^{\prime})$. Then we define the inner product</p>
+<script type="math/tex; mode=display">
+\langle f, g\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \sum_{j=1}^{n^{\prime}} \alpha_{i} \alpha_{j}^{\prime} k\left(\mathbf{x}_{i}, \mathbf{x}_{j}^{\prime}\right)</script><p>Q: condition 1 of <strong>Def 6.1</strong> is fulfilled under the reproducing kernel map construction.</p>
+<p>Next show the reproducing property as :</p>
+<script type="math/tex; mode=display">
+\langle k(\cdot, \mathbf{x}), f(\cdot)\rangle_{\mathcal{H}}=\sum_{i=1}^{n} \alpha_{i} k\left(\mathbf{x}, \mathbf{x}_{i}\right)=f(\mathbf{x}).</script><h2 id="6-2-Regularization"><a href="#6-2-Regularization" class="headerlink" title="6.2 Regularization"></a>6.2 Regularization</h2><h5 id="Preliminary-1"><a href="#Preliminary-1" class="headerlink" title="Preliminary"></a>Preliminary</h5><h6 id="regularizer"><a href="#regularizer" class="headerlink" title="regularizer"></a>regularizer</h6><h6 id="kernel-ridge-regression"><a href="#kernel-ridge-regression" class="headerlink" title="kernel ridge regression"></a>kernel ridge regression</h6><h6 id="representer-theorem"><a href="#representer-theorem" class="headerlink" title="representer theorem"></a>representer theorem</h6><h5 id="RKHSs-defined-in-terms-of-differential-operators"><a href="#RKHSs-defined-in-terms-of-differential-operators" class="headerlink" title="RKHSs defined in terms of differential operators"></a>RKHSs defined in terms of differential operators</h5><h6 id="null-space"><a href="#null-space" class="headerlink" title="null space"></a>null space</h6><h6 id="Green’s-function"><a href="#Green’s-function" class="headerlink" title="Green’s function"></a>Green’s function</h6><h6 id="Two-examples"><a href="#Two-examples" class="headerlink" title="Two examples"></a>Two examples</h6><h5 id="Obtaining-the-Regularized-Solution"><a href="#Obtaining-the-Regularized-Solution" class="headerlink" title="Obtaining the Regularized Solution"></a>Obtaining the Regularized Solution</h5><h6 id="regularization-network"><a href="#regularization-network" class="headerlink" title="regularization network"></a>regularization network</h6><h5 id="The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction"><a href="#The-Relationship-of-the-Regularization-View-to-Gaussian-Process-Prediction" class="headerlink" title="The Relationship of the Regularization View to Gaussian Process Prediction"></a>The Relationship of the Regularization View to Gaussian Process Prediction</h5><h2 id="6-3-Spline-Models"><a href="#6-3-Spline-Models" class="headerlink" title="6.3 Spline Models"></a>6.3 Spline Models</h2><h2 id="6-4-Support-Vector-Machines"><a href="#6-4-Support-Vector-Machines" class="headerlink" title="6.4 Support Vector Machines"></a>6.4 Support Vector Machines</h2><h2 id="6-5-Least-squares-Classification"><a href="#6-5-Least-squares-Classification" class="headerlink" title="6.5 Least-squares Classification"></a>6.5 Least-squares Classification</h2><h2 id="6-6-Relevance-Vector-Machines"><a href="#6-6-Relevance-Vector-Machines" class="headerlink" title="6.6 Relevance Vector Machines"></a>6.6 Relevance Vector Machines</h2>]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>GP</tag>
+        <tag>ML</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</title>
+    <url>/2021/01/09/Project3_LARS/</url>
+    <content><![CDATA[<!-- <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing" data-height="500px"></div> -->
+<div class="pdfobject-container" data-target="https://drive.google.com/file/d/18nTj7E7YKpdfZCXpG0X3aSsR59ziPGFC/preview" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary for visualization of geospatial data</title>
+    <url>/2020/02/10/Summary-for-visualization-of-geospatial-data/</url>
+    <content><![CDATA[<blockquote>
+<p><strong>Here we summarize the geospatial data visualization.</strong></p>
+<p>The <code>Synthetic Power Grid Data Set</code>  will be used as an example. [<a href="https://wimnet.ee.columbia.edu/portfolio/synthetic-power-grids-data-sets/">Download here</a>]</p>
+<p>Before all the things, let’s import some basic tools:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">%matplotlib inline</span><br><span class="line">plt.style.use(<span class="string">&#x27;ggplot&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<h2 id="1-Data-Preparation"><a href="#1-Data-Preparation" class="headerlink" title="1. Data Preparation"></a>1. Data Preparation</h2><h3 id="1-1-Import-Data"><a href="#1-1-Import-Data" class="headerlink" title="1.1 Import Data"></a>1.1 Import Data</h3><blockquote>
+<p>Here, the <code>Location</code>( (Lon, Lat) pairs), <code>Demand</code> and <code>Supply</code> information are loaded by using <code>pandas.read_csv(&quot;path&quot;)</code>. </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Bus_Location = pd.read_csv(<span class="string">&quot;Gen_WI_Bus_Locations.csv&quot;</span>)</span><br><span class="line">Demand_Values = pd.read_csv(<span class="string">&quot;Gen_WI_Demand_Values.csv&quot;</span>)</span><br><span class="line">Supply_Values = pd.read_csv(<span class="string">&quot;Gen_WI_Supply_Values.csv&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="1-2-Merge-Data"><a href="#1-2-Merge-Data" class="headerlink" title="1.2 Merge Data"></a>1.2 Merge Data</h3><blockquote>
+<p>These 3 tables have the same column named <strong>_Bus Number_</strong> , we can use <code>reduce()</code> to merge them.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># first compile the list of dataframes we want to merge</span></span><br><span class="line">data_frames = [Bus_Location, Demand_Values, Supply_Values]</span><br><span class="line"><span class="keyword">from</span> functools <span class="keyword">import</span> reduce</span><br><span class="line">df_merged = reduce(<span class="keyword">lambda</span>  left,right: pd.merge(left,right,on=[<span class="string">&#x27;Bus Number&#x27;</span>], how=<span class="string">&#x27;outer&#x27;</span>), data_frames)</span><br><span class="line"><span class="comment">#Then call head() method, we can see the first five rows of our merged data</span></span><br><span class="line">df_merged.head()</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210151126713.png" alt="head" style="zoom:67%;" /></p>
+<blockquote>
+<p>Moreover, we can call <code>describe()</code> method to summarize our data.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">df_merged[[<span class="string">&#x27;Lon&#x27;</span>, <span class="string">&#x27;Lat&#x27;</span>, <span class="string">&#x27;Demand (MW)&#x27;</span>, <span class="string">&#x27;Supply (MW)&#x27;</span>]].describe()</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210151217027.png" alt="describe" style="zoom:67%;" /></p>
+<hr>
+<h2 id="2-Using-geopandas-to-visualize"><a href="#2-Using-geopandas-to-visualize" class="headerlink" title="2. Using geopandas to visualize"></a>2. Using geopandas to visualize</h2><blockquote>
+<p>We can refer to <code>geopandas</code> docs <a href="https://geopandas.org/">Click here</a>.</p>
+</blockquote>
+<h3 id="2-1-Data-Structures"><a href="#2-1-Data-Structures" class="headerlink" title="2.1 Data Structures"></a>2.1 Data Structures</h3><blockquote>
+<p>GeoPandas implements two main data structures, a <code>GeoSeries</code> and a <code>GeoDataFrame</code>. These are subclasses of pandas <code>Series</code> and <code>DataFrame</code>, respectively. Before visualization, we should convert our data into proper type.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat))</span><br><span class="line">gdf.head()</span><br><span class="line"><span class="comment">#And here call type(gdf):</span></span><br><span class="line"><span class="comment">#geopandas.geodataframe.GeoDataFrame</span></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210153603866.png" alt="gdfhead" style="zoom:65%;" /></p>
+<h3 id="2-2-Coordinate-Reference-Systems"><a href="#2-2-Coordinate-Reference-Systems" class="headerlink" title="2.2 Coordinate Reference Systems"></a>2.2 Coordinate Reference Systems</h3><blockquote>
+<p>CRS are important because the geometric shapes in a GeoSeries or GeoDataFrame object are simply a collection of coordinates in an arbitrary space. A CRS tells Python how those coordinates related to places on the Earth.</p>
+<p>CRS are referred to using codes called <a href="https://en.wikipedia.org/wiki/PROJ.4">proj4 strings</a>. You can find the codes for most commonly used projections from <a href="http://spatialreference.org/">www.spatialreference.org</a>. Common projections can also be referred to by EPSG codes, so this same projection can also called using the proj4 string <code>&quot;+init=epsg:4326&quot;</code>.</p>
+<p><em>geopandas</em> can accept lots of representations of CRS, including the proj4 string itself (<code>&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</code>) or parameters broken out in a dictionary: <code>&#123;&#39;proj&#39;: &#39;latlong&#39;, &#39;ellps&#39;: &#39;WGS84&#39;, &#39;datum&#39;: &#39;WGS84&#39;, &#39;no_defs&#39;: True&#125;</code>). In addition, some functions will take EPSG codes directly.</p>
+<p>For reference, a few very common projections and their proj4 strings:</p>
+<ul>
+<li>WGS84 Latitude/Longitude: <code>&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</code> or <code>&quot;+init=epsg:4326&quot;</code></li>
+<li>UTM Zones (North): <code>&quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs&quot;</code></li>
+<li>UTM Zones (South): <code>&quot;+proj=utm +zone=33 +ellps=WGS84 +datum=WGS84 +units=m +no_defs +south&quot;</code></li>
+</ul>
+<p><code>contextily</code>: context geo tiles in Python</p>
+<blockquote>
+<p><code>contextily</code> is a small Python 3 package to retrieve and write to disk tile maps from the internet into geospatial raster files. Bounding boxes can be passed in both WGS84 (<code>EPSG:4326</code>) and Spheric Mercator (<code>EPSG:3857</code>). See <a href="https://github.com/darribas/contextily">here</a> for usage.</p>
+</blockquote>
+</blockquote>
+<hr>
+<p><strong>Let’s just dive into code</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = &#123;<span class="string">&#x27;init&#x27;</span>: <span class="string">&#x27;epsg:4326&#x27;</span>, <span class="string">&#x27;no_defs&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">&#x27;k&#x27;</span>)</span><br><span class="line">ctx.add_basemap(ax)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210161956076.png" alt="first" style="zoom:67%;" /></p>
+<h3 id="2-3-Mapping-attributes-into-it"><a href="#2-3-Mapping-attributes-into-it" class="headerlink" title="2.3 Mapping attributes into it"></a>2.3 Mapping attributes into it</h3><blockquote>
+<p>Here we map the <code>Demand</code> values into the map, and try to set some parameters</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">ax = gdf.plot(figsize=(<span class="number">10</span>, <span class="number">10</span>), alpha=<span class="number">0.5</span>, edgecolor=<span class="string">&#x27;w&#x27;</span>, column = <span class="string">&quot;Demand (MW)&quot;</span>, legend = <span class="literal">True</span>, </span><br><span class="line">              legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;Demand (MW)&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;) <span class="comment">#horizontal</span></span><br><span class="line">ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">ax.set_axis_off()</span><br><span class="line">plt.savefig(<span class="string">&#x27;Demand(MW)&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210162505599.png" alt="Second" style="zoom:67%;" /></p>
+<h3 id="2-4-Summary"><a href="#2-4-Summary" class="headerlink" title="2.4 Summary"></a>2.4 Summary</h3><blockquote>
+<p>Here we summarize 2.3 as follows:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Attribute_mapping</span>(<span class="params">gdf, column, legend_kwds</span>):</span></span><br><span class="line">    ax = gdf.plot(figsize = (<span class="number">10</span>, <span class="number">10</span>), alpha = <span class="number">0.5</span>, edgecolor = <span class="string">&#x27;w&#x27;</span>, column = column, 					legend = <span class="literal">True</span>, legend_kwds = legend_kwds)</span><br><span class="line">    ctx.add_basemap(ax, url=ctx.providers.Stamen.TonerLite)</span><br><span class="line">    ax.set_axis_off()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>Our input is:</p>
+<ul>
+<li><code>gdf</code> : Corresponding geopandas dataframe after processing in 2.2</li>
+<li><code>column</code>: Corresponding Attribute column that we want to map</li>
+<li><code>legend_kwds</code>: Corresponding legend parameters</li>
+</ul>
+</blockquote>
+<p><strong>Let’s see an example below:</strong></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#First get our gdf</span></span><br><span class="line"><span class="keyword">import</span> geopandas <span class="keyword">as</span> gpd</span><br><span class="line">gdf = gpd.GeoDataFrame(df_merged, geometry = gpd.points_from_xy(df_merged.Lon, df_merged.Lat)) <span class="comment">#Note: df_merged is a pandas dataframe!</span></span><br><span class="line"><span class="comment">#process as in 2.2</span></span><br><span class="line"><span class="keyword">import</span> contextily <span class="keyword">as</span> ctx</span><br><span class="line">gdf.crs = &#123;<span class="string">&#x27;init&#x27;</span>: <span class="string">&#x27;epsg:4326&#x27;</span>, <span class="string">&#x27;no_defs&#x27;</span>: <span class="literal">True</span>&#125;</span><br><span class="line">gdf = gdf.to_crs(epsg=<span class="number">3857</span>)</span><br><span class="line"><span class="comment">#set our column and legend_kwds</span></span><br><span class="line">column = <span class="string">&quot;Supply (MW)&quot;</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;Supply (MW)&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line"><span class="comment">#call the function above</span></span><br><span class="line">Attribute_mapping(gdf, column, legend_kwds)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210164126937.png" alt="Third" style="zoom:67%;" /></p>
+<hr>
+<h2 id="3-Try-Something-More"><a href="#3-Try-Something-More" class="headerlink" title="3. Try Something More"></a>3. Try Something More</h2><h3 id="3-1-Remove-Zero"><a href="#3-1-Remove-Zero" class="headerlink" title="3.1 Remove Zero"></a>3.1 Remove Zero</h3><p>As we see the describe results in 1.2, more than 75% of Demand and Supply are all zero. So, in this part, we try to deal with them.</p>
+<p>Just see the code</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">None_Zero_Demand = gdf[gdf[<span class="string">&#x27;Demand (MW)&#x27;</span>] != <span class="number">0.0</span>]</span><br><span class="line">None_Zero_Demand.head()</span><br><span class="line">None_Zero_Demand.describe()</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210165814250.png" alt="None0Demand" style="zoom:50%;" /><img src="/assets/image-20200210165930907.png" alt="Describe" style="zoom:50%;" /></p>
+<p>Here we see:</p>
+<ol>
+<li>there are only 3095 none zero Demand compare to 14430 in total.</li>
+<li>All the Supply  are zero while Demand are none zero</li>
+</ol>
+<h3 id="3-2-Visualize-the-None-Zero-Part"><a href="#3-2-Visualize-the-None-Zero-Part" class="headerlink" title="3.2 Visualize the None Zero Part"></a>3.2 Visualize the None Zero Part</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line">column = <span class="string">&quot;Demand (MW)&quot;</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(None_Zero_Demand, column, legend_kwds)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210170733776.png" alt="nonezerodemand" style="zoom:67%;" /></p>
+<p>Though the points become less, most of them are near zero (purple color). So, we can try to limit the value to visualize more clear.</p>
+<h3 id="3-3-Separate-into-Three-Parts-by-ordered-values"><a href="#3-3-Separate-into-Three-Parts-by-ordered-values" class="headerlink" title="3.3 Separate into Three Parts by ordered values"></a>3.3 Separate into Three Parts by ordered values</h3><p>Let’s first order the DataFrame by <code>Demand</code></p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">None_Zero_Demand = None_Zero_Demand.sort_values(by = <span class="string">&#x27;Demand (MW)&#x27;</span>)</span><br><span class="line">None_Zero_Demand.head()</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210171813748.png" alt="order" style="zoom:67%;" /></p>
+<p>Then split it into 3 parts</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">Split3 = np.array_split(None_Zero_Demand, <span class="number">3</span>)</span><br><span class="line">Part1, Part2, Part3 = Split3[<span class="number">0</span>], Split3[<span class="number">1</span>], Split3[<span class="number">2</span>]</span><br><span class="line">Part1.head()</span><br><span class="line">Part2.head()</span><br><span class="line">Part3.head()</span><br><span class="line"><span class="comment">#Note: here the other two columns not presented in the figures</span></span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210172559313.png" alt="P1head" style="zoom:30%;" /><img src="/assets/image-20200210172638632.png" alt="P2head" style="zoom:30%;" /><img src="/assets/image-20200210172724404.png" alt="P3head" style="zoom:30%;" /></p>
+<p>Finally, visualize each part</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">column = <span class="string">&quot;Demand (MW)&quot;</span></span><br><span class="line"><span class="comment">#Part1</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part1, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part2</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part2, column, legend_kwds)</span><br><span class="line"><span class="comment">#Part3</span></span><br><span class="line">legend_kwds=&#123;<span class="string">&#x27;label&#x27;</span>: <span class="string">&quot;None Zero Demand&quot;</span>,<span class="string">&#x27;orientation&#x27;</span>: <span class="string">&quot;vertical&quot;</span>&#125;</span><br><span class="line">Attribute_mapping(Part3, column, legend_kwds)</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200210173434367.png" alt="P1V" style="zoom:30%;" /><img src="/assets/image-20200210173507904.png" alt="P2v" style="zoom:30%;" /><img src="/assets/image-20200210173536841.png" alt="P3v" style="zoom:30%;" /></p>
+<p>Here we:</p>
+<ul>
+<li><p>[x] ​    Visualize three parts separately</p>
+</li>
+<li><p>[ ] ​    Unify the color bars in above three figures.</p>
+</li>
+</ul>
+]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>geospatial</tag>
+        <tag>visualization</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>基于核方法的深圳市房租预测分析</title>
+    <url>/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1EJ9ozQqEh6vm35fEdR3QRMbyv-yDTNJB/preview" data-height="500px"></div>
+]]></content>
+      <categories>
+        <category>Report</category>
+      </categories>
+      <tags>
+        <tag>Report</tag>
+        <tag>kernel</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>文献翻译-《Random Features for Large Scale Kernel Machines》</title>
+    <url>/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/</url>
+    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" data-height="500px"></div>
+<!-- <iframe src="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" width="640" height="480"></iframe> -->
+]]></content>
+      <categories>
+        <category>文献翻译</category>
+      </categories>
+      <tags>
+        <tag>Kernel</tag>
+        <tag>RFF</tag>
       </tags>
   </entry>
   <entry>
@@ -1078,6 +698,285 @@ k\left(\mathbf{x}, \mathbf{x}^{\prime}\right)=\sum_{i=1}^{\infty} \lambda_{i} \p
       <tags>
         <tag>Leetcode</tag>
         <tag>Graph</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Summary of Using Python to Access Web Data</title>
+    <url>/2020/02/14/Summary%20of%20Using%20Python%20to%20Access%20Web%20Data/</url>
+    <content><![CDATA[<p><strong>First of all, thanks Dr. Charles Russell Severance</strong></p>
+<blockquote>
+<p>Why I write this summary?</p>
+<ul>
+<li>gained certificate from last winter vacation(2019)</li>
+<li>need to apply this knowledge for data access</li>
+</ul>
+</blockquote>
+<p><img src="/assets/image-20200214105208294.png" alt="image-20200214105208294" style="zoom:80%;" /></p>
+<a id="more"></a>
+<p><a href="https://www.py4e.com/book">Book Link</a></p>
+<h1 id="Chapter-11-Regular-expressions"><a href="#Chapter-11-Regular-expressions" class="headerlink" title="Chapter 11 Regular expressions"></a>Chapter 11 Regular expressions</h1><blockquote>
+<p>Regular expressions (regex) are almost their own little programming language for searching and parsing strings.</p>
+</blockquote>
+<p>_For more detail on regex, see: <a href="https://en.wikipedia.org/wiki/Regular_expression">wiki</a>, <a href="https://docs.python.org/3.5/library/re.html">python docs</a>._</p>
+<h2 id="Cheat-Sheet"><a href="#Cheat-Sheet" class="headerlink" title="Cheat Sheet"></a>Cheat Sheet</h2><div class="table-container">
+<table>
+<thead>
+<tr>
+<th style="text-align:center">symbol</th>
+<th style="text-align:center">function</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><span style="color:blue"> <strong>^</strong></span></td>
+<td style="text-align:center">Matches the beginning of a line</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>$</strong></span></td>
+<td style="text-align:center">Matches the end of the line</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>.</strong></span></td>
+<td style="text-align:center">Matches any character (<strong>a wildcard</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\s</strong></span></td>
+<td style="text-align:center">Matches whitespace</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\S</strong></span></td>
+<td style="text-align:center">Matches any non-whitespace character</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>?</strong></span></td>
+<td style="text-align:center">Repeats a character zero or one time</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>??</strong></span></td>
+<td style="text-align:center">Repeats a character zero of one time (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>*</strong></span></td>
+<td style="text-align:center">Repeats a character zero or more times</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>*?</strong></span></td>
+<td style="text-align:center">Repeats a character zero or more times (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>+</strong></span></td>
+<td style="text-align:center">Repeats a character one or more times</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>+?</strong></span></td>
+<td style="text-align:center">Repeats a character one or more times (<strong>non-greedy</strong>)</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>[aeiou]</strong></span></td>
+<td style="text-align:center">Matches a single character in the listed set</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>[\^XYZ]</strong></span></td>
+<td style="text-align:center">Matches a single character not in the listed set</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>[a-z0-9]</strong></span></td>
+<td style="text-align:center">The set of  characters can include a range</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>(</strong></span></td>
+<td style="text-align:center">Indicates where string extraction is to start</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>)</strong></span></td>
+<td style="text-align:center">Indicates where string extraction is to end</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\b</strong></span></td>
+<td style="text-align:center">Matches the empty string only at the start of end of word</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\B</strong></span></td>
+<td style="text-align:center">Matches the empty string not at the start or end of a word</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\d</strong></span></td>
+<td style="text-align:center">Matches any decimal digit (equivalent to [0-9])</td>
+</tr>
+<tr>
+<td style="text-align:center"><span style='color:blue'><strong>\D</strong></span></td>
+<td style="text-align:center">Matches any non-digit character (equivalent to [\^0-9])</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>_<strong>Note:</strong>_</p>
+<blockquote>
+<ol>
+<li>symbol with repeat function applies to the immediately preceding character(s)</li>
+<li>greedy matching: the repeat characters (  <span style='color:blue'><strong>*</strong></span>  and <span style='color:blue'><strong>+</strong></span> ) push outward in both directions to match the largest possible string</li>
+<li>non-greedy doesn’t mean that the regex will try to find the shortest substring by varying the start index. It just means that if there’s a substring which starts at index 0 and matches the regex, the engine will stop as soon as possible </li>
+<li>escape character: by prefixing with a backslash. i.e. \$ indicate dollar sign instead of the wildcard.</li>
+</ol>
+</blockquote>
+<h2 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h2><h3 id="Case-1"><a href="#Case-1" class="headerlink" title="Case 1"></a>Case 1</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Search for lines that start with From and have an at sign</span></span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line">hand = <span class="built_in">open</span>(<span class="string">&#x27;mbox-short.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> hand:</span><br><span class="line">    line = line.rstrip()</span><br><span class="line">    <span class="keyword">if</span> re.search(<span class="string">&#x27;^From:.+@&#x27;</span>, line):</span><br><span class="line">        print(line)</span><br></pre></td></tr></table></figure>
+<p>The search string <strong>^From:.+@</strong> will successfully match lines that start with “<strong>From:</strong>“, followed by one or more characters (<strong>.+</strong>), followed by an at-sign. So this will match the following line:<br><strong>From: stephen.marquard@uct.ac.za</strong></p>
+<h3 id="Case-2"><a href="#Case-2" class="headerlink" title="Case 2"></a>Case 2</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> re</span><br><span class="line">x = <span class="string">&quot;We just received $10.00 for cookies.&quot;</span></span><br><span class="line">y = re.findall(<span class="string">&#x27;\$[0-9.]+&#x27;</span>, x)</span><br></pre></td></tr></table></figure>
+<p>Since we prefix the dollar sign with a backslash, it actually matches the dollar sign in the input string instead of matching the “end of line”, and the rest of the regular expression matches one or more digits or the period character.</p>
+<p>Note: inside square brackets, characters are not “special”. So, when we say <strong>[0-9.]</strong>, it really means digits or a period . Outside of square brackets, a period is the “wildcard” character and matches any character. Inside square brackets, the period is a period.</p>
+<hr>
+<h1 id="Chapter-12-Networked-Programs"><a href="#Chapter-12-Networked-Programs" class="headerlink" title="Chapter 12 Networked Programs"></a>Chapter 12 Networked Programs</h1><h2 id="12-1-Hypertext-Transfer-Protocol-HTTP"><a href="#12-1-Hypertext-Transfer-Protocol-HTTP" class="headerlink" title="12.1 Hypertext Transfer Protocol - HTTP"></a>12.1 Hypertext Transfer Protocol - HTTP</h2><blockquote>
+<p><strong>Socket/TCP Connections</strong><br>A network connection between two applications where the applications can send and receive data in either direction.</p>
+<p><strong>TCP Port Numbers</strong><br>A number that generally indicates which application you are contacting when you make a socket connection to a server. As an example, web traffic usually uses port 80 while email traffic uses port 25.</p>
+<p><strong>Protocol</strong><br>A protocol is a set of precise rules that all parties follow so we can predict each other’s behavior. In a sense the two applications at either end of the socket are doing a dance and making sure not to step on each other’s toes.</p>
+</blockquote>
+<p><a href="http://www.w3.org/Protocols/rfc2616/rfc2616.txt">HyperText Transfer Protocol</a>, a long and complex 176-page document with a lot of detail. If you find it interesting, feel free to read it all. But if you take a look around page 36 of RFC2616 you will find the syntax for the GET request. </p>
+<h2 id="12-2-The-world’s-simplest-web-browser"><a href="#12-2-The-world’s-simplest-web-browser" class="headerlink" title="12.2 The world’s simplest web browser"></a>12.2 The world’s simplest web browser</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/socket1.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((<span class="string">&#x27;data.pr4e.org&#x27;</span>, <span class="number">80</span>))</span><br><span class="line">cmd = <span class="string">&#x27;GET http://data.pr4e.org/romeo.txt HTTP/1.0\r\n\r\n&#x27;</span>.encode()</span><br><span class="line">mysock.send(cmd)</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">512</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(data) &lt; <span class="number">1</span>:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    print(data.decode(), end = <span class="string">&#x27;&#x27;</span>)</span><br><span class="line">mysock.close()</span><br></pre></td></tr></table></figure>
+<p><img src="/assets/image-20200214180630075.png" alt="image-20200214180630075" style="zoom:80%;" /></p>
+<p>Output:</p>
+<blockquote>
+<p>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:05:30 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Sat, 13 May 2017 11:22:22 GMT<br>ETag: “a7-54f6609245537”<br>Accept-Ranges: bytes<br>Content-Length: 167<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: text/plain</p>
+<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
+</blockquote>
+<h2 id="12-3-Retrieving-an-image-over-HTTP"><a href="#12-3-Retrieving-an-image-over-HTTP" class="headerlink" title="12.3 Retrieving an image over HTTP"></a>12.3 Retrieving an image over HTTP</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urljpeg.py</span></span><br><span class="line"><span class="keyword">import</span> socket</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">HOST = <span class="string">&#x27;data.pr4e.org&#x27;</span></span><br><span class="line">PORT = <span class="number">80</span></span><br><span class="line">mysock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)</span><br><span class="line">mysock.connect((HOST, PORT))</span><br><span class="line">mysock.sendall(<span class="string">b&#x27;GET http://data.pr4e.org/cover3.jpg HTTP/1.0\r\n\r\n&#x27;</span>)</span><br><span class="line">count = <span class="number">0</span></span><br><span class="line">picture = <span class="string">b&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    data = mysock.recv(<span class="number">5120</span>)</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">len</span>(data) &lt; <span class="number">1</span>): <span class="keyword">break</span></span><br><span class="line">    time.sleep(<span class="number">0.25</span>)</span><br><span class="line">    count = count + <span class="built_in">len</span>(data)</span><br><span class="line">    print(<span class="built_in">len</span>(data), count)</span><br><span class="line">    picture = picture + data</span><br><span class="line"></span><br><span class="line">mysock.close()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Look for the end of the header (2 CRLF)</span></span><br><span class="line">pos = picture.find(<span class="string">b&#x27;\r\n\r\n&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;Header length&#x27;</span>, pos)</span><br><span class="line">print(picture[:pos].decode())</span><br><span class="line"></span><br><span class="line"><span class="comment"># Skip past the header and save the picture data</span></span><br><span class="line">picture = picture[pos+<span class="number">4</span>:]</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">&#x27;stuff.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">fhand.write(picture)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>1408 1408<br>5120 6528<br>5120 11648<br>…… ……<br>5120 221568<br>3920 230608<br>Header length 394<br>HTTP/1.1 200 OK<br>Date: Fri, 14 Feb 2020 23:21:44 GMT<br>Server: Apache/2.4.18 (Ubuntu)<br>Last-Modified: Mon, 15 May 2017 12:27:40 GMT<br>ETag: “38342-54f8f2e5b6277”<br>Accept-Ranges: bytes<br>Content-Length: 230210<br>Vary: Accept-Encoding<br>Cache-Control: max-age=0, no-cache, no-store, must-revalidate<br>Pragma: no-cache<br>Expires: Wed, 11 Jan 1984 05:00:00 GMT<br>Connection: close<br>Content-Type: image/jpeg</p>
+</blockquote>
+<p>There is a buffer between the server making <code>send()</code> requests and our application making <code>recv()</code> requests. When we run the program with the delay in place, at some point the server might fill up the buffer in the socket and be forced to pause until our program starts to empty the buffer.<br>The pausing of either the sending application or the receiving application is called “<strong>flow control</strong>“.</p>
+<h2 id="12-4-Retrieving-web-pages-with-urllib"><a href="#12-4-Retrieving-web-pages-with-urllib" class="headerlink" title="12.4 Retrieving web pages with urllib"></a>12.4 Retrieving web pages with urllib</h2><blockquote>
+<p><strong>urllib</strong>: does all the socket work for us and makes web pages look like a file.</p>
+</blockquote>
+<p>Using <code>urllib</code>, you can treat a web page much like a file. You simply indicate which web page you would like to retrieve and <code>urllib</code> handles all of the HTTP protocol and header details.</p>
+<p>The equivalent code to read the <code>romeo.txt</code> file from the web using <code>urllib</code> is as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllib1.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">fhand = urllib.request.urlopen(<span class="string">&#x27;http://data.pr4e.org/romeo.txt&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> fhand:</span><br><span class="line">    print(line.decode().strip())</span><br></pre></td></tr></table></figure>
+<p>When the program runs, we only see the output of the contents of the file. The headers are still sent, but the <code>urllib</code> code consumes the headers and only returns the data to us.</p>
+<p>Output:</p>
+<blockquote>
+<p>But soft what light through yonder window breaks<br>It is the east and Juliet is the sun<br>Arise fair sun and kill the envious moon<br>Who is already sick and pale with grief</p>
+</blockquote>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>retrieve the data for <code>romeo.txt</code> and compute the frequency of each word in the file</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># Code: http:&#x2F;&#x2F;www.py4e.com&#x2F;code3&#x2F;urlwords.py</span><br><span class="line">import urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">fhand &#x3D; urllib.request.urlopen(&#39;http:&#x2F;&#x2F;data.pr4e.org&#x2F;romeo.txt&#39;)</span><br><span class="line"></span><br><span class="line">counts &#x3D; dict()</span><br><span class="line">for line in fhand:</span><br><span class="line">    words &#x3D; line.decode().split()</span><br><span class="line">    for word in words:</span><br><span class="line">        counts[word] &#x3D; counts.get(word, 0) + 1</span><br><span class="line">print(counts)</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>{‘But’: 1, ‘soft’: 1, ‘what’: 1, ‘light’: 1, ‘through’: 1, ‘yonder’: 1, ‘window’: 1, ‘breaks’: 1, ‘It’: 1, ‘is’: 3, ‘the’: 3, ‘east’: 1, ‘and’: 3, ‘Juliet’: 1, ‘sun’: 2, ‘Arise’: 1, ‘fair’: 1, ‘kill’: 1, ‘envious’: 1, ‘moon’: 1, ‘Who’: 1, ‘already’: 1, ‘sick’: 1, ‘pale’: 1, ‘with’: 1, ‘grief’: 1}</p>
+</blockquote>
+<h2 id="12-5-Reading-binary-files-using-urllib"><a href="#12-5-Reading-binary-files-using-urllib" class="headerlink" title="12.5 Reading binary files using urllib"></a>12.5 Reading binary files using urllib</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#Code: http://www.py4e.com/code3/curl2.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"></span><br><span class="line">img = urllib.request.urlopen(<span class="string">&#x27;http://data.pr4e.org/cover3.jpg&#x27;</span>)</span><br><span class="line">fhand = <span class="built_in">open</span>(<span class="string">&#x27;cover3.jpg&#x27;</span>, <span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">size = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    info = img.read(<span class="number">100000</span>)</span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">len</span>(info) &lt; <span class="number">1</span>: <span class="keyword">break</span></span><br><span class="line">    size += <span class="built_in">len</span>(info)</span><br><span class="line">    fhand.write(info)</span><br><span class="line">print(size, <span class="string">&#x27;characters copied.&#x27;</span>)</span><br><span class="line">fhand.close()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>read only 100,000 characters at a time and then write those characters to the cover.jpg file before retrieving the next 100,000 characters of data from the web.</p>
+</blockquote>
+<h2 id="12-6-Parsing-HTML-and-scraping-the-web"><a href="#12-6-Parsing-HTML-and-scraping-the-web" class="headerlink" title="12.6 Parsing HTML and scraping the web"></a>12.6 Parsing HTML and scraping the web</h2><blockquote>
+<p>One of the common uses of the <code>urllib</code> capability in Python is to <em>scrape</em> the web. Web scraping is when we write a program that pretends to be a web browser and retrieves pages, then examines the data in those pages looking for patterns.</p>
+<p>As an example, a search engine such as Google will look at the source of one web page and extract the links to other pages and retrieve those pages, extracting links, and so on. Using this technique, Google <em>spiders</em> its way through nearly all of the pages on the web.</p>
+<p>Google also uses the frequency of links from pages it finds to a particular page as one measure of how “important” a page is and how high the page should appear in its search results.</p>
+</blockquote>
+<h2 id="12-7-Parsing-HTML-using-regular-expressions"><a href="#12-7-Parsing-HTML-using-regular-expressions" class="headerlink" title="12.7 Parsing HTML using regular expressions"></a>12.7 Parsing HTML using regular expressions</h2><p>For the simple webpage:</p>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">h1</span>&gt;</span>The First Page<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">p</span>&gt;</span></span><br><span class="line">If you like, you can switch to the</span><br><span class="line"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.dr-chuck.com/page2.htm&quot;</span>&gt;</span></span><br><span class="line">Second Page<span class="tag">&lt;/<span class="name">a</span>&gt;</span>.</span><br><span class="line"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>We can construct a well-formed regular expression to match and extract the link values from the above text as follows:</p>
+<blockquote>
+<p>href=”(<a href="http://.+?">http://.+?</a>)”</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urlregex.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">import</span> re</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urllib.request.urlopen(url).read()</span><br><span class="line">links = re.findall(<span class="string">b&#x27;href=&quot;(http://.+?)&quot;&#x27;</span>, html)</span><br><span class="line"><span class="keyword">for</span> link <span class="keyword">in</span> links:</span><br><span class="line">    print(link.decode())</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>Enter -  <a href="https://yihang-li.github.io/">https://yihang-li.github.io/</a><br><a href="http://yihang-li.github.io/">http://yihang-li.github.io/</a><br><a href="http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/">http://Yihang-Li.github.io/2020/02/14/Summary-of-UPtoAWD-Coursera/</a><br><a href="http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/">http://Yihang-Li.github.io/2020/02/10/Summary-for-visualization-of-geospatial-data/</a><br><a href="http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/">http://Yihang-Li.github.io/2020/02/08/Notes-of-Gaussian-Processes-for-Machine-Learning/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/Hello-Echo/">http://Yihang-Li.github.io/2020/02/05/Hello-Echo/</a><br><a href="http://Yihang-Li.github.io/2020/02/05/hello-world/">http://Yihang-Li.github.io/2020/02/05/hello-world/</a></p>
+</blockquote>
+<h2 id="12-8-Parsing-HTML-using-BeautifulSoup"><a href="#12-8-Parsing-HTML-using-BeautifulSoup" class="headerlink" title="12.8 Parsing HTML using BeautifulSoup"></a>12.8 Parsing HTML using BeautifulSoup</h2><blockquote>
+<p><strong>BeautifulSoup</strong> tolerates highly flawed HTML and still lets you easily extract the data you need. See <a href="https://www.crummy.com/software/BeautifulSoup/bs4/doc/">docs</a>.</p>
+</blockquote>
+<p>We will use <code>urllib</code> to read the page and then use <code>BeautifulSoup</code> to extract the <code>href</code> attributes from the anchor (<code>a</code>) tags.</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllinks.py</span></span><br><span class="line"><span class="keyword">import</span> urllib.request, urllib.parse, urllib.error</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urllib.request.urlopen(url, context=ctx).read()</span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    print(tag.get(<span class="string">&#x27;href&#x27;</span>, <span class="literal">None</span>))</span><br></pre></td></tr></table></figure>
+<p>The program prompts for a web address, then opens the web page, reads the data and passes the data to the BeautifulSoup parser, and then retrieves all of the anchor tags and prints out the <code>href</code> attribute for each tag.</p>
+<p>You can use BeautifulSoup to pull out various parts of each tag as follows:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/urllink2.py</span></span><br><span class="line"><span class="keyword">from</span> urllib.request <span class="keyword">import</span> urlopen</span><br><span class="line"><span class="keyword">from</span> bs4 <span class="keyword">import</span> BeautifulSoup</span><br><span class="line"><span class="keyword">import</span> ssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># Ignore SSL certificate errors</span></span><br><span class="line">ctx = ssl.create_default_context()</span><br><span class="line">ctx.check_hostname = <span class="literal">False</span></span><br><span class="line">ctx.verify_mode = ssl.CERT_NONE</span><br><span class="line"></span><br><span class="line">url = <span class="built_in">input</span>(<span class="string">&#x27;Enter - &#x27;</span>)</span><br><span class="line">html = urlopen(url, context=ctx).read()</span><br><span class="line"></span><br><span class="line"><span class="comment"># html.parser is the HTML parser included in the standard Python 3 library.</span></span><br><span class="line"><span class="comment"># information on other HTML parsers is here:</span></span><br><span class="line"><span class="comment"># http://www.crummy.com/software/BeautifulSoup/bs4/doc/#installing-a-parser</span></span><br><span class="line">soup = BeautifulSoup(html, <span class="string">&#x27;html.parser&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Retrieve all of the anchor tags</span></span><br><span class="line">tags = soup(<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line"><span class="keyword">for</span> tag <span class="keyword">in</span> tags:</span><br><span class="line">    <span class="comment"># Look at the parts of a tag</span></span><br><span class="line">    print(<span class="string">&#x27;TAG:&#x27;</span>, tag)</span><br><span class="line">    print(<span class="string">&#x27;URL:&#x27;</span>, tag.get(<span class="string">&#x27;href&#x27;</span>, <span class="literal">None</span>))</span><br><span class="line">    print(<span class="string">&#x27;Contents:&#x27;</span>, tag.contents[<span class="number">0</span>])</span><br><span class="line">    print(<span class="string">&#x27;Attrs:&#x27;</span>, tag.attrs)</span><br></pre></td></tr></table></figure>
+<h2 id="12-9-Something-more"><a href="#12-9-Something-more" class="headerlink" title="12.9 Something more"></a>12.9 Something more</h2><blockquote>
+<p><strong>Scrape</strong><br>When a program pretends to be a web browser and retrieves a web page, then looks at the web page content. Often programs are following the links in one page to find the next page so they can traverse a network of pages or a social network.</p>
+<p><strong>Spider</strong><br>The act of a web search engine retrieving a page and then all the pages linked from a page and so on until they have nearly all of the pages on the Internet which they use to build their search index.</p>
+<p><strong>ASCII</strong><br>American Standard Code for Information Interchange</p>
+<p>Each character is represented by a number between 0 and 256 stored in 8 bits of memory(a byte of memory)</p>
+<p>The <strong>ord()</strong> function tells us the numeric value of a simple ASCII character<br>(On the opposite, we can use <strong>chr()</strong>)</p>
+<p>In Python3, all strings are unicode. When we read data from an external resource, we must decode it based on the character set so it is properly represented in Python3 as a string.</p>
+</blockquote>
+<h2 id="Summary"><a href="#Summary" class="headerlink" title="Summary"></a>Summary</h2><ul>
+<li>The TCP/IP gives us pipes/sockets between applications</li>
+<li>We designed application protocols to make use of these pipes</li>
+<li>HyperText Transfer Protocol (HTTP) is a simple yet powerful proctocol</li>
+<li>Python has good support for sockets, HTTP, and HTML parsing</li>
+</ul>
+<h1 id=""><a href="#" class="headerlink" title=" "></a> </h1><h1 id="Chapter-13-Using-Web-Services"><a href="#Chapter-13-Using-Web-Services" class="headerlink" title="Chapter 13 Using Web Services"></a>Chapter 13 Using Web Services</h1><h2 id="13-1-eXtensible-Markup-Language-XML"><a href="#13-1-eXtensible-Markup-Language-XML" class="headerlink" title="13.1 eXtensible Markup Language - XML"></a>13.1 eXtensible Markup Language - XML</h2><p>XML looks similar to HTML but more structured. See a sample below:</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">person</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>Chuck<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">phone</span> <span class="attr">type</span>=<span class="string">&quot;intl&quot;</span>&gt;</span></span><br><span class="line">     +1 734 303 4456</span><br><span class="line">  <span class="tag">&lt;/<span class="name">phone</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">email</span> <span class="attr">hide</span>=<span class="string">&quot;yes&quot;</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">person</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>Often it is helpful to think of an XML document as a tree structure where there is a top tag <code>person</code> and other tags such as <code>phone</code> are drawn as <em>children</em> of their parent nodes.</p>
+<p><img src="/assets/image-20200214211642103.png" alt="image-20200214211642103" style="zoom:80%;" /></p>
+<h2 id="13-2-Parsing-XML"><a href="#13-2-Parsing-XML" class="headerlink" title="13.2 Parsing XML"></a>13.2 Parsing XML</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml1.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line">data = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;person&gt;</span></span><br><span class="line"><span class="string">  &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">  &lt;phone type=&quot;intl&quot;&gt;</span></span><br><span class="line"><span class="string">     +1 734 303 4456</span></span><br><span class="line"><span class="string">   &lt;/phone&gt;</span></span><br><span class="line"><span class="string">   &lt;email hide=&quot;yes&quot;/&gt;</span></span><br><span class="line"><span class="string">&lt;/person&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">tree = ET.fromstring(data)</span><br><span class="line">print(<span class="string">&#x27;Name:&#x27;</span>, tree.find(<span class="string">&#x27;name&#x27;</span>).text)</span><br><span class="line">print(<span class="string">&#x27;Attr:&#x27;</span>, tree.find(<span class="string">&#x27;email&#x27;</span>).get(<span class="string">&#x27;hide&#x27;</span>))</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>Name: Chuck<br>Attr: yes</p>
+</blockquote>
+<p>Calling <code>fromstring</code> converts the string representation of the XML into a “tree” of XML nodes. When the XML is in a tree, we have a series of methods we can call to extract portions of data from the XML.</p>
+<p>The <code>find</code> function searches through the XML tree and retrieves a <em>node</em> that matches the specified tag. Each node can have some text, some attributes (like hide), and some “child” nodes. Each node can be the top of a tree of nodes.</p>
+<h2 id="13-3-Looping-through-nodes"><a href="#13-3-Looping-through-nodes" class="headerlink" title="13.3 Looping through nodes"></a>13.3 Looping through nodes</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/xml2.py</span></span><br><span class="line"><span class="keyword">import</span> xml.etree.ElementTree <span class="keyword">as</span> ET</span><br><span class="line"></span><br><span class="line"><span class="built_in">input</span> = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">&lt;stuff&gt;</span></span><br><span class="line"><span class="string">    &lt;users&gt;</span></span><br><span class="line"><span class="string">        &lt;user x=&quot;2&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;001&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Chuck&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">        &lt;user x=&quot;7&quot;&gt;</span></span><br><span class="line"><span class="string">            &lt;id&gt;009&lt;/id&gt;</span></span><br><span class="line"><span class="string">            &lt;name&gt;Brent&lt;/name&gt;</span></span><br><span class="line"><span class="string">        &lt;/user&gt;</span></span><br><span class="line"><span class="string">    &lt;/users&gt;</span></span><br><span class="line"><span class="string">&lt;/stuff&gt;&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">stuff = ET.fromstring(<span class="built_in">input</span>)</span><br><span class="line">lst = stuff.findall(<span class="string">&#x27;users/user&#x27;</span>)</span><br><span class="line">print(<span class="string">&#x27;User count:&#x27;</span>, <span class="built_in">len</span>(lst))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> lst:</span><br><span class="line">    print(<span class="string">&#x27;Name&#x27;</span>, item.find(<span class="string">&#x27;name&#x27;</span>).text)</span><br><span class="line">    print(<span class="string">&#x27;Id&#x27;</span>, item.find(<span class="string">&#x27;id&#x27;</span>).text)</span><br><span class="line">    print(<span class="string">&#x27;Attribute&#x27;</span>, item.get(<span class="string">&quot;x&quot;</span>))</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Brent<br>Id 009<br>Attribute 7</p>
+</blockquote>
+<p>Note:</p>
+<blockquote>
+<p>It is important to includes all parents level elements in the <strong>findall</strong> statement except for the top level element. Otherwise, Python will not find any desired nodes.</p>
+</blockquote>
+<h2 id="13-4-JavaScript-Object-Notation-JSON"><a href="#13-4-JavaScript-Object-Notation-JSON" class="headerlink" title="13.4 JavaScript Object Notation - JSON"></a>13.4 JavaScript Object Notation - JSON</h2><blockquote>
+<p>The JSON format was inspired by the object and array format used in the JavaScript language. But since Python was invented before JavaScript, Python’s syntax for dictionaries and lists influenced the syntax of JSON. So the format of JSON is nearly identical to a combination of Python lists and dictionaries.</p>
+</blockquote>
+<p>Here is a JSON encoding that is roughly equivalent to the simple XML from above:</p>
+<figure class="highlight json"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;name&quot;</span> : <span class="string">&quot;Chuck&quot;</span>,</span><br><span class="line">  <span class="attr">&quot;phone&quot;</span> : &#123;</span><br><span class="line">    <span class="attr">&quot;type&quot;</span> : <span class="string">&quot;intl&quot;</span>,</span><br><span class="line">    <span class="attr">&quot;number&quot;</span> : <span class="string">&quot;+1 734 303 4456&quot;</span></span><br><span class="line">   &#125;,</span><br><span class="line">   <span class="attr">&quot;email&quot;</span> : &#123;</span><br><span class="line">     <span class="attr">&quot;hide&quot;</span> : <span class="string">&quot;yes&quot;</span></span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>In XML, we can add attributes like “intl” to the “phone” tag.<br>In JSON, we simply have key-value pairs. Also the XML “person” tag is gone, replaced by a set of outer curly braces.</p>
+<p>In general, JSON structures are simpler than XML because JSON has fewer capabilities than XML. But JSON has the advantage that it maps <em>directly</em> to some combination of dictionaries and lists. And since nearly all programming languages have something equivalent to Python’s dictionaries and lists, JSON is a very natural format to have two cooperating programs exchange data.</p>
+<p>JSON is quickly becoming the format of choice for nearly all data exchange between applications because of its relative simplicity compared to XML.</p>
+</blockquote>
+<h2 id="13-5-Parsing-JSON"><a href="#13-5-Parsing-JSON" class="headerlink" title="13.5 Parsing JSON"></a>13.5 Parsing JSON</h2><blockquote>
+<p>We construct our JSON by nesting dictionaries (objects) and lists as needed. In this example, we represent a list of users where each user is a set of key-value pairs (i.e., a dictionary). So we have a list of dictionaries.</p>
+<p>In the following program, we use the built-in <em>json</em> library to parse the JSON and read through the data. Compare this closely to the equivalent XML data and code above. The JSON has less detail, so we must know in advance that we are getting a list and that the list is of users and each user is a set of key-value pairs. The JSON is more succinct (an advantage) but also is less self-describing (a disadvantage).</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># Code: http://www.py4e.com/code3/json2.py</span></span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"></span><br><span class="line">data = <span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">[</span></span><br><span class="line"><span class="string">  &#123; &quot;id&quot; : &quot;001&quot;,</span></span><br><span class="line"><span class="string">    &quot;x&quot; : &quot;2&quot;,</span></span><br><span class="line"><span class="string">    &quot;name&quot; : &quot;Chuck&quot;</span></span><br><span class="line"><span class="string">  &#125; ,</span></span><br><span class="line"><span class="string">  &#123; &quot;id&quot; : &quot;009&quot;,</span></span><br><span class="line"><span class="string">    &quot;x&quot; : &quot;7&quot;,</span></span><br><span class="line"><span class="string">    &quot;name&quot; : &quot;Chuck&quot;</span></span><br><span class="line"><span class="string">  &#125;</span></span><br><span class="line"><span class="string">]&#x27;&#x27;&#x27;</span></span><br><span class="line"></span><br><span class="line">info = json.loads(data)</span><br><span class="line">print(<span class="string">&#x27;User count:&#x27;</span>, <span class="built_in">len</span>(info))</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> info:</span><br><span class="line">    print(<span class="string">&#x27;Name&#x27;</span>, item[<span class="string">&#x27;name&#x27;</span>])</span><br><span class="line">    print(<span class="string">&#x27;Id&#x27;</span>, item[<span class="string">&#x27;id&#x27;</span>])</span><br><span class="line">    print(<span class="string">&#x27;Attribute&#x27;</span>, item[<span class="string">&#x27;x&#x27;</span>])</span><br></pre></td></tr></table></figure>
+<p>Output:</p>
+<blockquote>
+<p>User count: 2<br>Name Chuck<br>Id 001<br>Attribute 2<br>Name Chuck<br>Id 009<br>Attribute 7</p>
+</blockquote>
+<ul>
+<li>we get from <em>json.loads()</em> is a Python list which we traverse with a <code>for</code> loop, and each item within that list is a Python dictionary.</li>
+<li>In general, there is an industry trend away from XML and towards JSON for web services. </li>
+<li>But XML is more self-descriptive than JSON and so there are some applications where XML retains an advantage. For example, most word processors store documents internally using XML rather than JSON.</li>
+</ul>
+<h2 id="13-6-Application-Programming-Interfaces-API"><a href="#13-6-Application-Programming-Interfaces-API" class="headerlink" title="13.6 Application Programming Interfaces - API"></a>13.6 Application Programming Interfaces - API</h2><blockquote>
+<p><strong>API</strong><br>A contract between applications that defines the patterns of interaction between two application components</p>
+<p><strong>SOA</strong><br>When we begin to build our programs where the functionality of our program includes access to services provided by other programs, we call the approach a <em>Service-Oriented Architecture</em> or SOA. (A non-SOA approach is where the application is a single standalone application which contains all of the code necessary to implement the application.)</p>
+</blockquote>
+<p>We see many examples of SOA when we use the web. We can go to a single web site and book air travel, hotels, and automobiles all from a single site. The data for hotels is not stored on the airline computers. Instead, the airline computers contact the services on the hotel computers and retrieve the hotel data and present it to the user. When the user agrees to make a hotel reservation using the airline site, the airline site uses another web service on the hotel systems to actually make the reservation. And when it comes time to charge your credit card for the whole transaction, still other computers become involved in the process.</p>
+<p><img src="/assets/image-20200215104121294.png" alt="API_SOA" style="zoom:80%;" /></p>
+<blockquote>
+<p>When an application makes a set of services in its API available over the web, we call these <strong><em>web services</em></strong>.</p>
+</blockquote>
+<h2 id="13-7-Security-and-API-usage"><a href="#13-7-Security-and-API-usage" class="headerlink" title="13.7 Security and API usage"></a>13.7 Security and API usage</h2><blockquote>
+<p>It is quite common that you need an API key to make use of a vendor’s API.<br>The general idea is that they want to know who is using their services and how much each user is using.</p>
+<p>Sometimes once you get your API key, you simply include the key as part of POST data or perhaps as a parameter on the URL when calling the API.<br>Other times, the vendor wants increased assurance of the source of the requests and so they add expect you to send cryptographically signed messages using shared keys and secrets.</p>
+<p> A very common technology that is used to sign requests over the Internet is called <a href="www.oauth.net"><em>OAuth</em></a>.</p>
+</blockquote>
+<h2 id="13-8-Application"><a href="#13-8-Application" class="headerlink" title="13.8 Application"></a>13.8 Application</h2><h3 id="13-8-1-Google-geocoding-web-service"><a href="#13-8-1-Google-geocoding-web-service" class="headerlink" title="13.8.1 Google geocoding web service"></a>13.8.1 Google geocoding web service</h3><blockquote>
+<p><em>When you are using a free API like Google’s geocoding API, you need to be respectful in your use of these resources. If too many people abuse the service, Google might drop or significantly curtail its free service.</em></p>
+</blockquote>
+<p>Need API!</p>
+<h3 id="13-8-2-Twitter"><a href="#13-8-2-Twitter" class="headerlink" title="13.8.2 Twitter"></a>13.8.2 Twitter</h3><blockquote>
+<p>As the Twitter API became increasingly valuable, Twitter went from an open and public API to an API that required the use of OAuth signatures on each API request. </p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Notes</category>
+      </categories>
+      <tags>
+        <tag>python</tag>
+        <tag>coursera</tag>
+        <tag>web</tag>
+        <tag>data access</tag>
       </tags>
   </entry>
 </search>
