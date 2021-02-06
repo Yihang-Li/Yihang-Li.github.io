@@ -18,30 +18,33 @@
     var CONFIG = {"hostname":"yihang-li.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Yihang">
-<meta property="og:url" content="https://yihang-li.github.io/index.html">
+  <meta name="description" content="Ch1 The Dynamic Programming Algorithm Life can only be understood going backwards,but it must be lived going forwards.—— Kierkegaard">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MDS6222 Dynamic Programming (Notes 1)">
+<meta property="og:url" content="https://yihang-li.github.io/2021/01/22/MDS6222_Dynamic_Programming/index.html">
 <meta property="og:site_name" content="Yihang">
-<meta property="og:description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+<meta property="og:description" content="Ch1 The Dynamic Programming Algorithm Life can only be understood going backwards,but it must be lived going forwards.—— Kierkegaard">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-22T07:09:58.109Z">
+<meta property="article:modified_time" content="2021-02-06T07:16:37.740Z">
 <meta property="article:author" content="Yihang Li">
+<meta property="article:tag" content="DP">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yihang-li.github.io/">
+<link rel="canonical" href="https://yihang-li.github.io/2021/01/22/MDS6222_Dynamic_Programming/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>Yihang</title>
+  <title>MDS6222 Dynamic Programming (Notes 1) | Yihang</title>
   
 
 
@@ -2759,180 +2762,10 @@ embed {
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/24/Leetcode_Union_Find/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/24/Leetcode_Union_Find/" class="post-title-link" itemprop="url">Union Find</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-24 05:15:32" itemprop="dateCreated datePublished" datetime="2021-01-24T05:15:32+08:00">2021-01-24</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 18:03:39" itemprop="dateModified" datetime="2021-02-03T18:03:39+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
 
     
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="并查集算法"><a href="#并查集算法" class="headerlink" title="并查集算法"></a>并查集算法</h2><ul>
-<li>[X] 动手使用python实现<code>并查集</code>4个版本🚀️</li>
-<li>[ ] 应用刷题！🎉️：刷完<a target="_blank" rel="noopener" href="https://leetcode-cn.com/tag/union-find/">并查集tag</a>再勾（7/39）</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/24/Leetcode_Union_Find/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/23/Leetcode_Graph/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/23/Leetcode_Graph/" class="post-title-link" itemprop="url">Graph</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-23 20:17:22" itemprop="dateCreated datePublished" datetime="2021-01-23T20:17:22+08:00">2021-01-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 18:03:07" itemprop="dateModified" datetime="2021-02-03T18:03:07+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <ul>
-<li>[X] 👀️ 图在Python中的表示方法有哪些？</li>
-<li>[X] 🎉️ DFS</li>
-<li>[X] BFS</li>
-<li>[X] Priority Queue by heap</li>
-<li>[ ] Dijkstra</li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/23/Leetcode_Graph/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
   
   
   <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -2948,10 +2781,9 @@ embed {
       <meta itemprop="name" content="Yihang">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/22/MDS6222_Dynamic_Programming/" class="post-title-link" itemprop="url">MDS6222 Dynamic Programming (Notes 1)</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          MDS6222 Dynamic Programming (Notes 1)
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -2990,585 +2822,129 @@ embed {
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
+        <h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
 <p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p>
 </blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/22/MDS6222_Dynamic_Programming/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/11/MDS6232_Deep_Learning_Notes/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/11/MDS6232_Deep_Learning_Notes/" class="post-title-link" itemprop="url">MDS6232 Deep Learning Course Notes(Updating)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-11 17:13:14" itemprop="dateCreated datePublished" datetime="2021-01-11T17:13:14+08:00">2021-01-11</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-19 16:39:26" itemprop="dateModified" datetime="2021-01-19T16:39:26+08:00">2021-01-19</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h1><blockquote>
-<p>Introduction - 01/11/2021</p>
-</blockquote>
-<h2 id="Deep-belief-net-2006-Hinton"><a href="#Deep-belief-net-2006-Hinton" class="headerlink" title="Deep belief net 2006-Hinton"></a>Deep belief net 2006-Hinton</h2><ul>
-<li><strong>RBM(Restricted Boltzmann Machines)</strong>: A restricted Boltzmann machine (RBM) is a generative stochastic artificial neural network that can learn a probability distribution over its set of inputs. See <a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/Restricted_Boltzmann_machine">Wiki</a> &amp; <a target="_blank" rel="noopener" href="https://towardsdatascience.com/restricted-boltzmann-machines-simplified-eab1e5878976">towardsdatascience</a></li>
+<a id="more"></a>
+<h2 id="1-1-Introduction"><a href="#1-1-Introduction" class="headerlink" title="1.1 Introduction"></a>1.1 Introduction</h2><h3 id="Basic-Structure-of-Stochastic-Dynamic-Programming"><a href="#Basic-Structure-of-Stochastic-Dynamic-Programming" class="headerlink" title="Basic Structure of Stochastic Dynamic Programming"></a>Basic Structure of Stochastic Dynamic Programming</h3><h4 id="2-Principle-Features-of-DP-👀"><a href="#2-Principle-Features-of-DP-👀" class="headerlink" title="2 Principle Features of DP 👀"></a><strong>2</strong> Principle Features of DP 👀</h4><ul>
+<li>Discrete-time Dynamic Systems</li>
+<li>Cost Function is Additive over Time</li>
 </ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/11/MDS6232_Deep_Learning_Notes/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/09/Project3_LARS/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/09/Project3_LARS/" class="post-title-link" itemprop="url">Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-09 07:08:39" itemprop="dateCreated datePublished" datetime="2021-01-09T07:08:39+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 17:45:43" itemprop="dateModified" datetime="2021-02-03T17:45:43+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Report/" itemprop="url" rel="index"><span itemprop="name">Report</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!-- <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing" data-height="500px"></div> -->
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/18nTj7E7YKpdfZCXpG0X3aSsR59ziPGFC/preview" data-height="500px"></div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/" class="post-title-link" itemprop="url">Applying Ensemble Method on Cleveland Heart Disease Data Set</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-09 06:55:28" itemprop="dateCreated datePublished" datetime="2021-01-09T06:55:28+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 17:45:09" itemprop="dateModified" datetime="2021-02-03T17:45:09+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Report/" itemprop="url" rel="index"><span itemprop="name">Report</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/" class="post-title-link" itemprop="url">基于核方法的深圳市房租预测分析</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-09 06:48:14" itemprop="dateCreated datePublished" datetime="2021-01-09T06:48:14+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 17:45:26" itemprop="dateModified" datetime="2021-02-03T17:45:26+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Report/" itemprop="url" rel="index"><span itemprop="name">Report</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div class="pdfobject-container" data-target="https://drive.google.com/file/d/1EJ9ozQqEh6vm35fEdR3QRMbyv-yDTNJB/preview" data-height="500px"></div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/09/MDS6106Optimization-FinalProject/" class="post-title-link" itemprop="url">MDS6106Optimization-FinalProject</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-09 05:16:42" itemprop="dateCreated datePublished" datetime="2021-01-09T05:16:42+08:00">2021-01-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-02-03 17:45:56" itemprop="dateModified" datetime="2021-02-03T17:45:56+08:00">2021-02-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Report/" itemprop="url" rel="index"><span itemprop="name">Report</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote>
-<p>The Report and the slides for my Optimization course’s final project</p>
-<p>The code can be referenced at my <a target="_blank" rel="noopener" href="https://github.com/Yihang-Li/MDS6106Project">Github Repository</a>, which is also my first team collaborate repo.</p>
+<h4 id="6-Key-Elements-of-DP-Formulation-👀"><a href="#6-Key-Elements-of-DP-Formulation-👀" class="headerlink" title="6 Key Elements of DP Formulation 👀"></a><strong>6</strong> Key Elements of DP Formulation 👀</h4><ul>
+<li><strong><em>Stage</em></strong>  $k$: Finite Horizon, Total Number of Horizon $N$ , time/space/etc.</li>
+<li><strong><em>State</em></strong> $x_k$: Decision Base</li>
+</ul>
+<ul>
+<li><strong><em>Control</em></strong> $u_k \in U_k(x_k)$: Action, Decision, each $u_k$ is selected with knowledge of current st$x_k$</li>
+<li><strong><em>Disturbance</em></strong>  $\omega_k \sim P(\omega_k|x_k, u_k)$: Value of Information, probability distribution of $\omega_k$ does not depend on past values $\omega_{k-1}, \dotsm, \omega_0$, but may depend on $x_k$ and $u_k$</li>
+<li><strong><em><code>Memoryless</code> System Dynamics</em></strong> $x_{k+1} = f_k(x_k, u_k, \omega_k)$: $k$ is time-varied, if removed, then stationary system.  <code>Memoryless</code> is that $f_k$ does not depend on $x_{k-1}, \omega_{k-1}$ and so on.</li>
+<li><strong><em><code>Additive</code> Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k), k = 0, 1, \dotsm, N-1$<br>   <strong><em>Terminal State</em></strong>: $g_N(x_N)$</li>
+</ul>
+<h4 id="2-Aims-👀"><a href="#2-Aims-👀" class="headerlink" title="2 Aims 👀"></a><strong>2</strong> Aims 👀</h4><ul>
+<li><strong><em>Optimal Policy</em></strong> $\pi^<em> = \left(\mu_0^</em>, \mu_1^<em>, \dotsm, \mu_{N-1}^</em> \right)$: <strong><em>Policy</em></strong> ~ $\pi = \left(\mu_0, \mu_1, \dotsm, \mu_{N-1}\right)$ where $\mu_k$ maps states $x_k$ into controls $u_k = \mu_k(x_k)$ and is such that $\mu_k(x_k) \in U_k(x_k)$ for all $x_k$</li>
+<li><strong><em>Optimimal Cost-to-go Function</em></strong>: Tail Subproblems Defined Recursively</li>
+</ul>
+<blockquote>
+<p>$J_N(x_N) = g_N(x_N)$</p>
+<p>$J_k(x_k) = \min\limits_{u_k \in U_k(x_k)}E_{\omega_k}\{g_k(x_k, u_k, \omega_k)+J_{k+1}(f_k(x_k, u_k, \omega_k))\}$,  $\forall k = 0, 1, \dotsm, N-1$</p>
 </blockquote>
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1352y10oWzRa84c408Il909EVJkBoqm07/preview" data-height="500px"></div>
-<div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/" class="post-title-link" itemprop="url">文献翻译-《Random Features for Large Scale Kernel Machines》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-08 11:23:52" itemprop="dateCreated datePublished" datetime="2021-01-08T11:23:52+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-09 16:49:53" itemprop="dateModified" datetime="2021-01-09T16:49:53+08:00">2021-01-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index"><span itemprop="name">文献翻译</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" data-height="500px"></div>
-<!-- <iframe src="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" width="640" height="480"></iframe> -->
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/02/16/Hilbert-Space-Midterm-Review/" class="post-title-link" itemprop="url">Hilbert Space: Midterm Review</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-02-16 13:00:13" itemprop="dateCreated datePublished" datetime="2020-02-16T13:00:13+08:00">2020-02-16</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-09 12:26:12" itemprop="dateModified" datetime="2021-01-09T12:26:12+08:00">2021-01-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol>
-<li><span style="color:blue">Vector spaces</span>: Basis, linear independence</li>
-<li><span style="color:blue">Normed spaces</span>: Norm, convergence, equivalent norms</li>
-<li><span style="color:blue">Topology of normed spaces</span>: Open, closed, bounded, compact, and dense sets</li>
-<li><span style="color:blue">Banach spaces</span>: Cauchy sequences, completeness, convergent and absolutely convergent series</li>
-<li><span style="color:blue">Linear mappings</span>: Continuity, boundedness, the norm of a linear mapping</li>
+<h3 id="Where-and-Why-to-Use-Dynamic-Programming"><a href="#Where-and-Why-to-Use-Dynamic-Programming" class="headerlink" title="Where and Why to Use Dynamic Programming"></a>Where and Why to Use Dynamic Programming</h3><p>👀️ What if there exists some optimization problems such that</p>
+<ul>
+<li>Decisions can be <strong><em>Sequentially made in stages</em></strong> and only deepend on the state in the current stage.  (<code>Memoryless</code>)</li>
+<li>Stochastic Information can be <strong><em>gradually disclosed in stages</em></strong> and only depends on the state and the decision(action, control) in the current stage. (<code>Memoryless</code>)</li>
+<li>Total costs (Rewards) can be <strong><em>accumulated in stages</em></strong>. (<code>Additive</code>)</li>
+</ul>
+<p>🚀️ Opportunities for more efficient and effective methods: Dynamic Programming (<code>DP</code>)</p>
+<blockquote>
+<p>DP can deal with <strong><em>complex stochastic problems</em></strong> where information about $\omega  $ becomes available in stages, and the decisions are also made in stages and make use of this information.</p>
+</blockquote>
+<h3 id="Example-Inventory-Control"><a href="#Example-Inventory-Control" class="headerlink" title="Example: Inventory Control"></a>Example: Inventory Control</h3><ul>
+<li><strong><em>Stage</em></strong>: Ordering Period: $k$</li>
+<li><strong><em>State</em></strong>: Inventory Level at Period $k$ : $x_k$</li>
+<li><strong><em>Control</em></strong>: Stock ordered at Period $k$ : $u_k \ge 0$</li>
+<li><strong><em>Disturbance</em></strong>: Demand at Period $k$: $\omega_k$</li>
+<li><strong><em>System Dynamics</em></strong>: $x_{k+1} = f_k(x_k, u_k, \omega_k) = x_k + u_k - \omega_k$</li>
+<li><strong><em>Stage Cost</em></strong>: $g_k(x_k, u_k, \omega_k) = $</li>
+<li><strong><em>Terminal Cost</em></strong>:</li>
+<li><strong><em>Cost Fuction is Additive over Time</em></strong>:</li>
+<li><strong><em>Optimization over Policies/Rules</em></strong>:</li>
+</ul>
+<blockquote>
+<p>Revisited Later and fullfill above things! 2021-01-27</p>
+</blockquote>
+<h3 id="Open-loop-vs-Closed-loop-Feedback-Control"><a href="#Open-loop-vs-Closed-loop-Feedback-Control" class="headerlink" title="Open-loop vs Closed-loop (Feedback Control)"></a>Open-loop vs Closed-loop (Feedback Control)</h3><ul>
+<li>In open-loop minimization, we select all controls $u_k$ at once at time 0, without waiting to see the subsequent disturbance $w_k$</li>
+<li>In closed- loop minimization, we postpone selecting control $u_k$ until the last possible moment (time $k$) when the current state $x_k$ will be known, thus can make use of the information of $w_k$ that becomes available in stages</li>
+</ul>
+<h3 id="Examples"><a href="#Examples" class="headerlink" title="Examples"></a>Examples</h3><ol>
+<li>Schedualing (A Deterministic Finite-State Problem);</li>
+<li>Two Game Chess</li>
 </ol>
-<h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><ol>
-<li><span style="color:blue">Inner product spaces</span>: Inner product, norm, Schwarz’s Inequality, Parallelogram Law, orthogonality,  Pythagorean Formula, strong and weak convergence, Hilbert spaces, isomorphic Hilbert spaces</li>
-<li><span style="color:blue">Orthonomal systems</span>: Orthogonal and orthonormal systems, Gram-Schmidt orthonormalization process, Pythagorean Formula, Bessel’s equality and inequality, the best approximation, complete orthonormal sequences and equivalent conditions, Parseval’s Formula, separable Hilbert spaces</li>
-<li><span style="color:blue">Orthogonal Complements and Projections</span>: Orthogonal sets, orthogonal complement, the closest point property,  orthogonal decompositions, orthogonal projections</li>
-<li><span style="color:blue">Linear functionals</span>: The norm of a linear functional, the Riesz Representation Theorem</li>
-</ol>
-
-      
+<h2 id="1-2-The-Basic-Problem"><a href="#1-2-The-Basic-Problem" class="headerlink" title="1.2 The Basic Problem"></a>1.2 The Basic Problem</h2><blockquote>
+<p>Need to Add the content of basic problem here —- 2021-01-27</p>
+<h3 id="Value-of-Information"><a href="#Value-of-Information" class="headerlink" title="Value of Information"></a>Value of Information</h3><ul>
+<li>In Deterministic Problem, Open-loop is as good as Closed-loop</li>
+<li>Value of Information = $J^<em>_{\text{closed-loop}} - J^</em>_{\text{open-loop}}$  (The reduction in cost)</li>
+<li>Example: Two-Game Chess</li>
+</ul>
+</blockquote>
+<h3 id="Encoding-Risk-in-the-Cost-Function"><a href="#Encoding-Risk-in-the-Cost-Function" class="headerlink" title="Encoding Risk in the Cost Function"></a>Encoding Risk in the Cost Function</h3><ul>
+<li>As above, one important characteristic of stochastic problems is the possibility of using information with advantage</li>
+<li>The other distinguishing characteristic is the need to take into account <code>risk</code> in the problem formulation.<br>e.g. Expectation and Variance in investment decision<br>e.g. St. Petersburg paradox</li>
+</ul>
+<h2 id="1-3-The-Dynamic-Programming-Algorithm"><a href="#1-3-The-Dynamic-Programming-Algorithm" class="headerlink" title="1.3 The Dynamic Programming Algorithm"></a>1.3 The Dynamic Programming Algorithm</h2><h3 id="Principle-of-Optimality"><a href="#Principle-of-Optimality" class="headerlink" title="Principle of Optimality"></a>Principle of Optimality</h3><blockquote>
+<p>Need whole illustration here —- 2021-01-27</p>
+</blockquote>
+<ul>
+<li>The truncated policy is optimal for the tail problem.</li>
+<li>The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.<ul>
+<li>e.g. deterministic scheduling example</li>
+<li>e.g. stochastic inventory control example</li>
+</ul>
+</li>
+</ul>
+<p>-&gt; ‘One-at-a-time version of Divide and Conquer’</p>
+<h3 id="The-DP-Algorithm"><a href="#The-DP-Algorithm" class="headerlink" title="The DP Algorithm"></a>The DP Algorithm</h3><blockquote>
+<p>Need whole illustration here for Proposition1.3.1 and its proof detail —- 2021-01-27</p>
+</blockquote>
+<ul>
+<li>$J_k(x_k)$ : the cost-to-go at state $x_k$ and time $k$, and refer to $J_k$ as the cost-to-go function at time $k$</li>
+<li>e.g. 1.3.1 two ovens</li>
+</ul>
+<h2 id="1-4-State-Augmentation-and-Other-Reformulations"><a href="#1-4-State-Augmentation-and-Other-Reformulations" class="headerlink" title="1.4 State Augmentation and Other Reformulations"></a>1.4 State Augmentation and Other Reformulations</h2><p>Deal with situations where some of the assumptions of the basic problem are violated —-&gt; reformulate into the basic problem format.</p>
+<h3 id="Case1-Time-Lags"><a href="#Case1-Time-Lags" class="headerlink" title="Case1: Time Lags"></a>Case1: Time Lags</h3><h3 id="Case2-Correlated-Disturbances"><a href="#Case2-Correlated-Disturbances" class="headerlink" title="Case2: Correlated Disturbances"></a>Case2: Correlated Disturbances</h3>
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
+          
+          <div class="post-tags">
+              <a href="/tags/DP/" rel="tag"><i class="fa fa-tag"></i> DP</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/11/MDS6232_Deep_Learning_Notes/" rel="prev" title="MDS6232 Deep Learning Course Notes(Updating)">
+      <i class="fa fa-chevron-left"></i> MDS6232 Deep Learning Course Notes(Updating)
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/23/Leetcode_Graph/" rel="next" title="Graph">
+      Graph <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
       </footer>
+    
   </article>
   
   
   
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -3620,6 +2996,7 @@ embed {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ch1-The-Dynamic-Programming-Algorithm"><span class="nav-number">1.</span> <span class="nav-text">Ch1 The Dynamic Programming Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1-Introduction"><span class="nav-number">1.1.</span> <span class="nav-text">1.1 Introduction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Structure-of-Stochastic-Dynamic-Programming"><span class="nav-number">1.1.1.</span> <span class="nav-text">Basic Structure of Stochastic Dynamic Programming</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Principle-Features-of-DP-%F0%9F%91%80"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">2 Principle Features of DP 👀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-Key-Elements-of-DP-Formulation-%F0%9F%91%80"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">6 Key Elements of DP Formulation 👀</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Aims-%F0%9F%91%80"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">2 Aims 👀</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Where-and-Why-to-Use-Dynamic-Programming"><span class="nav-number">1.1.2.</span> <span class="nav-text">Where and Why to Use Dynamic Programming</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Example-Inventory-Control"><span class="nav-number">1.1.3.</span> <span class="nav-text">Example: Inventory Control</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Open-loop-vs-Closed-loop-Feedback-Control"><span class="nav-number">1.1.4.</span> <span class="nav-text">Open-loop vs Closed-loop (Feedback Control)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Examples"><span class="nav-number">1.1.5.</span> <span class="nav-text">Examples</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2-The-Basic-Problem"><span class="nav-number">1.2.</span> <span class="nav-text">1.2 The Basic Problem</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Value-of-Information"><span class="nav-number">1.2.1.</span> <span class="nav-text">Value of Information</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Encoding-Risk-in-the-Cost-Function"><span class="nav-number">1.2.2.</span> <span class="nav-text">Encoding Risk in the Cost Function</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3-The-Dynamic-Programming-Algorithm"><span class="nav-number">1.3.</span> <span class="nav-text">1.3 The Dynamic Programming Algorithm</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Principle-of-Optimality"><span class="nav-number">1.3.1.</span> <span class="nav-text">Principle of Optimality</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#The-DP-Algorithm"><span class="nav-number">1.3.2.</span> <span class="nav-text">The DP Algorithm</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4-State-Augmentation-and-Other-Reformulations"><span class="nav-number">1.4.</span> <span class="nav-text">1.4 State Augmentation and Other Reformulations</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Case1-Time-Lags"><span class="nav-number">1.4.1.</span> <span class="nav-text">Case1: Time Lags</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Case2-Correlated-Disturbances"><span class="nav-number">1.4.2.</span> <span class="nav-text">Case2: Correlated Disturbances</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
