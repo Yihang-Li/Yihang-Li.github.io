@@ -30,4 +30,32 @@ mathjax: true
 - `Constructing` New Logical Equivalences
 - `Bit Operations`  i.e.: or, and, xor
 - Satisfiability is a `key technology` in AI and computer science (Homework: use truth table to show the three compound statements here are satisfiable.)
--
+- `Negation Normal Form (NNF)`: A formula is said to be in NNF if it only contains `not`, `and` and `or` connectives and only atoms can be negated.
+  - Every formula can be converted to NNF in linear time.
+  - disjunctive normal form
+  - functionally complete
+- `Literal`: a propositional variable or the negation of a propositional variable.
+  (The former is positive while the latter is negative)
+- `Term`: is a literal or the conjunction (and) of two or more literals.
+- `Clause`: is a literal or the disjunction (or) of two or more literals.
+- `Disjunctive Normal Form (DNF)`: A compound proposition is in DNF if it is a term or a disjunction of two or more terms. (i.e. an OR if ANDs).
+  - Every fomula can be converted to DNF in exponential time and space
+- `Conjunctive Normal Form (CNF)`: A compound proposition is in CNF if it is a clause or a conjunction of two or more clauses. (i.e. an AND of ORs).
+- Propositional satisfiability is NP-hard
+- 2SAT problem has linear time algo; 3SAT has no polynomial time algo: NP-hard
+- `Horn clause` : is a clause which contains at most one postive literal. (General format: not A_1 or not A_2 or ... or not A_n and B, this may be rewritten as an implication: (A_1 and A_2 and ... and A_n) -> B)
+- `Proof Methods` for P -> Q
+  - Exhaustive proof: demonstrate for all possible cases
+  - Direct proof: Assume P, prove Q
+  - Proof by contradiction: Assume P and not Q; show it is false
+  - Proof by contraposition: Assume not Q, prove not P
+- `Inference rules` Antecedents/Consequent:
+  i.e. p/(p or q) is equivalent to p -> (p or q)
+- `Resolution Inference`:
+  [(l or l_1 or ... or l_n) and (not l or not l_1^{\prime} or ... or l_n^{\prime})] / (l_1 or ... or l_n or l_1^{\prime} or ... or l_n^{\prime})
+  i.e. [(a or b) and (not a or c)] / (b or c)
+- entail ( |- ) = imply ( -> )
+  entailment means that one thing follows from another
+- `Truth Tree` & `Assumptions`
+  [Truth Tree](chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=http%3A%2F%2Fhome.sandiego.edu%2F~baber%2Flogic%2F10.TruthTrees.pdf)
+  Use assumption to prove a compound proposition
