@@ -79,6 +79,8 @@ class Solution:
 - 找基准值 （pivot element）
 - 分区 （partitioning）
 
+**虚假的快排**
+
 ```python
 class Solution:
     def MySort(self , arr ):
@@ -92,6 +94,85 @@ class Solution:
             greater = [i for i in arr[1:] if i > pivot]
             return self.MySort(less) + [pivot] + self.MySort(greater)
 ```
+
+**真实的快排**
+
+**一. 挖坑填数分区法**
+
+```python
+def partition1(arr, left, right):
+    """挖坑填数"""
+    pivot = arr[left]
+    while left < right:
+        while left < right and arr[right] >= pivot: right -= 1
+        if left < right: arr[left] = arr[right]
+        while left < right and arr[left] <= pivot: left += 1
+        if left < right: arr[right] = arr[left]
+    arr[left] = pivot
+    return left
+```
+
+**二. 双指针前后互换法** 注：此方法老是写不对，需加强练习
+
+```python
+# 还需加强练习
+def partition2(arr, left, right):
+    """双指针交换"""
+    pivot = arr[left]
+    index = left
+    while left < right:
+        while left <= right and arr[left] <= pivot: left += 1
+        while left <= right and arr[right] >= pivot: right -= 1
+        if left > right: break
+        arr[left], arr[right] = arr[right], arr[left]
+    arr[index], arr[right] = arr[right], arr[index]
+    return right
+
+def partition2_mid(arr, left, right):
+    """双指针交换 + 三数取中优化"""
+    mid = (left + right) >> 1
+    if arr[left] > arr[right]: arr[left], arr[right] = arr[right], arr[left]
+    if arr[mid] > arr[right]: arr[mid], arr[right] = arr[right], arr[mid]
+    if arr[mid] > arr[left]: arr[mid], arr[left] = arr[left], arr[mid]
+    pivot = arr[left]
+    index = left
+```
+
+**三. 三路快排法**
+
+```python
+#优选
+def partition3(arr, left, right):
+    """三路快排 + 三数取中"""
+    mid = (left + right) >> 1
+    if arr[left] > arr[right]: arr[left], arr[right] = arr[right], arr[left]
+    if arr[mid] > arr[right]: arr[mid], arr[right] = arr[right], arr[mid]
+    if arr[mid] > arr[left]: arr[mid], arr[left] = arr[left], arr[mid]
+    pivot = arr[left]
+    i = left + 1
+    while i <= right:
+        if arr[i] > pivot:
+            arr[i], arr[right] = arr[right], arr[i]
+            right -= 1
+        if arr[i] < pivot:
+            arr[i], arr[left] = arr[left], arr[i]
+            i += 1
+            left += 1
+        if arr[i] == pivot:
+            i += 1
+    return left, right
+```
+
+主体：
+
+```python
+def quick_sort(arr, left, right):
+    if left >= right: return
+    index = partition2(arr, left, right)
+    quick_sort(arr, left, index-1)
+    quick_sort(arr, index+1, right)
+```
+
 
 ## 归并排序 Merge Sort
 
