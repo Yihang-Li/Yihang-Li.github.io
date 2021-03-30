@@ -18,15 +18,15 @@
     var CONFIG = {"hostname":"yihang-li.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="See More ……">
+  <meta name="description" content="冒泡排序 Bubble Sort123456789101112131415class Solution:    def MySort(self , arr ):#         write code here#         return sorted(arr)        #冒泡排序 O(n**2)        n = len(arr)        left = 0        wh">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Sort Algorithm">
 <meta property="og:url" content="https://yihang-li.github.io/2021/03/09/Sort_Algo/index.html">
 <meta property="og:site_name" content="Yihang">
-<meta property="og:description" content="See More ……">
+<meta property="og:description" content="冒泡排序 Bubble Sort123456789101112131415class Solution:    def MySort(self , arr ):#         write code here#         return sorted(arr)        #冒泡排序 O(n**2)        n = len(arr)        left = 0        wh">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-09T07:02:19.533Z">
-<meta property="article:modified_time" content="2021-03-30T07:41:54.484Z">
+<meta property="article:modified_time" content="2021-03-30T07:46:11.567Z">
 <meta property="article:author" content="Yihang Li">
 <meta property="article:tag" content="Algorithm">
 <meta name="twitter:card" content="summary">
@@ -1350,7 +1350,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #870bee;
+  background: #d4d2dd;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2658,7 +2658,7 @@ embed {
 
 
 
-<!-- hexo injector head_end end --><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml"><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<!-- hexo injector head_end end --><!-- hexo-inject:begin --><!-- hexo-inject:end --><link rel="alternate" href="/atom.xml" title="Yihang" type="application/atom+xml">
 <script>function loadCss(l){var d=document,h=d.head,s=d.createElement('link');s.rel='stylesheet';s.href=l;!function e(f){if (d.body)return f();setTimeout(function(){e(f)})}(function(){h.appendChild(s);});}loadCss('/style.css');loadCss('https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css');loadCss('https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css');</script><noscript><link rel="stylesheet" href="/style.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css"></noscript></head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage">
@@ -2799,7 +2799,7 @@ embed {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 15:41:54" itemprop="dateModified" datetime="2021-03-30T15:41:54+08:00">2021-03-30</time>
+                <time title="修改时间：2021-03-30 15:46:11" itemprop="dateModified" datetime="2021-03-30T15:46:11+08:00">2021-03-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2822,14 +2822,13 @@ embed {
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>See More ……</p>
-<a id="more"></a>
-<h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序 Bubble Sort"></a>冒泡排序 Bubble Sort</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MySort</span>(<span class="params">self , arr </span>):</span></span><br><span class="line"><span class="comment">#         write code here</span></span><br><span class="line"><span class="comment">#         return sorted(arr)</span></span><br><span class="line">        <span class="comment">#冒泡排序 O(n**2) 超时</span></span><br><span class="line">        n = <span class="built_in">len</span>(arr)</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; n-<span class="number">1</span>:</span><br><span class="line">            right = left + <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &lt; n:</span><br><span class="line">                <span class="keyword">if</span> arr[left] &gt; arr[right]:</span><br><span class="line">                    arr[left], arr[right] = arr[right], arr[left]</span><br><span class="line">                right += <span class="number">1</span></span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> arr</span><br></pre></td></tr></tbody></table></figure>
+        <h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序 Bubble Sort"></a>冒泡排序 Bubble Sort</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MySort</span>(<span class="params">self , arr </span>):</span></span><br><span class="line"><span class="comment">#         write code here</span></span><br><span class="line"><span class="comment">#         return sorted(arr)</span></span><br><span class="line">        <span class="comment">#冒泡排序 O(n**2)</span></span><br><span class="line">        n = <span class="built_in">len</span>(arr)</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; n-<span class="number">1</span>:</span><br><span class="line">            right = left + <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &lt; n:</span><br><span class="line">                <span class="keyword">if</span> arr[left] &gt; arr[right]:</span><br><span class="line">                    arr[left], arr[right] = arr[right], arr[left]</span><br><span class="line">                right += <span class="number">1</span></span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> arr</span><br></pre></td></tr></tbody></table></figure>
 <h2 id="桶排序-Bucket-Sort"><a href="#桶排序-Bucket-Sort" class="headerlink" title="桶排序 Bucket Sort"></a>桶排序 Bucket Sort</h2><p>基本思路是：</p>
 <ul>
 <li>将待排序元素划分到不同的痛。先扫描一遍序列求出最大值 maxV 和最小值 minV ，设桶的个数为 k ，则把区间 [minV, maxV] 均匀划分成 k 个区间，每个区间就是一个桶。将序列中的元素分配到各自的桶。<br>对每个桶内的元素进行排序。可以选择任意一种排序算法, 将各个桶中的元素合并成一个大的有序序列。</li>
 <li>假设数据是均匀分布的，则每个桶的元素平均个数为 n/k 。假设选择用快速排序对每个桶内的元素进行排序，那么每次排序的时间复杂度为 O(n/klog(n/k)) 。总的时间复杂度为 O(n)+O(k)O(n/klog(n/k)) = O(n+nlog(n/k)) = O(n+nlogn-nlogk 。当 k 接近于 n 时，桶排序的时间复杂度就可以金斯认为是 O(n) 的。即桶越多，时间效率就越高，而桶越多，空间就越大。</li>
 </ul>
+<a id="more"></a>
 <p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_19446965/article/details/81517552">https://blog.csdn.net/qq_19446965/article/details/81517552</a></p>
 <h2 id="计数排序-Counting-Sort"><a href="#计数排序-Counting-Sort" class="headerlink" title="计数排序 Counting Sort"></a>计数排序 Counting Sort</h2><ul>
 <li>是一种O(n)的排序算法，其思路是开一个长度为 maxValue-minValue+1 的数组，然后分配。扫描一遍原始数组，以当前值- minValue 作为下标，将该下标的计数器增1。收集。扫描一遍计数器数组，按顺序把值收集起来。</li>
