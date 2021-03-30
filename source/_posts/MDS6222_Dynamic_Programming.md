@@ -77,7 +77,7 @@ Given a discrete-time dynamic system
 $$
 x_{k+1} = f_k(x_k, u_k, \omega_k), \quad k = 0, 1, \cdots, N-1,
 $$
-where the state $x_k \in S_k,$ the control $u_k \in U_k(S_k) \sub C_k,$ and the random disturbance $\omega_k \in D_k = P(\dot\ |x_k, u_k).$
+where the state $x_k \in S_k,$ the control $u_k \in U_k(S_k) \sub C_k,$ and the random disturbance $\omega_k \in D_k = P(\cdot|x_k, u_k)$
 And given an initial state $x_0$ and an admissible policy $\pi = \{\mu_0, \cdots, \mu_{N-1}\},$ for given stage cost function $g_k,$ the expected cost of $\pi$ starting at $x_0$ is
 $$
 J_\pi(x_0) = E\left\{g_N(x_N) + \sum_{k = 0}^{N-1}g_k(x_k, \mu_k(x_k), \omega_k)\right\}
@@ -109,25 +109,24 @@ Let $\pi^* = \{\mu_0^*, \cdots, \mu_{N-1}^*\}$ be optimal policy. Consider the "
 $$
 E\left\{g_N(x_N) + \sum_{k = i}^{N-1}g_k(x_k, \mu_k(x_k), \omega_k)\right\}
 $$
-Then the tail policy is optimal for the tail subproblem. (Optimization of the future does not depend on what we did in past)
+Then the tail policy is optimal for the tail subproblem. (`Optimization of the future does not depend on what we did in past`)
 
 - The DP algorithm is based on this idea: it proceeds sequentially, by solving all the tail subproblems of a given time length, using the solution of the tail subproblems of shorter time length.
   - e.g. deterministic scheduling example: length-2-tail -> length-3-tail -> length-4-original
   - e.g. stochastic inventory control example: length-1-tail -> length-2-tail ->  length-$N-k$-tail
 
-- > 'One-at-a-time version of Divide and Conquer'
+- > `One-at-a-time version of Divide and Conquer`
 -  While the original problem requires an optimization over the set of policies, the DP algorithm decomposes the problem into a sequence of minimizations carried out over the set of controls. Each of these minimizations is much simpler than the original problem.
 
 
 
 ### The DP Algorithm
-{% note [info] %}
 **Proposition 1.3.1**: Start with $J_N(x_N) = g_N(x_N)$ and go backwards using :
 $$
 J_{k}\left(x_{k}\right) =\min _{u_{k} \in U_{k}\left(x_{k}\right)} \underset{\omega_{k}}{E}\left\{g_{k}\left(x_{k}, u_{k}, \omega_{k}\right) + J_{k+1}\left(f_{k}\left(x_{k}, u_{k}, \omega_{k}\right)\right)\right\}, \quad k=0,1, \ldots, N-1
 $$
 Then $J_0(x_0),$ generated at the last step, is equal to the optimal cost $J^*(x_0)$. Also, the policy $\pi^* = \left\{\mu_0^*, \ldots, \mu_{N-1}^* \right\}$, where $\mu_k^*(x_k)$ minimizes in the right side above for each $x_k$ and $k$, is optimal
-{% endnote %}
+
 > Proof by induction that $J_k(x_k)$ is equal to $J_k^*(x_k)$, defined as the optimal cost of the tail subproblem that starts at time $k$ at state $x_k$.
 
 >Note:

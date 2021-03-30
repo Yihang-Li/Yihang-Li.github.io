@@ -1,4 +1,4 @@
 ---
 title: Machine Learning Summary
-tags:
+tags: [Notes]
 ---

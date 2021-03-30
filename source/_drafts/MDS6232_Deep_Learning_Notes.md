@@ -1,5 +1,5 @@
 ---
-title: MDS6232 Deep Learning Course Notes(Updating)
+title: MDS6232 Deep Learning Course Notes
 date: 2021-01-11 17:13:14
 tags: [Deep Learning]
 categories: Notes
