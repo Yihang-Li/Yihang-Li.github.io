@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #6cff4b;
+  background: #ff0430;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2870,7 +2870,7 @@ embed {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 15:36:06" itemprop="dateModified" datetime="2021-03-30T15:36:06+08:00">2021-03-30</time>
+                <time title="修改时间：2021-03-30 15:50:32" itemprop="dateModified" datetime="2021-03-30T15:50:32+08:00">2021-03-30</time>
               </span>
 
           
@@ -2884,9 +2884,13 @@ embed {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>See more ……<br>
+          <h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="分类准确率"><a href="#分类准确率" class="headerlink" title="分类准确率"></a>分类准确率</h3><blockquote>
+<p>分类正确的样本占总样本的比例：(等价于0-1 损失)</p>
+<script type="math/tex; mode=display">\text{Accuracy} = \frac{n_{\text{correct}}}{n_{\text{total}}}</script><p>缺点：当数据标签失衡时，占比大的类别往往成为影响准确率的最主要因素</p>
+</blockquote>
+<p>解决：改用平均准确率，即每个类别下的样本准确率的算术平均</p>
           <!--noindex-->
-            </p><div class="post-button">
+            <div class="post-button">
               <a class="btn" href="/2021/03/13/%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/#more" rel="contents">
                 阅读全文 »
               </a>

@@ -1207,12 +1207,12 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
   <entry>
     <title>算法相关知识点总结</title>
     <url>/2021/03/13/%E7%AE%97%E6%B3%95%E9%9D%A2%E8%AF%95%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86%E7%82%B9%E6%80%BB%E7%BB%93/</url>
-    <content><![CDATA[<p>See more ……<br><a id="more"></a></p>
-<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="分类准确率"><a href="#分类准确率" class="headerlink" title="分类准确率"></a>分类准确率</h3><blockquote>
+    <content><![CDATA[<h2 id="模型评估"><a href="#模型评估" class="headerlink" title="模型评估"></a>模型评估</h2><h3 id="分类准确率"><a href="#分类准确率" class="headerlink" title="分类准确率"></a>分类准确率</h3><blockquote>
 <p>分类正确的样本占总样本的比例：(等价于0-1 损失)</p>
 <script type="math/tex; mode=display">\text{Accuracy} = \frac{n_{\text{correct}}}{n_{\text{total}}}</script><p>缺点：当数据标签失衡时，占比大的类别往往成为影响准确率的最主要因素</p>
 </blockquote>
 <p>解决：改用平均准确率，即每个类别下的样本准确率的算术平均</p>
+<a id="more"></a>
 <h3 id="精确率与召回率（Precision-amp-Recall）"><a href="#精确率与召回率（Precision-amp-Recall）" class="headerlink" title="精确率与召回率（Precision &amp; Recall）"></a>精确率与召回率（Precision &amp; Recall）</h3><blockquote>
 <p>精确率是指分类正确的正样本个数(TP)占分类器判定为正样本的样本个数(TP+FP)的比例: $\frac{TP}{TP+FP}$<br>召回率是指分类正确的正样本个数(TP)占真正的正样本个数(TP + FN)的比例: $\frac{TP}{TP+FN}$<br>Precision 和 Recall 之间往往存在一个权衡，它们通常用来衡量一个排序模型的性能<br>为了综合评估一个排序模型的好坏，最好绘制出模型的P-R曲线<br>它上面的一个点代表在某一阈值下，模型将大于该阈值的结果判定为正样本，小于该阈值的结果判定为负样本，此时返回结果对应的Recall 和 Precision<br>整条P-R曲线是通过将阈值从高到低移动而生成的<br>只用某个点对应的精确率和召回率是不能全面衡量模型性能的，只有通过P-R曲线的整体表现才能对模型进行更为全面的评估</p>
 </blockquote>
