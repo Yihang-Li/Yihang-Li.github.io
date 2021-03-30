@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-03-30T07:09:51.506Z</updated>
+  <updated>2021-03-30T07:22:54.116Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -17,20 +17,19 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>Optimization for Training Deep Models</title>
+    <title>SGD 和它的兄弟们</title>
     <link href="https://yihang-li.github.io/2021/03/21/Optimization%20for%20Training%20Deep%20Models/"/>
     <id>https://yihang-li.github.io/2021/03/21/Optimization%20for%20Training%20Deep%20Models/</id>
     <published>2021-03-21T12:57:33.248Z</published>
-    <updated>2021-03-30T07:09:51.506Z</updated>
+    <updated>2021-03-30T07:22:54.116Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="SGD-和它的兄弟们"><a href="#SGD-和它的兄弟们" class="headerlink" title="SGD 和它的兄弟们"></a>SGD 和它的兄弟们</h2><p><code>Batch Gradient Descent</code>（正常的梯度下降）正常下山</p><p><code>SGD</code> 用单个训练样本的损失来近似平均损失    蒙着眼睛下山 （害怕山谷（震荡）和鞍点（停滞））</p><p><code>Mini-Batch SGD</code> 为了降低随机梯度的方差，使得迭代算法更加稳定，也为了充分利用高度优化的矩阵运算操作，同时处理若干个（一个小批量）的数据</p><p>改进随机梯度下降法：<code>惯性保持</code> <code>环境感知</code></p><p><code>Momentum</code> ： 惯性的获得是基于历史信息 （SGD在山谷震荡、鞍点停止，而加上惯性之后，有助于打破这一困境）</p><script type="math/tex; mode=display">v_t = \gamma v_{t-1} + \eta g_t</script><script type="math/tex; mode=display">\theta_{t+1} = \theta_t - v_t</script><p>前进步伐$-v_t$由两部分组成：一是学习率$\eta$乘以当前估计的梯度$g_t$；二是带衰减的前一次步伐$v_{t-1}$</p><p><code>AdaGrad</code>:  感知环境才能更好地前进 (根据自变量在每个维度的梯度值大小来调整各个维度上的学习率，从而避免统一的学习率难以适应所有维度的问题)</p><p>分量形式：</p><script type="math/tex; mode=display">\theta_{t+1, i} = \theta_{t, i} - \frac{\eta}{\sqrt{\sum_{k=0}^{t}g_{k,i}^2+\epsilon}}g_{t,i}</script><p>其中$\theta_{t+1,i}$表示t+1时刻的参数向量$\theta_{t+1}$的第i个参数，$g_{k,i}$表示k时刻的梯度向量$g_k$的第i个维度（方向）</p><p>向量形式：</p><script type="math/tex; mode=display">s_t = s_{t-1} + g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot g_t</script><p>其中$\odot$表示按元素相乘，$\eta$是学习率，$\epsilon$是为了维持数值稳定性而添加的常数，这里开方、除法、乘法的运算都是按元素运算的</p><p><code>RMSProp</code>： 学会放下，以后才能更好的拿起   (Adagrad + forgetting, Adagrad 一直在按元素累加过去梯度的平方，始终不肯放下，导致在迭代后期学习率过小，可能较难找到一个有用的解，RMSProp学会了放下，带来了改进)</p><script type="math/tex; mode=display">s_t = \gamma s_{t-1} + (1-\gamma)g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot g_t</script><p>因为RMSProp算法的状态变量是对平方项$g_t\odot g_t$的指数加权移动平均，所以可以看作最近$\frac{1}{1-\gamma}$个时间步的小批量随机梯度平方项的加权平均。这样就使得自变量每个元素的学习率在迭代过程中就不再一直降低（或不变）</p><p>注：RMSProp源自Coursera上Hinton的一门课</p><p>（<code>AdaDelta</code>：参加D2L（没有学习率超参数，通过使用有关自变量更新量平方的指数加权移动平均的项来替代RMSProp算法中的学习率））</p><p><code>Adam</code>：历史、环境，我都要！（RMSProp + Momentum）</p><script type="math/tex; mode=display">v_t = \beta_1 v_{t-1} + (1-\beta_1) g_t</script><script type="math/tex; mode=display">s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot v_t</script><p>注：还有偏差修正：参见D2L</p><p>【参考】</p><ol><li><a href="https://www.youtube.com/watch?v=OP5HcXJg2Aw">李宏毅</a></li><li><a href="https://d2l.ai/chapter_convolutional-neural-networks/conv-layer.html">D2L</a></li><li>花书</li><li>百面机器学习</li><li>百面深度学习</li><li>课件</li></ol><p>Note：Vanilla 一般的</p>]]></content>
+    <content type="html"><![CDATA[<h2 id="SGD-和它的兄弟们"><a href="#SGD-和它的兄弟们" class="headerlink" title="SGD 和它的兄弟们"></a>SGD 和它的兄弟们</h2><p><code>Batch Gradient Descent</code>（正常的梯度下降）正常下山</p><p><code>SGD</code> 用单个训练样本的损失来近似平均损失    蒙着眼睛下山 （害怕山谷（震荡）和鞍点（停滞））</p><p><code>Mini-Batch SGD</code> 为了降低随机梯度的方差，使得迭代算法更加稳定，也为了充分利用高度优化的矩阵运算操作，同时处理若干个（一个小批量）的数据</p><a id="more"></a><p>改进随机梯度下降法：<code>惯性保持</code> <code>环境感知</code></p><p><code>Momentum</code> ： 惯性的获得是基于历史信息 （SGD在山谷震荡、鞍点停止，而加上惯性之后，有助于打破这一困境）</p><script type="math/tex; mode=display">v_t = \gamma v_{t-1} + \eta g_t</script><script type="math/tex; mode=display">\theta_{t+1} = \theta_t - v_t</script><p>前进步伐$-v_t$由两部分组成：一是学习率$\eta$乘以当前估计的梯度$g_t$；二是带衰减的前一次步伐$v_{t-1}$</p><p><code>AdaGrad</code>:  感知环境才能更好地前进 (根据自变量在每个维度的梯度值大小来调整各个维度上的学习率，从而避免统一的学习率难以适应所有维度的问题)</p><p>分量形式：</p><script type="math/tex; mode=display">\theta_{t+1, i} = \theta_{t, i} - \frac{\eta}{\sqrt{\sum_{k=0}^{t}g_{k,i}^2+\epsilon}}g_{t,i}</script><p>其中$\theta_{t+1,i}$表示t+1时刻的参数向量$\theta_{t+1}$的第i个参数，$g_{k,i}$表示k时刻的梯度向量$g_k$的第i个维度（方向）</p><p>向量形式：</p><script type="math/tex; mode=display">s_t = s_{t-1} + g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot g_t</script><p>其中$\odot$表示按元素相乘，$\eta$是学习率，$\epsilon$是为了维持数值稳定性而添加的常数，这里开方、除法、乘法的运算都是按元素运算的</p><p><code>RMSProp</code>： 学会放下，以后才能更好的拿起   (Adagrad + forgetting, Adagrad 一直在按元素累加过去梯度的平方，始终不肯放下，导致在迭代后期学习率过小，可能较难找到一个有用的解，RMSProp学会了放下，带来了改进)</p><script type="math/tex; mode=display">s_t = \gamma s_{t-1} + (1-\gamma)g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot g_t</script><p>因为RMSProp算法的状态变量是对平方项$g_t\odot g_t$的指数加权移动平均，所以可以看作最近$\frac{1}{1-\gamma}$个时间步的小批量随机梯度平方项的加权平均。这样就使得自变量每个元素的学习率在迭代过程中就不再一直降低（或不变）</p><p>注：RMSProp源自Coursera上Hinton的一门课</p><p>（<code>AdaDelta</code>：参加D2L（没有学习率超参数，通过使用有关自变量更新量平方的指数加权移动平均的项来替代RMSProp算法中的学习率））</p><p><code>Adam</code>：历史、环境，我都要！（RMSProp + Momentum）</p><script type="math/tex; mode=display">v_t = \beta_1 v_{t-1} + (1-\beta_1) g_t</script><script type="math/tex; mode=display">s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex; mode=display">\theta_t = \theta_{t-1} - \frac{\eta}{\sqrt{s_t+\epsilon}}\odot v_t</script><p>注：还有偏差修正：参见D2L</p><p>【参考】</p><ol><li><a href="https://www.youtube.com/watch?v=OP5HcXJg2Aw">李宏毅</a></li><li><a href="https://d2l.ai/chapter_convolutional-neural-networks/conv-layer.html">D2L</a></li><li>花书</li><li>百面机器学习</li><li>百面深度学习</li><li>课件</li></ol><p>Note：Vanilla 一般的</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;h2 id=&quot;SGD-和它的兄弟们&quot;&gt;&lt;a href=&quot;#SGD-和它的兄弟们&quot; class=&quot;headerlink&quot; title=&quot;SGD 和它的兄弟们&quot;&gt;&lt;/a&gt;SGD 和它的兄弟们&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Batch Gradient Descent&lt;/code&gt;（正常
-      
+      &lt;h2 id=&quot;SGD-和它的兄弟们&quot;&gt;&lt;a href=&quot;#SGD-和它的兄弟们&quot; class=&quot;headerlink&quot; title=&quot;SGD 和它的兄弟们&quot;&gt;&lt;/a&gt;SGD 和它的兄弟们&lt;/h2&gt;&lt;p&gt;&lt;code&gt;Batch Gradient Descent&lt;/code&gt;（正常的梯度下降）正常下山&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SGD&lt;/code&gt; 用单个训练样本的损失来近似平均损失    蒙着眼睛下山 （害怕山谷（震荡）和鞍点（停滞））&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Mini-Batch SGD&lt;/code&gt; 为了降低随机梯度的方差，使得迭代算法更加稳定，也为了充分利用高度优化的矩阵运算操作，同时处理若干个（一个小批量）的数据&lt;/p&gt;
     
     </summary>
     

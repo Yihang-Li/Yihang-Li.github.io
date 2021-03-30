@@ -685,11 +685,12 @@ J_{k}\left(x_{k}\right) =\min _{u_{k} \in U_{k}\left(x_{k}\right)} \underset{\om
       </tags>
   </entry>
   <entry>
-    <title>Optimization for Training Deep Models</title>
+    <title>SGD 和它的兄弟们</title>
     <url>/2021/03/21/Optimization%20for%20Training%20Deep%20Models/</url>
     <content><![CDATA[<h2 id="SGD-和它的兄弟们"><a href="#SGD-和它的兄弟们" class="headerlink" title="SGD 和它的兄弟们"></a>SGD 和它的兄弟们</h2><p><code>Batch Gradient Descent</code>（正常的梯度下降）正常下山</p>
 <p><code>SGD</code> 用单个训练样本的损失来近似平均损失    蒙着眼睛下山 （害怕山谷（震荡）和鞍点（停滞））</p>
 <p><code>Mini-Batch SGD</code> 为了降低随机梯度的方差，使得迭代算法更加稳定，也为了充分利用高度优化的矩阵运算操作，同时处理若干个（一个小批量）的数据</p>
+<a id="more"></a>
 <p>改进随机梯度下降法：<code>惯性保持</code> <code>环境感知</code></p>
 <p><code>Momentum</code> ： 惯性的获得是基于历史信息 （SGD在山谷震荡、鞍点停止，而加上惯性之后，有助于打破这一困境）</p>
 <script type="math/tex; mode=display">
