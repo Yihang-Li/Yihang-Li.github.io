@@ -792,9 +792,7 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
   <entry>
     <title>Python_for_Combinations</title>
     <url>/2021/03/13/Python_for_Combinations/</url>
-    <content><![CDATA[<p>See more ……</p>
-<a id="more"></a>
-<p><a href="https://leetcode-cn.com/problems/binary-watch/">401.二进制手表</a>: 一道典型的回溯题，一般的思路是将num分解成h和m，分别表示hour中LED灯亮的数量和minute中LED灯亮的数量，同一个数量对应着不同的取值 i.e. h = 1 对应着 小时可以取到1， 2， 4， 8这四种取值，且都是合法的，而h=2对应着小时可以取到3， 5， 9，6，10，12 这6种取值，其中12超过了11是不合法的。</p>
+    <content><![CDATA[<p><a href="https://leetcode-cn.com/problems/binary-watch/">401.二进制手表</a>: 一道典型的回溯题，一般的思路是将num分解成h和m，分别表示hour中LED灯亮的数量和minute中LED灯亮的数量，同一个数量对应着不同的取值 i.e. h = 1 对应着 小时可以取到1， 2， 4， 8这四种取值，且都是合法的，而h=2对应着小时可以取到3， 5， 9，6，10，12 这6种取值，其中12超过了11是不合法的。</p>
 <p>h的数量固定时，m= num - h 自然也就固定， 而我们要做的就是在固定h的数量时, 将所有合法的小时的对应取值H和分钟的对应取值MM组合起来成为 “H:MM”</p>
 <p>沿着这个思路, 问题归结为两点：</p>
 <blockquote>
@@ -807,6 +805,7 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
 <blockquote>
 <p>给定一个长度为n的列表，求长度为h的不同组合 （注意，需要的是具体的组合，不是组合数）</p>
 </blockquote>
+<a id="more"></a>
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">combinations</span>(<span class="params">nums: <span class="built_in">list</span>, h: <span class="built_in">int</span></span>) -&gt; list[list]:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>其实回顾一下我们小学是怎么求组合的，这个问题也就不攻自破了：</p>
 <blockquote>

@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #cd94ff;
+  background: #870bee;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2942,7 +2942,7 @@ embed {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 15:43:18" itemprop="dateModified" datetime="2021-03-30T15:43:18+08:00">2021-03-30</time>
+                <time title="修改时间：2021-03-30 15:44:24" itemprop="dateModified" datetime="2021-03-30T15:44:24+08:00">2021-03-30</time>
               </span>
 
           
@@ -2956,7 +2956,19 @@ embed {
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>See more ……</p>
+          <p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/binary-watch/">401.二进制手表</a>: 一道典型的回溯题，一般的思路是将num分解成h和m，分别表示hour中LED灯亮的数量和minute中LED灯亮的数量，同一个数量对应着不同的取值 i.e. h = 1 对应着 小时可以取到1， 2， 4， 8这四种取值，且都是合法的，而h=2对应着小时可以取到3， 5， 9，6，10，12 这6种取值，其中12超过了11是不合法的。</p>
+<p>h的数量固定时，m= num - h 自然也就固定， 而我们要做的就是在固定h的数量时, 将所有合法的小时的对应取值H和分钟的对应取值MM组合起来成为 “H:MM”</p>
+<p>沿着这个思路, 问题归结为两点：</p>
+<blockquote>
+<ul>
+<li>其一， 给定h，如何算取[1， 2， 4， 8]的数量为h的合法组合（的和），自然也有m对应的</li>
+<li>其二， 在第一点解决后，如何将给定h情况下，不同的小时对应的取值和分钟对应的取值组合起来</li>
+</ul>
+</blockquote>
+<p>以上，难点在于 如何恰当地实现对组合数的求解</p>
+<blockquote>
+<p>给定一个长度为n的列表，求长度为h的不同组合 （注意，需要的是具体的组合，不是组合数）</p>
+</blockquote>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/03/13/Python_for_Combinations/#more" rel="contents">
