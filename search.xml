@@ -1,18 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Applying Ensemble Method on Cleveland Heart Disease Data Set</title>
-    <url>/2021/01/09/Applying_Ensemble_Method_on_Cleveland_Heart_Disease_Data_Set/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1ZMTx_UoiVuJ-QTwB4RtjSyKL7gHICjLh/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hilbert Space: Midterm Review</title>
     <url>/2020/02/16/Hilbert-Space-Midterm-Review/</url>
     <content><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol>
@@ -36,38 +24,6 @@
         <tag>Hilbert Space</tag>
         <tag>Summary</tag>
         <tag>Review</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>MDS6106Optimization-FinalProject</title>
-    <url>/2021/01/09/MDS6106Optimization-FinalProject/</url>
-    <content><![CDATA[<blockquote>
-<p>The Report and the slides for my Optimization course’s final project</p>
-<p>The code can be referenced at my <a href="https://github.com/Yihang-Li/MDS6106Project">Github Repository</a>, which is also my first team collaborate repo.</p>
-</blockquote>
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1352y10oWzRa84c408Il909EVJkBoqm07/preview" data-height="500px"></div>
-<div class="pdfobject-container" data-target="./pdf/Opt_Slides.pdf" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
-        <tag>Optimization</tag>
-        <tag>Slides</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Implement LARS for Linear and Lasso Regression with Application in Auto-MPG Data Set</title>
-    <url>/2021/01/09/Project3_LARS/</url>
-    <content><![CDATA[<!-- <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/view?usp=sharing" data-height="500px"></div> -->
-<div class="pdfobject-container" data-target="https://drive.google.com/file/d/18nTj7E7YKpdfZCXpG0X3aSsR59ziPGFC/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
       </tags>
   </entry>
   <entry>
@@ -193,19 +149,6 @@
       <tags>
         <tag>Kernel</tag>
         <tag>RFF</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>基于核方法的深圳市房租预测分析</title>
-    <url>/2021/01/09/%E6%9C%AC%E7%A7%91%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1/</url>
-    <content><![CDATA[<div class="pdfobject-container" data-target="https://drive.google.com/file/d/1EJ9ozQqEh6vm35fEdR3QRMbyv-yDTNJB/preview" data-height="500px"></div>
-]]></content>
-      <categories>
-        <category>Report</category>
-      </categories>
-      <tags>
-        <tag>Report</tag>
-        <tag>kernel</tag>
       </tags>
   </entry>
   <entry>
