@@ -45,7 +45,7 @@ typora-root-url: ..
 
 考虑线性参数模型：
 
-$f(\mathbf{x};\mathbf{w}) \equiv <\mathbf{w},\mathbf{x}> \tag{1}$
+$f(\mathbf{x};\mathbf{w}) \equiv <\mathbf{w},\mathbf{x}> $
 
 其中，$\mathbf{x} \in \mathcal{R^d}$是输入变量， $\mathbf{w} \in \mathcal{R^d}$是参数向量，$<\dot{},\dot{}>$表示内积。
 
@@ -57,13 +57,13 @@ $J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$, 其中 $\
 
 以岭回归为例，使用平方损失函数来度量经验风险，$L_2$范数作为正则项：
 
-> $$R_{emp}(\mathbf{w}) \equiv \sum_{i=1}^{\mathcal{l}}(y_i-f(\mathbf{x_i};\mathbf{w}))^2 \tag{2}$$
+> $$R_{emp}(\mathbf{w}) \equiv \sum_{i=1}^{\mathcal{l}}(y_i-f(\mathbf{x_i};\mathbf{w}))^2$$
 
-> $$\Omega(\mathbf{w}) \equiv || \mathbf{w}||_{2}^{2} \tag{3}$$
+> $$\Omega(\mathbf{w}) \equiv \| \mathbf{w}\|_{2}^{2}$$
 
 输入样本构成的数据矩阵记作：$$\mathbf{X} = (\mathbf{x_1}|\mathbf{x_2}|...|\mathbf{x_\mathcal{l}})$$，则岭回归的解析解为：
 
-> $$\widehat{\mathbf{w}} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y} \tag{4}$$
+> $$\widehat{\mathbf{w}} = (\mathbf{X}^T\mathbf{X}+\lambda\mathbf{I})^{-1}\mathbf{X}^T\mathbf{y}$$
 
 (4) 表明岭回归求解的计算复杂度为$O(d^3)$，依赖于输入空间的维数。
 
@@ -71,7 +71,7 @@ $J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$, 其中 $\
 
 > 假设参数$\mathbf{w}$可以写成训练样本的线性组合：
 >
-> $$\mathbf{w} \equiv \sum_{i=1}^{\mathcal{l}}\alpha_i\mathbf{x_i} = \mathbf{X}\mathbf{\alpha} \tag{5}$$
+> $$\mathbf{w} \equiv \sum_{i=1}^{\mathcal{l}}\alpha_i\mathbf{x_i} = \mathbf{X}\mathbf{\alpha}$$
 
 
 
@@ -81,11 +81,11 @@ $J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$, 其中 $\
 
 进一步参数模型可以表示为：
 
-> $$ f(\mathbf{x}) = \sum_{i=1}^{\mathcal{l}}\alpha_ik(\mathbf{x}_i,\mathbf{x}) \tag{6}$$
+> $$ f(\mathbf{x}) = \sum_{i=1}^{\mathcal{l}}\alpha_ik(\mathbf{x}_i,\mathbf{x})$$
 
 基于核化（kernelized）的模型，岭回归的目标函数可以重写为：$$J(\alpha) = ||\mathbf{y}-\mathbf{K}\mathbf{\alpha}||^2+\lambda\mathbf{\alpha}^T\mathbf{K}\mathbf{\alpha}$$，其中$\mathbf{K}$是$\mathcal{l} \times\mathcal{l}$的核矩阵（定义为：$K_{i,j} \equiv k(\mathbf{x}_i, \mathbf{x}_j)$）. 可解得：
 
->  $$\widehat{\mathbf{\alpha}} = (\mathbf{K} + \lambda\mathbf{I})^{-1}\mathbf{y} \tag{7}$$
+>  $$\widehat{\mathbf{\alpha}} = (\mathbf{K} + \lambda\mathbf{I})^{-1}\mathbf{y} $$
 
 (7) 表明核岭回归的计算复杂度为$O（d\mathcal{l}^3)$，其中$d$来自于计算核函数的值，$\mathcal{l}^3$来自于计算核矩阵的逆。
 
@@ -157,7 +157,7 @@ $J(\mathbf{w}) \equiv R_{emp}(\mathbf{w})+\lambda \Omega(\mathbf{w})$, 其中 $\
 
 SVR问题可形式化为最小化如下目标函数：
 
-> $$J_{SVR}(\mathbf{w})=\frac{C}{\mathcal{l}}\sum_{i=1}^{\mathcal{l}}l_{\epsilon}(y_i-<\mathbf{x}_i, \mathbf{w}>+\frac{1}{2}||\mathbf{w}||_2^2) \tag{17}$$
+> $$J_{SVR}(\mathbf{w})=\frac{C}{\mathcal{l}}\sum_{i=1}^{\mathcal{l}}l_{\epsilon}(y_i-<\mathbf{x}_i, \mathbf{w}>+\frac{1}{2}||\mathbf{w}||_2^2) $$
 
 这里  $l_{\epsilon}$ 称为 $\epsilon-insensitive$ 损失函数：$$
 l_{\epsilon}(\eta) \equiv\left\{\begin{array}{ll}

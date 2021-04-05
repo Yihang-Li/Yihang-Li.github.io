@@ -1,5 +1,5 @@
 ---
-title: MDS6106Optimization-FinalProject
+title: Gradient Based Comparision for Logistic and Huber-Smoothed SVM
 date: 2021-01-09T13:16:42+08:00
 tags: [Optimization, Report, Slides]
 categories: Report
