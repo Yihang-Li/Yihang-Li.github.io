@@ -28,7 +28,7 @@ mathjax: true
 `卷积运算（Convolutional Operator）`
 
 $$
-s(t) = (x*w)(t) = \int x(a)w*(t-a)da=\sum_{a=-\infty}^{\infty}x(a)w(t-a)
+s(t) = (x*w)(t) = \int x(a)w(t-a)da=\sum_{a=-\infty}^{\infty}x(a)w(t-a)
 $$
 
 第二个等号为连续情形；第三个等号为离散情形
@@ -48,6 +48,8 @@ $x$称为输入，$w$称为核函数，也叫filter，输出有时称作特征�
 - 卷积核中的in_channel. 即上一次卷积的out_channel, 或者当第一次卷积时，为对应图片样本的channel
 
 > 具体来说，卷积层是通过特定数目的卷积核（filter）对输入的多通道（channel）特征图进行扫描和运算，从而得到多个拥有更高层语义信息的输出特征图（通道数目等于卷积核个数）
+
+
 
 `感受野（Receptive Field)` 对于*某层输出特征图*上的某个点，在卷积神经网络的*原始输入数据*上能影响到这个点的取值的区域
 
@@ -145,3 +147,5 @@ Convo + Normal + Pooling
 4. 百面机器学习
 5. 百面深度学习
 6. 课件
+7. [cs231n](https://cs231n.github.io/convolutional-networks/)
+

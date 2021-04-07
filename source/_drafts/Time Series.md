@@ -268,10 +268,6 @@ Stationary and non-stationary AR processes:
 
 
 
-
-
-
-
 ### MA Process
 A moving average (MA) process of order q:
 $$
@@ -341,9 +337,7 @@ $\mathrm{y}_{t}=a_{1} \mathrm{y}_{t-1}+a_{2} \mathrm{y}_{t-2}+\ldots+a_{p} \math
 ### Seasonal ARIMA
 Seasonal ARIMA model uses differencing at a lag equal to the number of seasons (s)
 Reminder: seasonal differencing $(x_t - x_{t-s}) - (x_{t-1} - x_{t-1-s}) = x_t - x_{t-1} - x_{t-s} + x_{t-1-s}$
-ARIMA(p, d, q)(P, D, Q)
-
-
+$\operatorname{ARIMA}(p, d, q)(P, D, Q)_s$ 
 
 
 
