@@ -18,19 +18,20 @@
     var CONFIG = {"hostname":"yihang-li.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":true,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":-1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="tags">
-<meta property="og:url" content="https://yihang-li.github.io/tags/index.html">
+  <meta name="description" content="🌲前缀树的核心思想是用空间换时间，利用字符串的公共前缀来降低查询的时间开销。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="前缀树">
+<meta property="og:url" content="https://yihang-li.github.io/2021/04/07/%E5%89%8D%E7%BC%80%E6%A0%91/index.html">
 <meta property="og:site_name" content="Yihang">
-<meta property="og:description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+<meta property="og:description" content="🌲前缀树的核心思想是用空间换时间，利用字符串的公共前缀来降低查询的时间开销。">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-02-05T14:28:49.000Z">
-<meta property="article:modified_time" content="2021-01-09T04:26:12.245Z">
+<meta property="article:published_time" content="2021-04-07T04:58:19.063Z">
+<meta property="article:modified_time" content="2021-04-08T03:07:59.300Z">
 <meta property="article:author" content="Yihang Li">
+<meta property="article:tag" content="Leetcode">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://yihang-li.github.io/tags/">
+<link rel="canonical" href="https://yihang-li.github.io/2021/04/07/%E5%89%8D%E7%BC%80%E6%A0%91/">
 
 
 <script id="page-configurations">
@@ -38,13 +39,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>tags | Yihang
-</title>
+  <title>前缀树 | Yihang</title>
   
 
 
@@ -2761,51 +2761,134 @@ embed {
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/04/07/%E5%89%8D%E7%BC%80%E6%A0%91/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
       <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          前缀树
+        </h1>
 
-<h1 class="post-title" itemprop="name headline">tags
-</h1>
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
 
-<div class="post-meta">
+              <time title="创建时间：2021-04-07 12:58:19" itemprop="dateCreated datePublished" datetime="2021-04-07T12:58:19+08:00">2021-04-07</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-08 11:07:59" itemprop="dateModified" datetime="2021-04-08T11:07:59+08:00">2021-04-08</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>🌲前缀树的核心思想是用<code>空间换时间</code>，利用字符串的<code>公共前缀</code>来降低查询的时间开销。</p>
+<a id="more"></a>
+<p>Note: 这里先总结一个简化版本，更完善的可以参见[《算法4》-5.2 单词查找数]</p>
+<p>基于<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">208. 实现Trie（前缀树）</a></p>
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>前缀树也称 字典树 Trie，典型的应用场景有基于前缀的<code>模糊搜索</code> i.e. 在谷歌搜索时，输入“卷积”，搜索栏会给出“卷积”、“卷积神经网络”、“卷积运算公式等”。此外，经典的应用场景还有<code>自动补全</code>和<code>拼写检查</code>等</p>
+<ul>
+<li>基本操作: <code>插入</code>和<code>查询</code><ul>
+<li>插入：构建前缀树</li>
+<li>查询：完整查询 或 前缀查询，而基于前缀查询是前缀树的灵魂，也是其名字的来源</li>
+<li>删除：很少使用</li>
+</ul>
+</li>
+</ul>
+<h2 id="Trie结点"><a href="#Trie结点" class="headerlink" title="Trie结点"></a>Trie结点</h2><ul>
+<li>前缀树根节点无实际意义</li>
+<li>每个结点一个<code>存储域</code>，用来存储<code>一个字符</code></li>
+<li>每个结点还有控制域可以根据实际问题自定义 i.e.， 是否是对应单词，该前缀出现的次数</li>
+</ul>
+<p>如用于判断给定单词是否</p>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        self.children = {}</span><br><span class="line">        self.isword = <span class="literal">False</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Trie-插入"><a href="#Trie-插入" class="headerlink" title="Trie 插入"></a>Trie 插入</h2><p>构建前缀🌲的核心，即：将单词全部依次插入到前缀树中</p>
+<ul>
+<li>将单词的结尾字符对应结点标记为True：从根结点出发到某一标记结点所经过的字符组成的单词，在单词列表中出现过</li>
+<li>插入新单词的时候就从根结点出发<code>一个字符一个字符插入</code>，有对应的字符节点就更新对应的属性，没有就创建新的结点</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self, word: <span class="built_in">str</span></span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Inserts a word into the trie.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    node = self.root</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> word:</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> node.children:</span><br><span class="line">            node.children[ch] = TrieNode()</span><br><span class="line">        node = node.children[ch]</span><br><span class="line">    node.isword = <span class="literal">True</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="Trie查找"><a href="#Trie查找" class="headerlink" title="Trie查找"></a>Trie查找</h2><p>对于前缀🌲Trie， 给定一个单词，和插入的过程类似，<code>一个字符一个字符找</code></p>
+<ul>
+<li>若中途有个字符没有对应结点，则不含该单词</li>
+<li>若字符串遍历完了，都有对应节点，但最后一个字符对应的结点没有被标记为True，也不含该单词</li>
+</ul>
+<figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">search</span>(<span class="params">self, word: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    node = self.root</span><br><span class="line">    <span class="keyword">for</span> ch <span class="keyword">in</span> word:</span><br><span class="line">        <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> node.children:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        node = node.children[ch]</span><br><span class="line">    <span class="keyword">if</span> <span class="keyword">not</span> node.isword: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">    <span class="keyword">return</span> <span class="literal">True</span></span><br></pre></td></tr></tbody></table></figure>
+<h2 id="根据特定功能修改添加代码-———-以208为例"><a href="#根据特定功能修改添加代码-———-以208为例" class="headerlink" title="根据特定功能修改添加代码 ——— 以208为例"></a>根据特定功能修改添加代码 ——— 以<a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/implement-trie-prefix-tree/">208</a>为例</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TrieNode</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.children = {}</span><br><span class="line">        self.isword = <span class="literal">False</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Trie</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span>(<span class="params">self</span>):</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Initialize your data structure here.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        self.root = TrieNode()</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">insert</span>(<span class="params">self, word: <span class="built_in">str</span></span>) -&gt; <span class="keyword">None</span>:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Inserts a word into the trie.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        node = self.root</span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> word:</span><br><span class="line">            <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> node.children:</span><br><span class="line">                node.children[ch] = TrieNode()</span><br><span class="line">            node = node.children[ch]</span><br><span class="line">        node.isword = <span class="literal">True</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">search</span>(<span class="params">self, word: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if the word is in the trie.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        node = self.root</span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> word:</span><br><span class="line">            <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> node.children:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            node = node.children[ch]</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> node.isword: <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">startsWith</span>(<span class="params">self, prefix: <span class="built_in">str</span></span>) -&gt; bool:</span></span><br><span class="line">        <span class="string">"""</span></span><br><span class="line"><span class="string">        Returns if there is any word in the trie that starts with the given prefix.</span></span><br><span class="line"><span class="string">        """</span></span><br><span class="line">        node = self.root</span><br><span class="line">        <span class="keyword">for</span> ch <span class="keyword">in</span> prefix:</span><br><span class="line">            <span class="keyword">if</span> ch <span class="keyword">not</span> <span class="keyword">in</span> node.children:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line">            node = node.children[ch]</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Your Trie object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"># obj = Trie()</span></span><br><span class="line"><span class="comment"># obj.insert(word)</span></span><br><span class="line"><span class="comment"># param_2 = obj.search(word)</span></span><br><span class="line"><span class="comment"># param_3 = obj.startsWith(prefix)</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Lucifer: “如何知道该使用前缀树优化是一个难点，不过大家只要牢牢记一点即可，那就是<strong>算法的复杂度瓶颈在字符串查找，并且字符串有很多公共前缀，就可以用前缀树优化</strong>。”</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          
+          <div class="post-tags">
+              <a href="/tags/Leetcode/" rel="tag"><i class="fa fa-tag"></i> Leetcode</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/03/21/Optimization%20for%20Training%20Deep%20Models/" rel="prev" title="SGD 和它的兄弟们">
+      <i class="fa fa-chevron-left"></i> SGD 和它的兄弟们
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
-</div>
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 25 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Algorithm/" style="font-size: 12px; color: #ccc">Algorithm</a> <a href="/tags/DP/" style="font-size: 12px; color: #ccc">DP</a> <a href="/tags/Deep-Learning/" style="font-size: 12px; color: #ccc">Deep Learning</a> <a href="/tags/Graph/" style="font-size: 12px; color: #ccc">Graph</a> <a href="/tags/Hilbert-Space/" style="font-size: 12px; color: #ccc">Hilbert Space</a> <a href="/tags/Kernel/" style="font-size: 12px; color: #ccc">Kernel</a> <a href="/tags/Kernel-Methods/" style="font-size: 12px; color: #ccc">Kernel Methods</a> <a href="/tags/Leetcode/" style="font-size: 30px; color: #111">Leetcode</a> <a href="/tags/Notes/" style="font-size: 12px; color: #ccc">Notes</a> <a href="/tags/Optimization/" style="font-size: 12px; color: #ccc">Optimization</a> <a href="/tags/Python/" style="font-size: 12px; color: #ccc">Python</a> <a href="/tags/RFF/" style="font-size: 12px; color: #ccc">RFF</a> <a href="/tags/Report/" style="font-size: 30px; color: #111">Report</a> <a href="/tags/Review/" style="font-size: 12px; color: #ccc">Review</a> <a href="/tags/Slides/" style="font-size: 12px; color: #ccc">Slides</a> <a href="/tags/Summary/" style="font-size: 12px; color: #ccc">Summary</a> <a href="/tags/Union-Find/" style="font-size: 12px; color: #ccc">Union Find</a> <a href="/tags/coursera/" style="font-size: 12px; color: #ccc">coursera</a> <a href="/tags/data-access/" style="font-size: 12px; color: #ccc">data access</a> <a href="/tags/geospatial/" style="font-size: 12px; color: #ccc">geospatial</a> <a href="/tags/kernel/" style="font-size: 12px; color: #ccc">kernel</a> <a href="/tags/python/" style="font-size: 21px; color: #6f6f6f">python</a> <a href="/tags/summary/" style="font-size: 21px; color: #6f6f6f">summary</a> <a href="/tags/visualization/" style="font-size: 12px; color: #ccc">visualization</a> <a href="/tags/web/" style="font-size: 12px; color: #ccc">web</a>
-            </div>
-          </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
-
-    
-    
-    
 
 
           </div>
@@ -2856,6 +2939,7 @@ embed {
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%AE%80%E4%BB%8B"><span class="nav-number">1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie%E7%BB%93%E7%82%B9"><span class="nav-number">2.</span> <span class="nav-text">Trie结点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie-%E6%8F%92%E5%85%A5"><span class="nav-number">3.</span> <span class="nav-text">Trie 插入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Trie%E6%9F%A5%E6%89%BE"><span class="nav-number">4.</span> <span class="nav-text">Trie查找</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%A0%B9%E6%8D%AE%E7%89%B9%E5%AE%9A%E5%8A%9F%E8%83%BD%E4%BF%AE%E6%94%B9%E6%B7%BB%E5%8A%A0%E4%BB%A3%E7%A0%81-%E2%80%94%E2%80%94%E2%80%94-%E4%BB%A5208%E4%B8%BA%E4%BE%8B"><span class="nav-number">5.</span> <span class="nav-text">根据特定功能修改添加代码 ——— 以208为例</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -2986,14 +3070,19 @@ embed {
 
 
 
+
+
+
+
+
+  
+
+  
+      
+
 <!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
-
-
-
-  
-
-  
+    
 
   
 
@@ -3043,4 +3132,55 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
     element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
 });
+;
+
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      loader: {
+          load: ['[tex]/mhchem'],
+        source: {
+          '[tex]/amsCd': '[tex]/amscd',
+          '[tex]/AMScd': '[tex]/amscd'
+        }
+      },
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+          packages: {'[+]': ['mhchem']},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              let target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    (function () {
+      var script = document.createElement('script');
+      script.src = '//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js';
+      script.defer = true;
+      document.head.appendChild(script);
+    })();
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.texReset();
+    MathJax.typeset();
+  }
 </script></body></html>
