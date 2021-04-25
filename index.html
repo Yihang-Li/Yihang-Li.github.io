@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #a426ff;
+  background: #a386cb;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2711,7 +2711,7 @@ embed {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">19</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">20</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -2761,6 +2761,80 @@ embed {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/04/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%80%BB%E7%BB%93/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/04/25/%E4%BA%8C%E5%8F%89%E6%A0%91%E9%81%8D%E5%8E%86%E6%80%BB%E7%BB%93/" class="post-title-link" itemprop="url">二叉树遍历总结</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-04-25 11:34:21 / 修改时间：15:29:57" itemprop="dateCreated datePublished" datetime="2021-04-25T11:34:21+08:00">2021-04-25</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="二叉树的前序遍历"><a href="#二叉树的前序遍历" class="headerlink" title="二叉树的前序遍历"></a>二叉树的前序遍历</h2><h3 id="递归"><a href="#递归" class="headerlink" title="递归"></a>递归</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Definition for a binary tree node.</span></span><br><span class="line"><span class="comment"># class TreeNode:</span></span><br><span class="line"><span class="comment">#     def __init__(self, val=0, left=None, right=None):</span></span><br><span class="line"><span class="comment">#         self.val = val</span></span><br><span class="line"><span class="comment">#         self.left = left</span></span><br><span class="line"><span class="comment">#         self.right = right</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#递归</span></span><br><span class="line">        self.res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">preorder</span>(<span class="params">root</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">            self.res.append(root.val)</span><br><span class="line">            preorder(root.left)</span><br><span class="line">            preorder(root.right)</span><br><span class="line">        preorder(root)</span><br><span class="line">        <span class="keyword">return</span> self.res</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">preorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#迭代</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">        stack, res = [root], []</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            cur = stack.pop()</span><br><span class="line">            res.append(cur.val)</span><br><span class="line">            <span class="keyword">if</span> cur.right: stack.append(cur.right)</span><br><span class="line">            <span class="keyword">if</span> cur.left: stack.append(cur.left)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a>二叉树的中序遍历</h2><h3 id="递归-1"><a href="#递归-1" class="headerlink" title="递归"></a>递归</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#递归</span></span><br><span class="line">        res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">recur</span>(<span class="params">root</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> root.left: recur(root.left)</span><br><span class="line">            res.append(root.val)</span><br><span class="line">            <span class="keyword">if</span> root.right: recur(root.right)</span><br><span class="line">        recur(root)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="迭代-1"><a href="#迭代-1" class="headerlink" title="迭代"></a>迭代</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">inorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#迭代</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">        stack, res = [root], []</span><br><span class="line">        visited = <span class="built_in">set</span>()</span><br><span class="line">        visited.add(root)</span><br><span class="line">        <span class="keyword">while</span> stack:</span><br><span class="line">            p = stack[-<span class="number">1</span>]</span><br><span class="line">            <span class="keyword">while</span> p.left <span class="keyword">and</span> p.left <span class="keyword">not</span> <span class="keyword">in</span> visited:</span><br><span class="line">                visited.add(p.left)</span><br><span class="line">                stack.append(p.left)</span><br><span class="line">                p = p.left</span><br><span class="line">            p = stack.pop()</span><br><span class="line">            res.append(p.val)</span><br><span class="line">            <span class="keyword">if</span> p.right: stack.append(p.right)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="二叉树的后序遍历"><a href="#二叉树的后序遍历" class="headerlink" title="二叉树的后序遍历"></a>二叉树的后序遍历</h2><h3 id="递归-2"><a href="#递归-2" class="headerlink" title="递归"></a>递归</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#递归</span></span><br><span class="line">        self.res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">postorder</span>(<span class="params">root</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span></span><br><span class="line">            postorder(root.left)</span><br><span class="line">            postorder(root.right)</span><br><span class="line">            self.res.append(root.val)</span><br><span class="line">        postorder(root)</span><br><span class="line">        <span class="keyword">return</span> self.res</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="迭代-2"><a href="#迭代-2" class="headerlink" title="迭代"></a>迭代</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">postorderTraversal</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[int]:</span></span><br><span class="line">        <span class="comment">#迭代</span></span><br><span class="line">        res, stack = [], []</span><br><span class="line">        p, pre = root, <span class="literal">None</span></span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            <span class="keyword">if</span> p:</span><br><span class="line">                stack.append(p)</span><br><span class="line">                p = p.left</span><br><span class="line">            <span class="keyword">elif</span> stack:</span><br><span class="line">                p = stack.pop()</span><br><span class="line">                <span class="keyword">if</span> <span class="keyword">not</span> p.right <span class="keyword">or</span> pre == p.right:</span><br><span class="line">                    res.append(p.val)</span><br><span class="line">                    pre, p = p, <span class="literal">None</span></span><br><span class="line">                <span class="keyword">else</span>:</span><br><span class="line">                    stack.append(p)</span><br><span class="line">                    p = p.right</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="层序"><a href="#层序" class="headerlink" title="层序"></a>层序</h2><h3 id="递归-3"><a href="#递归-3" class="headerlink" title="递归"></a>递归</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">levelOrder</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="comment">#递归</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">        res = []</span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">dfs</span>(<span class="params">index, root</span>):</span></span><br><span class="line">            <span class="keyword">if</span> <span class="built_in">len</span>(res) &lt; index:</span><br><span class="line">                res.append([])</span><br><span class="line">            res[index-<span class="number">1</span>].append(root.val)</span><br><span class="line">            <span class="keyword">if</span> root.left: dfs(index+<span class="number">1</span>, root.left)</span><br><span class="line">            <span class="keyword">if</span> root.right: dfs(index+<span class="number">1</span>, root.right)</span><br><span class="line">        dfs(<span class="number">1</span>, root)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="迭代-3"><a href="#迭代-3" class="headerlink" title="迭代"></a>迭代</h3><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">levelOrder</span>(<span class="params">self, root: TreeNode</span>) -&gt; List[List[int]]:</span></span><br><span class="line">        <span class="comment">#迭代</span></span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> root: <span class="keyword">return</span> []</span><br><span class="line">        queue, res = [root], []</span><br><span class="line">        <span class="keyword">while</span> queue:</span><br><span class="line">            tmp = []</span><br><span class="line">            <span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(queue)):</span><br><span class="line">                p = queue.pop(<span class="number">0</span>)</span><br><span class="line">                tmp.append(p.val)</span><br><span class="line">                <span class="keyword">if</span> p.left: queue.append(p.left)</span><br><span class="line">                <span class="keyword">if</span> p.right: queue.append(p.right)</span><br><span class="line">            res.append(tmp)</span><br><span class="line">        <span class="keyword">return</span> res</span><br></pre></td></tr></tbody></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -3499,89 +3573,6 @@ embed {
   
   
 
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/22/MDS6222_Dynamic_Programming/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/22/MDS6222_Dynamic_Programming/" class="post-title-link" itemprop="url">MDS6222 Dynamic Programming (Notes 1)</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-22 15:09:58" itemprop="dateCreated datePublished" datetime="2021-01-22T15:09:58+08:00">2021-01-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 15:09:43" itemprop="dateModified" datetime="2021-03-30T15:09:43+08:00">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Ch1-The-Dynamic-Programming-Algorithm"><a href="#Ch1-The-Dynamic-Programming-Algorithm" class="headerlink" title="Ch1 The Dynamic Programming Algorithm"></a>Ch1 The Dynamic Programming Algorithm</h1><blockquote>
-<p>Life can only be understood going backwards,<br>but it must be lived going forwards.<br>—— Kierkegaard</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/01/22/MDS6222_Dynamic_Programming/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3652,7 +3643,7 @@ embed {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">19</span>
+          <span class="site-state-item-count">20</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
