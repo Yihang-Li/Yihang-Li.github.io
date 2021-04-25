@@ -6,8 +6,10 @@ categories: Leetcode
 ---
 ## 并查集算法
 
+`并查集`：一种树型数据结构（一片森林），常用于处理不交集（一棵棵树）的合并与查询问题
+
 * [X] 动手使用python实现`并查集`4个版本🚀️
-* [ ] 应用刷题！🎉️：刷完[并查集tag](https://leetcode-cn.com/tag/union-find/)再勾（7/39）
+* [x] 应用刷题！🎉️
 
 <!-- more -->
 

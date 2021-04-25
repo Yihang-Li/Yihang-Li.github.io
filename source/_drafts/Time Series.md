@@ -363,12 +363,255 @@ $\operatorname{ARIMA}(p, d, q)(P, D, Q)_s$
  - Lagged external predictors
 
 ## Lecture 9
-### More on ARIMA with External Regressors
+### ARIMA with External Variables
 
+### conditional heteroskedasticity
+
+- In some areas, the daily return seems to be of `higher variance`. This is` not captured in ACF or PACF plots`. If we only observe the ACF plots, it appears as if the white noise model is appropriate 
+- This is NOT addressed by an ARIMA fit. This is again NOT addressed by an ARIMA fit, this time with differencing.
+- “Volatility clustering” 
+  - Variance NOT constant over time
+  - Samples are NOT independently and identically distributed, even though they don’t appear to be auto-correlated 
+  - The variance is correlated in time, the series exhibits volatility and is called “conditional heteroskedastic”. 
+  -  Volatility can be detected by looking at the correlogram of the squared values since the squared values are equivalent to the variance when mean is zero.
 
 ### ARCH
 
-### GARCH
+An autoregressive model for the variance process - AutoRegressive Conditional Heteroskedastic (ARCH) model 
+
+- ARCH(1) Model: $\epsilon_t = \omega_t\sqrt{\alpha_0+\alpha_1\epsilon_{t-1}^2}$, $\{\omega_t\}$ is white noise with zero mean and unit variance
+- The variance at time t depends on variance at time t-1:
+  $E[\epsilon_t]=0$, $Var(\epsilon_t) = E(\epsilon_t^2) = E(\omega_t^2)E(\alpha_0+\alpha_1\epsilon_{t-1}^2)=E(\alpha_0+\alpha_1\epsilon_{t-1}^2)$
+  Note: $E(XY)=E(X)E(Y)$ holds if $X$ and $Y$ are independent
+- Note: 
+  The ACF of $\{\epsilon_t^2\}$ behaves just like the ACF of an AR(1) data. 
+  $\{\epsilon_t\}$ should be uncorrelated, should contain no trends or seasonal changes – the residual obtained after fitting a satisfactory (seasonal) ARIMA model.
+
+### GARCH [参考布朗尼](https://machinelearningmastery.com/develop-arch-and-garch-models-for-time-series-forecasting-in-python/)
+
+Generalised ARCH model - GARCH(q, p): $h_t = \alpha_0 + \sum_{i=1}^p\alpha_i\epsilon_{t-1}^2+\sum_{j=1}^q\beta_jh_{t-j}$, and $\epsilon_t = \omega_t\sqrt{h_t}$
+
+$h$ is the variance, $\epsilon$ is the sample
+
+With real data, usually a GARCH(1,1) is sufficient
+
+- Forecast from GARCH model?
+  - GARCH fits a model to the residual errors of a fitted time series model
+  - Its fitted values have zero mean – no influence on the mean forecast
+  - It could make small changes to the width of the confidence band of the forecast
+  - Procedures are available to make ARIMA+GARCH forecasts, e.g. forecastGARCH()
+
+- Forecasting is not of major interest with GARCH
+  - The main application of GARCH models is for` simulation studies`
+  - GARCH simulation can make the simulated data closer to reality
+  - Especially in finance, insurance, teletraffic, and climatology.
+
+## Lecture 10
+
+### Spectral Analysis
+
+Analyze frequency properties of time series - "frequency domain"
+
+Previous methods were operating in the "time domain"
+
+More useful in acoustics, communications engineering, geophysical science, and biomedical science etc.
+
+### Some reminders
+
+- Does STL capture periodic signal? It can, but we have to tell it the periodicity.
+- Does Holt-Winters capture periodic signal? It can, but we have to tell it the periodicity.
+- STL and Holt-Winters pretty much “copy” the pattern in the data, and repeat it in the future.
+- Does ARIMA capture periodic signal? Partially. Unless we tell it the period
+- Does machine learning methods capture periodic signal? Possibly, by learning nonlinear relations with past time points.
+  The model is flexible – more data points are needed to make the model stable.
+- In a noisy data, we can’t even see the periodicity by the eye. How do we find out?
+
+### Mixture of sine functions
+
+Joseph Fourier (1768–1830) showed that sums of sine waves can provide good approximations to most periodic signals.
+
+E.G.
+
+- A simple cosine wave: $Rcos(2\pi ft+\Phi)$, where $R(>0)$ is the amplitude, $f$ is the frequency and $\Phi$ is the phase.
+
+- A linear combination of the two waves
+
+How to Figure out which sine waves were used to generate the data?
+
+- $Rcos(2\pi ft+\Phi) = Acos(2\pi ft)+Bsin(2\pi ft)$, where $A=Rcos(\Phi)$, $B=-Rsin(\Phi)$ and $R=\sqrt{A^2 + B^2}$
+
+- For a fixed frequency f, we can use cos(2πft) and sin(2πft) as predictor variables, and apply least squares regression to find A and B. 
+- `Fourier Series`
+
+### Periodogram
+
+- The periodogram $I$ ar frequency $f=\frac{j}{n}$:
+  - for $j<\frac{n}{2}$, $I(\frac{j}{n}) = \frac{n}{2}(\hat{A}_j^2+\hat{B}_j^2)$
+  - for $k=\frac{n}{2}$(if $n$ is even), $I(\frac{1}{2}) = n(\hat{A}_k)^2$ 
+
+- The height of the periodogram shows the relative strength of cosine-sine pairs
+
+- The total sum of squares in Y is attributed to the  individual frequencies: $\sum_{j=1}^n(Y_j - \bar{Y})^2 = \sum_{j=1}^kI(\frac{j}{n})$
+
+- Why limit to $0 ～ \frac{1}{2}$?: 
+
+  - Given limited data, other frequencies are “aliased” with a frequency in this range
+  - f within the interval 0 to 1/2 will be aliased with each frequency of the form f + m/2 for any positive integer m
+  - The actual calculation is done by Fast Fourier transformation
+
+- What if the true frequency is not a Fourier frequency?: $f=0.088$ is not a Fourier frequency
+
+- Stationary processes may be represented as linear combinations of infinitely many cosine-sine pairs over a continuous frequency band. 
+  We use a discrete example for simplicity:Lecture10.pptx page 18
+
+  
+
+### Spectrum of a time series
+
+- The periodogram is a sample estimate of `the population spectral density` - a `frequency domain characterization` of a population stationary time series.
+- An observed time series is of limited length $\rightarrow$ it can only estimate a `discrete periodogram`
+- The` population` can be thought of as an `infinite number time series` bearing the same properties, each with infinite length $\rightarrow$ the count of f and A/B pairs in the previous page become infinite
+- Single realizations of the series yields estimates of the spectral density
+- In this class, we are not interested in the theoretical derivation of spectral density. Rather we focus on sample versions.
+- Strategies for estimating the spectral density from a single time series
+  - Find sample periodogram, and use smoother
+    - “modified Daniell smoother” (center-weighted moving average) 
+    - Or other kernel smoothers
+  - Model the stationary time series as an AR process of some order (might be a high order). 
+    - Find the AR model 
+    - Generate the theoretical spectral density of the AR model as the estimate. 
+
+- E.G. 
+  - wave tank data: The aim of the analysis is to check whether the spectrum is a realistic emulation of typical sea spectra.
+  - Fault detection on eletric motors
+  - Weather patterns
+
+
+
+
+
+## Lecture 11
+
+## Lecture 12
+
+### Estimation in Hidden Markov Model
+
+#### Hidden Markov Model
+
+- Do not observe markov chain, rather other things:
+  - $\pi$: initial distribution; $P$:transition probablities; $B$: emission probabilities
+
+- Common Questions:
+
+  - How to efficiently calculate `emissions`: $P(O|\lambda)$
+  - How to find the most likely hidden `state`: $\operatorname{argmax}_QP(Q|O)$
+  - How to find the most likely `parameters`:$\operatorname{argmax}_{\lambda}P(O|\lambda)$
+
+  where the notations:
+
+  - $Q = \{q^{(1)},\dots, q^{(T)}\}$ denotes the `hidden state sequence`
+  - $O = \{O_{1},\dots, O_{T}\}$ denotes the `observe emission sequence`
+  - $O^{(t)} = \{O_{1},\dots, O_{t}\}$ denotes `the emission up to time t`
+
+  Note: `emission prob.` a.k.a. `output prob`.
+
+#### Forward and Backward variables
+
+- Forward:
+- Backward:
+
+#### Posterior state prob.
+
+
+
+#### The Viterbi Algorithm (shortest path - like)
+
+To find: $\operatorname{argmax}_QP(Q|O)$
+
+...
+
+e.g. 0.15 = max(0.5\*0.5\*0.9\*0.5,    0.5\*0.75\*0.8\*0.5 = 0.15)
+
+Note: Initial: 0.5 v.s. 0.5
+
+####  
+
+#### The Estimation of Parameters
+
+Given the topology of an HMM, to find the initial distribution, he transition probabilities and the emission probabilities, from a set of emitted sequences.
+
+#### The basic idea
+
+There are three pieces: λ, O, and Q. O is observed. We can iterate between λ and Q.
+When λ is fixed, we can do one of two things:
+	(1) find the best Q given O or (2) integrate out Q
+When Q is fixed, we can estimate λ using frequencies.
+
+#### Viterbi training
+
+Steps:
+
+- Start with some initial parameters
+- Find the most likely paths using the Viterbi algorithm.
+  公式
+- Re-estimate the parameters. 
+  	On next page.
+- Iterate `until the most likely paths don’t change`.
+
+Estimating the parameters:
+
+- Transition prob.
+- Emission prob.
+- Initial prob.
+
+#### Baum-Welch Algo
+
+- The Baum-Welch is a special case of the EM algorithm.
+
+- The Viterbi training is equivalent to a simplified version of the EM algorithm, replacing the expectation with the most likely classification. 
+
+- General flow:
+
+  (1) Start with some initial parameters
+  (2) Given these parameters, P(Q|O) is known for every Q. This is done effectively by calculating the forward and the backward variables. 
+  (3) Take expectations to obtain new parameter estimates. 
+  (4) Iterate (2) and (3) until convergence.
+
+### A few examples
+
+- Market Regimes: “long-term, persistent states that can be utilized for making investments or trading decisions.”
+
+
+
+### State Space Model
+
+- use state variable to describe a system
+- State variables can be estimated from the data, but are not measured directly
+
+> The Kalman filter;    HMM;    Bayesian structural time series
+
+
+
+### Kalman filter
+
+- The hidden state is continuous 
+- 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
