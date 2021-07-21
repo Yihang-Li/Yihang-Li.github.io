@@ -179,6 +179,12 @@ def quick_sort(arr, left, right):
     index = partition2(arr, left, right)
     quick_sort(arr, left, index-1)
     quick_sort(arr, index+1, right)
+
+def quick_sort3(arr, left, right): # for partition3
+    if left >= right: return
+    low, high = partition3(arr, left, right)
+    quick_sort(arr, left, low-1)
+    quick_sort(arr, high+1, right)
 ```
 
 ## 归并排序 Merge Sort

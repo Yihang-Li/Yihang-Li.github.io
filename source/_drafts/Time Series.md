@@ -4,12 +4,73 @@ tags: [Notes]
 ---
 ## Lecture 1
 
-Dependency
-Bayes rule
-Regression and Variable selection
-Permutation
-Bootstrap
-Receiver operating characteristics
+#### Dependency
+
+independent iff
+
+-  Discrete Case: $P(X=x_i and Y = y_j) = P(X=x_i)P(Y = y_j)$ 
+- Continuous Case: $f_{X, Y}(x,y) = f_X(x)f_Y(y)$
+
+Measuring linear dependency: Pearson's correlation coefficient
+
+- Population Version: $\rho_{X,Y} = \frac{cov(X,Y)}{\sigma_X\sigma_Y}$
+- Sample Version: $r=\frac{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)\left(y_{i}-\bar{y}\right)}{\sqrt{\sum_{i=1}^{n}\left(x_{i}-\bar{x}\right)^{2}} \sqrt{\sum_{i=1}^{n}\left(y_{i}-\bar{y}\right)^{2}}}$
+
+Measuring monotone dependency: Spearman's rank correlation coefficient
+
+- First take the ranks, and then compute Pearson's correlation using the ranks
+
+Measuring dependency: arbitrary dependency: 
+
+- Brownian covariance
+
+- Mutual information
+
+#### Bayes rule
+
+#### Norms
+
+#### Regression and Variable selection
+
+##### About $R^2$
+
+$R^2$ is defined as Reg SS / Total SS, and can be thought of as the proportion of the variance of y that is explained by x
+
+The issue of overfitting - the smallest Sum of Squared Error is always obtained by using all the predictors at hand.
+
+Adjusted $R^2$: the number of parameters $d$ is penalized ; 
+
+The unadjusted $R^2$ always increases with addition of predictors; while the adjusted $R^2$ may decrease when the new predictor has little contribution to the prediction of y
+
+##### AIC, Akaike's Information Criterion
+
+The better the fit, and the simpler the model (less parameters), the lower the AIC.
+
+Smaller AIC means better model
+
+##### BIC, similar to AIC, but penalizes complex models more heavily than AIC, thus favoring simpler models than AIC
+
+##### Forward Stepwise Selection; Backward; Stepwise(forward-backward); Best subset selection;
+
+#### Validation and Cross-validation(LOOCV, K-fold)
+
+#### Shrinkage Methods: Ridge/Lasso
+
+#### The testing paradigm
+
+- Null and Alternative hypothesis
+- Design test statistic that could differentiate the two hypothesis
+- Construct a sampling distribution of the test statistic when the null hypothesis is true
+- Compare the test statistic against the sampling distribution, compute the p-value (is the probability that the test statistic would be at least as extreme as observed, if the null hypothesis is true)
+- If observed statistic deviates from the sampling distribution sufficiently (small enough p-value), we reject the null hypothesis
+
+#### The sampling distribution
+
+#### Permutation test procedure
+
+#### Bootstrap
+
+#### Receiver operating characteristics
 
 ## Lecture 2
 
@@ -19,7 +80,7 @@ Overview of Time Series Data
 
 - Example time series data：Variables measured sequentially in time(regular time points assumed in this course)
 - Our main interest: predict what is going to happen in the near future
-  based on dependencies:
+  based on `dependencies`:
   - this variable’s conditional distribution on it’s own past
   - This variable’s conditional distribution given some other variables’ past
 
@@ -46,7 +107,7 @@ Overview of Time Series Data
     - If the random variation is modelled by a multiplicative factor and the 
       variable is positive, we can use: $\operatorname{log}(x_t) = m_t + s_t + z_t$  (`Multiplicative`decomposition)
 
-  - Local weighted average with proper window size
+  - `Local weighted average with proper window size`
 
     - wide enough to average out seasonal effects
     - not too wide to cause bias
@@ -78,14 +139,15 @@ Overview of Time Series Data
 
 - `Strict stationary`: the distribution does not change over time
 
-  e.g. Gaussian White Noise (GWN) process is covariance stationary (also strictly stationary)
+  e.g. Gaussian White Noise (`GWN`) process is covariance stationary (also strictly stationary)
 
 - Two related terms: 
 
-  - Independent White Noise (IWN): independent with mean zero  and variance $\sigma^2$;
-  - Weak White Noise (WN): uncorrelated with mean zero and variance $\sigma^2$
+  - Independent White Noise (`IWN`): independent with mean zero  and variance $\sigma^2$;
+  - Weak White Noise (`WN`): uncorrelated with mean zero and variance $\sigma^2$
 
-  e.g. Deterministic trending process is not stationary because the mean depends on $t$;  Random walk is not stationary because its variance depends on $t$, however, its first difference is covariance stationary.
+  e.g. Deterministic trending process is not stationary because the mean depends on $t$;  
+  Random walk is not stationary because its variance depends on $t$, however, its first difference is covariance stationary.
 
 - `Ergodicity`: 遍历性，各态遍历性；指统计结果在时间和空间上的统一性，表现为时间均值等于空间均值。
   $Y_t$ and $Y_{t-j}$ are essentially independent if $j$ is large enough
@@ -173,14 +235,14 @@ Example:
 
 ### Exponential Smoothing
 
-- Assume there is no systematic trend or seasonal effects in the process, or that these have been identified and removed
+- Assume there is `no systematic trend or seasonal effects` in the process, or that these have been identified and removed
 - The mean of the process can change from one time step to the next, but we have no information about the likely direction of these changes. 
 - Solution: `borrow information from history`: $x_t = \mu_t + w_t$ , where $\mu_t$ is the non-stationary mean of the process at time $t$ and $w_t$ are independent random deviations with a mean of 0 and a standard deviation $\sigma$
 - Let $a_t$ be the estimate of $\mu_t$; estimate of the mean at time $t$ by a weighted average of observation at time $t$ and our estimate of the mean at time $t − 1$.
   $a_t = \alpha x_t + (1-\alpha)a_{t-1}, 0 < \alpha < 1$
 -  Set: $a_1=x_1$
-  $a_t$  is a linear combination of the current and past observations, with more weight given to the more recent observations
-  these weights form a geometric series, and the sum of the infinite series is unity 
+  $a_t$  is `a linear combination of the current and past observations`, with `more weight given to the more recent observations`
+  these weights form a `geometric series,` and the sum of the infinite series is unity 
 - Forecasting: $\hat{x}_{n+k|n}=a_n, k=1, 2, \dots$ （由n处的值来预测n+k处的值）
 - Exponential smoothing is a special case of the Holt-Winters algorithm 
 
@@ -227,6 +289,10 @@ Example:
 
 ### White Noise
 
+In relation to model fitting, a white noise series usually arises as a residual series after fitting an appropriate time series model
+
+If a model has accounted for all the serial correlation in the data, the residual series would be serially uncorrelated, so that a correlogram of the residual series would exhibit no obvious patterns - the residuals should be well approximated by white noise. 
+
 ### Random Walks
 
 $x_t = x_{t-1} + \omega_t$, where $\{\omega_t\}$ is a white noise series
@@ -237,14 +303,61 @@ $\mu_x = 0$, $\gamma_k(t) = cov(x_t, x_{t+k}) = t\sigma^2$
 
 $\rho_k(t) = \frac{1}{\sqrt{1+\frac{k}{t}}}$
 
-
 ### The backward shift and difference operator
 
+$\nabla^n = (1-B)^n$
+
+Is an observed series modeled well using random walk? 
+The diff series shouldn’t have any autocorrelation structure.
+
+If the diff contains autocorrelation, then there is some structure that is not modeled by random walk.   
 
 ### Autoregressive process
 
+- The random walk is the special case AR(1) with $\alpha_1$ = 1
+- The exponential smoothing model is the special case $\alpha_i = \alpha(1 −\alpha)^i$  for i = 1, 2, . . . and p → ∞
+- The model is a regression of $x_t$ on past terms $\rightarrow$ ‘autoregressive’ 
+- The model parameters can be estimated by minimizing the sum of squared errors 
 
-Stationary and non-stationary AR processes:
+#### Stationary and non-stationary AR processes:
+
+Consider the characteristic equation: $\theta_p(B) = 1 - \alpha_1B - \alpha_2B^2 - \dots - \alpha_pB^p = 0$, Treat B as a number and find roots.
+
+The roots must `all exceed unity in absolute value` for the process to be stationary.
+
+e.g.: - Random walk, B=1 $\rightarrow$ non-stationary
+
+​           AR(1): $x_t = \frac{1}{2}x_{t-1} + w_t \rightarrow 1 - \frac{1}{2}B = 0 \rightarrow B = 2 > 1$: Stationary	
+
+​           AR process: $x_t = -\frac{1}{4}x_{t-2} + w_t \rightarrow 1+\frac{1}{4}B^2=0 \rightarrow B=\pm2i$, and $|B| = 4 > 1$: Stationary
+
+#### AR(1) properties:
+
+A stable AR(1) process ($|\alpha| < 1$)
+$x_t = \alpha x_{t-1} + w_t \rightarrow (1-\alpha B)x_t = w_t \rightarrow$ 
+$x_t = (1 - \alpha B)^{-1}w_t = (1 + \alpha B + \alpha^2 B^2 + \alpha^3 B^3 + \dots)w_t = \sum_{i=0}^{\infty}\alpha^iw_{t-i}$
+
+- Then, $E(x_t) = E(\sum_{i=0}^{\infty}\alpha^iw_{t-i}) = \sum_{i=0}^{\infty}\alpha^iE(w_{t-i}) = 0$
+
+- Autocovariance:
+  $\gamma_k = Cov(x_t, x_{t+k}) = Cov(\sum_{i=0}^{\infty}\alpha^iw_{t-i}, \sum_{j=0}^{\infty}\alpha^jw_{t+k-j}) $ 
+
+  $= \sum_{i=0}^{\infty}\sum_{j=k+i}\alpha^i\alpha^jCov(w_{t-i}, w_{t+k-j}) = \alpha^k\sigma^2\sum_{i=0}^{\infty}\alpha^{2i} = \alpha^k\sigma^2/(1-\alpha^2)$
+
+- Autocorrelation
+  $Var(x_t) = \gamma_0 = \sigma^2/(1-\alpha^2) \rightarrow \rho_k=\alpha^k$
+
+- Partial Autocorrelation
+
+#### Fitting of an AR model
+
+The AR model has no deterministic trend component, 
+
+the trends in the data can be explained by serial correlation and random variation, implying that it is possible that these trends are stochastic. 
+
+This does not imply that there is no underlying reason for the trends 
+
+If a scientific reason for a trend is known, it should factor into the modelling/prediction.
 
 
 
@@ -263,7 +376,7 @@ Stationary and non-stationary AR processes:
     One way is to generate AR(p) model of multiple variables. (There are other ways we will discuss in state-space models)
     `The formula see PPT`
 - The VAR is symmetric in all variables
-- The VAR model has many parameters (!): $N+p\times N^2$
+- The VAR model has many parameters (!): $N+p\times N^2$ ($N:$number of variables; $p:$order of the AR model)
   (Use such a model only when we really believe there is such a relationship.)
 
 
@@ -283,9 +396,9 @@ MA processes are stationary and hence have a time-invariant mean and autocovaria
 $E\left(x_{t}\right)=0$, $\operatorname{Var}\left(x_{t}\right)=\sigma_{w}^{2}\left(1+\beta_{1}^{2}+\ldots+\beta_{q}^{2}\right)$, $\rho(k)=\left\{\begin{array}{cc}1 & k=0 \\ \sum_{i=0}^{q-k} \beta_{i} \beta_{i+k} / \sum_{i=0}^{q} \beta_{i}^{2} & k=1, \ldots, q \\ 0 & k>q\end{array}\right.$ where $\beta_0$ is unity
 
 - Invertible
-  An MA process is invertible if it can be expressed as a stationary autoregressive process of infinite order
-  - In general, an MA(q) process is invertible when the roots of φq(B) all exceed unity in absolute value
-  - The autocovariance function only identifies a unique MA(q) process if the condition that the process be invertible is imposed
+  An MA process is `invertible` if it can be expressed as a stationary autoregressive process of infinite order
+  - In general, an MA(q) process is invertible when the roots of $\phi_q(B)$ `all exceed unity in absolute value`
+  - The autocovariance function `only` identifies a `unique` MA(q) process if the condition that the process be invertible is imposed
 - MA models cannot be expressed in a multiple regression form
   Parameters are estimated with a numerical algorithm
 
@@ -298,7 +411,7 @@ autoregressive moving average (ARMA) process of order (p, q), denoted ARMA(p, q)
 
  - The process is `stationary` when the roots of $θ$ all exceed unity in absolute value.
    The process is `invertible` when the roots of $φ$ all exceed unity in absolute value.
-   When $θ$ and $φ$ share a common factor, a stationary model can be simplified. : $(1 - \frac{1}{2}B)(1 - \frac{1}{3}B)x_t=(1 - \frac{1}{2}B)w_t \Rightarrow (1 - \frac{1}{3}B)x_t=w_t$
+   When $θ$ and $φ$ share a `common factor`, a stationary model can be `simplified`. : $(1 - \frac{1}{2}B)(1 - \frac{1}{3}B)x_t=(1 - \frac{1}{2}B)w_t \Rightarrow (1 - \frac{1}{3}B)x_t=w_t$
 
 
 ## Lecture 7
@@ -307,6 +420,7 @@ For non-stationary data
 Data transformation may be helpful
 Seasonal differencing
 Sometimes both a seasonal difference and a first difference to obtain stationary data
+
 - Check whether stationary or not
   -  `unit root test`: statistical hypothesis tests of stationarity that are designed for determining whether differencing is required.
   - A linear time series is nonstationary if there is a unit root
@@ -326,11 +440,11 @@ AutoRegressive Integrated Moving Average (ARIMA)
 $y_{t}=(1-\mathbf{B})^{d} x_{t}$
 $\mathrm{y}_{t}=a_{1} \mathrm{y}_{t-1}+a_{2} \mathrm{y}_{t-2}+\ldots+a_{p} \mathrm{y}_{t-p}+w_{t}+\beta_{1} w_{t-1}+\beta_{2} w_{t-2}+\ldots+\beta_{q} w_{t-q}$
 
-- Box-Cox transformation
+- `Box-Cox transformation `
 - Forecasting:
   - Expand the ARIMA equation so that xt is on the left hand side and all other terms are on the right.
   - Rewrite the equation by replacing t with T+1.
-  - On the right hand side of the equation, replace future observations with their forecasts, future errors with zero, and past errors with the corresponding residuals.
+  - On the right hand side of the equation, replace future observations with their forecasts, `future errors with zero`, `and past errors with the corresponding residuals`.
   - Beginning with h=1, these steps are then repeated for h=2,3,… until all forecasts have been calculated.
 
 ## Lecture 8
@@ -368,12 +482,12 @@ $\operatorname{ARIMA}(p, d, q)(P, D, Q)_s$
 ### conditional heteroskedasticity
 
 - In some areas, the daily return seems to be of `higher variance`. This is` not captured in ACF or PACF plots`. If we only observe the ACF plots, it appears as if the white noise model is appropriate 
-- This is NOT addressed by an ARIMA fit. This is again NOT addressed by an ARIMA fit, this time with differencing.
+- This is `NOT addressed by an ARIMA fit`. This is again NOT addressed by an ARIMA fit, this time with differencing.
 - “Volatility clustering” 
-  - Variance NOT constant over time
-  - Samples are NOT independently and identically distributed, even though they don’t appear to be auto-correlated 
-  - The variance is correlated in time, the series exhibits volatility and is called “conditional heteroskedastic”. 
-  -  Volatility can be detected by looking at the correlogram of the squared values since the squared values are equivalent to the variance when mean is zero.
+  - Variance `NOT constant` over time
+  - Samples are `NOT independently and identically distributed`, even though they don’t appear to be auto-correlated 
+  - The variance is `correlated` in time, the series exhibits volatility and is called `“conditional heteroskedastic”`. 
+  -  Volatility can be `detected by looking at the correlogram of the squared values` since the squared values are equivalent to the variance when mean is zero.
 
 ### ARCH
 
@@ -389,21 +503,29 @@ An autoregressive model for the variance process - AutoRegressive Conditional He
 
 ### GARCH [参考布朗尼](https://machinelearningmastery.com/develop-arch-and-garch-models-for-time-series-forecasting-in-python/)
 
-Generalised ARCH model - GARCH(q, p): $h_t = \alpha_0 + \sum_{i=1}^p\alpha_i\epsilon_{t-1}^2+\sum_{j=1}^q\beta_jh_{t-j}$, and $\epsilon_t = \omega_t\sqrt{h_t}$
+`Generalised ARCH model` - GARCH(q, p): $h_t = \alpha_0 + \sum_{i=1}^p\alpha_i\epsilon_{t-1}^2+\sum_{j=1}^q\beta_jh_{t-j}$, and $\epsilon_t = \omega_t\sqrt{h_t}$
 
 $h$ is the variance, $\epsilon$ is the sample
+
+What exactly is the “residual”?
+
+- The fitted values: 
+  	conditional standard deviation $\sqrt{h_t}$
+- The residuals: $\epsilon_t/\sqrt{h_t}$
+
+- If all $h_t$ correctly captures the conditional variance, the residuals will be white noise with mean 0 and variance 1. 
 
 With real data, usually a GARCH(1,1) is sufficient
 
 - Forecast from GARCH model?
   - GARCH fits a model to the residual errors of a fitted time series model
-  - Its fitted values have zero mean – no influence on the mean forecast
+  - Its fitted values have zero mean – `no influence on the mean forecast`
   - It could make small changes to the width of the confidence band of the forecast
-  - Procedures are available to make ARIMA+GARCH forecasts, e.g. forecastGARCH()
+  - Procedures are available to make `ARIMA+GARCH forecasts`, e.g. forecastGARCH()
 
-- Forecasting is not of major interest with GARCH
+- Forecasting is `not` of major interest with GARCH
   - The main application of GARCH models is for` simulation studies`
-  - GARCH simulation can make the simulated data closer to reality
+  - GARCH simulation can make the simulated data `closer to reality`
   - Especially in finance, insurance, teletraffic, and climatology.
 
 ## Lecture 10
@@ -420,7 +542,7 @@ More useful in acoustics, communications engineering, geophysical science, and b
 
 - Does STL capture periodic signal? It can, but we have to tell it the periodicity.
 - Does Holt-Winters capture periodic signal? It can, but we have to tell it the periodicity.
-- STL and Holt-Winters pretty much “copy” the pattern in the data, and repeat it in the future.
+- `STL and Holt-Winters pretty much “copy” the pattern in the data, and repeat it in the future.`
 - Does ARIMA capture periodic signal? Partially. Unless we tell it the period
 - Does machine learning methods capture periodic signal? Possibly, by learning nonlinear relations with past time points.
   The model is flexible – more data points are needed to make the model stable.
@@ -492,6 +614,87 @@ How to Figure out which sine waves were used to generate the data?
 
 ## Lecture 11
 
+### Markov Chain
+
+#### Purpose
+
+A nonstationary time series with different stationary segments. How do we delineate the segments, and possibly make a judgement of current state?
+
+#### Discrete time finite Markov Chain
+
+Possible states: finite discrete set S {E1, E2, … … , Es}
+	From time t to t+1, make stochastic movement from one state to another
+
+The Markov Property: 
+	At time t, the process is at Ej,
+	Then at time t+1, the probability it is at Ek only depends on Ej
+
+The temporally homogeneous transition probabilities property:
+	Prob(Ej → Ek) is `independent of time t.`
+
+A: Transition Probability Matrix
+
+An n step trasition $A_{ij}(n) := p(X_{t+n}=j|X_t=i)$
+It can be shown that $A(n)=A^n$
+Proof: Consider the two stage transition probability from Ei to Ej:
+$A_{ij}(m+n)=\sum_{k=1}^{K}A_{ik}(m)A_{kj}(n)$, the probability of getting from i to j in m + n steps is the probability of getting from i to k in m steps, and then from k to j in n steps, summed over all k. So, $A(m+n)=A(m)A(n)$, thus $A(n) = AA(n-1)=AAA(n-2)=\cdots=A^n$
+
+e.g. language modeling
+Define the state space to be all the words in English 
+The marginal probabilities  p(Xt = k) are called `unigram statistics` 
+If we use a first-order Markov model, then 
+p(Xt = k | Xt−1 = j) is called a `bigram model`. 
+If we use a second-order Markov model, then 
+p(Xt = k | Xt−1 = j,Xt−2 = i) is called a `trigram model`. 
+Language models can be used for sentence completion, data compression, text classification, automatic writing etc.
+
+The `stationary state`:
+One step transition: $A_{ij}=p(X_t=j|X_{t-1}=i)$
+Probability of being at state j at time t (row vector): $\pi_t(j)=p(X_t=j)$
+If we can reach this situation, $\pi=\pi A$
+The probability of being at each state `stays constant`. 
+
+For `finite, aperiodic, irreducible` Markov chains,  stationary state  `exists` and is `unique`. 
+`Periodic`: if a state can only be returned to at t0, 2t0, 3t0,…….. , t0>1
+`Irreducible`: any state can be eventually reached from any state
+
+Note: 有限状态，非周期，常返的马尔可夫链有唯一的稳定状态;稳定状态的意思是说，状态的概率不再改变
+
+The` stationary state can be found` by consider $A^n$ where we let n goes to $\infty$.
+
+### Hidden Markov Model
+
+More general than Markov model.
+A discrete time Markov Model `with extra features`.
+
+The `emissions` are: probabilistic; state-dependent ; time-independent
+
+$p\left(\mathbf{z}_{1: T}, \mathbf{x}_{1: T}\right)=p\left(\mathbf{z}_{1: T}\right) p\left(\mathbf{x}_{1: T} \mid \mathbf{z}_{1: T}\right)$ $=\left[p\left(z_{1}\right) \prod_{t=2}^{T} p\left(z_{t} \mid z_{t-1}\right)\right]\left[\prod_{t=1}^{T} p\left(\mathbf{x}_{t} \mid z_{t}\right)\right]$
+
+(Page 16)We don’t observe the states of the Markov Chain, but we observe the emissions.
+If both E1 and E2 have the same chance to initiate the chain, and we observe sequence “BBB”, what is the most likely state sequence that the chain went through?
+
+Let Q denote the state sequence, and O denote the observed emission.  Our goal is to find: $\underset{Q}{\arg \max } P(Q \mid O)$ where $P(Q \mid O)=\frac{P(O \mid Q) P(Q)}{\sum_{Q} P(O \mid Q) P(Q)}$
+ `Parameters:` $\lambda = \{\pi, P, B\}$, where they stand for initial distribution, trasition probabilities and emission probabilities
+
+Common questions:
+
+- How to efficiently calculate emissions: $P(O|\lambda)$
+- How to find the most likely hidden state: $\underset{Q}{\arg \max } P(Q \mid O)$
+- How to find the most likely parameters:$\underset{\lambda}{\arg \max } P(O \mid \lambda)$
+
+Note: The Forward and Backward Algorithm
+
+#### Very very brief Intro to dynamic programming
+
+Dynamic programming:
+Breaking the overall optimization problem into overlapping smaller problems;
+Solve each sub-problem once, and reuse the results, thus reducing the computing cost (dramatically); Often working backward.
+
+### Viterbi Algorithm
+
+to maximize the conditional probability, we can simply maximize the joint probability. (By Conditional Proba. Formula)
+
 ## Lecture 12
 
 ### Estimation in Hidden Markov Model
@@ -517,16 +720,13 @@ How to Figure out which sine waves were used to generate the data?
 
 #### Forward and Backward variables
 
-- Forward:
-- Backward:
+- Forward; Backward:
 
 #### Posterior state prob.
 
-
-
 #### The Viterbi Algorithm (shortest path - like)
 
-To find: $\operatorname{argmax}_QP(Q|O)$
+To find: $\operatorname{argmax}_QP(Q|O)$, is simply to maximize the join probability
 
 ...
 
@@ -534,11 +734,9 @@ e.g. 0.15 = max(0.5\*0.5\*0.9\*0.5,    0.5\*0.75\*0.8\*0.5 = 0.15)
 
 Note: Initial: 0.5 v.s. 0.5
 
-####  
-
 #### The Estimation of Parameters
 
-Given the topology of an HMM, to find the initial distribution, he transition probabilities and the emission probabilities, from a set of emitted sequences.
+Given the topology of an HMM, to find the initial distribution, the transition probabilities and the emission probabilities, from a set of emitted sequences.
 
 #### The basic idea
 
@@ -552,8 +750,8 @@ When Q is fixed, we can estimate λ using frequencies.
 Steps:
 
 - Start with some initial parameters
-- Find the most likely paths using the Viterbi algorithm.
-  公式
+- Find the most likely paths using the Viterbi algorithm.$\delta_{t}(i)=\max _{q_{1}, q_{2}, \ldots, q_{t-1}} P\left(q_{1}, q_{2}, \ldots \ldots, q_{t-1}, q_{t}=E i\right.$, and $\left.O^{(t)}\right)$
+  $\max _{Q} P(Q, O)=\max _{i} \delta_{T}(i)$
 - Re-estimate the parameters. 
   	On next page.
 - Iterate `until the most likely paths don’t change`.
@@ -594,24 +792,100 @@ Estimating the parameters:
 
 ### Kalman filter
 
-- The hidden state is continuous 
+- Only some of these state variables can be measured directly, and these measurements are subject to noise.
+- The objective is to infer values for all the state variables from the noisy measurements. 
+- The estimated values of the state variables are then used to control the system.
+- The parameters can be estimated from the observed time series
+  The Kalman filter can be extended to
+  	- regression with time-varying coefficients
+  	- ARMA process
+  	- multivariate time series
+  	… …
+  	Strength – flexible
+  	Weakness – too flexible with too many parameters
+
+## Lecture 13
+
+### Brief summary about models
+
+- Capability to learn highly abstract representations
+- Need expert input to select representations
+- Good performance on testing data, which is independent from the training data, is most important for a model. (It serves as the basis in model selection.)
+- Goals in model building
+  - (1) Model selection: 
+    	Estimating the performance of different models; choose the best one
+  - (2) Model assessment:
+    	Estimate the prediction error of the chosen model on new data.
+
+- Ideally, we’d like to have enough data to be divided into three sets:
+  	Training set: to fit the models
+  	Validation set: to estimate prediction error of models, for the purpose of model selection
+  	Test set: to assess the generalization error of the final model
+- Bias-variance trade-off
+
+### Tasks for ML in time series data analysis
+
+- `Time series clustering`
+  - Need to measure similarities between time series
+    Example: financial series
+- `Time series classification`
+  - Need to measure similarities between time series in relation to the outcome variable
+    Example: EEG and other medical measurements	
+- `Time series forecasting`
+  - Need to model dependency along time
+    Example: financial series
+
+### Measuring similarity between two time series
+
+#### Dynamic Time Warping (DTW)
+
+Let t and r be two vectors of lengths m and n, respectively.
+
+Goal: find a monotonically non-decreasing mapping path {(p1,q1),(p2,q2),...,(pk,qk)}, such that the distance on this mapping path ∑|t(pi)−r(qi)| is minimized. 
+Boundary conditions: $(p_1, q_1) = (1, 1), (p_k, q_k) = (m, n)$
+
+Solution: dynamic programming
+Define: D(i,j) is the DTW distance between t(1:i) and r(1:j), with the mapping path starting from (1,1) to (i,j), D(1,1)=|t(1)−r(1)|.
+
+Iterate from $(1,1)$ :
+$$
+D(i, j)=|t(i)-r(j)|+\min \left\{\begin{array}{c}
+D(i-1, j) \\
+D(i-1, j-1) \\
+D(i, j-1)
+\end{array}\right\}
+$$
+
+### Clustering
+
+- Hierarchical; k-means; k-medoids
+- These clusters (or selected neighbors) could serve as predictors for forecasting.
+- Example: using sub-segment DTW to select historical time frames that are similar to the current data; use them for forecasting 
+
+### Classification
+
+- Use original x: Keep time information ; 1-D convolutional NN	; Ignore time information
+  	RF, SVM, xgBoost etc, potentially with variable selection
+
+- Use engineered features: Spectral features; Spatial features depending on the domain knowledge
+
+### Forecasting
+
+- Simple consideration: 
+  use previous time points to predict the next time point
+  could use multiple variables
+
+- Feature Engineering:
+  	If the learner is not trusted to learn the structure from limited data and too many variables
+  	Example: 
+  		time average, Seasonal lagged time points, seasonal differences
+  		Segment-wise average
+
+### More
+
+- KNN Regression
+- Support Vector Regression
+- Regression Tree
+- Tree Ensembles
 - 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
