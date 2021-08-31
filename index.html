@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #f1ff95;
+  background: #2aff4f;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2889,7 +2889,7 @@ embed {
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-07-21 15:03:00" itemprop="dateModified" datetime="2021-07-21T15:03:00+08:00">2021-07-21</time>
+                <time title="修改时间：2021-08-31 14:42:45" itemprop="dateModified" datetime="2021-08-31T14:42:45+08:00">2021-08-31</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -2930,62 +2930,14 @@ embed {
 </ul>
 </blockquote>
 <p>然而，大多数<a target="_blank" rel="noopener" href="https://blog.keras.io/building-autoencoders-in-keras.html">教程</a>中的AE实现并没有以上性质, 这使得它们不是最优的。因此，融入这些性质来实现一个好的AE蛮重要的，为了做到这，我们需要：</p>
-<ul>
-<li>加入正则化：正交和单位范数的限制条件其实是一种正则化。此外，权值捆绑，几乎减少了一半的参数量，也是一种正则化</li>
-<li>强调梯度爆炸和梯度消失：单位范数的限制防止权重变大，因此解决了梯度爆炸的问题。此外，因为正交这一限制条件，只有重要的（充满信息的）权值是非零的。因此，大量的信息在BP的时候通过这些权重进行传递从而避免梯度消失</li>
-<li>有更小的网络：如果没有正交条件的限制，encoder会有大量冗余的参数和特征。为了抵消这种冗余，encoder的size增大了。另一方面，正交性保证编码的特征有其独特的信息——独立于其他的特征。这减少了冗余从而我们可以在更小的encoder上有类似的信息。</li>
-</ul>
-<blockquote>
-<p>With a smaller network, we bring Autoencoder closer to <strong>Edge Computing</strong>.</p>
-</blockquote>
-<p><strong>这部分展示了：</strong></p>
-<ol>
-<li>PCA和AutoEncoder之间架构的相似性</li>
-<li>传统Autoencoder的次优性</li>
-</ol>
-<h3 id="PCA和AutoEncoder架构之间的相似性：线性单层AE-v-s-PCA"><a href="#PCA和AutoEncoder架构之间的相似性：线性单层AE-v-s-PCA" class="headerlink" title="PCA和AutoEncoder架构之间的相似性：线性单层AE v.s. PCA"></a>PCA和AutoEncoder架构之间的相似性：线性单层AE v.s. PCA</h3><p><img src="https://i.loli.net/2021/07/20/bpzko3UEqHws6fM.png" style="zoom:35%;"></p>
-<p>众多PCA算法中，有一种是通过最小化重建误差实现的，从这种算法出发可以很清晰地看到PCA和AE之间的相似性</p>
-<p>如图所示，</p>
-<ul>
-<li>Encoding的过程和PC变换的过程很像（PC变换把原始数据映射到主成分上来生成正交的特征，a.k.a, PC scores）</li>
-<li>同样地，Decoding的过程和从PC scores重建数据很相似</li>
-<li>它们的参数都是通过最小化重建误差来估计的</li>
-</ul>
-<p>【更多细节参见原文】</p>
-<h2 id="Part-II"><a href="#Part-II" class="headerlink" title="Part II"></a>Part II</h2><blockquote>
-<p>这部分定义并实现加了正则项约束的AutoEncoder</p>
-</blockquote>
-<p>从Part I我们知道传统的AE有PCA的相似架构但却没有它的优良性质，而且我们明白了融合PCA的性质会带来巨大的好处：诸如解决梯度消失、爆炸，过拟合等问题。基于此，我们想要AE继承的性质有：1. Tied Weights；2. Orthogonal Weights; 3. Uncorrelated Features; 4. Unit Norm. 在这部分，我们将：</p>
-<ul>
-<li>实现自定义的层和约束条件来融合它们</li>
-<li>演示它们是怎么起作用的，以及它们带来的重建误差上的改进</li>
-</ul>
-<blockquote>
-<p>Note: regularization techniques, such as, <em>dropout</em>, are popularly used. But without a well-posed model, these approaches take longer to optimize.</p>
-</blockquote>
-<p><img src="https://i.loli.net/2021/07/20/95oUnxCpBXWZeEt.png" style="zoom:45%;"></p>
-<h3 id="关键点"><a href="#关键点" class="headerlink" title="关键点"></a>关键点</h3><h4 id="Tied-Weights"><a href="#Tied-Weights" class="headerlink" title="Tied Weights"></a>Tied Weights</h4><ul>
-<li>在权值捆绑层，DenseTied, Encoder和Decoder的偏置会不同</li>
-<li>如果要使得所有对应的权值都是相等的，可以设置<code>use_bias=False</code></li>
-</ul>
-<h4 id="Weight-Orthogonality"><a href="#Weight-Orthogonality" class="headerlink" title="Weight Orthogonality"></a>Weight Orthogonality</h4><ul>
-<li>使用<code>kernel_regularizer</code>来给对应层的权值添加约束条件</li>
-<li>对于Encoder，设置<code>axis=0</code>，而对于Decoder，设置<code>axis=1</code></li>
-</ul>
-<h4 id="Uncorrelated-Encoded-features"><a href="#Uncorrelated-Encoded-features" class="headerlink" title="Uncorrelated Encoded features"></a>Uncorrelated Encoded features</h4><ul>
-<li>使用<code>activity_regularizer</code>来给输出特征层（Encoder最后一层）添加约束条件（约束编码器得到的特征的非对角元的协方差为0）。</li>
-<li>需要说明的是，这个约束并不强，它并没有要求协方差矩阵非对角元严格为0</li>
-<li>可以探索其他的实现方式</li>
-</ul>
-<h4 id="Unit-Norm"><a href="#Unit-Norm" class="headerlink" title="Unit Norm"></a>Unit Norm</h4><ul>
-<li>单位范数对于Encoder和Decoder来说是在不同的轴（axes）的</li>
-<li>和权值正交相似，这也是对Encoder设置<code>axis=0</code>，对Decoder设置<code>axis=1</code></li>
-</ul>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/build-the-right-autoencoder-tune-and-optimize-using-pca-principles-part-i-1f01f821999b">Build the right Autoencoder — Tune and Optimize using PCA principles. Part I</a></li>
-<li><a target="_blank" rel="noopener" href="https://towardsdatascience.com/build-the-right-autoencoder-tune-and-optimize-using-pca-principles-part-ii-24b9cca69bd6">Build the right Autoencoder — Tune and Optimize using PCA principles. Part II</a></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/07/20/Auto%20Encoder%20%E8%B0%83%E7%A0%94%E6%80%BB%E7%BB%93/#more" rel="contents">
+                阅读全文 »
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
