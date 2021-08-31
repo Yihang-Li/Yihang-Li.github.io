@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://yihang-li.github.io/"/>
-  <updated>2021-07-21T07:03:00.378Z</updated>
+  <updated>2021-08-31T05:40:29.536Z</updated>
   <id>https://yihang-li.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Notes of GAT</title>
+    <link href="https://yihang-li.github.io/2021/08/31/Notes%20of%20GAT/"/>
+    <id>https://yihang-li.github.io/2021/08/31/Notes%20of%20GAT/</id>
+    <published>2021-08-30T21:35:36.000Z</published>
+    <updated>2021-08-31T05:40:29.536Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Notes-of-GAT"><a href="#Notes-of-GAT" class="headerlink" title="Notes of GAT"></a>Notes of GAT</h1><p><code>youngyhli</code></p><h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p><ul><li>N : number of nodes     - F : number of the features in each node</li></ul><p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p><p><strong>Shared Linear Transformation</strong>: (At least one learnable linear transformation is required)</p><ul><li>Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)</li></ul><p><strong>Shared Attentional Mechanism</strong>: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$</p><ul><li>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$</li><li>Indicate the importance of node j’s features to node i</li><li>Most general form: allows every node attend on every other node, dropping all structural information</li></ul><p><strong>Masked Attention</strong>: injecting the graph structure into the the attention mechanism</p><ul><li>Only compute $e_{ij}$ For nodes $j \in \mathcal{N}_i$</li></ul><p><strong>Comparable Coefficients</strong>: (across different nodes)</p><ul><li>Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$</li></ul><p><strong>Settings in the Paper</strong>: single-layer feedforward neural network</p><ul><li>Parametrized</li></ul><a id="more"></a><h2 id="2-Implementation"><a href="#2-Implementation" class="headerlink" title="2. Implementation"></a>2. Implementation</h2><h2 id="3-Application"><a href="#3-Application" class="headerlink" title="3. Application"></a>3. Application</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol><li><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Notes-of-GAT&quot;&gt;&lt;a href=&quot;#Notes-of-GAT&quot; class=&quot;headerlink&quot; title=&quot;Notes of GAT&quot;&gt;&lt;/a&gt;Notes of GAT&lt;/h1&gt;&lt;p&gt;&lt;code&gt;youngyhli&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id=&quot;1-Details-———-Single-Graph-Attention-Layer&quot;&gt;&lt;a href=&quot;#1-Details-———-Single-Graph-Attention-Layer&quot; class=&quot;headerlink&quot; title=&quot;1. Details ——— Single Graph Attention Layer&quot;&gt;&lt;/a&gt;1. Details ——— Single Graph Attention Layer&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;Input&lt;/strong&gt;: a &lt;code&gt;set of node features&lt;/code&gt;, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;N : number of nodes     - F : number of the features in each node&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Output&lt;/strong&gt;: a &lt;code&gt;new set of node features&lt;/code&gt; (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Shared Linear Transformation&lt;/strong&gt;: (At least one learnable linear transformation is required)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Shared Attentional Mechanism&lt;/strong&gt;: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$&lt;/li&gt;
+&lt;li&gt;Indicate the importance of node j’s features to node i&lt;/li&gt;
+&lt;li&gt;Most general form: allows every node attend on every other node, dropping all structural information&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Masked Attention&lt;/strong&gt;: injecting the graph structure into the the attention mechanism&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Only compute $e_{ij}$ For nodes $j \in \mathcal{N}_i$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Comparable Coefficients&lt;/strong&gt;: (across different nodes)&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Settings in the Paper&lt;/strong&gt;: single-layer feedforward neural network&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Parametrized&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+    
+  </entry>
   
   <entry>
     <title>AutoEncoder调研总结</title>
@@ -535,36 +581,6 @@
       <category term="Kernel Methods" scheme="https://yihang-li.github.io/tags/Kernel-Methods/"/>
     
       <category term="summary" scheme="https://yihang-li.github.io/tags/summary/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hilbert Space: Midterm Review</title>
-    <link href="https://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/"/>
-    <id>https://yihang-li.github.io/2020/02/16/Hilbert-Space-Midterm-Review/</id>
-    <published>2020-02-16T05:00:13.000Z</published>
-    <updated>2021-01-09T04:26:12.229Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h1><h2 id="Chapter-1"><a href="#Chapter-1" class="headerlink" title="Chapter 1"></a>Chapter 1</h2><ol><li><span style='color:blue'>Vector spaces</span>: Basis, linear independence</li><li><span style='color:blue'>Normed spaces</span>: Norm, convergence, equivalent norms</li><li><span style='color:blue'>Topology of normed spaces</span>: Open, closed, bounded, compact, and dense sets</li><li><span style='color:blue'>Banach spaces</span>: Cauchy sequences, completeness, convergent and absolutely convergent series</li><li><span style='color:blue'>Linear mappings</span>: Continuity, boundedness, the norm of a linear mapping</li></ol><h2 id="Chapter-3"><a href="#Chapter-3" class="headerlink" title="Chapter 3"></a>Chapter 3</h2><ol><li><span style='color:blue'>Inner product spaces</span>: Inner product, norm, Schwarz’s Inequality, Parallelogram Law, orthogonality,  Pythagorean Formula, strong and weak convergence, Hilbert spaces, isomorphic Hilbert spaces</li><li><span style='color:blue'>Orthonomal systems</span>: Orthogonal and orthonormal systems, Gram-Schmidt orthonormalization process, Pythagorean Formula, Bessel’s equality and inequality, the best approximation, complete orthonormal sequences and equivalent conditions, Parseval’s Formula, separable Hilbert spaces</li><li><span style='color:blue'>Orthogonal Complements and Projections</span>: Orthogonal sets, orthogonal complement, the closest point property,  orthogonal decompositions, orthogonal projections</li><li><span style='color:blue'>Linear functionals</span>: The norm of a linear functional, the Riesz Representation Theorem</li></ol>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;h1 id=&quot;Outline&quot;&gt;&lt;a href=&quot;#Outline&quot; class=&quot;headerlink&quot; title=&quot;Outline&quot;&gt;&lt;/a&gt;Outline&lt;/h1&gt;&lt;h2 id=&quot;Chapter-1&quot;&gt;&lt;a href=&quot;#Chapter-1&quot; class=&quot;header
-      
-    
-    </summary>
-    
-    
-      <category term="Notes" scheme="https://yihang-li.github.io/categories/Notes/"/>
-    
-    
-      <category term="Hilbert Space" scheme="https://yihang-li.github.io/tags/Hilbert-Space/"/>
-    
-      <category term="Summary" scheme="https://yihang-li.github.io/tags/Summary/"/>
-    
-      <category term="Review" scheme="https://yihang-li.github.io/tags/Review/"/>
     
   </entry>
   

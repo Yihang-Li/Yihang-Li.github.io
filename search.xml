@@ -1740,4 +1740,41 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
         <tag>Deep Learning</tag>
       </tags>
   </entry>
+  <entry>
+    <title>Notes of GAT</title>
+    <url>/2021/08/31/Notes%20of%20GAT/</url>
+    <content><![CDATA[<h1 id="Notes-of-GAT"><a href="#Notes-of-GAT" class="headerlink" title="Notes of GAT"></a>Notes of GAT</h1><p><code>youngyhli</code></p>
+<h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p>
+<ul>
+<li>N : number of nodes     - F : number of the features in each node</li>
+</ul>
+<p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p>
+<p><strong>Shared Linear Transformation</strong>: (At least one learnable linear transformation is required)</p>
+<ul>
+<li>Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)</li>
+</ul>
+<p><strong>Shared Attentional Mechanism</strong>: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$</p>
+<ul>
+<li>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$</li>
+<li>Indicate the importance of node j’s features to node i</li>
+<li>Most general form: allows every node attend on every other node, dropping all structural information</li>
+</ul>
+<p><strong>Masked Attention</strong>: injecting the graph structure into the the attention mechanism</p>
+<ul>
+<li>Only compute $e_{ij}$ For nodes $j \in \mathcal{N}_i$</li>
+</ul>
+<p><strong>Comparable Coefficients</strong>: (across different nodes)</p>
+<ul>
+<li>Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$</li>
+</ul>
+<p><strong>Settings in the Paper</strong>: single-layer feedforward neural network</p>
+<ul>
+<li>Parametrized</li>
+</ul>
+<a id="more"></a>
+<h2 id="2-Implementation"><a href="#2-Implementation" class="headerlink" title="2. Implementation"></a>2. Implementation</h2><h2 id="3-Application"><a href="#3-Application" class="headerlink" title="3. Application"></a>3. Application</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<li><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></li>
+</ol>
+]]></content>
+  </entry>
 </search>

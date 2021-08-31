@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #0160b6;
+  background: #dabb38;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2711,7 +2711,7 @@ embed {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">22</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">23</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -2761,6 +2761,99 @@ embed {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/08/31/Notes%20of%20GAT/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/08/31/Notes%20of%20GAT/" class="post-title-link" itemprop="url">Notes of GAT</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2021-08-31 05:35:36 / 修改时间：13:40:29" itemprop="dateCreated datePublished" datetime="2021-08-31T05:35:36+08:00">2021-08-31</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="Notes-of-GAT"><a href="#Notes-of-GAT" class="headerlink" title="Notes of GAT"></a>Notes of GAT</h1><p><code>youngyhli</code></p>
+<h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p>
+<ul>
+<li>N : number of nodes     - F : number of the features in each node</li>
+</ul>
+<p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p>
+<p><strong>Shared Linear Transformation</strong>: (At least one learnable linear transformation is required)</p>
+<ul>
+<li>Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)</li>
+</ul>
+<p><strong>Shared Attentional Mechanism</strong>: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$</p>
+<ul>
+<li>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$</li>
+<li>Indicate the importance of node j’s features to node i</li>
+<li>Most general form: allows every node attend on every other node, dropping all structural information</li>
+</ul>
+<p><strong>Masked Attention</strong>: injecting the graph structure into the the attention mechanism</p>
+<ul>
+<li>Only compute $e_{ij}$ For nodes $j \in \mathcal{N}_i$</li>
+</ul>
+<p><strong>Comparable Coefficients</strong>: (across different nodes)</p>
+<ul>
+<li>Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$</li>
+</ul>
+<p><strong>Settings in the Paper</strong>: single-layer feedforward neural network</p>
+<ul>
+<li>Parametrized</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/08/31/Notes%20of%20GAT/#more" rel="contents">
+                阅读全文 »
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -3548,94 +3641,6 @@ embed {
   
   
 
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/02/07/%E5%89%8D%E7%BC%80%E5%92%8C/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/02/07/%E5%89%8D%E7%BC%80%E5%92%8C/" class="post-title-link" itemprop="url">前缀和</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-02-07 23:44:42" itemprop="dateCreated datePublished" datetime="2021-02-07T23:44:42+08:00">2021-02-07</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-03-30 15:31:15" itemprop="dateModified" datetime="2021-03-30T15:31:15+08:00">2021-03-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Leetcode/" itemprop="url" rel="index"><span itemprop="name">Leetcode</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p><a target="_blank" rel="noopener" href="https://lucifer.ren/blog/2020/09/27/atMostK/">路西法，前缀和</a>：不明所以</p>
-<p><a target="_blank" rel="noopener" href="https://labuladong.github.io/algo/%E7%AE%97%E6%B3%95%E6%80%9D%E7%BB%B4%E7%B3%BB%E5%88%97/%E5%89%8D%E7%BC%80%E5%92%8C%E6%8A%80%E5%B7%A7.html">labuladong</a>👀️</p>
-<h3 id="二维前缀和"><a href="#二维前缀和" class="headerlink" title="二维前缀和"></a>二维前缀和</h3><blockquote>
-<p><a target="_blank" rel="noopener" href="https://lucifer.ren/blog/2021/02/20/2d-pre/">Lucifer</a> 二维的写得比一维的清晰</p>
-</blockquote>
-<ul>
-<li>简单二维前缀和的求解 基于 <code>容斥原理</code></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2021/02/07/%E5%89%8D%E7%BC%80%E5%92%8C/#more" rel="contents">
-                阅读全文 »
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3706,7 +3711,7 @@ embed {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">22</span>
+          <span class="site-state-item-count">23</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
