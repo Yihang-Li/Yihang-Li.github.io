@@ -1778,4 +1778,47 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
 </ol>
 ]]></content>
   </entry>
+  <entry>
+    <title>AB Test Summary</title>
+    <url>/2021/08/31/AB%20Test%20Summary/</url>
+    <content><![CDATA[<blockquote>
+<p>“无论离线评估如何仿真线上环境（Replay, i.e. Netflix - time machine），终究无法完全还原线上的所有变量。对几乎所有互联网公司来说，线上A/B测试都是验证新模块、新功能、新产品是否有效的主要测试方法”</p>
+</blockquote>
+<h2 id="1-What-is-A-B-Test"><a href="#1-What-is-A-B-Test" class="headerlink" title="1. What is A/B Test?"></a>1. What is A/B Test?</h2><ul>
+<li>A/B 测试，（也称“分流测试”、“分桶测试”），是一个随机实验</li>
+<li>实验组A/对照组B，控制变量法保持单一变量，将A、B两组数据进行对比，得出实验结论</li>
+</ul>
+<p>互联网场景下算法测试：将用户随机分成实验组和对照组，对实验组的用户施以新模型，对对照组的用户施以旧模型，比较它们在各线上评估指标上的差异。</p>
+<a id="more"></a>
+<h2 id="2-Why-A-B-Test-can-not-be-Substitued-compared-with-offline-eval"><a href="#2-Why-A-B-Test-can-not-be-Substitued-compared-with-offline-eval" class="headerlink" title="2. Why A/B Test can not be Substitued compared with offline eval?"></a>2. Why A/B Test can not be Substitued compared with offline eval?</h2><ul>
+<li>离线评估无法完全消除数据有偏现象的影响</li>
+<li>离线评估无法完全还原线上的工程环境</li>
+<li>线上系统的某些商业指标在离线评估中无法计算</li>
+</ul>
+<h2 id="3-Principles-of-A-B-Test’s-“Bucketing”🪣"><a href="#3-Principles-of-A-B-Test’s-“Bucketing”🪣" class="headerlink" title="3. Principles of A/B Test’s “Bucketing”🪣"></a>3. Principles of A/B Test’s “Bucketing”🪣</h2><ul>
+<li>在A/B测试分桶的过程中，核心是要注意样本的独立性和采样方式的无偏性：同一个用户在测试全程只能被分到同一个桶中；分桶过程中uid应是一个随机数，这样才能保证桶中的样本是无偏的</li>
+<li>实际场景中，存在多组不同类型的A/B测试：前端不同app界面的、业务层不同中间件效率的、算法层不同推荐场景的等</li>
+</ul>
+<p>Note：推荐阅读<a href="chrome-extension://ikhdkkncnoglghljlkmcimlnlhkeamad/pdf-viewer/web/viewer.html?file=https%3A%2F%2Fstatic.googleusercontent.com%2Fmedia%2Fresearch.google.com%2Fen%2F%2Fpubs%2Farchive%2F36500.pdf#=&amp;zoom=130">《Overlapping Experiment Infrastructure:More, Better, Faster Experimentation》</a></p>
+<p><strong><em>A/B测试分层和分流机制的两个原则</em></strong>：</p>
+<p>（1） 层与层之间的流量“正交”：实验中每组的流量穿越该层后，都会被再次随机打散，且均匀分布在下层实验的每个组中</p>
+<p>（2） 同层之间的流量“互斥”：a. 如果同层存在多组A/B测试，那么不同测试之间的流量是不重叠的，即互斥的；b. 一组A/B测试中实验组和对照组的流量是不重叠的，也即互斥的（i.e. 若基于用户，即表现为用户不重叠）</p>
+<p>正交 + 互斥 保证了A/B测试指标的客观性</p>
+<h2 id="4-Evaluation-Metrics-for-Online-A-B-Testing"><a href="#4-Evaluation-Metrics-for-Online-A-B-Testing" class="headerlink" title="4. Evaluation Metrics for Online A/B Testing"></a>4. Evaluation Metrics for Online A/B Testing</h2><blockquote>
+<p>一般来讲，A/B测试都是模型上线前的最后一道测试，通过A/B测试检验的模型将直接服务于线上用户，完成公司的商业目标。因此，A/B测试的指标应与线上业务的核心指标保持一致。</p>
+</blockquote>
+<ul>
+<li>电商类推荐模型：点击率、转化率、客单价（用户平均消费金额）</li>
+<li>新闻类推荐模型：留存率（x日后仍活跃的用户数/x日前的用户数）、平均停留时长、平均点击个数</li>
+<li>视频类推荐模型：播放完成率（播放时长/视频时长）、平均播放时长、播放总时长</li>
+</ul>
+<blockquote>
+<p>线上A/B测试的指标与离线评估的指标（如AUC、F1-score等）有较大差异。原因在于离线评估不具备直接计算业务核心指标的条件，因此退而求其次，选择了偏向于技术评估的模型相关指标。但在公司层面，更关心能够驱动业务发展的核心指标。因此，在具备线上测试环境时，利用A/B测试验证模型对业务核心指标的提升效果是必要的。</p>
+</blockquote>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ul>
+<li>王喆：《深度学习推荐系统》- 第七章 推荐系统的评估 - 7.4 A/B测试与线上评估指标</li>
+</ul>
+<p>（读书笔记）</p>
+]]></content>
+  </entry>
 </search>
