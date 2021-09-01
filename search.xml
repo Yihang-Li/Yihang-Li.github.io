@@ -1745,20 +1745,25 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
     <title>Notes of GAT</title>
     <url>/2021/08/31/Notes%20of%20GAT/</url>
     <content><![CDATA[<h1 id="Notes-of-GAT"><a href="#Notes-of-GAT" class="headerlink" title="Notes of GAT"></a>Notes of GAT</h1><p><code>youngyhli</code></p>
-<h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p>
+<p><strong>GAT：首次将图注意力机制引入到图神经网络中的工作</strong></p>
+<a id="more"></a>
+<h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\bold{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p>
 <ul>
-<li>N : number of nodes     - F : number of the features in each node</li>
+<li>$N$ : number of nodes     - $F$ : number of the features in each node</li>
 </ul>
-<p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p>
+<p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime}$), $\bold{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p>
 <p><strong>Shared Linear Transformation</strong>: (At least one learnable linear transformation is required)</p>
 <ul>
 <li>Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)</li>
 </ul>
 <p><strong>Shared Attentional Mechanism</strong>: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$</p>
 <ul>
-<li>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$</li>
-<li>Indicate the importance of node j’s features to node i</li>
-<li>Most general form: allows every node attend on every other node, dropping all structural information</li>
+<li><p>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j) \quad (1)$</p>
+</li>
+<li><p>Indicate the importance of node $j$’s features to node $i$</p>
+</li>
+<li><p>Most general form: allows every node attend on every other node, dropping all structural information</p>
+</li>
 </ul>
 <p><strong>Masked Attention</strong>: injecting the graph structure into the the attention mechanism</p>
 <ul>
@@ -1766,15 +1771,41 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
 </ul>
 <p><strong>Comparable Coefficients</strong>: (across different nodes)</p>
 <ul>
-<li>Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$</li>
+<li>Normalize them across all choices of $j$ using softmax function:$\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})} \quad (2)$</li>
 </ul>
 <p><strong>Settings in the Paper</strong>: single-layer feedforward neural network</p>
 <ul>
-<li>Parametrized</li>
+<li><p>Parametrized by a weight vector $\vec{a} \in \mathbb{R}^{2F^{\prime}}$ (<code>2</code> due to the concatenation in the following)</p>
+</li>
+<li><p>Applying the LeakyReLU nonlinearity (with  negative input slope $\alpha = 0.2$)</p>
+</li>
+<li><p>Fully expanded out, the coefficients computed by the attention mechanism: $\alpha_{ij} = \frac{\operatorname{exp}(\operatorname{LeakyReLU}(\vec{a}^{T}[\mathbf{W}\vec{h}_i|\mathbf{W}\vec{h}_j]))}{\sum_{k \in \mathcal{N}_i}\operatorname{exp}(\operatorname{LeakyReLU}(\vec{a}^{T}[\mathbf{W}\vec{h}_i|\mathbf{W}\vec{h}_k]))} \quad (3)$</p>
+<ul>
+<li>$|$ is the concatenation operation</li>
+<li>值得注意：这里的拼接导致$e_{ij} \neq e_{ji}$, 从而注意力系数是非对称的</li>
+<li>而归一化也进一步导致了注意力权重的非对称性：$e_{ij}$是针对节点$i$的所有邻居进行归一化，而$e_{ji}$是针对节点$j$的所有邻居</li>
 </ul>
-<a id="more"></a>
-<h2 id="2-Implementation"><a href="#2-Implementation" class="headerlink" title="2. Implementation"></a>2. Implementation</h2><h2 id="3-Application"><a href="#3-Application" class="headerlink" title="3. Application"></a>3. Application</h2><h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
+<blockquote>
+<p>这种非对称性在图数据上有什么用呢？一个简单的例子：在社交网络中，有一个大 V 和一个普通用户互相关注。但是，大 V 对于普通用户的重要性和普通用户对大 V 的重要性明显是不一样的。</p>
+</blockquote>
+<ul>
+<li>注意到非线性激活函数的存在是合理的：若省略它，基于指数运算的性质，分子分母可以同时约去带$i$的这项，从而$\alpha_{ij}$实际变成了 $\alpha_j$，节点对$(i, j)$之间的注意力权重就没有考虑节点$i$的表示了</li>
+</ul>
+</li>
+</ul>
+<p><strong>Once Obatained</strong>: the normalized attention coefficients are used to compute a linear combination of the features corresponding to them, to serve as the final output features for every node (after potentially applying a nonlinearity, $\sigma$): $\vec{h}_i^{\prime} = \sigma(\sum_{j\in \mathcal{N}_i}\alpha_{ij}\mathbf{W}\vec{h}_j) \quad (4)$</p>
+<p><strong>Multi-Head Attention</strong>: to stabilize the learning process of self-attention</p>
+<ul>
+<li><p>K independent attention mechanisms execute the transformation of Equation $(4)$, and their features are concatenated, resulting in the following output feature representation: $\vec{h}_i^{\prime}= |_{k=1}^{K} \sigma(\sum_{j\in \mathcal{N}_i}\alpha_{ij}^{k}\mathbf{W}^k\vec{h}_j) \quad (5)$</p>
+<blockquote>
+<p>If we perform multi-head attention on the final (prediction) layer of the network, concatenation is no longer sensible ——— instead we employ <code>averaging</code> and delay applying the final nonlinearity (softmax or logistic for classfication problems) until then: $\vec{h}_i^{\prime} = \sigma(\frac{1}{K}\sum_{k=1}^{K}\sum_{j\in \mathcal{N}_i}\alpha_{ij}^{k}\mathbf{W}^k\vec{h}_j) \quad (5)$</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="2-Implementation"><a href="#2-Implementation" class="headerlink" title="2. Implementation"></a>2. Implementation</h2><p><a href="https://paperswithcode.com/paper/graph-attention-networks">paperswithcode: Graph Attention Networks</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><ol>
 <li><a href="https://arxiv.org/abs/1710.10903">Graph Attention Networks</a></li>
+<li><a href="https://blog.csdn.net/c9Yv2cf9I06K2A9E/article/details/105548217">深入理解图注意力机制（Graph Attention Network）</a></li>
 </ol>
 ]]></content>
   </entry>

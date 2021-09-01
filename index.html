@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #e94218;
+  background: #ffde2b;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2861,10 +2861,16 @@ embed {
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2021-08-31 05:35:36 / 修改时间：13:40:29" itemprop="dateCreated datePublished" datetime="2021-08-31T05:35:36+08:00">2021-08-31</time>
+              <time title="创建时间：2021-08-31 05:35:36" itemprop="dateCreated datePublished" datetime="2021-08-31T05:35:36+08:00">2021-08-31</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-09-01 15:27:42" itemprop="dateModified" datetime="2021-09-01T15:27:42+08:00">2021-09-01</time>
+              </span>
 
           
 
@@ -2878,33 +2884,7 @@ embed {
 
       
           <h1 id="Notes-of-GAT"><a href="#Notes-of-GAT" class="headerlink" title="Notes of GAT"></a>Notes of GAT</h1><p><code>youngyhli</code></p>
-<h2 id="1-Details-———-Single-Graph-Attention-Layer"><a href="#1-Details-———-Single-Graph-Attention-Layer" class="headerlink" title="1. Details ——— Single Graph Attention Layer"></a>1. Details ——— Single Graph Attention Layer</h2><p><strong>Input</strong>: a <code>set of node features</code>, $\mathbb{h} = \{\vec{h}_1, \vec{h}_2, \dots, \vec{h}_N\}, \vec{h}_i \in \mathbb{R}^F$</p>
-<ul>
-<li>N : number of nodes     - F : number of the features in each node</li>
-</ul>
-<p><strong>Output</strong>: a <code>new set of node features</code> (with cardinality $F^{\prime})$, $\mathbb{h}^{\prime}= \{\vec{h}^{\prime}_1, \vec{h}^{\prime}_2, \dots, \vec{h}^{\prime}_N\}, \vec{h}^{\prime}_i \in \mathbb{R}^{F^{\prime}}$</p>
-<p><strong>Shared Linear Transformation</strong>: (At least one learnable linear transformation is required)</p>
-<ul>
-<li>Parametrized by a weight matrix, $\mathbf{W} \in \mathbb{R}^{F^{\prime}\times F}$ (applied to every node)</li>
-</ul>
-<p><strong>Shared Attentional Mechanism</strong>: $a: \mathbb{R}^{F^{\prime}} \times \mathbb{R}^{F^{\prime}} \rightarrow \mathbb{R}$</p>
-<ul>
-<li>For attention coefficients: $e_{ij} = a(\mathbf{W}\vec{h}_i, \mathbf{W}\vec{h}_j)$</li>
-<li>Indicate the importance of node j’s features to node i</li>
-<li>Most general form: allows every node attend on every other node, dropping all structural information</li>
-</ul>
-<p><strong>Masked Attention</strong>: injecting the graph structure into the the attention mechanism</p>
-<ul>
-<li>Only compute $e_{ij}$ For nodes $j \in \mathcal{N}_i$</li>
-</ul>
-<p><strong>Comparable Coefficients</strong>: (across different nodes)</p>
-<ul>
-<li>Normalize them across all choices of j using softmax function: $\alpha_{ij} = \operatorname{softmax}_j(e_{ij}) = \frac{\operatorname{exp}(e_{ij})}{\sum_{k\in \mathcal{N}_i}\operatorname{exp}(e_{ik})}$</li>
-</ul>
-<p><strong>Settings in the Paper</strong>: single-layer feedforward neural network</p>
-<ul>
-<li>Parametrized</li>
-</ul>
+<p><strong>GAT：首次将图注意力机制引入到图神经网络中的工作</strong></p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2021/08/31/Notes%20of%20GAT/#more" rel="contents">
