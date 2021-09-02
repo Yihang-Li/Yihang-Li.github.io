@@ -1347,7 +1347,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffde2b;
+  background: #5cffed;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2711,7 +2711,7 @@ embed {
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">24</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">25</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -2761,6 +2761,92 @@ embed {
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/03/09/Sort_Algo/">
+
+    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
+      <meta itemprop="name" content="Yihang Li">
+      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
+    </span>
+
+    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yihang">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2021/03/09/Sort_Algo/" class="post-title-link" itemprop="url">Sort Algorithm</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-03-09 15:02:19" itemprop="dateCreated datePublished" datetime="2021-03-09T15:02:19+08:00">2021-03-09</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2021-04-26 11:38:57" itemprop="dateModified" datetime="2021-04-26T11:38:57+08:00">2021-04-26</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Notes/" itemprop="url" rel="index"><span itemprop="name">Notes</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h2 id="冒泡排序-Bubble-Sort"><a href="#冒泡排序-Bubble-Sort" class="headerlink" title="冒泡排序 Bubble Sort"></a>冒泡排序 Bubble Sort</h2><figure class="highlight python"><table><tbody><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">MySort</span>(<span class="params">self , arr </span>):</span></span><br><span class="line"><span class="comment">#         write code here</span></span><br><span class="line"><span class="comment">#         return sorted(arr)</span></span><br><span class="line">        <span class="comment">#冒泡排序 O(n**2)</span></span><br><span class="line">        n = <span class="built_in">len</span>(arr)</span><br><span class="line">        left = <span class="number">0</span></span><br><span class="line">        <span class="keyword">while</span> left &lt; n-<span class="number">1</span>:</span><br><span class="line">            right = left + <span class="number">1</span></span><br><span class="line">            <span class="keyword">while</span> right &lt; n:</span><br><span class="line">                <span class="keyword">if</span> arr[left] &gt; arr[right]:</span><br><span class="line">                    arr[left], arr[right] = arr[right], arr[left]</span><br><span class="line">                right += <span class="number">1</span></span><br><span class="line">            left += <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> arr</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="桶排序-Bucket-Sort"><a href="#桶排序-Bucket-Sort" class="headerlink" title="桶排序 Bucket Sort"></a>桶排序 Bucket Sort</h2><p>基本思路是：</p>
+<ul>
+<li>将待排序元素划分到不同的痛。先扫描一遍序列求出最大值 maxV 和最小值 minV ，设桶的个数为 k ，则把区间 [minV, maxV] 均匀划分成 k 个区间，每个区间就是一个桶。将序列中的元素分配到各自的桶。<br>对每个桶内的元素进行排序。可以选择任意一种排序算法, 将各个桶中的元素合并成一个大的有序序列。</li>
+<li>假设数据是均匀分布的，则每个桶的元素平均个数为 n/k 。假设选择用快速排序对每个桶内的元素进行排序，那么每次排序的时间复杂度为 O(n/klog(n/k)) 。总的时间复杂度为 O(n)+O(k)O(n/klog(n/k)) = O(n+nlog(n/k)) = O(n+nlogn-nlogk 。当 k 接近于 n 时，桶排序的时间复杂度就可以金斯认为是 O(n) 的。即桶越多，时间效率就越高，而桶越多，空间就越大。</li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2021/03/09/Sort_Algo/#more" rel="contents">
+                阅读全文 »
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -3487,81 +3573,6 @@ embed {
   
   
 
-      
-  
-  
-  <article itemscope="" itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://yihang-li.github.io/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/">
-
-    <span hidden="" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="https://avatarfiles.alphacoders.com/156/156044.jpg">
-      <meta itemprop="name" content="Yihang Li">
-      <meta itemprop="description" content="Life can only be understood going backwards, but it must be lived going forwards.">
-    </span>
-
-    <span hidden="" itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Yihang">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2021/01/08/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91-%E3%80%8ARandom%20Features%20for%20Large%20Scale%20Kernel%20Machines%E3%80%8B/" class="post-title-link" itemprop="url">文献翻译-《Random Features for Large Scale Kernel Machines》</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2021-01-08 11:23:52" itemprop="dateCreated datePublished" datetime="2021-01-08T11:23:52+08:00">2021-01-08</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="far fa-calendar-check"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-09 16:49:53" itemprop="dateModified" datetime="2021-01-09T16:49:53+08:00">2021-01-09</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-folder"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%96%87%E7%8C%AE%E7%BF%BB%E8%AF%91/" itemprop="url" rel="index"><span itemprop="name">文献翻译</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <div class="pdfobject-container" data-target="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" data-height="500px"></div>
-<!-- <iframe src="https://drive.google.com/file/d/17x-pyatNiu4QVd6XUqkTKWDtT6tXPPys/preview" width="640" height="480"></iframe> -->
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -3632,7 +3643,7 @@ embed {
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">24</span>
+          <span class="site-state-item-count">25</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

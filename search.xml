@@ -1852,4 +1852,52 @@ s_t = \beta_2 s_{t-1} + (1-\beta_2)g_t \odot g_t</script><script type="math/tex;
 <p>（读书笔记）</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>Notes about Focal Loss</title>
+    <url>/2021/09/02/Notes%20about%20Focal%20Loss/</url>
+    <content><![CDATA[<h1 id="Notes-of-Focal-Loss"><a href="#Notes-of-Focal-Loss" class="headerlink" title="Notes of Focal Loss"></a>Notes of Focal Loss</h1><p><code>youngyhli</code></p>
+<h2 id="What，Why-and-How"><a href="#What，Why-and-How" class="headerlink" title="What，Why and How?"></a>What，Why and How?</h2><h3 id="What"><a href="#What" class="headerlink" title="What"></a>What</h3><p>Focal Loss：Kaiming He 团队在论文<a href="https://arxiv.org/abs/1708.02002">《Focal Loss for Dense Object Detection》</a>基于目标检测场景提出的损失函数，用于解决分类问题中类别不平衡、分类难度差异的问题</p>
+<blockquote>
+<p>虽然是基于目标检测场景提出的，但是在NLP等其他任务中，也存在着大量的类别不平衡、正负标签比例差异过大的问题</p>
+</blockquote>
+<h3 id="Why"><a href="#Why" class="headerlink" title="Why"></a>Why</h3><p>一方面，标签失衡使得占比大的样本占据主导（表现为梯度大多数时候是基于那些占比大的样本的更新）</p>
+<p>另一方面，从分类难易程度来说，对于一个问题，大多数样本都是简单易分的，难分的只占少数，从而导致easy problem dominating问题（即大多数简单样本对loss起主要贡献，模型难以关注到少量的难分样本）</p>
+<h3 id="How"><a href="#How" class="headerlink" title="How"></a>How</h3><p>Focal Loss正是基于此出发，降低easy samples的比重，使得模型更多地关注到hard sample上</p>
+<blockquote>
+<p>在此之前的思路大都集中在采样样本，使hard sample在数据中所占的比重更大，而Focal Loss没有进行采样，选择了按照loss对easy sample降权的处理</p>
+</blockquote>
+<h2 id="Details"><a href="#Details" class="headerlink" title="Details"></a>Details</h2><h3 id="CE-Loss"><a href="#CE-Loss" class="headerlink" title="CE Loss"></a>CE Loss</h3><p>对于分类问题，常采用CE Loss：(以二分类为例)</p>
+<script type="math/tex; mode=display">
+\operatorname{CE}(p, y) = -log(p) \text{ if } y=1 \text{ else } -log(1-p)</script><blockquote>
+<p>In the above, $y \in \{-1, +1\}$ specifies the ground-truth class and $p \in [0, 1]$ is the model’s estimated probability for the class with label $y=1$</p>
+</blockquote>
+<p>为了后续描述的方便，这里定义$p_t = p \text{ if } y=1 \text{ else } 1-p$ , 从而有$\operatorname{CE}(p, y) = \operatorname{CE}(p_t) = -log(p_t)$</p>
+<blockquote>
+<p>实际上$p_t$反映了$p$与$y$的接近程度，$p_t$越大，说明分类越好</p>
+</blockquote>
+<h3 id="First-Version"><a href="#First-Version" class="headerlink" title="First Version"></a>First Version</h3><p>最初作者通过加上一个参数$\alpha$来平衡CE，对于占比小的样本增大该参数即可：</p>
+<script type="math/tex; mode=display">
+\operatorname{CE}(p_t) =-\alpha_tlog(p_t)</script><p>这样虽然能平衡正负样本，却没有能处理难易样本的区分</p>
+<blockquote>
+<p>While α balances the importance of positive/negative examples, it does not differentiate between easy/hard examples.</p>
+</blockquote>
+<h3 id="Focal-Loss-Definition"><a href="#Focal-Loss-Definition" class="headerlink" title="Focal Loss Definition"></a>Focal Loss Definition</h3><p>为了能够处理难易样本的区分，作者在CE上加入了另一个因子，可以动态调节权重：</p>
+<script type="math/tex; mode=display">
+\operatorname{FL}(p_t) = -(1-p_t)^\gamma log(p_t)</script><p>$\gamma=0$时退化为CE Loss，作者通过实验表明，$\gamma=2$时，一个样本被分类的$p_t=0.968$对应的Focal Loss比CE Loss小1000多倍，从而增加了那些误分类的重要性。</p>
+<h3 id="Final-Version"><a href="#Final-Version" class="headerlink" title="Final Version"></a>Final Version</h3><p>最后作者把上述两个参数结合起来，</p>
+<script type="math/tex; mode=display">
+\operatorname{FL}(p_t) = -\alpha_t(1-p_t)^\gamma log(p_t)</script><p>得到了最后的公式，并指出：</p>
+<blockquote>
+<p>In general, $\alpha$ should be decreased slightly as $\gamma$ is increased (for $\gamma=2, \alpha=0.25$ works best)</p>
+</blockquote>
+<h2 id="Implementation"><a href="#Implementation" class="headerlink" title="Implementation"></a>Implementation</h2><p>udf:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">focal_loss</span>(<span class="params">gamma=<span class="number">2.</span>, alpha=<span class="number">0.25</span></span>):</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">focal_loss_fixed</span>(<span class="params">y_true, y_pred</span>):</span></span><br><span class="line">        bce = tf.losses.binary_crossentropy(y_true, y_pred)</span><br><span class="line">        p_t = (y_true * y_pred) + ((<span class="number">1</span> - y_true) * (<span class="number">1</span> - y_pred))</span><br><span class="line">        alpha_factor = y_true * alpha + (<span class="number">1</span> - y_true) * (<span class="number">1</span> - alpha)</span><br><span class="line">        modulating_factor = tf.<span class="built_in">pow</span>(<span class="number">1.0</span> - p_t, gamma)</span><br><span class="line">        loss = tf.reduce_sum(alpha_factor * modulating_factor * bce,axis = -<span class="number">1</span> )</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line">    <span class="keyword">return</span> focal_loss_fixed</span><br></pre></td></tr></table></figure>
+<p>pkg:</p>
+<p><a href="https://focal-loss.readthedocs.io/en/latest/">https://focal-loss.readthedocs.io/en/latest/</a></p>
+<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p><a href="https://arxiv.org/abs/1708.02002">Focal Loss for Dense Object Detection</a></p>
+<p><a href="https://ldzhangyx.github.io/2018/11/16/focal-loss/">Focal Loss以及其在NLP领域运用的思考</a></p>
+<p><a href="http://skyhigh233.com/blog/2018/04/04/focalloss/">对Focal Loss的认识</a></p>
+<p><a href="https://blog.csdn.net/qq_34564947/article/details/77200104">Focal Loss论文阅读笔记</a></p>
+]]></content>
+  </entry>
 </search>
