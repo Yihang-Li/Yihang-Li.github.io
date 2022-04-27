@@ -8,8 +8,8 @@ categories: Leetcode
 
 `并查集`：一种树型数据结构（一片森林），常用于处理不交集（一棵棵树）的合并与查询问题
 
-* [X] 动手使用python实现`并查集`4个版本🚀️
-* [x] 应用刷题！🎉️
+* [X] 动手使用python实现 `并查集`4个版本🚀️
+* [X] 应用刷题！🎉️
 
 <!-- more -->
 
@@ -24,9 +24,9 @@ class Union_Find():
 		count: the number of disjoint set"""
 		pass
 
-  def is_connected(self, p: int, q: int)->bool:
-    """decide if p and q are in the same disjoint set """
-    pass
+  	def is_connected(self, p: int, q: int)->bool:
+    		"""decide if p and q are in the same disjoint set """
+    		pass
 	def union(self, p: int, q: int):
 		"""connect node p and node q """
 		pass
