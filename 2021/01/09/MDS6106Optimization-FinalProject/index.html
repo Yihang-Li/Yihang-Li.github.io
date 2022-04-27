@@ -1352,7 +1352,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #ffff54;
+  background: #759816;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -1543,7 +1543,7 @@ pre .javascript .function {
 }
 .site-state-item-count {
   display: block;
-  font-size: 1.25em;
+  font-size: 1.2em;
   font-weight: 600;
   text-align: center;
 }
@@ -1580,7 +1580,7 @@ pre .javascript .function {
 }
 .languages {
   display: inline-block;
-  font-size: 1.125em;
+  font-size: 1.1em;
   position: relative;
 }
 .languages .lang-select-label span {
@@ -1747,7 +1747,7 @@ pre .javascript .function {
 }
 @media (min-width: 1200px) {
   .post-body {
-    font-size: 1.125em;
+    font-size: 1.1em;
   }
 }
 .post-body .exturl .fa {
@@ -1804,7 +1804,7 @@ pre .javascript .function {
   }
 }
 .posts-collapse .collection-title {
-  font-size: 1.125em;
+  font-size: 1.1em;
   position: relative;
 }
 .posts-collapse .collection-title::before {
@@ -1821,7 +1821,7 @@ pre .javascript .function {
   width: 10px;
 }
 .posts-collapse .collection-year {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: bold;
   margin: 60px 0;
   position: relative;
@@ -2006,10 +2006,10 @@ pre .javascript .function {
   margin: 0;
 }
 .posts-expand .post-header {
-  font-size: 1.125em;
+  font-size: 1.1em;
 }
 .posts-expand .post-title {
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: normal;
   margin: initial;
   text-align: center;
@@ -3046,16 +3046,18 @@ embed {
 
 
 
-<!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
 
-  
 
   
 
   
+
+  
+  <script src="//cdn.jsdelivr.net/npm/quicklink@1/dist/quicklink.umd.js"></script>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -3103,4 +3105,13 @@ document.querySelectorAll('.pdfobject-container').forEach(element => {
     element.innerHTML = `<iframe src="${fullURL}" style="height: ${element.dataset.height};" frameborder="0"></iframe>`;
   }
 });
-</script></body></html>
+;
+
+      window.addEventListener('load', () => {
+      quicklink({
+        timeout : 3000,
+        priority: true,
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://yihang-li.github.io/2021/01/09/MDS6106Optimization-FinalProject/',]
+      });
+      });
+  </script></body></html>
