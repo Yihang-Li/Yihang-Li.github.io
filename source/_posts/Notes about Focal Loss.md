@@ -16,20 +16,20 @@ Focal Loss：Kaiming He 团队在论文[《Focal Loss for Dense Object Detection
 > 虽然是基于目标检测场景提出的，但是在NLP等其他任务中，也存在着大量的类别不平衡、正负标签比例差异过大的问题
 
 
+<!--more-
+
+
 ### Why
 
 一方面，标签失衡使得占比大的样本占据主导（表现为梯度大多数时候是基于那些占比大的样本的更新）
 
 另一方面，从分类难易程度来说，对于一个问题，大多数样本都是简单易分的，难分的只占少数，从而导致easy problem dominating问题（即大多数简单样本对loss起主要贡献，模型难以关注到少量的难分样本）
 
-
 ### How
 
 Focal Loss正是基于此出发，降低easy samples的比重，使得模型更多地关注到hard sample上
 
 > 在此之前的思路大都集中在采样样本，使hard sample在数据中所占的比重更大，而Focal Loss没有进行采样，选择了按照loss对easy sample降权的处理
-
-
 
 ## Details
 
@@ -39,7 +39,6 @@ Focal Loss正是基于此出发，降低easy samples的比重，使得模型更�
 
 $$
 \operatorname{CE}(p, y) = -log(p) \text{ if } y=1 \text{ else } -log(1-p)
-
 $$
 
 > In the above, $y \in \{-1, +1\}$ specifies the ground-truth class and $p \in [0, 1]$ is the model's estimated probability for the class with label $y=1$
@@ -54,14 +53,11 @@ $$
 
 $$
 \operatorname{CE}(p_t) =-\alpha_tlog(p_t)
-
 $$
 
 这样虽然能平衡正负样本，却没有能处理难易样本的区分
 
 > While α balances the importance of positive/negative examples, it does not differentiate between easy/hard examples.
-
-
 
 ### Focal Loss Definition
 
@@ -69,12 +65,9 @@ $$
 
 $$
 \operatorname{FL}(p_t) = -(1-p_t)^\gamma log(p_t)
-
 $$
 
 $\gamma=0$时退化为CE Loss，作者通过实验表明，$\gamma=2$时，一个样本被分类的$p_t=0.968$对应的Focal Loss比CE Loss小1000多倍，从而增加了那些误分类的重要性。
-
-
 
 ### Final Version
 
@@ -82,13 +75,11 @@ $\gamma=0$时退化为CE Loss，作者通过实验表明，$\gamma=2$时，一�
 
 $$
 \operatorname{FL}(p_t) = -\alpha_t(1-p_t)^\gamma log(p_t)
-
 $$
 
 得到了最后的公式，并指出：
 
 > In general, $\alpha$ should be decreased slightly as $\gamma$ is increased (for $\gamma=2, \alpha=0.25$ works best)
-
 
 ## Implementation
 
@@ -110,7 +101,6 @@ def focal_loss(gamma=2., alpha=0.25):
 pkg:
 
 [https://focal-loss.readthedocs.io/en/latest/](https://focal-loss.readthedocs.io/en/latest/)
-
 
 ## Reference
 
